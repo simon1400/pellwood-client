@@ -1,0 +1,136 @@
+@import "../../scss/vars";
+
+.variants_list{
+	margin-bottom: 50px;
+	font-size: 15px;
+	color: rgba($accent, .7);
+	.uk-width-expand{
+		font-family: $font-medium;
+	}
+}
+
+
+.order_block{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	.button{
+		width: 100%;
+		margin-top: 20px;
+	}
+	.uk-flex{
+		>div:first-child{
+			width: 67.47%;
+		}
+		>div:last-child{
+			width: 27.68%;
+		}
+	}
+	.custom-select{
+		width: 100%;
+		min-width: 100%;
+	}
+}
+
+
+// --------------------------------------- quantity ---------------------------------------
+
+.quantity {
+  position: relative;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number]
+{
+  -moz-appearance: textfield;
+}
+
+.quantity input {
+  width: calc(100% - 17px);
+  height: 53px;
+  line-height: 1.65;
+  float: left;
+	font-size: 16px;
+  display: block;
+  padding: 0;
+	padding-left: 15px;
+  margin: 0;
+  border: 1px solid rgba($border, .2);
+	background-color: transparent;
+}
+
+.quantity input:focus {
+  outline: 0;
+}
+
+.quantity-nav {
+  float: left;
+  position: relative;
+  height: 53px;
+}
+
+.quantity-button {
+  position: relative;
+  cursor: pointer;
+  border-left: 1px solid rgba($border, .2);
+  width: 34px;
+  text-align: center;
+  color: #808080;
+  font-size: 16px;
+	font-weight: bold;
+  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+  line-height: 1.7;
+  transform: translateX(-100%);
+  user-select: none;
+	z-index: 100;
+}
+
+.quantity-button.quantity-up {
+  position: absolute;
+  height: 50%;
+  top: 0;
+  border-bottom: 1px solid rgba($border, .2);
+}
+
+.quantity-button.quantity-down {
+  position: absolute;
+  bottom: -1px;
+  height: 50%;
+}
+
+
+// ------------------------------------------------------------------------
+
+.stiky_img_product{
+	img{
+		transform: rotate(90deg);
+	}
+}
+
+.paramets{
+	margin-top: 30px;
+	table{
+		border-bottom: 1px solid rgba($border, .2);
+		border-top: 1px solid rgba($border, .2);
+		td{
+			font-size: 15px;
+			letter-spacing: 1px;
+			color: rgba($accent, .7);
+			&:first-child{
+				font-family: $font-medium;
+			}
+		}
+	}
+	.uk-table-divider>:first-child>tr:not(:first-child), .uk-table-divider>:not(:first-child)>tr, .uk-table-divider>tr:not(:first-child){
+		border-top: 1px solid rgba($border, .2);
+	}
+	.uk-table-small td, .uk-table-small th{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

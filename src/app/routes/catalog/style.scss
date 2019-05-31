@@ -1,0 +1,57 @@
+@import "../../scss/vars";
+
+.search_input{
+	cursor: pointer;
+	padding-left: 50px;
+	height: 53px;
+	border: 1px solid #ccc;
+	position: relative;
+	color: $accent;
+	font-size: 18px;
+	transition: 0.4s;
+	border: none;
+	background-color: transparent;
+	z-index: 110;
+	width: 0px;
+}
+
+.search_wrap{
+	display: inline-block;
+	margin-left: 50px;
+	position: relative;
+	height: 53px;
+	background-color: #f1f1f1;
+	svg{
+		height: 20px;
+		position: absolute;
+		left: 15px;
+		top: 20px;
+		cursor: pointer;
+	}
+}
+
+.input_animation{
+	position: absolute;
+	top: -1px;
+	display: inline-block;
+}
+
+// ----------------------------- Animate input -----------------------------
+.effect-9 ~ .focus-border:before,
+.effect-9 ~ .focus-border:after{content: ""; position: absolute; top: 0; right: 0; width: 0; height: 1px; background-color: #ccc; transition: 0.2s; transition-delay: 0.2s;}
+.effect-9 ~ .focus-border:after{top: auto; bottom: 0; right: auto; left: 0; transition-delay: 0.6s;}
+.effect-9 ~ .focus-border i:before,
+.effect-9 ~ .focus-border i:after{content: ""; position: absolute; top: 0; left: 0; width: 1px; height: 0; background-color: #ccc; transition: 0.2s;}
+.effect-9 ~ .focus-border i:after{left: auto; right: 0; top: auto; bottom: 0; transition-delay: 0.4s;}
+.effect-9:focus ~ .focus-border:before,
+.effect-9:focus ~ .focus-border:after{width: 100%; transition: 0.2s; transition-delay: 0.6s;}
+.effect-9:focus ~ .focus-border:after{transition-delay: 0.2s;}
+.effect-9:focus ~ .focus-border i:before,
+.effect-9:focus ~ .focus-border i:after{height: 100%; transition: 0.2s;}
+.effect-9:focus ~ .focus-border i:after{transition-delay: 0.4s;}
+.effect-9:focus{
+	width: 180px;
+	cursor: text;
+}
+
+// .effect-9{border: 1px solid #ccc; padding: 7px 14px 9px; }

@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 import './style.scss'
 
-export default class SubMenu extends Component {
-  render() {
-    return(
-      <nav className="sub_menu">
-        <ul>
-          <li className="active_sub" uk-filter-control="[data-tags*='white']"><a href="/">Paličky</a></li>
-          <li uk-filter-control="[data-tags*='black']"><a href="/">Metličky</a></li>
-          <li uk-filter-control="[data-tags*='blue']"><a href="/">X-line-stix</a></li>
-          <li ><a href="/">Merchandise</a></li>
-        </ul>
-      </nav>
-    )
-  }
+if(window.location.pathname.split('/')[1] === 'en'){
+  var lang = 'en'
+}else if(window.location.pathname.split('/')[1] === 'de'){
+  var lang = 'de'
+}else{
+  var lang = 'cz'
 }
+
+// active_sub
+
+const SubMenu = ({data}) => {
+
+  return(
+    <nav className="sub_menu">
+      <ul>
+        {data.map((item, index) =>
+          <li key={index} uk-filter-control={`[data-category*='${item._id}']`}><Link to="/">{item[lang].title}</Link></li>
+        )}
+      </ul>
+    </nav>
+  )
+}
+
+export default SubMenu;

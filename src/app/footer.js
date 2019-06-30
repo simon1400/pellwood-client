@@ -1,5 +1,8 @@
 import React from 'react'
 
+import mastercard from './assets/mastercard.svg'
+import visa from './assets/visa.svg'
+
 export default () => {
   return (
     <footer>
@@ -7,10 +10,10 @@ export default () => {
         <div className="uk-flex uk-flex-between uk-flex-middle uk-height-1-1 uk-flex-wrap" uk-height-match="target: > .footer-item">
           <div className="cart_method_foot uk-flex uk-flex-left">
             <div>
-              <img src="./img/mastercard.svg" alt="" />
+              <img src={mastercard} alt="Mastercard" />
             </div>
             <div>
-              <img src="./img/visa.svg" alt="" />
+              <img src={visa} alt="Visa" />
             </div>
           </div>
           <div className="footer-item">

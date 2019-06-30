@@ -14,20 +14,19 @@ function urlFor(source) {
   return imageBuilder.image(source);
 }
 
-if(window.location.pathname.split('/')[1] === ''){
-  var lang = 'cz'
-}else{
+if(window.location.pathname.split('/')[1] === 'en'){
   var lang = 'en'
+}else if(window.location.pathname.split('/')[1] === 'de'){
+  var lang = 'de'
+}else{
+  var lang = 'cz'
 }
-
 const query = `{
   'homepage': *[_type == "homepage"] {
     ${lang},
     "carts": *[ _type == "product" && _id in [^.${lang}.recommendedProducts.product_1._ref, ^.${lang}.recommendedProducts.product_2._ref, ^.${lang}.recommendedProducts.product_3._ref]].${lang}
   }[0...10],
-  'articles': *[_type == "article"][0..2] | order(_createdAt asc){
-    ${lang}
-  }
+  'articles': *[_type == "article"].${lang} | order(_createdAt asc)
 }`;
 
 export default () => {
@@ -35,11 +34,19 @@ export default () => {
   const [carts, setCarts] = useState([])
   const [articles, setArticles] = useState([])
 
+  const shuffle = (a) => {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    setArticles(a);
+  }
+
   useEffect(() => {
     sanityClient.fetch(query).then(data => {
       setHomepage(data.homepage[0][lang])
       setCarts(data.homepage[0].carts)
-      setArticles(data.articles)
+      shuffle(data.articles)
     })
   }, [])
 
@@ -86,8 +93,8 @@ export default () => {
                 </a>
               </div>
 
-              {articles[0] ? <Article data={articles[0][lang]}/> : ''}
-              {articles[1] ? <Article data={articles[1][lang]}/> : ''}
+              {articles[0] ? <Article data={articles[0]}/> : ''}
+              {articles[1] ? <Article data={articles[1]}/> : ''}
 
             </div>
           </div>

@@ -1,56 +1,101 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Page from '../../components/page';
 import Article from '../../components/article-short';
 import ShortBlock from '../../components/small-short-cart';
+import sanityClient from "../../../lib/sanity.js";
+import imageUrlBuilder from "@sanity/image-url";
+import BlockContent from "@sanity/block-content-to-react";
 
 import './style.scss'
 
-export default () => {
-  return (
-    <Page id="homepage" title="Uvodni stranka">
+const imageBuilder = imageUrlBuilder(sanityClient);
 
-      <section className="homepage_slide">
-        <div className="uk-inline uk-cover-container uk-height-1-1 uk-width-1-1">
-          <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src="./img/homepage-top.jpg" uk-img=""></div>
-          <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
-            <div >
-              <h1 className="contrast" uk-scrollspy="cls: uk-animation-slide-top-small; delay: 500">Paličky pellwood s garantovanou váhou</h1>
-              <a className="button bare contrast" uk-scrollspy="cls: uk-animation-slide-top; delay: 500" href="/">prohlédnout produkty</a>
+function urlFor(source) {
+  return imageBuilder.image(source);
+}
+
+if(window.location.pathname.split('/')[1] === ''){
+  var lang = 'cz'
+}else{
+  var lang = 'en'
+}
+
+const query = `{
+  'homepage': *[_type == "homepage"] {
+    ${lang},
+    "carts": *[ _type == "product" && _id in [^.${lang}.recommendedProducts.product_1._ref, ^.${lang}.recommendedProducts.product_2._ref, ^.${lang}.recommendedProducts.product_3._ref]].${lang}
+  }[0...10],
+  'articles': *[_type == "article"][0..2] | order(_createdAt asc){
+    ${lang}
+  }
+}`;
+
+export default () => {
+  const [homepage, setHomepage] = useState([])
+  const [carts, setCarts] = useState([])
+  const [articles, setArticles] = useState([])
+
+  useEffect(() => {
+    sanityClient.fetch(query).then(data => {
+      setHomepage(data.homepage[0][lang])
+      setCarts(data.homepage[0].carts)
+      setArticles(data.articles)
+    })
+  }, [])
+
+
+  if(homepage.title !== undefined){
+    return (
+      <Page id="homepage" title="Uvodni stranka">
+
+        <section className="homepage_slide">
+          <div className="uk-inline uk-cover-container uk-height-1-1 uk-width-1-1">
+            <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src={urlFor(homepage.image).url()} uk-img=""></div>
+            <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
+              <div >
+                <h1 className="contrast" uk-scrollspy="cls: uk-animation-slide-top-small; delay: 500">{homepage.title}</h1>
+                <a className="button bare contrast" uk-scrollspy="cls: uk-animation-slide-top; delay: 500" href={homepage.button.url}>{homepage.button.title}</a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="description uk-flex uk-flex-middle">
-        <div className="uk-container uk-container-expand">
-          <p uk-scrollspy="cls: uk-animation-slide-top-small; delay: 500">Od roku 2009 zavedla naše firma unikátní technologii která spočívá ve VÁŽENÍ DŘEVA UŽ PŘED VÝROBOU. Dřevo je pak vytříděno do váhových kategorií a každý náš model paliček má doslova přidělené dřevo s hmotností, která se nemění. Pokud si tedy koupíte paličky PELLWOOD a později si stejný typ koupíte znovu, budou mít stejnou váhu.</p>
-        </div>
-      </section>
+        <section className="description uk-flex uk-flex-middle">
+          <div className="uk-container uk-container-expand">
+            <div uk-scrollspy="cls: uk-animation-slide-top-small; delay: 500">
+              <BlockContent blocks={homepage.content} />
+            </div>
+          </div>
+        </section>
 
-      <ShortBlock />
+        <ShortBlock data={carts}/>
 
-      <section className="section_base">
-        <div className="uk-container uk-container-expand">
-          <div className="uk-grid" uk-grid="" uk-scrollspy="target: > div > a; cls: uk-animation-slide-top-small; delay: 500">
-            <div className="uk-width-1-1">
-              <a href="/" className="big_category big_grid">
-                <div className="category_wrap">
-                  <div className="uk-inline uk-height-1-1 uk-width-1-1">
-                    <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src="./img/category_1.jpg" uk-img=""></div>
-                    <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
-                      <h2 className="category_short_name">paličky na zakázku</h2>
+        <section className="section_base">
+          <div className="uk-container uk-container-expand">
+            <div className="uk-grid" uk-grid="" uk-scrollspy="target: > div > a; cls: uk-animation-slide-top-small; delay: 500">
+              <div className="uk-width-1-1">
+                <a href={homepage.banner.url} className="big_category big_grid">
+                  <div className="category_wrap">
+                    <div className="uk-inline uk-height-1-1 uk-width-1-1">
+                      <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src={urlFor(homepage.banner.image).url()} uk-img=""></div>
+                      <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
+                        <h2 className="category_short_name">{homepage.banner.title}</h2>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              </div>
+
+              {articles[0] ? <Article data={articles[0][lang]}/> : ''}
+              {articles[1] ? <Article data={articles[1][lang]}/> : ''}
+
             </div>
-
-            <Article />
-            <Article />
-
           </div>
-        </div>
-      </section>
-    </Page>
-  )
+        </section>
+      </Page>
+    )
+  }else{
+    return <div></div>
+  }
+
 };

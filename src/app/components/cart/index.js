@@ -1,19 +1,26 @@
-import React, { Component } from 'react';
-
+import React from 'react';
+import imageUrlBuilder from "@sanity/image-url";
+import sanityClient from "../../../lib/sanity.js";
 import './style.scss'
 
-export default class Cart extends Component {
-  render() {
-    return(
-      <li data-tags="black" data-date="2016-06-01">
-        <a href="/" className="card_short">
-          <h3 className="card_short_head">Combi Stick 8A Hornbeam</h3>
-          <div className="cart_img">
-            <img src="./img/short_1.jpg" alt="" />
-          </div>
-          <span className="short_price">od 120 Kč</span>
-        </a>
-      </li>
-    )
-  }
+const imageBuilder = imageUrlBuilder(sanityClient);
+
+function urlFor(source) {
+  return imageBuilder.image(source);
 }
+
+const Cart = ({item}) => {
+  return(
+    <li data-tags="black" data-date="2016-06-01">
+      <a href={item.slug.current} className="card_short">
+        <h3 className="card_short_head">{item.title}</h3>
+        <div className="cart_img">
+          <img src={urlFor(item.image).url()} alt={item.title} />
+        </div>
+        <span className="short_price">{item.variants.length ? item.variants[0].price : ''}</span>
+      </a>
+    </li>
+  )
+}
+
+export default Cart

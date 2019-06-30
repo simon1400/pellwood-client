@@ -1,0 +1,71 @@
+.tm-basket-body{
+  table{
+    margin-bottom: 0;
+    thead{
+      tr{
+        th{
+          font-family: "Oswald", sans-serif;
+          font-weight: normal;
+          font-size: 18px;
+          letter-spacing: 1.8px;
+          color: #989898;
+          &:last-child{
+            text-align: right;
+          }
+        }
+      }
+    }
+    tbody{
+      tr{
+        &:first-child{
+          border-top: 1px solid #808080;
+        }
+        &:last-child{
+          border-bottom: 1px solid #808080;
+        }
+        td{
+          &:first-child{
+            width: 60%;
+          }
+          &:last-child{
+            text-align: right;
+          }
+          .custom_number{
+            max-width: 142px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.basket-body-price{
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+}
+
+.tm-remove-item{
+  a{
+    color: #989898;
+    vertical-align: middle;
+    font-family: "Oswald", sans-serif;
+    font-size: 18px;
+    text-transform: lowercase;
+    &:hover{
+      color: darken(#989898, 10%);
+      text-decoration: none;
+      button svg{
+        color: darken(#989898, 10%);
+      }
+    }
+    button{
+      margin-right: 15px;
+      vertical-align: middle;
+      svg{
+        height: 19px;
+        width: 19px;
+        color: #989898;
+      }
+    }
+  }
+}

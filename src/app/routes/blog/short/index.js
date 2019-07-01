@@ -5,12 +5,13 @@ import Article from '../../../components/article-short';
 
 import sanityClient from "../../../../lib/sanity.js";
 
+var lang = 'cz'
 if(window.location.pathname.split('/')[1] === 'en'){
-  var lang = 'en'
+  lang = 'en'
 }else if(window.location.pathname.split('/')[1] === 'de'){
-  var lang = 'de'
+  lang = 'de'
 }else{
-  var lang = 'cz'
+  lang = 'cz'
 }
 
 const query = `*[_type == "article"].${lang} {

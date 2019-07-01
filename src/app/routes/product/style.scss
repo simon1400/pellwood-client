@@ -31,11 +31,32 @@
 	}
 }
 
+.button{
+	.uk-spinner{
+		margin-left: -10px;
+		margin-right: 10px;
+	}
+}
+
 
 // --------------------------------------- quantity ---------------------------------------
 
 .quantity {
   position: relative;
+	&.error{
+		border: none!important;
+		input{
+			border: 1px solid #EE474D !important;
+    	color: #EE474D !important;
+		}
+		.quantity-button.quantity-up{
+			border-bottom: 1px solid #EE474D;
+		}
+		.quantity-button{
+			border-left: 1px solid #EE474D;
+			color: #EE474D !important;
+		}
+	}
 }
 
 input[type=number]::-webkit-inner-spin-button,

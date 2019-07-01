@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom'
 
 import './style.scss'
 
+var lang = 'cz'
 if(window.location.pathname.split('/')[1] === 'en'){
-  var lang = 'en'
+  lang = 'en'
 }else if(window.location.pathname.split('/')[1] === 'de'){
-  var lang = 'de'
+  lang = 'de'
 }else{
-  var lang = 'cz'
+  lang = 'cz'
 }
 
 // active_sub

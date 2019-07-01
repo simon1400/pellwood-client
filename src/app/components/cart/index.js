@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../../../lib/sanity.js";
 import './style.scss'

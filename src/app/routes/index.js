@@ -22,6 +22,7 @@ export default () => (
     <Route exact path="/blog" component={BlogShort} />
     <Route exact path="/blog/:url" component={BlogFull} />
     <Route exact path="/product/:url" component={Product} />
+    <Route exact path="/product/:url/:handle" component={Product} />
 
     <Route path="/basket" component={Basket} />
     <Route exact path="/thank-you" component={ThankYou} />

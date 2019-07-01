@@ -2,15 +2,17 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Canvas from './basket/canvas'
 import sanityClient from "../lib/sanity.js";
+import Cookies from 'js-cookie';
 
 import logo from './assets/logo.svg'
 
+var lang = 'cz'
 if(window.location.pathname.split('/')[1] === 'en'){
-  var lang = 'en'
+  lang = 'en'
 }else if(window.location.pathname.split('/')[1] === 'de'){
-  var lang = 'de'
+  lang = 'de'
 }else{
-  var lang = 'cz'
+  lang = 'cz'
 }
 
 
@@ -20,6 +22,8 @@ const query = `*[_type == "menu" && ${lang}.location == 'menu_top'].${lang}.item
 const Header = () => {
 
   const [menu, setMenu] = useState([])
+  const [handleUpdate, setHandleUpdate] = useState(0)
+  const [basketCount, setBasketCount] = useState(Cookies.getJSON('basketCount'))
 
   useEffect(() => {
     sanityClient.fetch(query).then(data => {
@@ -27,10 +31,14 @@ const Header = () => {
     })
   }, [])
 
+  useEffect(() => {
+    setBasketCount(Cookies.getJSON('basketCount'))
+  }, [window.location.search, handleUpdate])
+
   // menu_active
   return(
     <Fragment>
-      <Canvas />
+      <Canvas update={setHandleUpdate}/>
       <header>
         <div className="uk-container uk-container-expand uk-height-1-1">
           <div className="uk-flex uk-flex-between uk-flex-middle uk-height-1-1">
@@ -72,7 +80,9 @@ const Header = () => {
             <div className="user-area">
               <div className="login">
                 <a href="/" className="uk-visible@m">Účet</a>
-                <a nohref="" className="basket_count" uk-toggle="target: #offcanvas-flip">4</a>
+                <a nohref="" className="basket_count" uk-toggle="target: #offcanvas-flip">
+                  {basketCount ? basketCount : 0}
+                </a>
               </div>
             </div>
           </div>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { render, hydrate } from 'react-dom';
-import Loadable from 'react-loadable';
+import { hydrate } from 'react-dom';
 import { Frontload } from 'react-frontload';
 import { BrowserRouter } from 'react-router-dom';
 

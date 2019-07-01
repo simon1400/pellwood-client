@@ -7,12 +7,13 @@ import sanityClient from "../../../lib/sanity.js";
 
 import './style.scss'
 
+var lang = 'cz'
 if(window.location.pathname.split('/')[1] === 'en'){
-  var lang = 'en'
+  lang = 'en'
 }else if(window.location.pathname.split('/')[1] === 'de'){
-  var lang = 'de'
+  lang = 'de'
 }else{
-  var lang = 'cz'
+  lang = 'cz'
 }
 
 const query = `{

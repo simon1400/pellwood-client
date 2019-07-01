@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Cart from '../cart'
 
 const ShortBlock = ({data}) => {

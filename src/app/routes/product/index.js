@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import Page from '../../components/page';
 import RandomArticles from '../../components/random-articles';
 import ShortBlock from '../../components/small-short-cart';
 import sanityClient from "../../../lib/sanity.js";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
+import Cookies from 'js-cookie';
 
 
 import down from '../../assets/chevron-down-light.svg'
@@ -17,19 +19,20 @@ function urlFor(source) {
   return imageBuilder.image(source);
 }
 
+var lang = 'cz'
 if(window.location.pathname.split('/')[1] === 'en'){
-  var lang = 'en'
+  lang = 'en'
 }else if(window.location.pathname.split('/')[1] === 'de'){
-  var lang = 'de'
+  lang = 'de'
 }else{
-  var lang = 'cz'
+  lang = 'cz'
 }
 
-{/*
- */}
+console.log();
 
 const query = `{
   'products': *[_type == "product" && ${lang}.slug.current == $url] {
+    _id,
     ${lang},
     "linkedCarts": *[ _type == "product" && _id in [^.${lang}.linkedProducts.product_1._ref, ^.${lang}.linkedProducts.product_2._ref, ^.${lang}.linkedProducts.product_3._ref]].${lang}
   },
@@ -39,14 +42,30 @@ const query = `{
 export default ({match}) => {
 
   const [product, setProduct] = useState([])
+  const [productId, setProductId] = useState([])
   const [carts, setCarts] = useState([])
   const [articles, setArticles] = useState([])
   const [count, setCount] = useState(0)
+  const [loader, setLoader] = useState(false)
 
   const [select, setSelect] = useState({
     name: 'Vybrat variantu',
     price: ''
   })
+
+  const [error, setError] = useState({
+    select: false,
+    count: false
+  })
+
+  useEffect(() => {
+    sanityClient.fetch(query, {url: match.params.url}).then(data => {
+      setProduct(data.products[0][lang])
+      setProductId(data.products[0]._id)
+      setCarts(data.products[0].linkedCarts)
+      shuffle(data.articles)
+    })
+  }, [])
 
   const selectHandle = (e) => {
     e.preventDefault()
@@ -55,10 +74,7 @@ export default ({match}) => {
       name: e.currentTarget.dataset.name,
       price: e.currentTarget.dataset.price
     })
-  }
-
-  const handleInput = (value, name) => {
-
+    setError({ ...error, select: false, })
   }
 
   const shuffle = (a) => {
@@ -69,17 +85,63 @@ export default ({match}) => {
     setArticles(a);
   }
 
-  useEffect(() => {
-    sanityClient.fetch(query, {url: match.params.url}).then(data => {
-      setProduct(data.products[0][lang])
-      setCarts(data.products[0].linkedCarts)
-      shuffle(data.articles)
-    })
-  }, [])
+  const onBuy = () => {
+    setLoader(true)
+    if(select.name === 'Vybrat variantu'){
+      setError({ ...error, select: true })
+      setLoader(false)
+      return;
+    }
+    if(count === 0){
+      setError({ ...error, count: true })
+      setLoader(false)
+      return;
+    }
+
+
+    let newBasketItem = {
+      id: productId,
+      nameProduct: product.title,
+      variantName: select.name,
+      variantPrice: select.price,
+      countVariant: count,
+      imgUrl: urlFor(product.image).url()
+    }
+
+    let basket = Cookies.getJSON('basket')
+    let basketCount = Cookies.getJSON('basketCount')
+
+    if(basket === undefined){
+      basket = []
+      basket.push(newBasketItem)
+      basketCount = 1
+    }else{
+      let indexBasket = -1;
+      basket.map((item, index) => {
+        if(item.id === productId){
+          if(basket[index].variantName === select.name){
+            indexBasket = index
+          }
+        }
+      })
+      if(indexBasket >= 0){
+        basket[indexBasket].countVariant = +basket[indexBasket].countVariant + count
+      }else{
+        basketCount = +basketCount + 1
+        basket.push(newBasketItem)
+      }
+      indexBasket = -1
+    }
+
+    Cookies.set('basket', JSON.stringify(basket))
+    Cookies.set('basketCount', JSON.stringify(basketCount))
+    window.UIkit.offcanvas(window.UIkit.util.find('#offcanvas-flip')).show();
+    setLoader(false)
+  }
 
   if(!Array.isArray(product)){
     return (
-      <Page id="product" title="Product">
+      <Page id="product" title={product.title}>
       <section className="full product">
         <div className="uk-grid uk-child-width-1-1 uk-child-width-1-2@m" uk-grid="" uk-height-match="target: > div > div">
           <div>
@@ -110,7 +172,7 @@ export default ({match}) => {
                     <div>
                       <div className="uk-width-1-1 uk-width-auto@m">
                         <div className="custom-select-wrap">
-                          <button className="custom-select -error uk-button uk-button-default" type="button" tabIndex="-1">
+                          <button className={`custom-select uk-button uk-button-default ${error.select ? 'error' : ''}`} type="button" tabIndex="-1">
                             <span>{select.name}</span>
                             <span><img src={down} alt="Down" /></span>
                           </button>
@@ -132,16 +194,16 @@ export default ({match}) => {
                       </div>
                     </div>
                     <div>
-                      <div className="custom_number quantity">
-                        <input type="number" min="1" max="1000" step="1" value={count} />
+                      <div className={`custom_number quantity ${error.count ? 'error' : ''}`}>
+                        <input type="number" min="1" max="1000" step="1" onChange={(e) => setCount(+e.target.value)} value={count} />
                         <div className="quantity-nav">
                           <div className="quantity-button quantity-up" onClick={() => setCount(count + 1)}>+</div>
-                        <div className="quantity-button quantity-down" onClick={() => {if(count > 0){ return setCount(count - 1)} else{ return false}}}>-</div>
+                          <div className="quantity-button quantity-down" onClick={() => {if(count > 0){ return setCount(count - 1)} else{ return false}}}>-</div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <button className="button black" href="/">PŘIDAT DO KOŠÍKU</button>
+                  <Link to={window.location.pathname +'?buy'}><button className="button black" href="/" onClick={() => onBuy()}>{loader ? <div uk-spinner="" className="uk-icon uk-spinner"></div> : ''}PŘIDAT DO KOŠÍKU</button></Link>
                 </div> : ''}
                 <div className="description_product">
                   <BlockContent blocks={product.text} />
@@ -152,7 +214,7 @@ export default ({match}) => {
                       {(product.parametrs || []).map((item, index) =>
                         <tr key={index}>
                           <td>{item.title}</td>
-                        <td className="uk-text-right">{item.value}</td>
+                          <td className="uk-text-right">{item.value}</td>
                         </tr>
                       )}
                     </tbody>

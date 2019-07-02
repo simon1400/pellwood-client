@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import './style.scss'
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
+import UIkit from 'uikit'
 
 import img from '../../assets/product-horizontal.jpg'
 
@@ -11,28 +12,30 @@ export default ({update}) => {
   const [basketCount, setBasketCount] = useState(0)
 
   useEffect(() => {
-    setBasket(Cookies.getJSON('basket'))
-    setBasketCount(Cookies.getJSON('basketCount'))
+    setBasket(JSON.parse(localStorage.getItem('basket')))
+    setBasketCount(JSON.parse(localStorage.getItem('basketCount')))
   }, [window.location.search.length])
 
 
   useEffect(() => {
-    Cookies.set('basket', basket)
-    Cookies.set('basketCount', basketCount)
+    localStorage.setItem('basket', JSON.stringify(basket))
+    localStorage.setItem('basketCount', basketCount)
   }, [basketCount])
 
 
   const closeCanvas = () => {
-    window.UIkit.offcanvas(window.UIkit.util.find('#offcanvas-flip')).hide();
+    UIkit.offcanvas(UIkit.util.find('#offcanvas-flip')).hide();
   }
 
   const onSumItems = () => {
     let sumAll = 0, sumItem = 0;
 
-    basket.map((item, index) => {
-      sumItem = +item.variantPrice.split(' ')[0] * item.countVariant
-      sumAll = +sumItem + sumAll
-    })
+    if(basket){
+      basket.map((item, index) => {
+        sumItem = +item.variantPrice.split(' ')[0] * item.countVariant
+        sumAll = +sumItem + sumAll
+      })
+    }
 
     return sumAll;
   }
@@ -45,13 +48,10 @@ export default ({update}) => {
       }
     })
     let newBasketCount = +basketCount - 1
-    update(1)
+    update(Math.random)
     setBasketCount(newBasketCount)
     setBasket(basket)
   }
-
-
-
 
   return(
     <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
@@ -63,7 +63,7 @@ export default ({update}) => {
           <Link to={window.location.pathname}><button className="tm-canvas-close uk-close-large" type="button" uk-close="" onClick={e => closeCanvas()}></button></Link>
         </div>
 
-        {(basket || []).map((item, index) =>
+        {basket ? basket.map((item, index) =>
           <div key={index} className="tm-canvas-basket-item-wrap">
             <div className="tm-basket-item">
               <div data-src={item.imgUrl} className="tm-basket-img-wrap uk-background-contain" uk-img=""></div>
@@ -78,7 +78,7 @@ export default ({update}) => {
               </div>
             </div>
           </div>
-        )}
+        ) : ''}
 
 
         <div className="tm-basket-total">
@@ -98,8 +98,8 @@ export default ({update}) => {
 
 
         <div className="tm-basket-footer">
-          <Link to="/basket" className="tm-button tm-bare-button">košík</Link>
-          <Link to="/basket/checkout" className="tm-button tm-black-button">přejít k objednávce</Link>
+          <Link to="/basket" className="tm-button tm-bare-button" onClick={() => closeCanvas()}>košík</Link>
+          <Link to="/basket/checkout" className="tm-button tm-black-button" onClick={() => closeCanvas()}>přejít k objednávce</Link>
         </div>
 
       </div>

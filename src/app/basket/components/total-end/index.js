@@ -31,7 +31,7 @@ const TotalEnd = () => {
         </div>
       </div>
       <div className="tm-basket-total">
-        <table class="uk-table uk-table-divider">
+        <table className="uk-table uk-table-divider">
           <tbody>
             <tr>
               <td>Doprava</td>

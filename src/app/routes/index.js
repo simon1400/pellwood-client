@@ -14,19 +14,23 @@ import Basket from '../basket';
 import ThankYou from '../basket/thankYou';
 
 
-export default () => (
-  <Switch>
-    <Route exact path="/" component={Homepage} />
+const Routers = () => {
+  return (
+    <Switch>
+      <Route exact path="/" component={Homepage} />
 
-    <Route exact path="/catalog" component={Catalog} />
-    <Route exact path="/blog" component={BlogShort} />
-    <Route exact path="/blog/:url" component={BlogFull} />
-    <Route exact path="/product/:url" component={Product} />
-    <Route exact path="/product/:url/:handle" component={Product} />
+      <Route exact path="/catalog" component={Catalog} />
+      <Route exact path="/blog" component={BlogShort} />
+      <Route exact path="/blog/:url" component={BlogFull} />
+      <Route exact path="/product/:url" component={Product} />
+      <Route exact path="/product/:url/:handle" component={Product} />
 
-    <Route path="/basket" component={Basket} />
-    <Route exact path="/thank-you" component={ThankYou} />
+      <Route path="/basket" component={Basket} />
+      <Route exact path="/thank-you" component={ThankYou} />
 
-    <Route component={NotFound} />
-  </Switch>
-);
+      <Route component={NotFound} />
+    </Switch>
+  )
+}
+
+export default Routers

@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Canvas from './basket/canvas'
 import sanityClient from "../lib/sanity.js";
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 
 import logo from './assets/logo.svg'
 
@@ -23,7 +23,7 @@ const Header = () => {
 
   const [menu, setMenu] = useState([])
   const [handleUpdate, setHandleUpdate] = useState(0)
-  const [basketCount, setBasketCount] = useState(Cookies.getJSON('basketCount'))
+  const [basketCount, setBasketCount] = useState(0)
 
   useEffect(() => {
     sanityClient.fetch(query).then(data => {
@@ -32,7 +32,7 @@ const Header = () => {
   }, [])
 
   useEffect(() => {
-    setBasketCount(Cookies.getJSON('basketCount'))
+    setBasketCount(JSON.parse(localStorage.getItem('basketCount')))
   }, [window.location.search, handleUpdate])
 
   // menu_active
@@ -81,7 +81,7 @@ const Header = () => {
               <div className="login">
                 <a href="/" className="uk-visible@m">Účet</a>
                 <a nohref="" className="basket_count" uk-toggle="target: #offcanvas-flip">
-                  {basketCount ? basketCount : 0}
+                  {basketCount ? basketCount : JSON.parse(localStorage.getItem('basketCount')) ? JSON.parse(localStorage.getItem('basketCount')) : 0}
                 </a>
               </div>
             </div>

@@ -4,7 +4,7 @@ const Note = () => {
   return(
     <div className="form_container">
       <div className="form_column">
-        <div class="uk-margin textarea_item">
+        <div className="uk-margin textarea_item">
           <textarea />
         </div>
       </div>

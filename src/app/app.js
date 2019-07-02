@@ -1,6 +1,7 @@
 // The basics
-import React, { Component, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { withRouter } from 'react-router';
+import UIkit from 'uikit'
 
 import Header from './header';
 import Routes from './routes';
@@ -8,16 +9,14 @@ import Footer from './footer'
 
 import './scss/main.scss'
 
-class App extends Component {
-  render() {
-    return (
-      <Fragment>
-        <Header />
-        <Routes />
-        <Footer />
-      </Fragment>
-    );
-  }
+const App = () => {
+  return (
+    <Fragment>
+      <Header />
+      <Routes />
+      <Footer />
+    </Fragment>
+  );
 }
 
 export default withRouter(App);

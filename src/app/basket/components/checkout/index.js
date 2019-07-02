@@ -15,13 +15,13 @@ const Checkout = () => {
   return(
     <div className="tm-checkout">
       <form id="checkout-form">
-        <fieldset class="uk-fieldset">
+        <fieldset className="uk-fieldset">
 
-          <legend class="uk-legend">Dodací údaje</legend>
+          <legend className="uk-legend">Dodací údaje</legend>
 
           <Delivery />
 
-          <div class="uk-margin-small checkbox_item">
+          <div className="uk-margin-small checkbox_item">
             <input type="checkbox" id="checkbox_another_address" />
             <label htmlFor="checkbox_another_address"></label>
             <label htmlFor="checkbox_another_address">Doručit na jinou adresu</label>
@@ -29,7 +29,7 @@ const Checkout = () => {
 
           <Delivery />
 
-          <div class="uk-margin-small checkbox_item">
+          <div className="uk-margin-small checkbox_item">
             <input type="checkbox" id="checkbox_firm_data" />
             <label htmlFor="checkbox_firm_data"></label>
             <label htmlFor="checkbox_firm_data">Doplnit firemní údaje</label>
@@ -37,7 +37,7 @@ const Checkout = () => {
 
           <Corporate />
 
-          <div class="uk-margin-small checkbox_item">
+          <div className="uk-margin-small checkbox_item">
             <input type="checkbox" id="checkbox_registration" />
             <label htmlFor="checkbox_registration"></label>
             <label htmlFor="checkbox_registration">Založit účet pro příští objednávky</label>
@@ -45,7 +45,7 @@ const Checkout = () => {
 
           <Password />
 
-          <div class="uk-margin-small checkbox_item">
+          <div className="uk-margin-small checkbox_item">
             <input type="checkbox" id="checkbox_note" />
             <label htmlFor="checkbox_note"></label>
             <label htmlFor="checkbox_note">Poznámka k objednávce</label>

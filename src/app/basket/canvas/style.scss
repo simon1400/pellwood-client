@@ -1,13 +1,11 @@
 @import '../_var.scss';
 
-
 .uk-offcanvas{
   z-index: 111111!important;
 }
 
 .uk-offcanvas-bar{
   background: $offcanvas-bar-background!important;
-  width: $offcanvas-bar-width-m!important;
   padding-top: 0!important;
   padding-bottom: 0!important;
 }

@@ -6,7 +6,7 @@ import ShortBlock from '../../components/small-short-cart';
 import sanityClient from "../../../lib/sanity.js";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
-import Cookies from 'js-cookie';
+import UIkit from 'uikit'
 
 
 import down from '../../assets/chevron-down-light.svg'
@@ -27,8 +27,6 @@ if(window.location.pathname.split('/')[1] === 'en'){
 }else{
   lang = 'cz'
 }
-
-console.log();
 
 const query = `{
   'products': *[_type == "product" && ${lang}.slug.current == $url] {
@@ -108,10 +106,10 @@ export default ({match}) => {
       imgUrl: urlFor(product.image).url()
     }
 
-    let basket = Cookies.getJSON('basket')
-    let basketCount = Cookies.getJSON('basketCount')
+    let basket = JSON.parse(localStorage.getItem('basket'))
+    let basketCount = JSON.parse(localStorage.getItem('basketCount'))
 
-    if(basket === undefined){
+    if(basket === undefined || basket === null || !basket){
       basket = []
       basket.push(newBasketItem)
       basketCount = 1
@@ -133,9 +131,9 @@ export default ({match}) => {
       indexBasket = -1
     }
 
-    Cookies.set('basket', JSON.stringify(basket))
-    Cookies.set('basketCount', JSON.stringify(basketCount))
-    window.UIkit.offcanvas(window.UIkit.util.find('#offcanvas-flip')).show();
+    localStorage.setItem('basket', JSON.stringify(basket))
+    localStorage.setItem('basketCount', JSON.stringify(basketCount))
+    UIkit.offcanvas(UIkit.util.find('#offcanvas-flip')).show();
     setLoader(false)
   }
 

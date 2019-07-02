@@ -4,7 +4,7 @@ const ShipPay = () => {
   return(
     <div className="form_container tm-payship">
       <div className="form_column">
-        <legend class="uk-legend">Doprava</legend>
+        <legend className="uk-legend">Doprava</legend>
         <div className="uk-grid-small" uk-grid="">
           <div className="uk-width-expand">
             <div className="radio_item">
@@ -38,7 +38,7 @@ const ShipPay = () => {
       </div>
 
       <div className="form_column">
-        <legend class="uk-legend">Platba</legend>
+        <legend className="uk-legend">Platba</legend>
         <div className="uk-grid-small" uk-grid="">
           <div className="uk-width-expand">
             <div className="radio_item">

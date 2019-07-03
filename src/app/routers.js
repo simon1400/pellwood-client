@@ -1,17 +1,21 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import NotFound from './not-found';
-import Homepage from './homepage';
-import Catalog from './catalog';
-import BlogShort from './blog/short';
-import BlogFull from './blog/full';
-import Product from './product';
+import NotFound from './pages/not-found';
+import Homepage from './pages/homepage';
+import Catalog from './pages/catalog';
+import BlogShort from './pages/blog/short';
+import BlogFull from './pages/blog/full';
+import Product from './pages/product';
 
 // ------------------------------------------ BASKET ------------------------------------- //
 
-import Basket from '../basket';
-import ThankYou from '../basket/thankYou';
+import Basket from './basket';
+import ThankYou from './basket/thankYou';
+
+// ------------------------------------------ USER ---------------------------------------//
+
+import User from './user';
 
 
 const Routers = () => {
@@ -27,6 +31,8 @@ const Routers = () => {
 
       <Route path="/basket" component={Basket} />
       <Route exact path="/thank-you" component={ThankYou} />
+
+      <Route exact path="/user" component={User} />
 
       <Route component={NotFound} />
     </Switch>

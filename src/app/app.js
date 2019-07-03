@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 import UIkit from 'uikit'
 
 import Header from './header';
-import Routes from './routes';
+import Routes from './routers.js';
 import Footer from './footer'
 
 import './scss/main.scss'

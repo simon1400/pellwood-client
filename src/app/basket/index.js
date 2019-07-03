@@ -3,7 +3,7 @@ import {Switch, Route, Link} from 'react-router-dom';
 import { withRouter } from "react-router";
 import './style.scss'
 
-import NotFound from '../routes/not-found';
+import NotFound from '../pages/not-found';
 import Head from './components/head'
 import Body from './components/body'
 import Checkout from './components/checkout'
@@ -16,7 +16,60 @@ const Basket = () => {
   const [sum, setSum] = useState(0)
   const [basket, setBasket] = useState(JSON.parse(localStorage.getItem('basket')))
 
+  const state = useState({
+    email: '',
+    phone: '',
+    name: '',
+    surname: '',
+    country: '',
+    city: '',
+    address: '',
+    code: '',
+    anotherAddressCheck: false,
+    companyDataCheck: false,
+    registrationCheck: false,
+    noteCheck: false
+  })
+
+  const anotherAdress = useState({
+    email: '',
+    phone: '',
+    name: '',
+    surname: '',
+    country: '',
+    city: '',
+    address: '',
+    code: ''
+  })
+
+  const companyData = useState({
+    companyName: '',
+    ico: '',
+    dic: '',
+  })
+
+  const password = useState('')
+  const note = useState('')
+
+
+  const deliveryMethod = useState({
+    value: '',
+    price: ''
+  })
+  const paymentMethod = useState({
+    value: '',
+    price: ''
+  })
+
   useEffect(() => {
+    sumTotal(0, 0)
+  }, [])
+
+  useEffect(() => {
+    sumTotal(deliveryMethod[0].price, paymentMethod[0].price)
+  }, [deliveryMethod, paymentMethod])
+
+  const sumTotal = (delivery, payment) => {
     var sumAll = 0, sumItem = 0;
     var newBasket = basket
     newBasket.map((item, index) => {
@@ -24,8 +77,13 @@ const Basket = () => {
       sumAll = +sumItem + sumAll
     })
 
+    if(delivery || payment){
+      if(delivery !== 'ZDARMA') sumAll = +sumAll + +delivery.split(' ')[0]
+      if(payment !== 'ZDARMA') sumAll = +sumAll + +payment.split(' ')[0]
+    }
+
     setSum(sumAll)
-  }, [])
+  }
 
   return (
     <main className="basket">
@@ -36,14 +94,14 @@ const Basket = () => {
         </Switch>
         <Switch>
           <Route exact path="/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} />} />
-          <Route exact path="/basket/checkout" component={Checkout} />
+          <Route exact path="/basket/checkout" render={() => <Checkout state={state} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
           <Route component={NotFound} />
         </Switch>
       </div>
       <div className="basket-right-panel">
         <Switch>
           <Route exact path="/basket" render={() => <Total sum={sum} />} />
-          <Route exact path="/basket/checkout" component={TotalEnd} />
+          <Route exact path="/basket/checkout" render={() => <TotalEnd sum={sum} basket={basket} delivery={deliveryMethod[0].price} payment={paymentMethod[0].price} />} />
         </Switch>
         <div>
           <p>Všechny ceny jsou včetně DPH 21 %</p>

@@ -15,6 +15,7 @@ const Basket = () => {
 
   const [sum, setSum] = useState(0)
   const [basket, setBasket] = useState(JSON.parse(localStorage.getItem('basket')))
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || {})
 
   const state = useState({
     email: '',
@@ -63,6 +64,20 @@ const Basket = () => {
 
   useEffect(() => {
     sumTotal(0, 0)
+    if(Object.keys(user).length){
+      state[1]({
+        email: user.email,
+        phone: user.phone,
+        name: user.name,
+        surname: user.surname,
+        country: user.country,
+        city: user.city,
+        address: user.address,
+        code: user.code,
+      })
+      anotherAdress[1]({...user.anotherAdress})
+      companyData[1]({...user.companyData})
+    }
   }, [])
 
   useEffect(() => {
@@ -94,7 +109,7 @@ const Basket = () => {
         </Switch>
         <Switch>
           <Route exact path="/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} />} />
-          <Route exact path="/basket/checkout" render={() => <Checkout state={state} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
+          <Route exact path="/basket/checkout" render={() => <Checkout state={state} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
           <Route component={NotFound} />
         </Switch>
       </div>

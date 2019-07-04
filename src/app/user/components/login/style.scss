@@ -1,0 +1,77 @@
+#modal-login{
+  .tm-canvas-head{
+    margin-top: 0;
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+  }
+  .uk-modal-dialog{
+    width: 500px;
+    padding: 50px;
+    background-color: #F1F1F1;
+  }
+  a, button{
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  .tm-bare-button{
+    margin-bottom: 0;
+    background-color: transparent;
+  }
+  p{
+    text-align: center;
+    color: #989898;
+    font-size: 18px;
+    letter-spacing : 1.8px;
+  }
+}
+
+hr{
+  border-top: 1px solid #CECECE!important;
+}
+
+
+.input_login{
+  margin-bottom: 15px;
+  input{
+    width: calc(100% - 40px);
+    height: 15px;
+    font-size: 15px;
+    padding: 20px;
+    border: 1px solid #CBCBCB;
+    color: #232323;
+  }
+  ::-webkit-input-placeholder { /* Edge */
+    color: #989898!important;
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #989898!important;
+  }
+
+  ::placeholder {
+    color: #989898!important;
+  }
+}
+
+.tm-button-text{
+  border: none!important;
+  &:hover{
+    span:after{
+      width: 100%;
+    }
+  }
+  span{
+    position: relative;
+    &:after{
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      display: block;
+      width: 0;
+      height: 1px;
+      background-color: #232323;
+      transition: all .5s ease;
+    }
+  }
+}

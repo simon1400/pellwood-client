@@ -9,7 +9,7 @@ import Password from './password.js'
 import Note from './note.js'
 import ShipPay from './shipPay.js'
 
-const Checkout = ({state, anotherAdress, companyData, password, note, deliveryMethod, paymentMethod}) => {
+const Checkout = ({state, user, anotherAdress, companyData, password, note, deliveryMethod, paymentMethod}) => {
 
 
   const handleChange = (name, value) => {
@@ -17,6 +17,8 @@ const Checkout = ({state, anotherAdress, companyData, password, note, deliveryMe
     newState[name] = value;
     state[1]({...newState})
   }
+
+  console.log(user.email);
 
   return(
     <div className="tm-checkout">
@@ -47,15 +49,19 @@ const Checkout = ({state, anotherAdress, companyData, password, note, deliveryMe
             <Corporate state={companyData[0]} setState={companyData[1]} />
           </AnimateHeight>
 
-          <div className="uk-margin-small checkbox_item">
-            <input type="checkbox" id="checkbox_registration" onChange={() => handleChange('registrationCheck', !state[0].registrationCheck)} checked={state[0].registrationCheck} />
-            <label htmlFor="checkbox_registration"></label>
-            <label htmlFor="checkbox_registration">Založit účet pro příští objednávky</label>
-          </div>
+          {user.email === undefined ? (
+              <div className="uk-margin-small checkbox_item">
+                <input type="checkbox" id="checkbox_registration" onChange={() => handleChange('registrationCheck', !state[0].registrationCheck)} checked={state[0].registrationCheck} />
+                <label htmlFor="checkbox_registration"></label>
+                <label htmlFor="checkbox_registration">Založit účet pro příští objednávky</label>
+              </div>,
 
-          <AnimateHeight duration={ 500 } height={ state[0].registrationCheck ? 'auto' : 0 } >
-            <Password state={password[0]} setState={password[1]}/>
-          </AnimateHeight>
+              <AnimateHeight duration={ 500 } height={ state[0].registrationCheck ? 'auto' : 0 } >
+                <Password state={password[0]} setState={password[1]}/>
+              </AnimateHeight>)
+            : ''
+          }
+
 
           <div className="uk-margin-small checkbox_item">
             <input type="checkbox" id="checkbox_note" onChange={() => handleChange('noteCheck', !state[0].noteCheck)} checked={state[0].noteCheck} />

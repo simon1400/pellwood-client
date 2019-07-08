@@ -37,7 +37,9 @@ legend{
   width: 100%;
 }
 
-
+#email:invalid{
+  color: red;
+}
 
 .select_item{
   .uk-form-custom{
@@ -48,8 +50,9 @@ legend{
     width: 100%;
     padding: 0 20px;
     text-align: left;
-    font-family: "Oswald", sans-serif;
+    font-family: "Oswald", sans-serif!important;
     font-size: 15px;
+    font-weight: 430;
     letter-spacing: 1.5px;
     color: #232323;
     height: 47px;
@@ -94,6 +97,16 @@ legend{
     letter-spacing: 1.5px;
     position: relative;
     background-color: transparent;
+    &:invalid{
+      border-color: #EC1C24!important;
+      color: #EC1C24;
+      & + label{
+        color: #EC1C24;
+      }
+      &:focus{
+        border-color: #EC1C24!important;
+      }
+    }
   }
   input.input_positive{
     border-color: #7AC843!important;

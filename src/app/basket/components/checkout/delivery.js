@@ -1,22 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const Delivery = ({state, setState}) => {
 
+
+  const [errors, setErrors] = useState({
+    email: false
+  })
+
   const handleChange = (name, value) => {
+
+    // if(name === 'email'){
+    //
+    // }
+
     let newState = state;
     newState[name] = value;
     setState({...newState})
   }
 
+  //
+
   return (
     <div className="form_container">
       <div className="form_column">
         <div className="uk-margin input_item">
-          <input className={state.email.length ? 'hasValue' : ''} type="text" value={state.email} onChange={(e) => handleChange('email', e.target.value)} tabIndex="1"/>
+          <input className={state.email.length ? 'hasValue' : ''} type="email" value={state.email} onChange={(e) => handleChange('email', e.target.value)} tabIndex="1" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"/>
           <label>E-mail</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={state.name.length ? 'hasValue' : ''} type="text" value={state.name} onChange={(e) => handleChange('name', e.target.value)} tabIndex="3"/>
+          <input className={state.name.length ? 'hasValue' : ''} type="text" value={state.name} onChange={(e) => handleChange('name', e.target.value)} tabIndex="3" pattern="^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$"/>
           <label>Jméno</label>
         </div>
         <div className="uk-margin select_item">
@@ -42,15 +54,15 @@ const Delivery = ({state, setState}) => {
 
       <div className="form_column">
         <div className="uk-margin input_item">
-          <input className={state.phone.length ? 'hasValue' : ''} type="text" value={state.phone} onChange={(e) => handleChange('phone', e.target.value)} tabIndex="2"/>
+          <input className={state.phone.length ? 'hasValue' : ''} type="text" value={state.phone} onChange={(e) => handleChange('phone', e.target.value)} tabIndex="2" pattern="^(\+?420)? ?[0-9]{3} ?[0-9]{3} ?[0-9]{3}$"/>
           <label>Telefon</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={state.surname.length ? 'hasValue' : ''} type="text" value={state.surname} onChange={(e) => handleChange('surname', e.target.value)} tabIndex="4"/>
+          <input className={state.surname.length ? 'hasValue' : ''} type="text" value={state.surname} onChange={(e) => handleChange('surname', e.target.value)} tabIndex="4" pattern="^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$"/>
           <label>Příjmení</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={state.city.length ? 'hasValue' : ''} type="text" value={state.city} onChange={(e) => handleChange('city', e.target.value)} tabIndex="6"/>
+          <input className={state.city.length ? 'hasValue' : ''} type="text" value={state.city} onChange={(e) => handleChange('city', e.target.value)} tabIndex="6" pattern="^([A-Z]{1}[a-z]{1,})$|^([A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,})$|^([A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,})$|^$"/>
           <label>Město</label>
         </div>
         <div className="uk-margin input_item">

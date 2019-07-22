@@ -18,8 +18,6 @@ const Checkout = ({state, user, anotherAdress, companyData, password, note, deli
     state[1]({...newState})
   }
 
-  console.log(user.email);
-
   return(
     <div className="tm-checkout">
       <form id="checkout-form">

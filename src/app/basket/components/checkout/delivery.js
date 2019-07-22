@@ -62,7 +62,7 @@ const Delivery = ({state, setState}) => {
           <label>Příjmení</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={state.city.length ? 'hasValue' : ''} type="text" value={state.city} onChange={(e) => handleChange('city', e.target.value)} tabIndex="6" pattern="^([A-Z]{1}[a-z]{1,})$|^([A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,})$|^([A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,})$|^$"/>
+          <input className={state.city.length ? 'hasValue' : ''} type="text" value={state.city} onChange={(e) => handleChange('city', e.target.value)} tabIndex="6" pattern=""/>
           <label>Město</label>
         </div>
         <div className="uk-margin input_item">

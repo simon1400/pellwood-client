@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Delivery from './components/delivery.js'
 import Corporate from './components/corporate.js'
 import Head from './components/head'
@@ -8,7 +8,7 @@ import axios from 'axios'
 
 const User = () => {
 
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
+  const [user] = useState(JSON.parse(localStorage.getItem('user')))
 
   const state = useState({
     email: user.email,

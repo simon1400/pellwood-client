@@ -1,9 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
 import './style.scss'
-// import Cookies from 'js-cookie';
-
-import img from '../../../assets/product-horizontal.jpg'
 
 const Body = ({setSum, sum, basket, setBasket}) => {
 

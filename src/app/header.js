@@ -104,7 +104,7 @@ const Header = () => {
             <div className="top-nav">
               <nav>
                 <ul>
-                  {(menu || []).map((item, index) => <li key={index}><Link to={item.menuUrl}>{item.title}</Link></li>)}
+                  {(menu || []).map((item, index) => <li key={index}><a href={item.menuUrl}>{item.title}</a></li>)}
                 </ul>
               </nav>
               <div className="lang-nav uk-hidden@m">

@@ -15,7 +15,7 @@ const Basket = () => {
 
   const [sum, setSum] = useState(0)
   const [basket, setBasket] = useState(JSON.parse(localStorage.getItem('basket')))
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || {})
+  const [user] = useState(JSON.parse(localStorage.getItem('user')) || {})
 
   const state = useState({
     email: '',
@@ -100,12 +100,19 @@ const Basket = () => {
     setSum(sumAll)
   }
 
+
+  const sendOrder = () => {
+    console.log(basket);
+    console.log(user);
+  }
+
+
   return (
     <main className="basket">
       <div className="tm-basket-content">
         <Switch>
-          <Route exact path="/basket" render={() => <Head head="Váš nákupní košík"/>} />
-          <Route exact path="/basket/checkout" render={() => <Head head="Objednávka"/>} />
+          <Route exact path="/basket" render={() => <Head head="Váš nákupní košík" user={user}/>} />
+          <Route exact path="/basket/checkout" render={() => <Head head="Objednávka" user={user}/>} />
         </Switch>
         <Switch>
           <Route exact path="/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} />} />
@@ -124,7 +131,11 @@ const Basket = () => {
         </div>
         <div>
           <div className="tm-basket-footer tm-footer-single">
-            <Link to="/basket/checkout" className="tm-button tm-black-button">přejít k objednávce</Link>
+            <Switch>
+              <Route exact path="/basket" render={() => <Link to="/basket/checkout" className="tm-button tm-black-button">přejít k objednávce</Link>} />
+              <Route exact path="/basket/checkout" render={() => <button className="tm-button tm-black-button" onClick={() => sendOrder()}>Objednat</button>} />
+            </Switch>
+
           </div>
         </div>
       </div>

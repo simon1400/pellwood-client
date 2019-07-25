@@ -33,7 +33,7 @@ export default ({match}) => {
     })
   }, [])
 
-  if(chapters.length > 0){
+  if(chapters || chapters.length > 0){
     return (
       <Page id="blog" title="Blog">
         {chapters.map((item, index) =>

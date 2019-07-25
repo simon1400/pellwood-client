@@ -3,9 +3,9 @@ import React, {useState} from 'react';
 const Delivery = ({state, setState}) => {
 
 
-  const [errors, setErrors] = useState({
-    email: false
-  })
+  // const [errors, setErrors] = useState({
+  //   email: false
+  // })
 
   const handleChange = (name, value) => {
 
@@ -17,8 +17,6 @@ const Delivery = ({state, setState}) => {
     newState[name] = value;
     setState({...newState})
   }
-
-  //
 
   return (
     <div className="form_container">
@@ -47,7 +45,7 @@ const Delivery = ({state, setState}) => {
           </div>
         </div>
         <div className="uk-margin input_item">
-          <input className={state.address.length ? 'hasValue' : ''} type="text" value={state.address} onChange={(e) => handleChange('address', e.target.value)} tabIndex="7"/>
+          <input className={state.address.length ? 'hasValue' : ''} type="text" value={state.address} onChange={(e) => handleChange('address', e.target.value)} tabIndex="7" pattern="^(.*[^0-9]+) (([1-9][0-9]*)/)?([1-9][0-9]*[a-cA-C]?)$"/>
           <label>Ulice a č. p.</label>
         </div>
       </div>
@@ -62,11 +60,11 @@ const Delivery = ({state, setState}) => {
           <label>Příjmení</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={state.city.length ? 'hasValue' : ''} type="text" value={state.city} onChange={(e) => handleChange('city', e.target.value)} tabIndex="6" pattern=""/>
+          <input className={state.city.length ? 'hasValue' : ''} type="text" value={state.city} onChange={(e) => handleChange('city', e.target.value)} tabIndex="6" pattern="^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$"/>
           <label>Město</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={state.code.length ? 'hasValue' : ''} type="text" value={state.code} onChange={(e) => handleChange('code', e.target.value)} tabIndex="8"/>
+          <input className={state.code.length ? 'hasValue' : ''} type="text" value={state.code} onChange={(e) => handleChange('code', e.target.value)} tabIndex="8" pattern="\d{3} ?\d{2}"/>
           <label>PSČ</label>
         </div>
       </div>

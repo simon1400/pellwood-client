@@ -19,13 +19,16 @@ function urlFor(source) {
   return imageBuilder.image(source);
 }
 
-var lang = 'cz'
+var lang = 'cz', currency = 'Kč'
 if(window.location.pathname.split('/')[1] === 'en'){
-  lang = 'en'
+  lang = 'en';
+  currency = '$';
 }else if(window.location.pathname.split('/')[1] === 'de'){
-  lang = 'de'
+  lang = 'de';
+  currency = '&euro;';
 }else{
-  lang = 'cz'
+  lang = 'cz';
+  currency = 'Kč';
 }
 
 const query = `{
@@ -161,7 +164,7 @@ export default ({match}) => {
                   {(product.variants || []).map((item, index) =>
                     <div key={index} className="uk-grid uk-grid-medium" uk-grid="">
                       <div className="uk-width-expand">{item.title}</div>
-                      <div className="short_price">{item.price}</div>
+                      <div className="short_price">{currency === '$' ? currency: ''} {item.price} {currency !== '$' ? currency: ''}</div>
                     </div>
                   )}
                 </div>
@@ -181,7 +184,7 @@ export default ({match}) => {
                                   <a href="#" className="variant_select" data-name={item.title} data-price={item.price} onClick={e => selectHandle(e)} title={item.title}>
                                     <span className="uk-grid uk-grid-small">
                                       <span className="uk-width-3-5" >{item.title}</span>
-                                      <span className="uk-width-2-5 uk-text-right">{item.price}</span>
+                                      <span className="uk-width-2-5 uk-text-right">{currency === '$' ? currency: ''} {item.price} {currency !== '$' ? currency: ''}</span>
                                     </span>
                                   </a>
                                 </li>

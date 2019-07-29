@@ -204,7 +204,7 @@ export default ({match}) => {
                       </div>
                     </div>
                   </div>
-                  <Link to={window.location.pathname +'?buy'}><button className="button black" href="/" onClick={() => onBuy()}>{loader ? <div uk-spinner="" className="uk-icon uk-spinner"></div> : ''}PŘIDAT DO KOŠÍKU</button></Link>
+                  <Link to={window.location.pathname +'?buy'}><button className="uk-width-1-1 uk-margin-top tm-button tm-black-button" href="/" onClick={() => onBuy()}>{loader ? <div uk-spinner="" className="uk-icon uk-spinner"></div> : ''}PŘIDAT DO KOŠÍKU</button></Link>
                 </div> : ''}
                 <div className="description_product">
                   <BlockContent blocks={product.text} />

@@ -27,11 +27,11 @@ const Login = ({email, password, setEmail, setPassword, onRegister, onLogin}) =>
             <div className="input_login">
               <input type="password" placeholder="Heslo" value={password} onChange={e => setPassword(e.target.value)}/>
             </div>
-            <button type="submit" className="tm-button tm-black-button">Přihlašte se</button>
-            <Link to="/basket" className="tm-button tm-bare-button tm-button-text"><span>zapomenuté heslo</span></Link>
+            <button type="submit" className="tm-button tm-black-button uk-width-1-1">Přihlašte se</button>
+            <Link to="/basket" className="tm-button tm-bare-button tm-button-text uk-width-1-1"><span>zapomenuté heslo</span></Link>
             <hr />
             <p>Nemáte jěště účet?</p>
-            <button className="tm-button tm-bare-button" onClick={e => onRegister(e)}><span>REGISTROVAT</span></button>
+            <button className="tm-button tm-bare-button uk-width-1-1" onClick={e => onRegister(e)}><span>REGISTROVAT</span></button>
           </form>
         </div>
 

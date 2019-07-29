@@ -1,7 +1,7 @@
 import React from 'react';
 import Cart from '../cart'
 
-const ShortBlock = ({data}) => {
+const ShortBlock = ({data, currency}) => {
 
   return(
     <section className="grey section_base">
@@ -15,11 +15,11 @@ const ShortBlock = ({data}) => {
           <div className="uk-position-relative uk-visible-toggle uk-light" tabIndex="-1" uk-slider="center: true; index: 1">
             <ul className="uk-slider-items uk-grid uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m">
               {(data || []).map((item, index) =>
-                <Cart key={index} item={item}/>
+                <Cart key={index} item={item} currency={currency}/>
               )}
             </ul>
           </div>
-          <ul className="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+
         </div>
       </div>
     </section>

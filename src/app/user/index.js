@@ -78,7 +78,7 @@ const User = () => {
 
         <div className="form_container">
           <div className="form_column"></div>
-          <div className="form_column"><button className="tm-button tm-black-button" onClick={e => onSave()}>ULOŽIT</button></div>
+          <div className="form_column uk-text-right"><button className="tm-button tm-black-button" onClick={e => onSave()}>ULOŽIT</button></div>
         </div>
 
 

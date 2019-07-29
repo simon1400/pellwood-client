@@ -61,15 +61,15 @@ b, strong {
 
 
 header{
-	position: fixed;
+	position: absolute;
 	top: 30px;
 	left: 0;
 	width: calc(100% - 60px);
 	background-color: $accent;
 	height: 90px;
 	z-index: 1000;
-	margin-right: 30px;
-	margin-left: 30px;
+	margin-right: 40px;
+	margin-left: 40px;
 	.logo-wrap{
 		img{
 			width: 200px;
@@ -160,7 +160,7 @@ header{
 	}
 }
 
-ul li a{
+ul li a:not(.card_short){
 	position: relative;
 	&:after{
 		content: '';
@@ -217,7 +217,7 @@ h1, h2, h3, h4, h5, h6{
 	font-family: $font;
 	font-weight: 200;
 	text-align: center;
-	margin-bottom: 60px!important;
+	margin-bottom: 100px!important;
 }
 
 p{
@@ -228,43 +228,50 @@ p{
 	line-height: 31px;
 }
 
-a, .tm-button{
+a{
 	letter-spacing: 0.13em;
 }
 
-
-
-.button{
-	display: inline-block;
-	font-size: 16px;
-	text-align: center;
-	text-transform: uppercase;
-	letter-spacing: 0.13em;
-	font-family: $font;
-	font-weight: 300;
-	height: 55px;
-	line-height: 55px;
-	transition: all .5s ease;
+.form_column .tm-button{
 	padding-left: 55px;
 	padding-right: 55px;
+}
+
+.tm-button{
+  height: 54px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  line-height: 54px;
+  display: inline-block;
 	border: none;
 	cursor: pointer;
-	&:hover{
-		text-decoration: none;
+	transition: all .5s ease;
+	letter-spacing: 0.13em;
+	font-weight: 300;
+	&:focus{
+		outline: none;
 	}
-	&.bare{
+  &:hover{
+    text-decoration: none;
+  }
+  &.tm-bare-button{
+    border: 1px solid #232323;
+    color: #232323;
 		background-color: transparent;
-		border-width: 1px;
-		border-style: solid;
-	}
-	&.black{
-		color: white;
-		background-color: $accent;
+		padding-left: 55px;
+		padding-right: 55px;
+  }
+  &.tm-black-button{
+    background-color: #232323;
+    color: white;
+    border: 1px solid #232323;
 		&:hover{
 			box-shadow: inset -14em 0 0 0 lighten($accent, 10%), inset 14em 0 0 0 lighten($accent, 10%);
 		}
-	}
-	&.contrast{
+  }
+	&.tm-contrast{
 		border-color: white;
 		color: white;
 		&:hover{

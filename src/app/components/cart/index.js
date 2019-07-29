@@ -12,7 +12,7 @@ function urlFor(source) {
 const Cart = ({item, currency}) => {
 
   const [pricesGroup, setPricesGroup] = useState(false)
-  const [price, setPrice] = useState(item.variants[0].price)
+  const [price, setPrice] = useState(0)
 
   useEffect(() => {
     if(item.variants.length > 1){
@@ -23,6 +23,10 @@ const Cart = ({item, currency}) => {
       })
       var minPrice = Math.min(...allPrices)
       setPrice(minPrice)
+    }else if(item.variants.length === 1){
+      setPrice(item.variants[0].price)
+    }else{
+      setPrice(item.price)
     }
   }, [])
 
@@ -33,7 +37,7 @@ const Cart = ({item, currency}) => {
         <div className="cart_img">
           <img src={urlFor(item.image).url()} alt={item.title} />
         </div>
-        <span className="short_price">{item.variants.length ? pricesGroup ? 'od '+price : price : ''} {currency}</span>
+        <span className="short_price">{item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>
       </a>
     </li>
   )

@@ -14,13 +14,16 @@ function urlFor(source) {
   return imageBuilder.image(source);
 }
 
-var lang = 'cz'
+var lang = 'cz', currency = 'Kč'
 if(window.location.pathname.split('/')[1] === 'en'){
-  lang = 'en'
+  lang = 'en';
+  currency = '$';
 }else if(window.location.pathname.split('/')[1] === 'de'){
-  lang = 'de'
+  lang = 'de';
+  currency = '&euro;';
 }else{
-  lang = 'cz'
+  lang = 'cz';
+  currency = 'Kč';
 }
 const query = `{
   'homepage': *[_type == "homepage"] {
@@ -51,7 +54,6 @@ export default () => {
     })
   }, [])
 
-
   if(homepage.title !== undefined){
     return (
       <Page id="homepage" title="Uvodni stranka">
@@ -62,7 +64,7 @@ export default () => {
             <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
               <div >
                 <h1 className="contrast" uk-scrollspy="cls: uk-animation-slide-top-small; delay: 500">{homepage.title}</h1>
-                <a className="button bare contrast" uk-scrollspy="cls: uk-animation-slide-top; delay: 500" href={homepage.button.url}>{homepage.button.title}</a>
+                <a className="tm-button tm-bare-button tm-contrast" uk-scrollspy="cls: uk-animation-slide-top; delay: 500" href={homepage.button.url}>{homepage.button.title}</a>
               </div>
             </div>
           </div>
@@ -76,7 +78,7 @@ export default () => {
           </div>
         </section>
 
-        <ShortBlock data={carts}/>
+        <ShortBlock data={carts} currency={currency}/>
 
         <section className="section_base">
           <div className="uk-container uk-container-expand">

@@ -48,7 +48,7 @@ export default () => {
   }, [])
 
   return (
-    <Page id="homepage" title="Catalog">
+    <Page id="catalog" title="Catalog">
     <section className="head_category">
       <div className="uk-container uk-container-expand">
         <div className="content_head_wrap">

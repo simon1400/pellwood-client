@@ -1,8 +1,12 @@
 import React from 'react'
+import './style.scss'
+
 
 const ThankYou = () => {
   return(
-    <div></div>
+    <div className="thank-you-page">
+
+    </div>
   )
 }
 

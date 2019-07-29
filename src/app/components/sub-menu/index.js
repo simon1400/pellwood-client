@@ -19,6 +19,8 @@ const SubMenu = ({data}) => {
   return(
     <nav className="sub_menu">
       <ul>
+        {window.location.pathname.split('/')[1] === 'produkty' || window.location.pathname.split('/')[2] === 'produkty'
+          ? <li uk-filter-control=""><Link to="/">Všechni produkty</Link></li> : ''}
         {data.map((item, index) =>
           <li key={index} uk-filter-control={`[data-category*='${item._id}']`}><Link to="/">{item[lang].title}</Link></li>
         )}

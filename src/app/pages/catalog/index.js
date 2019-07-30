@@ -22,27 +22,34 @@ if(window.location.pathname.split('/')[1] === 'en'){
 const query = `{
   'product': *[_type == "product"].${lang},
   'category': *[_type == "category"],
-  'article': *[_type == "article"].${lang}
+  'articles': *[_type == "article"].${lang}
 }`;
 
 export default () => {
 
   const [product, setProduct] = useState([])
-  const [article, setArticle] = useState([])
+  const [articleFirst, setArticleFirst] = useState([])
+  const [articleSeccond, setArticleSeccond] = useState([])
   const [category, setCategory] = useState([])
 
-  const shuffle = (a) => {
+  const shuffle = (a, count) => {
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [a[i], a[j]] = [a[j], a[i]];
     }
-    setArticle(a);
+
+    if(!count) setArticleFirst(a);
+    else setArticleSeccond(a);
+
   }
 
   useEffect(() => {
     sanityClient.fetch(query).then(data => {
       setProduct(data.product)
-      shuffle(data.article)
+      var articlesFilteredFirst = data.articles.filter(item => item.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
+      shuffle(articlesFilteredFirst, 0)
+      var articlesFilteredSeccond = data.articles.filter(item => item.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
+      shuffle(articlesFilteredSeccond, 1)
       setCategory(data.category)
     })
   }, [])
@@ -98,7 +105,7 @@ export default () => {
       </div>
     </section>
 
-    <RandomArticles data={article}/>
+    <RandomArticles lang={lang} articleFirst={articleFirst} articleSeccond={articleSeccond}/>
 
     </Page>
   )

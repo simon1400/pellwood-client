@@ -1,0 +1,40 @@
+// userModel.js
+import mongoose from 'mongoose'
+
+// Set Order Schema
+const schema = new mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
+  email: {type: String, default: ''},
+  phone: {type: String, default: ''},
+  name: {type: String, default: ''},
+  surname: {type: String, default: ''},
+  country: {type: String, default: ''},
+  city: {type: String, default: ''},
+  address: {type: String, default: ''},
+  code: {type: String, default: ''},
+  anotherAdress: {
+    email: {type: String, default: ''},
+    phone: {type: String, default: ''},
+    name: {type: String, default: ''},
+    surname: {type: String, default: ''},
+    country: {type: String, default: ''},
+    city: {type: String, default: ''},
+    address: {type: String, default: ''},
+    code: {type: String, default: ''}
+  },
+  companyData: {
+    companyName: {type: String, default: ''},
+    ico: {type: String, default: ''},
+    dic: {type: String, default: ''}
+  },
+  note: {type: String, default: ''},
+  basket: {type: Object},
+  sum: {type: String, default: ''},
+  paymentMethod: {type: String, default: ''},
+  paymentPrice: {type: String, default: ''},
+  deliveryMethod: {type: String, default: ''},
+  deliveryPrice: {type: String, default: ''}
+}),
+
+Order = mongoose.model('order', schema)
+export default Order

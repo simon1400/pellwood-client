@@ -22,6 +22,25 @@
 	left: 0;
 }
 
+.base-page{
+	text-align: center;
+	padding-top: 260px;
+	padding-bottom: 260px;
+	.tm-button{
+		padding-left: 55px;
+		padding-right: 55px;
+		margin-top: 50px;
+	}
+}
+
+.success{
+	display: block;
+	color: #7AC843;
+	font-size: 18px;
+	text-transform: uppercase;
+	letter-spacing: 1.8px;
+}
+
 
 html{
 	overflow-y: scroll;

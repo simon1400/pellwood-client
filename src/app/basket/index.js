@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
 import { withRouter } from "react-router";
+import axios from 'axios'
 import './style.scss'
 
 import NotFound from '../pages/not-found';
@@ -102,8 +103,25 @@ const Basket = () => {
 
 
   const sendOrder = () => {
-    console.log(basket);
-    console.log(user);
+    const dataOrder = {
+      sum,
+      basket,
+      user: {
+        ...state[0],
+        anotherAdress: anotherAdress[0],
+        companyData: companyData[0],
+      },
+      delivery: deliveryMethod[0],
+      payment: paymentMethod[0],
+      note: note[0]
+    }
+
+    console.log(dataOrder);
+
+    axios.post('/.netlify/functions/createOrder', dataOrder).then((res) => {
+      console.log(res);
+      console.log('Order data send');
+    })
   }
 
 
@@ -135,7 +153,6 @@ const Basket = () => {
               <Route exact path="/basket" render={() => <Link to="/basket/checkout" className="tm-button tm-black-button">přejít k objednávce</Link>} />
               <Route exact path="/basket/checkout" render={() => <button className="tm-button tm-black-button" onClick={() => sendOrder()}>Objednat</button>} />
             </Switch>
-
           </div>
         </div>
       </div>

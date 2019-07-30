@@ -45,7 +45,8 @@ export default ({match}) => {
   const [product, setProduct] = useState([])
   const [productId, setProductId] = useState([])
   const [carts, setCarts] = useState([])
-  const [articles, setArticles] = useState([])
+  const [articleFirst, setArticleFirst] = useState([])
+  const [articleSeccond, setArticleSeccond] = useState([])
   const [count, setCount] = useState(0)
   const [loader, setLoader] = useState(false)
 
@@ -64,7 +65,10 @@ export default ({match}) => {
       setProduct(data.products[0][lang])
       setProductId(data.products[0]._id)
       setCarts(data.products[0].linkedCarts)
-      shuffle(data.articles)
+      var articlesFilteredFirst = data.articles.filter(item => item.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
+      shuffle(articlesFilteredFirst, 0)
+      var articlesFilteredSeccond = data.articles.filter(item => item.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
+      shuffle(articlesFilteredSeccond, 1)
     })
   }, [])
 
@@ -78,12 +82,15 @@ export default ({match}) => {
     setError({ ...error, select: false, })
   }
 
-  const shuffle = (a) => {
+  const shuffle = (a, count) => {
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [a[i], a[j]] = [a[j], a[i]];
     }
-    setArticles(a);
+
+    if(!count) setArticleFirst(a);
+    else setArticleSeccond(a);
+
   }
 
   const onBuy = () => {
@@ -228,7 +235,7 @@ export default ({match}) => {
       </section>
 
       <ShortBlock data={carts}/>
-      <RandomArticles data={articles} />
+      <RandomArticles lang={lang} articleFirst={articleFirst} articleSeccond={articleSeccond} />
       </Page>
     )
   }else{

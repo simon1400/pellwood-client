@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Delivery from './components/delivery.js'
 import Corporate from './components/corporate.js'
 import Head from './components/head'
@@ -9,6 +9,7 @@ import axios from 'axios'
 const User = () => {
 
   const [user] = useState(JSON.parse(localStorage.getItem('user')))
+  const [orders, setOrders] = useState([])
 
   const state = useState({
     email: user.email,
@@ -27,6 +28,12 @@ const User = () => {
 
   const companyData = useState({...user.companyData})
 
+
+  useEffect(() => {
+    axios.post('/.netlify/functions/getOrder', {email: state[0].email}).then(res => {
+      setOrders(res.data.data)
+    })
+  }, [])
 
   const handleChange = (name, value) => {
     let newState = state[0];
@@ -82,7 +89,7 @@ const User = () => {
         <hr />
 
         <div className="form_container">
-          <div className="form_column"><button class="tm-button tm-bare-button" onClick={() => onLogout()}>Odhlásit se</button></div>
+          <div className="form_column"><button className="tm-button tm-bare-button" onClick={() => onLogout()}>Odhlásit se</button></div>
           <div className="form_column uk-text-right"><button className="tm-button tm-black-button" onClick={e => onSave()}>ULOŽIT</button></div>
         </div>
 
@@ -97,14 +104,16 @@ const User = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Objednávka č. 123456</td>
-              <td className="uk-text-right">596 Kč</td>
-            </tr>
-            <tr>
-              <td>Objednávka č. 123456</td>
-              <td className="uk-text-right">596 Kč</td>
-            </tr>
+            {orders.length ? orders.map(item =>
+              <tr key={item._id}>
+                <td>Objednávka č. 123456</td>
+                <td className="uk-text-right">{item.sum} Kč</td>
+              </tr>)
+            : <tr>
+                <td>Nemate zadnu objednavku</td>
+                <td className="uk-text-right"></td>
+              </tr>
+            }
           </tbody>
           </table>
         </div>

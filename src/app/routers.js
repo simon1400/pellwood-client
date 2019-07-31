@@ -23,9 +23,17 @@ const Routers = () => {
     <Switch>
       <Route exact path="/" component={Homepage} />
 
-      <Route exact path="/catalog" component={Catalog} />
-      <Route exact path="/blog" component={BlogShort} />
-      <Route exact path="/blog/:url" component={BlogFull} />
+      <Route exact path="/produkty" component={Catalog} />
+
+      <Route exact path="/sluzby" component={BlogShort} />
+      <Route exact path="/sluzby/:url" component={BlogFull} />
+
+      <Route exact path="/kontakty" component={BlogShort} />
+      <Route exact path="/kontakty/:url" component={BlogFull} />
+      
+      <Route exact path="/o-nas" component={BlogShort} />
+      <Route exact path="/o-nas/:url" component={BlogFull} />
+
       <Route exact path="/product/:url" component={Product} />
       <Route exact path="/product/:url/:handle" component={Product} />
 

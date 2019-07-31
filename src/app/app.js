@@ -1,7 +1,6 @@
 // The basics
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { withRouter } from 'react-router';
-import UIkit from 'uikit'
 
 import Header from './header';
 import Routes from './routers.js';

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import './style.scss'
 import AnimateHeight from 'react-animate-height';
 
@@ -9,16 +9,13 @@ import Password from './password.js'
 import Note from './note.js'
 import ShipPay from './shipPay.js'
 
-const Checkout = ({state, user, anotherAdress, companyData, password, note, deliveryMethod, paymentMethod}) => {
-
+const Checkout = ({state, error, user, anotherAdress, companyData, password, note, deliveryMethod, paymentMethod}) => {
 
   const handleChange = (name, value) => {
     let newState = state[0];
     newState[name] = value;
     state[1]({...newState})
   }
-
-  console.log(user.email);
 
   return(
     <div className="tm-checkout">
@@ -73,7 +70,7 @@ const Checkout = ({state, user, anotherAdress, companyData, password, note, deli
             <Note state={note[0]} setState={note[1]} />
           </AnimateHeight>
 
-          <ShipPay delivery={deliveryMethod[0]} setDelivery={deliveryMethod[1]} payment={paymentMethod[0]} setPayment={paymentMethod[1]}/>
+          <ShipPay delivery={deliveryMethod[0]} error={error} setDelivery={deliveryMethod[1]} payment={paymentMethod[0]} setPayment={paymentMethod[1]}/>
 
         </fieldset>
       </form>

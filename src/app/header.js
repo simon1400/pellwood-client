@@ -18,7 +18,10 @@ if(window.location.pathname.split('/')[1] === 'en'){
 }
 
 
-const query = `*[_type == "menu" && ${lang}.location == 'menu_top'].${lang}.items`;
+const query = `*[_type == "archive" && !(_id == '3cc07543-ce81-4ad2-ace0-8bf754217065')].${lang} {
+  title,
+  slug
+}`;
 
 
 const Header = () => {
@@ -37,7 +40,7 @@ const Header = () => {
       setLoginUser(true)
     }
     sanityClient.fetch(query).then(data => {
-      setMenu(...data)
+      setMenu(data)
     })
   }, [])
 
@@ -104,7 +107,8 @@ const Header = () => {
             <div className="top-nav">
               <nav>
                 <ul>
-                  {(menu || []).map((item, index) => <li key={index}><Link to={item.menuUrl}>{item.title}</Link></li>)}
+                  <li><a href='/produkty'>Produkty</a></li>
+                  {(menu || []).map((item, index) => <li key={index}><a href={item.slug.current}>{item.title}</a></li>)}
                 </ul>
               </nav>
               <div className="lang-nav uk-hidden@m">

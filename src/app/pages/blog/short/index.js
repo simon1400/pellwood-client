@@ -5,16 +5,24 @@ import Article from '../../../components/article-short';
 
 import sanityClient from "../../../../lib/sanity.js";
 
+var firstUrl = window.location.pathname.split('/')[1],
+    seccondUrl = window.location.pathname.split('/')[2]
+
 var lang = 'cz'
-if(window.location.pathname.split('/')[1] === 'en'){
+if(firstUrl === 'en'){
   lang = 'en'
-}else if(window.location.pathname.split('/')[1] === 'de'){
+}else if(firstUrl === 'de'){
   lang = 'de'
 }else{
   lang = 'cz'
 }
 
-const query = `*[_type == "article"].${lang} {
+const archive = `*[_type == "archive" && '${firstUrl}' == ${lang}.slug.current] {
+  _id
+}`;
+
+
+const query = `*[_type == "article" && $id == ${lang}.category._ref].${lang} {
   title,
   image,
   slug
@@ -25,12 +33,19 @@ const query = `*[_type == "article"].${lang} {
 export default () => {
 
   const [articles, setArticles] = useState([])
+  const [id, setId] = useState([])
 
   useEffect(() => {
-    sanityClient.fetch(query).then(data => {
-      setArticles(data)
+    sanityClient.fetch(archive).then(data => {
+      setId(data[0]._id)
     })
   }, [])
+
+  useEffect(() => {
+    sanityClient.fetch(query, {id: id}).then(data => {
+      setArticles(data)
+    })
+  }, [id])
 
   return (
     <Page id="blog" title="Blog">
@@ -44,7 +59,7 @@ export default () => {
     <section className="category grey">
       <div className="uk-container uk-container-expand">
         <div className="uk-grid uk-child-width-1-1 uk-child-width-1-2@s" uk-grid="" uk-scrollspy="target: > div > a; cls: uk-animation-slide-top-small; delay: 500">
-          {(articles || []).map((item, index) => <Article key={index} data={item}/>)}
+          {(articles || []).map((item, index) => <Article key={index} lang={lang} data={item} firstUrl={firstUrl} seccondUrl={seccondUrl}/>)}
         </div>
       </div>
     </section>

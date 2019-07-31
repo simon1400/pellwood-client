@@ -2,7 +2,7 @@ import React from 'react'
 import './style.scss'
 import UIkit from 'uikit'
 
-const Head = ({head}) => {
+const Head = ({head, user}) => {
 
   const modal = () => {
     UIkit.modal(UIkit.util.find('#modal-login')).show();
@@ -11,7 +11,7 @@ const Head = ({head}) => {
   return(
     <div className="tm-basket-head">
       <h1>{head}</h1>
-      <a href="#modal-login" className="tm-button tm-bare-button" onClick={() => modal()}>přihlásit</a>
+      {user.email === undefined ? <a href="#modal-login" className="tm-button tm-bare-button" onClick={() => modal()}>přihlásit</a> : ''}
     </div>
   )
 }

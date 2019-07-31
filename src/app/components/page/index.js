@@ -6,13 +6,12 @@ import Helmet from 'react-helmet';
 const SITE_URL =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000'
-    : 'https://cra-ssr.herokuapp.com';
+    : 'https://pellwood.tk';
 
 const FACEBOOK_APP_ID = 'XXXXXXXXX';
 
-const defaultTitle = 'My Website';
-const defaultDescription =
-  'This is a really awesome website where we can render on the server. Supa cool.';
+const defaultTitle = 'Pellwood';
+const defaultDescription = 'Palicky';
 // const defaultImage = `${SITE_URL}${logo}`;
 const defaultTwitter = '@cereallarceny';
 const defaultSep = ' | ';

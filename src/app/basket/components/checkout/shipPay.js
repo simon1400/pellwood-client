@@ -11,12 +11,13 @@ const paymentData = [
   {value: 'Online bankovní platby', price: 'ZDARMA'}
 ];
 
-const ShipPay = ({delivery, setDelivery, payment, setPayment}) => {
+const ShipPay = ({delivery, error, setDelivery, payment, setPayment}) => {
 
   return(
     <div className="form_container tm-payship">
       <div className="form_column">
         <legend className="uk-legend">Doprava</legend>
+
         {deliveryData.map((item, index) =>
           <div key={index} className="uk-grid-small" uk-grid="">
             <div className="uk-width-expand">
@@ -29,7 +30,9 @@ const ShipPay = ({delivery, setDelivery, payment, setPayment}) => {
             <div className={`method-price ${item.price === 'ZDARMA' ? 'tm-positive' : ''}`}>{item.price}</div>
           </div>
         )}
-
+        {error.delivery ? <div className="uk-alert-danger" uk-alert="">
+          <p>Prosim vyberte spusob dopravy</p>
+        </div> : ''}
       </div>
 
       <div className="form_column">
@@ -46,6 +49,10 @@ const ShipPay = ({delivery, setDelivery, payment, setPayment}) => {
             <div className={`method-price ${item.price === 'ZDARMA' ? 'tm-positive' : ''}`}>{item.price}</div>
           </div>
         )}
+        {error.payment ? <div className="uk-alert-danger" uk-alert="">
+          <p>Prosim vyberte spusob platby</p>
+        </div> : ''}
+
       </div>
     </div>
   )

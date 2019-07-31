@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
 import { withRouter } from "react-router";
+import axios from 'axios'
 import './style.scss'
 
 import NotFound from '../pages/not-found';
@@ -15,7 +16,7 @@ const Basket = () => {
 
   const [sum, setSum] = useState(0)
   const [basket, setBasket] = useState(JSON.parse(localStorage.getItem('basket')))
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || {})
+  const [user] = useState(JSON.parse(localStorage.getItem('user')) || {})
 
   const state = useState({
     email: '',
@@ -62,6 +63,11 @@ const Basket = () => {
     price: ''
   })
 
+  const [error, setError] = useState({
+    delivery: false,
+    payment: false
+  })
+
   useEffect(() => {
     sumTotal(0, 0)
     if(Object.keys(user).length){
@@ -100,16 +106,61 @@ const Basket = () => {
     setSum(sumAll)
   }
 
+
+  const sendOrder = () => {
+
+    console.log(error);
+
+    if(!deliveryMethod[0].value.length){
+      console.log('error delivery');
+      setError({
+        ...error,
+        delivery: true
+      })
+      return
+    }
+
+    if(!paymentMethod[0].value.length){
+      console.log('error payment');
+      setError({
+        ...error,
+        payment: true
+      })
+      return
+    }
+
+    const dataOrder = {
+      sum,
+      basket,
+      user: {
+        ...state[0],
+        anotherAdress: anotherAdress[0],
+        companyData: companyData[0],
+      },
+      delivery: deliveryMethod[0],
+      payment: paymentMethod[0],
+      note: note[0]
+    }
+
+    axios.post('/.netlify/functions/createOrder', dataOrder).then(res => {
+      console.log('Order data send')
+      localStorage.removeItem('basket')
+      localStorage.setItem('basketCount', 0)
+      window.location.href = '/thank-you'
+    })
+  }
+
+
   return (
     <main className="basket">
       <div className="tm-basket-content">
         <Switch>
-          <Route exact path="/basket" render={() => <Head head="Váš nákupní košík"/>} />
-          <Route exact path="/basket/checkout" render={() => <Head head="Objednávka"/>} />
+          <Route exact path="/basket" render={() => <Head head="Váš nákupní košík" user={user}/>} />
+          <Route exact path="/basket/checkout" render={() => <Head head="Objednávka" user={user}/>} />
         </Switch>
         <Switch>
           <Route exact path="/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} />} />
-          <Route exact path="/basket/checkout" render={() => <Checkout state={state} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
+          <Route exact path="/basket/checkout" render={() => <Checkout state={state} error={error} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
           <Route component={NotFound} />
         </Switch>
       </div>
@@ -124,7 +175,10 @@ const Basket = () => {
         </div>
         <div>
           <div className="tm-basket-footer tm-footer-single">
-            <Link to="/basket/checkout" className="tm-button tm-black-button">přejít k objednávce</Link>
+            <Switch>
+              <Route exact path="/basket" render={() => <Link to="/basket/checkout" className="tm-button tm-black-button">přejít k objednávce</Link>} />
+              <Route exact path="/basket/checkout" render={() => <button className="tm-button tm-black-button" onClick={() => sendOrder()}>Objednat</button>} />
+            </Switch>
           </div>
         </div>
       </div>

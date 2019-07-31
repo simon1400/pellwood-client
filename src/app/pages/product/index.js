@@ -19,13 +19,16 @@ function urlFor(source) {
   return imageBuilder.image(source);
 }
 
-var lang = 'cz'
+var lang = 'cz', currency = 'Kč'
 if(window.location.pathname.split('/')[1] === 'en'){
-  lang = 'en'
+  lang = 'en';
+  currency = '$';
 }else if(window.location.pathname.split('/')[1] === 'de'){
-  lang = 'de'
+  lang = 'de';
+  currency = '&euro;';
 }else{
-  lang = 'cz'
+  lang = 'cz';
+  currency = 'Kč';
 }
 
 const query = `{
@@ -42,7 +45,8 @@ export default ({match}) => {
   const [product, setProduct] = useState([])
   const [productId, setProductId] = useState([])
   const [carts, setCarts] = useState([])
-  const [articles, setArticles] = useState([])
+  const [articleFirst, setArticleFirst] = useState([])
+  const [articleSeccond, setArticleSeccond] = useState([])
   const [count, setCount] = useState(0)
   const [loader, setLoader] = useState(false)
 
@@ -61,7 +65,10 @@ export default ({match}) => {
       setProduct(data.products[0][lang])
       setProductId(data.products[0]._id)
       setCarts(data.products[0].linkedCarts)
-      shuffle(data.articles)
+      var articlesFilteredFirst = data.articles.filter(item => item.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
+      shuffle(articlesFilteredFirst, 0)
+      var articlesFilteredSeccond = data.articles.filter(item => item.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
+      shuffle(articlesFilteredSeccond, 1)
     })
   }, [])
 
@@ -75,12 +82,15 @@ export default ({match}) => {
     setError({ ...error, select: false, })
   }
 
-  const shuffle = (a) => {
+  const shuffle = (a, count) => {
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [a[i], a[j]] = [a[j], a[i]];
     }
-    setArticles(a);
+
+    if(!count) setArticleFirst(a);
+    else setArticleSeccond(a);
+
   }
 
   const onBuy = () => {
@@ -161,7 +171,7 @@ export default ({match}) => {
                   {(product.variants || []).map((item, index) =>
                     <div key={index} className="uk-grid uk-grid-medium" uk-grid="">
                       <div className="uk-width-expand">{item.title}</div>
-                      <div className="short_price">{item.price}</div>
+                      <div className="short_price">{currency === '$' ? currency: ''} {item.price} {currency !== '$' ? currency: ''}</div>
                     </div>
                   )}
                 </div>
@@ -181,7 +191,7 @@ export default ({match}) => {
                                   <a href="#" className="variant_select" data-name={item.title} data-price={item.price} onClick={e => selectHandle(e)} title={item.title}>
                                     <span className="uk-grid uk-grid-small">
                                       <span className="uk-width-3-5" >{item.title}</span>
-                                      <span className="uk-width-2-5 uk-text-right">{item.price}</span>
+                                      <span className="uk-width-2-5 uk-text-right">{currency === '$' ? currency: ''} {item.price} {currency !== '$' ? currency: ''}</span>
                                     </span>
                                   </a>
                                 </li>
@@ -201,7 +211,7 @@ export default ({match}) => {
                       </div>
                     </div>
                   </div>
-                  <Link to={window.location.pathname +'?buy'}><button className="button black" href="/" onClick={() => onBuy()}>{loader ? <div uk-spinner="" className="uk-icon uk-spinner"></div> : ''}PŘIDAT DO KOŠÍKU</button></Link>
+                  <Link to={window.location.pathname +'?buy'}><button className="uk-width-1-1 uk-margin-top tm-button tm-black-button" href="/" onClick={() => onBuy()}>{loader ? <div uk-spinner="" className="uk-icon uk-spinner"></div> : ''}PŘIDAT DO KOŠÍKU</button></Link>
                 </div> : ''}
                 <div className="description_product">
                   <BlockContent blocks={product.text} />
@@ -225,7 +235,7 @@ export default ({match}) => {
       </section>
 
       <ShortBlock data={carts}/>
-      <RandomArticles data={articles} />
+      <RandomArticles lang={lang} articleFirst={articleFirst} articleSeccond={articleSeccond} />
       </Page>
     )
   }else{

@@ -1,9 +1,31 @@
-import React from 'react'
-
+import React, {useState, useEffect} from 'react'
+import sanityClient from "../lib/sanity.js";
 import mastercard from './assets/mastercard.svg'
 import visa from './assets/visa.svg'
+import BlockContent from "@sanity/block-content-to-react";
+
+var lang = 'cz'
+if(window.location.pathname.split('/')[1] === 'en'){
+  lang = 'en'
+}else if(window.location.pathname.split('/')[1] === 'de'){
+  lang = 'de'
+}else{
+  lang = 'cz'
+}
+
+
+const query = `*[_type == "settings"].${lang}.footer`;
 
 export default () => {
+
+  const [footer, setFooter] = useState([])
+
+  useEffect(() => {
+    sanityClient.fetch(query).then(data => {
+      setFooter(data[0])
+    })
+  }, [])
+
   return (
     <footer>
       <div className="uk-container uk-container-expand uk-height-1-1">
@@ -16,30 +38,12 @@ export default () => {
               <img src={visa} alt="Visa" />
             </div>
           </div>
-          <div className="footer-item">
-            <h4 className="footer-item-head">Address</h4>
-            <p>Čestice 214, 387 19 <br/>
-              Czechia</p>
-          </div>
-          <div className="footer-item">
-            <h4 className="footer-item-head">Contact</h4>
-            <p>pellwood@nts.cz <br/>
-              +420 777 021 800</p>
-          </div>
-          <div className="footer-item">
-            <ul>
-              <li className="footer-item-head">Informace o nákupu</li>
-              <li><a href="/">Obchodní podmínky</a></li>
-              <li><a href="/">Ochranya osobních údajů</a></li>
-            </ul>
-          </div>
-          <div className="footer-item">
-            <ul>
-              <li className="footer-item-head">Follow us</li>
-              <li><a href="/">Instagram</a></li>
-              <li><a href="/">Facebook</a></li>
-            </ul>
-          </div>
+          {footer.map(item =>
+            <div key={item._key} className="footer-item">
+              <h4 className="footer-item-head">{item.title}</h4>
+              <BlockContent blocks={item.content} />
+            </div>
+          )}
         </div>
       </div>
     </footer>

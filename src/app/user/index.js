@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Delivery from './components/delivery.js'
 import Corporate from './components/corporate.js'
 import Head from './components/head'
@@ -8,7 +8,7 @@ import axios from 'axios'
 
 const User = () => {
 
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
+  const [user] = useState(JSON.parse(localStorage.getItem('user')))
 
   const state = useState({
     email: user.email,
@@ -48,6 +48,11 @@ const User = () => {
     })
   }
 
+  const onLogout = () => {
+    localStorage.removeItem('user')
+    window.location.href = '/'
+  }
+
   return(
     <main className="basket user">
       <div className="tm-basket-content">
@@ -77,8 +82,8 @@ const User = () => {
         <hr />
 
         <div className="form_container">
-          <div className="form_column"></div>
-          <div className="form_column"><button className="tm-button tm-black-button" onClick={e => onSave()}>ULOŽIT</button></div>
+          <div className="form_column"><button class="tm-button tm-bare-button" onClick={() => onLogout()}>Odhlásit se</button></div>
+          <div className="form_column uk-text-right"><button className="tm-button tm-black-button" onClick={e => onSave()}>ULOŽIT</button></div>
         </div>
 
 

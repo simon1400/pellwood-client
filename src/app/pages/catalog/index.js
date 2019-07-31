@@ -7,45 +7,55 @@ import sanityClient from "../../../lib/sanity.js";
 
 import './style.scss'
 
-var lang = 'cz'
+var lang = 'cz', currency = 'Kč'
 if(window.location.pathname.split('/')[1] === 'en'){
-  lang = 'en'
+  lang = 'en';
+  currency = '$';
 }else if(window.location.pathname.split('/')[1] === 'de'){
-  lang = 'de'
+  lang = 'de';
+  currency = '&euro;';
 }else{
-  lang = 'cz'
+  lang = 'cz';
+  currency = 'Kč';
 }
 
 const query = `{
   'product': *[_type == "product"].${lang},
   'category': *[_type == "category"],
-  'article': *[_type == "article"].${lang}
+  'articles': *[_type == "article"].${lang}
 }`;
 
 export default () => {
 
   const [product, setProduct] = useState([])
-  const [article, setArticle] = useState([])
+  const [articleFirst, setArticleFirst] = useState([])
+  const [articleSeccond, setArticleSeccond] = useState([])
   const [category, setCategory] = useState([])
 
-  const shuffle = (a) => {
+  const shuffle = (a, count) => {
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [a[i], a[j]] = [a[j], a[i]];
     }
-    setArticle(a);
+
+    if(!count) setArticleFirst(a);
+    else setArticleSeccond(a);
+
   }
 
   useEffect(() => {
     sanityClient.fetch(query).then(data => {
       setProduct(data.product)
-      shuffle(data.article)
+      var articlesFilteredFirst = data.articles.filter(item => item.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
+      shuffle(articlesFilteredFirst, 0)
+      var articlesFilteredSeccond = data.articles.filter(item => item.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
+      shuffle(articlesFilteredSeccond, 1)
       setCategory(data.category)
     })
   }, [])
 
   return (
-    <Page id="homepage" title="Catalog">
+    <Page id="catalog" title="Catalog">
     <section className="head_category">
       <div className="uk-container uk-container-expand">
         <div className="content_head_wrap">
@@ -90,12 +100,12 @@ export default () => {
       </div>
       <div className="uk-container uk-container-expand">
         <ul className="js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s" uk-grid="" uk-scrollspy="target: > li > a; cls: uk-animation-slide-top-small; delay: 500">
-          {(product || []).map((item, index) => <Cart item={item} key={index} />)}
+          {(product || []).map((item, index) => <Cart item={item} key={index} currency={currency} />)}
         </ul>
       </div>
     </section>
 
-    <RandomArticles data={article}/>
+    <RandomArticles lang={lang} articleFirst={articleFirst} articleSeccond={articleSeccond}/>
 
     </Page>
   )

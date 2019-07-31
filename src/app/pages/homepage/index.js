@@ -14,43 +14,58 @@ function urlFor(source) {
   return imageBuilder.image(source);
 }
 
-var lang = 'cz'
+var lang = 'cz', currency = 'Kč'
 if(window.location.pathname.split('/')[1] === 'en'){
-  lang = 'en'
+  lang = 'en';
+  currency = '$';
 }else if(window.location.pathname.split('/')[1] === 'de'){
-  lang = 'de'
+  lang = 'de';
+  currency = '&euro;';
 }else{
-  lang = 'cz'
+  lang = 'cz';
+  currency = 'Kč';
 }
+
+// 'archive': *[_type == "archive" && !(_id in ['3cc07543-ce81-4ad2-ace0-8bf754217065', '52fa0f08-6a67-4697-8ac4-d80b1b499871'])]{
+//   ${lang},
+//   _id
+// }
+
 const query = `{
   'homepage': *[_type == "homepage"] {
     ${lang},
     "carts": *[ _type == "product" && _id in [^.${lang}.recommendedProducts.product_1._ref, ^.${lang}.recommendedProducts.product_2._ref, ^.${lang}.recommendedProducts.product_3._ref]].${lang}
   }[0...10],
-  'articles': *[_type == "article"].${lang} | order(_createdAt asc)
+  'articles': *[_type == "article"].${lang}
 }`;
 
 export default () => {
   const [homepage, setHomepage] = useState([])
   const [carts, setCarts] = useState([])
-  const [articles, setArticles] = useState([])
+  const [articleFirst, setArticleFirst] = useState([])
+  const [articleSeccond, setArticleSeccond] = useState([])
 
-  const shuffle = (a) => {
+  const shuffle = (a, count) => {
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [a[i], a[j]] = [a[j], a[i]];
     }
-    setArticles(a);
+
+    if(!count) setArticleFirst(a);
+    else setArticleSeccond(a);
+
   }
 
   useEffect(() => {
     sanityClient.fetch(query).then(data => {
       setHomepage(data.homepage[0][lang])
       setCarts(data.homepage[0].carts)
-      shuffle(data.articles)
+      var articlesFilteredFirst = data.articles.filter(item => item.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
+      shuffle(articlesFilteredFirst, 0)
+      var articlesFilteredSeccond = data.articles.filter(item => item.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
+      shuffle(articlesFilteredSeccond, 1)
     })
   }, [])
-
 
   if(homepage.title !== undefined){
     return (
@@ -62,7 +77,7 @@ export default () => {
             <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
               <div >
                 <h1 className="contrast" uk-scrollspy="cls: uk-animation-slide-top-small; delay: 500">{homepage.title}</h1>
-                <a className="button bare contrast" uk-scrollspy="cls: uk-animation-slide-top; delay: 500" href={homepage.button.url}>{homepage.button.title}</a>
+                <a className="tm-button tm-bare-button tm-contrast" uk-scrollspy="cls: uk-animation-slide-top; delay: 500" href={homepage.button.url}>{homepage.button.title}</a>
               </div>
             </div>
           </div>
@@ -76,7 +91,7 @@ export default () => {
           </div>
         </section>
 
-        <ShortBlock data={carts}/>
+        <ShortBlock data={carts} currency={currency}/>
 
         <section className="section_base">
           <div className="uk-container uk-container-expand">
@@ -94,8 +109,8 @@ export default () => {
                 </a>
               </div>
 
-              {articles[0] ? <Article data={articles[0]}/> : ''}
-              {articles[1] ? <Article data={articles[1]}/> : ''}
+              {articleFirst[0] ? <Article lang={lang} data={articleFirst[0]} firstUrl="sluzby"/> : ''}
+              {articleSeccond[0] ? <Article lang={lang} data={articleSeccond[0]} firstUrl="o-nas"/> : ''}
 
             </div>
           </div>

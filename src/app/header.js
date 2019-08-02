@@ -8,13 +8,16 @@ import UIkit from 'uikit'
 
 import logo from './assets/logo.svg'
 
-var lang = 'cz'
+var lang = 'cz', currency = 'Kč'
 if(window.location.pathname.split('/')[1] === 'en'){
-  lang = 'en'
+  lang = 'en';
+  currency = '$';
 }else if(window.location.pathname.split('/')[1] === 'de'){
-  lang = 'de'
+  lang = 'de';
+  currency = '&euro;';
 }else{
-  lang = 'cz'
+  lang = 'cz';
+  currency = 'Kč';
 }
 
 
@@ -89,7 +92,7 @@ const Header = () => {
   // menu_active
   return(
     <Fragment>
-      <Canvas update={setHandleUpdate}/>
+      <Canvas update={setHandleUpdate} currency={currency}/>
       <Login onLogin={onLogin} email={email} password={password} setEmail={setEmail} setPassword={setPassword} onRegister={onRegister}/>
       <header>
         <div className="uk-container uk-container-expand uk-height-1-1">

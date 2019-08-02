@@ -1,10 +1,13 @@
 @import "../../scss/vars";
 
+
+
 .card_short{
 	display: block;
 	background-color: white;
 	text-align: center;
 	padding: 20px 0;
+	opacity: 0;
 	&:hover{
 		color: $accent;
 		text-decoration: none;

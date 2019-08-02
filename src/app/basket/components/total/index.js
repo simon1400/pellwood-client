@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Total = ({sum}) => {
+const Total = ({sum, currency}) => {
   return(
     <div className="tm-basket-total">
       <table className="uk-table uk-table-divider">
@@ -16,7 +16,7 @@ const Total = ({sum}) => {
             </tr>
             <tr>
               <td>Celková cena</td>
-              <td>{sum} Kč</td>
+              <td>{sum} {' ' + currency}</td>
             </tr>
         </tbody>
       </table>

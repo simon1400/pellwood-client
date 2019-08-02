@@ -11,6 +11,18 @@ import Checkout from './components/checkout'
 import Total from './components/total'
 import TotalEnd from './components/total-end'
 
+var lang = 'cz', currency = 'Kč'
+if(window.location.pathname.split('/')[1] === 'en'){
+  lang = 'en';
+  currency = '$';
+}else if(window.location.pathname.split('/')[1] === 'de'){
+  lang = 'de';
+  currency = '&euro;';
+}else{
+  lang = 'cz';
+  currency = 'Kč';
+}
+
 
 const Basket = () => {
 
@@ -94,7 +106,11 @@ const Basket = () => {
     var sumAll = 0, sumItem = 0;
     var newBasket = basket
     newBasket.map((item, index) => {
-      sumItem = +item.variantPrice.split(' ')[0] * item.countVariant
+      if(item.variantPrice instanceof String){
+        sumItem = +item.variantPrice.split(' ')[0] * item.countVariant
+      }else{
+        sumItem = item.variantPrice * item.countVariant
+      }
       sumAll = +sumItem + sumAll
     })
 
@@ -108,8 +124,6 @@ const Basket = () => {
 
 
   const sendOrder = () => {
-
-    console.log(error);
 
     if(!deliveryMethod[0].value.length){
       console.log('error delivery');
@@ -159,15 +173,15 @@ const Basket = () => {
           <Route exact path="/basket/checkout" render={() => <Head head="Objednávka" user={user}/>} />
         </Switch>
         <Switch>
-          <Route exact path="/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} />} />
+          <Route exact path="/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} currency={currency} />} />
           <Route exact path="/basket/checkout" render={() => <Checkout state={state} error={error} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
           <Route component={NotFound} />
         </Switch>
       </div>
       <div className="basket-right-panel">
         <Switch>
-          <Route exact path="/basket" render={() => <Total sum={sum} />} />
-          <Route exact path="/basket/checkout" render={() => <TotalEnd sum={sum} basket={basket} delivery={deliveryMethod[0].price} payment={paymentMethod[0].price} />} />
+          <Route exact path="/basket" render={() => <Total sum={sum} currency={currency} />} />
+          <Route exact path="/basket/checkout" render={() => <TotalEnd sum={sum} basket={basket} delivery={deliveryMethod[0].price} payment={paymentMethod[0].price} currency={currency} />} />
         </Switch>
         <div>
           <p>Všechny ceny jsou včetně DPH 21 %</p>

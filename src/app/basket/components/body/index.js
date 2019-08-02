@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import './style.scss'
 
-const Body = ({setSum, sum, basket, setBasket}) => {
+const Body = ({setSum, sum, basket, setBasket, currency}) => {
 
   const changeCount = (index, handle) => {
     var newBasket = basket
@@ -21,7 +21,11 @@ const Body = ({setSum, sum, basket, setBasket}) => {
   const sumBasket = (newBasket) => {
     var sumAll = 0, sumItem = 0;
     newBasket.map((item, index) => {
-      sumItem = +item.variantPrice.split(' ')[0] * item.countVariant
+      if(item.variantPrice instanceof String){
+        sumItem = +item.variantPrice.split(' ')[0] * item.countVariant
+      }else{
+        sumItem = item.variantPrice * item.countVariant
+      }
       sumAll = +sumItem + sumAll
     })
 
@@ -65,7 +69,7 @@ const Body = ({setSum, sum, basket, setBasket}) => {
                 <div data-src={item.imgUrl} className="tm-basket-img-wrap uk-background-contain" uk-img=""></div>
                 <div className="tm-basket-item-info">
                   <h3 className="tm-basket-item-head">{item.nameProduct}</h3>
-                  <span>{item.variantName}</span>
+                  {item.variantName === item.nameProduct ? '' : <span>{item.variantName}</span>}
                   <div className="tm-remove-item"><Link to={window.location.pathname +'?delete'+item.variantName.replace(/ /g, "_")} onClick={e => deleteItem(e, index)}><button uk-close=""></button>Odstranit</Link></div>
                 </div>
               </div>
@@ -81,7 +85,7 @@ const Body = ({setSum, sum, basket, setBasket}) => {
                 </div>
               </div>
             </td>
-            <td><span className="basket-body-price">{item.variantPrice}</span></td>
+            <td><span className="basket-body-price">{item.variantPrice instanceof String ? item.variantPrice : item.variantPrice+' '+currency}</span></td>
           </tr>
         )}
 

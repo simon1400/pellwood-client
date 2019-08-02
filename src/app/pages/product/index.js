@@ -95,7 +95,7 @@ export default ({match}) => {
 
   const onBuy = () => {
     setLoader(true)
-    if(select.name === 'Vybrat variantu'){
+    if(select.name === 'Vybrat variantu' && product.variants.length){
       setError({ ...error, select: true })
       setLoader(false)
       return;
@@ -107,13 +107,21 @@ export default ({match}) => {
     }
 
 
-    let newBasketItem = {
+    var newBasketItem = {
       id: productId,
       nameProduct: product.title,
       variantName: select.name,
       variantPrice: select.price,
       countVariant: count,
       imgUrl: urlFor(product.image).url()
+    }
+
+    if(!product.variants.length){
+      newBasketItem.variantName = product.title
+      newBasketItem.variantPrice = product.price
+    }else{
+      newBasketItem.variantName = select.name
+      newBasketItem.variantPrice = select.price
     }
 
     let basket = JSON.parse(localStorage.getItem('basket'))
@@ -126,10 +134,12 @@ export default ({match}) => {
     }else{
       let indexBasket = -1;
       basket.map((item, index) => {
-        if(item.id === productId){
-          if(basket[index].variantName === select.name){
+        if(product.variants.length){
+          if(item.id === productId && basket[index].variantName === select.name){
             indexBasket = index
           }
+        }else if(item.id === productId){
+          indexBasket = index
         }
       })
       if(indexBasket >= 0){
@@ -167,15 +177,15 @@ export default ({match}) => {
             <div className="content_wrap grey">
               <div className="content">
                 <h1 className="head_1">{product.title}</h1>
-                <div className="variants_list">
+                {product.variants.length ? <div className="variants_list">
                   {(product.variants || []).map((item, index) =>
                     <div key={index} className="uk-grid uk-grid-medium" uk-grid="">
                       <div className="uk-width-expand">{item.title}</div>
                       <div className="short_price">{currency === '$' ? currency: ''} {item.price} {currency !== '$' ? currency: ''}</div>
                     </div>
                   )}
-                </div>
-                {product.variants !== undefined ? <div className="order_block">
+                </div> : ''}
+                {product.variants !== undefined && product.variants.length ? <div className="order_block">
                   <div className="uk-flex uk-flex-between">
                     <div>
                       <div className="uk-width-1-1 uk-width-auto@m">
@@ -213,6 +223,26 @@ export default ({match}) => {
                   </div>
                   <Link to={window.location.pathname +'?buy'}><button className="uk-width-1-1 uk-margin-top tm-button tm-black-button" href="/" onClick={() => onBuy()}>{loader ? <div uk-spinner="" className="uk-icon uk-spinner"></div> : ''}PŘIDAT DO KOŠÍKU</button></Link>
                 </div> : ''}
+                {!product.variants.length ?
+                  <div className="tm-single-order">
+                    <div className="tm-single-price uk-text-center uk-margin-bottom">{currency === '$' ? currency: ''} {product.price} {currency !== '$' ? currency: ''}</div>
+                    <div className="uk-grid-small uk-grid" uk-grid="">
+                      <div className="uk-width-1-3">
+                        <div className={`custom_number quantity ${error.count ? 'error' : ''}`}>
+                          <input type="number" min="1" max="1000" step="1" onChange={(e) => setCount(+e.target.value)} value={count} />
+                          <div className="quantity-nav">
+                            <div className="quantity-button quantity-up" onClick={() => setCount(count + 1)}>+</div>
+                            <div className="quantity-button quantity-down" onClick={() => {if(count > 0){ return setCount(count - 1)} else{ return false}}}>-</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="uk-width-2-3">
+                        <Link to={window.location.pathname +'?buy'}><button className="uk-width-1-1 tm-button tm-black-button" href="/" onClick={() => onBuy()}>{loader ? <div uk-spinner="" className="uk-icon uk-spinner"></div> : ''}PŘIDAT DO KOŠÍKU</button></Link>
+                      </div>
+                    </div>
+                  </div>
+
+                : ''}
                 <div className="description_product">
                   <BlockContent blocks={product.text} />
                 </div>

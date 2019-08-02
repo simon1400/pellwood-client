@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import './style.scss'
 
-const TotalEnd = ({sum, basket, delivery, payment}) => {
+const TotalEnd = ({sum, basket, delivery, payment, currency}) => {
 
   return(
     <div className="tm-total-end">
@@ -16,8 +16,8 @@ const TotalEnd = ({sum, basket, delivery, payment}) => {
           <div data-src={item.imgUrl} className="tm-basket-img-wrap uk-background-contain" uk-img=""></div>
           <div className="tm-basket-item-info">
             <h3 className="tm-basket-item-head">{item.nameProduct}</h3>
-            <span>{item.variantName}</span>
-            <span>{item.variantPrice}</span>
+            {item.variantName === item.nameProduct ? '' : <span>{item.variantName}</span>}
+            <span>{item.variantPrice instanceof String ? item.variantPrice : item.variantPrice+' '+currency}</span>
             <span>{item.countVariant} páry</span>
           </div>
         </div>
@@ -36,7 +36,7 @@ const TotalEnd = ({sum, basket, delivery, payment}) => {
             </tr>
             <tr>
               <td>Celková cena</td>
-              <td>{sum} Kč</td>
+              <td>{sum} {' ' + currency}</td>
             </tr>
           </tbody>
         </table>

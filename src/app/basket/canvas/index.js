@@ -6,7 +6,7 @@ import UIkit from 'uikit'
 
 import img from '../../assets/product-horizontal.jpg'
 
-export default ({update}) => {
+export default ({update, currency}) => {
 
   const [basket, setBasket] = useState([])
   const [basketCount, setBasketCount] = useState(0)
@@ -32,7 +32,12 @@ export default ({update}) => {
 
     if(basket){
       basket.map((item, index) => {
-        sumItem = +item.variantPrice.split(' ')[0] * item.countVariant
+        if(item.variantPrice instanceof String){
+          sumItem = +item.variantPrice.split(' ')[0] * item.countVariant
+        }else{
+          sumItem = item.variantPrice * item.countVariant
+        }
+
         sumAll = +sumItem + sumAll
       })
     }
@@ -70,7 +75,7 @@ export default ({update}) => {
               <div className="tm-basket-item-info">
                 <h3 className="tm-basket-item-head">{item.nameProduct}</h3>
                 <span>{item.variantName}</span>
-                <span>{item.variantPrice}</span>
+                <span>{item.variantPrice instanceof String ? item.variantPrice : item.variantPrice+' '+currency}</span>
                 <div className="tm-canvas-basket-item-count">
                   <span>{item.countVariant} páry</span>
                   <Link to={window.location.pathname +'?delete'+item.id+item.variantName}><button className="tm-canvas-item-remove" data-id={item.id} data-name={item.variantName} type="button" onClick={e => deleteItem(e)} uk-close=""></button></Link>
@@ -90,7 +95,7 @@ export default ({update}) => {
               </tr>
               <tr>
                 <td>Celková cena</td>
-                <td>{basket !== undefined ? onSumItems() : 0} Kč</td>
+                <td>{basket !== undefined ? onSumItems() : 0}{' ' + currency}</td>
               </tr>
             </tbody>
           </table>

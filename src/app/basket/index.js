@@ -31,14 +31,14 @@ const Basket = () => {
   const [user] = useState(JSON.parse(localStorage.getItem('user')) || {})
 
   const state = useState({
-    email: 'pechunka11@gmail.com',
-    phone: '+420774048983',
-    name: 'Dmytro',
-    surname: 'Pechunka',
-    country: '3',
-    city: 'Brno',
-    address: 'Serankova 11',
-    code: '60200',
+    email: '',
+    phone: '',
+    name: '',
+    surname: '',
+    country: '',
+    city: '',
+    address: '',
+    code: '',
     anotherAddressCheck: false,
     companyDataCheck: false,
     registrationCheck: false,

@@ -9,19 +9,26 @@ exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
-
     if(event.httpMethod !== 'OPTIONS'){
 
-      const data = JSON.parse(event.body),
-            id = data.id;
+      const {data, type} = JSON.parse(event.body)
 
-      // Use User.Model and id to update
-      await User.findOneAndUpdate({_id: id}, data)
-      const resData = await User.findById(id)
+      let userData
+
+      if(type === 'update'){
+        const id = data.id;
+        await User.findOneAndUpdate({_id: id}, data)
+        userData = await User.findById(id)
+      }else if(type === 'create'){
+        data._id = mongoose.Types.ObjectId()
+        userData = await User.create(data)
+      }
+
+      console.log(userData);
 
       let response = {
-        msg: "User successfully updated",
-        data: resData
+        msg: "User successfully",
+        data: userData
       }
 
       return {

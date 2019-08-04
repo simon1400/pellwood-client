@@ -35,8 +35,7 @@ const Header = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loginUser, setLoginUser] = useState(false)
-
-
+  const [hamburger, setHamburger] = useState(false)
 
   useEffect(() => {
     if(JSON.parse(localStorage.getItem('user'))){
@@ -45,6 +44,7 @@ const Header = () => {
     sanityClient.fetch(query).then(data => {
       setMenu(data)
     })
+
   }, [])
 
   useEffect(() => {
@@ -89,6 +89,16 @@ const Header = () => {
     })
   }
 
+  const handleHamburger = () => {
+    if(hamburger){
+      document.body.style.overflow = 'scroll'
+    }else{
+      document.body.style.overflow = 'hidden'
+    }
+
+    setHamburger(!hamburger)
+  }
+
   // menu_active
   return(
     <Fragment>
@@ -101,13 +111,13 @@ const Header = () => {
               <img src={logo} alt="Pellwood" />
             </Link>
             <div className="uk-text-right uk-width-expand uk-hidden@m">
-              <button className="hamburger hamburger--spin" type="button">
+              <button className={`hamburger hamburger--spin ${hamburger ? 'is-active' : ''}`} onClick={() => handleHamburger()} type="button">
                 <span className="hamburger-box">
                   <span className="hamburger-inner"></span>
                 </span>
               </button>
             </div>
-            <div className="top-nav">
+            <div className={`top-nav ${hamburger ? 'menu-active' : ''}`}>
               <nav>
                 <ul>
                   <li><a href='/produkty'>Produkty</a></li>
@@ -123,6 +133,14 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
+              <div className="user-area uk-hidden@m">
+                <div className="login">
+                  {loginUser
+                    ? <Link to="/user">Účet</Link>
+                    : <a href="#modal-login" uk-toggle="">Přihlašení</a>
+                  }
+                </div>
+              </div>
             </div>
             <div className="lang-nav uk-visible@m">
               <nav>
@@ -135,7 +153,7 @@ const Header = () => {
             </div>
             <div className="user-area">
               <div className="login">
-                {loginUser ? <Link to="/user" className="uk-visible@m">Účet</Link> : <a href="#modal-login" uk-toggle="">Přihlašení</a>}
+                {loginUser ? <Link to="/user" className="uk-visible@m">Účet</Link> : <a href="#modal-login" className="uk-visible@m" uk-toggle="">Přihlašení</a>}
                 <a nohref="" className="basket_count" uk-toggle="target: #offcanvas-flip">
                   {basketCount ? basketCount : JSON.parse(localStorage.getItem('basketCount')) ? JSON.parse(localStorage.getItem('basketCount')) : 0}
                 </a>

@@ -20,6 +20,10 @@
 
 
 @media(max-width: 960px){
+
+  #modal-login .uk-modal-dialog{
+    padding: 50px 30px;
+  }
   .logo-wrap, .login{
     position: relative;
     z-index: 1100;
@@ -44,22 +48,31 @@
   .top-nav{
     height: 0;
     overflow: hidden;
-    position: fixed;
-    width: calc(100vw - 80px);
-    padding-left: 40px;
-    padding-right: 40px;
-    left: 0;
+    position: absolute;
+    width: calc(100vw - 70px);
+    padding-left: 20px;
+    padding-right: 20px;
     top: 0;
+    left: 0;
     z-index: 1000;
     background-color: rgba($accent, .95);
     transition: all .5s ease;
     &.menu-active{
       height: 100vh;
     }
+    .user-area{
+      .login{
+        text-align: right;
+        margin-top: 40px;
+      }
+      a{
+        font-size: 30px!important;
+      }
+    }
     nav{
       width: 100%;
       padding-top: 150px;
-      text-align: center;
+      text-align: right;
       display: block;
       ul li{
         display: block;

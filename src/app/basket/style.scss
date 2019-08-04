@@ -14,12 +14,18 @@
       letter-spacing : 0.65px;
     }
   }
-  .tm-basket-content{
+  .tm-basket-content-wrap{
     flex: 1;
     padding-top: 120px;
+    padding-bottom: 120px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .tm-basket-content{
+    max-width: 900px;
+    width: 100%;
     padding-left: 40px;
     padding-right: 40px;
-    padding-bottom: 120px;
   }
   .tm-basket-item-info{
     display: flex;
@@ -41,20 +47,24 @@
   color: #7AC843!important;
 }
 
+
+
 .basket-right-panel{
-  width: 35%;
-  max-width: 480px;
+  width: 40%;
   background-color: #F1F1F1;
   padding-top: 120px;
   padding-bottom: 120px;
-  padding-left: 20px;
-  padding-right: 20px;
   p{
     margin-top: 30px;
   }
   .tm-basket-total{
     margin-top: 0;
     padding-top: 100px;
+  }
+  .basket-right-content{
+    max-width: 500px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 

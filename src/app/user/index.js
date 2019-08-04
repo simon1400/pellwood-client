@@ -6,6 +6,18 @@ import AnimateHeight from 'react-animate-height';
 import './style.scss'
 import axios from 'axios'
 
+var lang = 'cz', currency = 'Kč'
+if(window.location.pathname.split('/')[1] === 'en'){
+  lang = 'en';
+  currency = '$';
+}else if(window.location.pathname.split('/')[1] === 'de'){
+  lang = 'de';
+  currency = '&euro;';
+}else{
+  lang = 'cz';
+  currency = 'Kč';
+}
+
 const User = () => {
 
   const [user] = useState(JSON.parse(localStorage.getItem('user')))
@@ -48,7 +60,7 @@ const User = () => {
       anotherAdress: anotherAdress[0],
       companyData: companyData[0]
     }
-    await axios.post('/.netlify/functions/update', saveData).then(res => {
+    await axios.post('/.netlify/functions/update', {data: saveData, type: 'update'}).then(res => {
       localStorage.setItem('user', JSON.stringify(res.data.data))
     }).catch(err => {
       console.log(err);
@@ -62,60 +74,63 @@ const User = () => {
 
   return(
     <main className="basket user">
-      <div className="tm-basket-content">
-        <Head head="Váš ucet" />
-        <Delivery state={state[0]} setState={state[1]}/>
+      <div className="tm-basket-content-wrap">
+        <div className="tm-basket-content">
+          <Head head="Váš ucet" />
+          <Delivery state={state[0]} setState={state[1]}/>
 
-        <div className="uk-margin-small checkbox_item">
-          <input type="checkbox" id="checkbox_another_address" onChange={() => handleChange('anotherAddressCheck', !state[0].anotherAddressCheck)} checked={state[0].anotherAddressCheck} />
-          <label htmlFor="checkbox_another_address"></label>
-          <label htmlFor="checkbox_another_address">Doručit na jinou adresu</label>
+          <div className="uk-margin-small checkbox_item">
+            <input type="checkbox" id="checkbox_another_address" onChange={() => handleChange('anotherAddressCheck', !state[0].anotherAddressCheck)} checked={state[0].anotherAddressCheck} />
+            <label htmlFor="checkbox_another_address"></label>
+            <label htmlFor="checkbox_another_address">Doručit na jinou adresu</label>
+          </div>
+
+          <AnimateHeight duration={ 500 } height={ state[0].anotherAddressCheck ? 'auto' : 0 } >
+            <Delivery state={anotherAdress[0]} setState={anotherAdress[1]}/>
+          </AnimateHeight>
+
+          <div className="uk-margin-small checkbox_item">
+            <input type="checkbox" id="checkbox_firm_data" onChange={() => handleChange('companyDataCheck', !state[0].companyDataCheck)} checked={state[0].companyDataCheck} />
+            <label htmlFor="checkbox_firm_data"></label>
+            <label htmlFor="checkbox_firm_data">Doplnit firemní údaje</label>
+          </div>
+
+          <AnimateHeight duration={ 500 } height={ state[0].companyDataCheck ? 'auto' : 0 } >
+            <Corporate state={companyData[0]} setState={companyData[1]} />
+          </AnimateHeight>
+
+          <hr />
+
+          <div className="form_container">
+            <div className="form_column"><button className="tm-button tm-bare-button" onClick={() => onLogout()}>Odhlásit se</button></div>
+            <div className="form_column uk-text-right"><button className="tm-button tm-black-button" onClick={e => onSave()}>ULOŽIT</button></div>
+          </div>
+
         </div>
-
-        <AnimateHeight duration={ 500 } height={ state[0].anotherAddressCheck ? 'auto' : 0 } >
-          <Delivery state={anotherAdress[0]} setState={anotherAdress[1]}/>
-        </AnimateHeight>
-
-        <div className="uk-margin-small checkbox_item">
-          <input type="checkbox" id="checkbox_firm_data" onChange={() => handleChange('companyDataCheck', !state[0].companyDataCheck)} checked={state[0].companyDataCheck} />
-          <label htmlFor="checkbox_firm_data"></label>
-          <label htmlFor="checkbox_firm_data">Doplnit firemní údaje</label>
-        </div>
-
-        <AnimateHeight duration={ 500 } height={ state[0].companyDataCheck ? 'auto' : 0 } >
-          <Corporate state={companyData[0]} setState={companyData[1]} />
-        </AnimateHeight>
-
-        <hr />
-
-        <div className="form_container">
-          <div className="form_column"><button className="tm-button tm-bare-button" onClick={() => onLogout()}>Odhlásit se</button></div>
-          <div className="form_column uk-text-right"><button className="tm-button tm-black-button" onClick={e => onSave()}>ULOŽIT</button></div>
-        </div>
-
-
       </div>
       <div className="basket-right-panel">
-        <div className="last_order_wrap tm-total-end">
-        <table className="uk-table uk-table-small uk-table-divider">
-          <thead>
-            <tr>
-              <th colSpan="2">Historie objednávek</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.length ? orders.map(item =>
-              <tr key={item._id}>
-                <td>Objednávka č. 123456</td>
-                <td className="uk-text-right">{item.sum} Kč</td>
-              </tr>)
-            : <tr>
-                <td>Nemate zadnu objednavku</td>
-                <td className="uk-text-right"></td>
+        <div className="basket-right-content">
+          <div className="last_order_wrap tm-total-end">
+          <table className="uk-table uk-table-small uk-table-divider">
+            <thead>
+              <tr>
+                <th colSpan="2">Historie objednávek</th>
               </tr>
-            }
-          </tbody>
-          </table>
+            </thead>
+            <tbody>
+              {orders.length ? orders.map(item =>
+                <tr key={item._id}>
+                  <td>Objednávka č. {item.idOrder}</td>
+                  <td className="uk-text-right">{item.sum} {' ' + currency}</td>
+                </tr>)
+              : <tr>
+                  <td>Nemate zadnu objednavku</td>
+                  <td className="uk-text-right"></td>
+                </tr>
+              }
+            </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </main>

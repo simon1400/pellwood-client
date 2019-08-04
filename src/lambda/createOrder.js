@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
-    const {note, user, basket, payment, delivery, sum} = JSON.parse(event.body),
+    const {note, user, basket, payment, delivery, sum, idOrder, status} = JSON.parse(event.body),
           order = {
             _id: mongoose.Types.ObjectId(),
             email: user.email,
@@ -28,6 +28,8 @@ exports.handler = async (event, context) => {
             note,
             basket,
             sum,
+            idOrder: Math.floor(Math.random() * (999999 - 0)) + 0,
+            status,
             paymentMethod: payment.value,
             paymentPrice: payment.price,
             deliveryMethod: delivery.value,

@@ -31,14 +31,14 @@ const Basket = () => {
   const [user] = useState(JSON.parse(localStorage.getItem('user')) || {})
 
   const state = useState({
-    email: '',
-    phone: '',
-    name: '',
-    surname: '',
-    country: '',
-    city: '',
-    address: '',
-    code: '',
+    email: 'pechunka11@gmail.com',
+    phone: '+420774048983',
+    name: 'Dmytro',
+    surname: 'Pechunka',
+    country: '3',
+    city: 'Brno',
+    address: 'Serankova 11',
+    code: '60200',
     anotherAddressCheck: false,
     companyDataCheck: false,
     registrationCheck: false,
@@ -96,6 +96,7 @@ const Basket = () => {
       anotherAdress[1]({...user.anotherAdress})
       companyData[1]({...user.companyData})
     }
+
   }, [])
 
   useEffect(() => {
@@ -126,38 +127,38 @@ const Basket = () => {
   const sendOrder = () => {
 
     if(!deliveryMethod[0].value.length){
-      console.log('error delivery');
-      setError({
-        ...error,
-        delivery: true
-      })
+      setError({ ...error, delivery: true })
       return
     }
 
     if(!paymentMethod[0].value.length){
-      console.log('error payment');
-      setError({
-        ...error,
-        payment: true
-      })
+      setError({ ...error, payment: true })
       return
     }
+
+
+
 
     const dataOrder = {
       sum,
       basket,
+      status: 'new_payet',
       user: {
         ...state[0],
         anotherAdress: anotherAdress[0],
         companyData: companyData[0],
+        password: password[0]
       },
       delivery: deliveryMethod[0],
       payment: paymentMethod[0],
       note: note[0]
     }
 
+    if(state[0].registrationCheck){
+      axios.post('/.netlify/functions/update', {data: dataOrder.user, type: 'create'}).then(res => localStorage.setItem('user', JSON.stringify(res.data.data)))
+    }
+
     axios.post('/.netlify/functions/createOrder', dataOrder).then(res => {
-      console.log('Order data send')
       localStorage.removeItem('basket')
       localStorage.setItem('basketCount', 0)
       window.location.href = '/thank-you'
@@ -167,32 +168,36 @@ const Basket = () => {
 
   return (
     <main className="basket">
-      <div className="tm-basket-content">
-        <Switch>
-          <Route exact path="/basket" render={() => <Head head="Váš nákupní košík" user={user}/>} />
-          <Route exact path="/basket/checkout" render={() => <Head head="Objednávka" user={user}/>} />
-        </Switch>
-        <Switch>
-          <Route exact path="/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} currency={currency} />} />
-          <Route exact path="/basket/checkout" render={() => <Checkout state={state} error={error} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
-          <Route component={NotFound} />
-        </Switch>
+      <div className="tm-basket-content-wrap">
+        <div className="tm-basket-content">
+          <Switch>
+            <Route exact path="/basket" render={() => <Head head="Váš nákupní košík" user={user}/>} />
+            <Route exact path="/basket/checkout" render={() => <Head head="Objednávka" user={user}/>} />
+          </Switch>
+          <Switch>
+            <Route exact path="/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} currency={currency} />} />
+            <Route exact path="/basket/checkout" render={() => <Checkout state={state} error={error} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
       </div>
       <div className="basket-right-panel">
-        <Switch>
-          <Route exact path="/basket" render={() => <Total sum={sum} currency={currency} />} />
-          <Route exact path="/basket/checkout" render={() => <TotalEnd sum={sum} basket={basket} delivery={deliveryMethod[0].price} payment={paymentMethod[0].price} currency={currency} />} />
-        </Switch>
-        <div>
-          <p>Všechny ceny jsou včetně DPH 21 %</p>
-          <Route exact path="/basket/checkout" render={() => <p>Odesláním objednávky souhlasíte s <a href="">obchodními podmínkami</a>.</p>} />
-        </div>
-        <div>
-          <div className="tm-basket-footer tm-footer-single">
-            <Switch>
-              <Route exact path="/basket" render={() => <Link to="/basket/checkout" className="tm-button tm-black-button">přejít k objednávce</Link>} />
-              <Route exact path="/basket/checkout" render={() => <button className="tm-button tm-black-button" onClick={() => sendOrder()}>Objednat</button>} />
-            </Switch>
+        <div className="basket-right-content">
+          <Switch>
+            <Route exact path="/basket" render={() => <Total sum={sum} currency={currency} />} />
+            <Route exact path="/basket/checkout" render={() => <TotalEnd sum={sum} basket={basket} delivery={deliveryMethod[0].price} payment={paymentMethod[0].price} currency={currency} />} />
+          </Switch>
+          <div>
+            <p>Všechny ceny jsou včetně DPH 21 %</p>
+            <Route exact path="/basket/checkout" render={() => <p>Odesláním objednávky souhlasíte s <a href="">obchodními podmínkami</a>.</p>} />
+          </div>
+          <div>
+            <div className="tm-basket-footer tm-footer-single">
+              <Switch>
+                <Route exact path="/basket" render={() => <Link to="/basket/checkout" className="tm-button tm-black-button">přejít k objednávce</Link>} />
+                <Route exact path="/basket/checkout" render={() => <button className="tm-button tm-black-button" onClick={() => sendOrder()}>Objednat</button>} />
+              </Switch>
+            </div>
           </div>
         </div>
       </div>

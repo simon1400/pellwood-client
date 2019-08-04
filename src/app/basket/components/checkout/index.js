@@ -26,49 +26,58 @@ const Checkout = ({state, error, user, anotherAdress, companyData, password, not
 
           <Delivery state={state[0]} setState={state[1]} />
 
-          <div className="uk-margin-small checkbox_item">
-            <input type="checkbox" id="checkbox_another_address" onChange={() => handleChange('anotherAddressCheck', !state[0].anotherAddressCheck)} checked={state[0].anotherAddressCheck} />
-            <label htmlFor="checkbox_another_address"></label>
-            <label htmlFor="checkbox_another_address">Doručit na jinou adresu</label>
+          <div className="">
+            <div className="uk-margin checkbox_item">
+              <input type="checkbox" id="checkbox_another_address" onChange={() => handleChange('anotherAddressCheck', !state[0].anotherAddressCheck)} checked={state[0].anotherAddressCheck} />
+              <label htmlFor="checkbox_another_address"></label>
+              <label htmlFor="checkbox_another_address">Doručit na jinou adresu</label>
+            </div>
+
+            <AnimateHeight duration={ 500 } height={ state[0].anotherAddressCheck ? 'auto' : 0 } >
+              <Delivery state={anotherAdress[0]} setState={anotherAdress[1]}/>
+            </AnimateHeight>
           </div>
 
-          <AnimateHeight duration={ 500 } height={ state[0].anotherAddressCheck ? 'auto' : 0 } >
-            <Delivery state={anotherAdress[0]} setState={anotherAdress[1]}/>
-          </AnimateHeight>
 
-          <div className="uk-margin-small checkbox_item">
-            <input type="checkbox" id="checkbox_firm_data" onChange={() => handleChange('companyDataCheck', !state[0].companyDataCheck)} checked={state[0].companyDataCheck} />
-            <label htmlFor="checkbox_firm_data"></label>
-            <label htmlFor="checkbox_firm_data">Doplnit firemní údaje</label>
+          <div className="">
+            <div className="uk-margin checkbox_item">
+              <input type="checkbox" id="checkbox_firm_data" onChange={() => handleChange('companyDataCheck', !state[0].companyDataCheck)} checked={state[0].companyDataCheck} />
+              <label htmlFor="checkbox_firm_data"></label>
+              <label htmlFor="checkbox_firm_data">Doplnit firemní údaje</label>
+            </div>
+
+            <AnimateHeight duration={ 500 } height={ state[0].companyDataCheck ? 'auto' : 0 } >
+              <Corporate state={companyData[0]} setState={companyData[1]} />
+            </AnimateHeight>
           </div>
 
-          <AnimateHeight duration={ 500 } height={ state[0].companyDataCheck ? 'auto' : 0 } >
-            <Corporate state={companyData[0]} setState={companyData[1]} />
-          </AnimateHeight>
 
-          {user.email === undefined ? (
-              <div className="uk-margin-small checkbox_item">
-                <input type="checkbox" id="checkbox_registration" onChange={() => handleChange('registrationCheck', !state[0].registrationCheck)} checked={state[0].registrationCheck} />
-                <label htmlFor="checkbox_registration"></label>
-                <label htmlFor="checkbox_registration">Založit účet pro příští objednávky</label>
-              </div>,
+          {user.email === undefined
+            ? <div className="">
+                <div className="uk-margin checkbox_item">
+                  <input type="checkbox" id="checkbox_registration" onChange={() => handleChange('registrationCheck', !state[0].registrationCheck)} checked={state[0].registrationCheck} />
+                  <label htmlFor="checkbox_registration"></label>
+                  <label htmlFor="checkbox_registration">Založit účet pro příští objednávky</label>
+                </div>
 
-              <AnimateHeight duration={ 500 } height={ state[0].registrationCheck ? 'auto' : 0 } >
-                <Password state={password[0]} setState={password[1]}/>
-              </AnimateHeight>)
+                <AnimateHeight duration={ 500 } height={ state[0].registrationCheck ? 'auto' : 0 } >
+                  <Password state={password[0]} setState={password[1]}/>
+                </AnimateHeight>
+              </div>
             : ''
           }
 
+          <div className="">
+            <div className="uk-margin checkbox_item">
+              <input type="checkbox" id="checkbox_note" onChange={() => handleChange('noteCheck', !state[0].noteCheck)} checked={state[0].noteCheck} />
+              <label htmlFor="checkbox_note"></label>
+              <label htmlFor="checkbox_note">Poznámka k objednávce</label>
+            </div>
 
-          <div className="uk-margin-small checkbox_item">
-            <input type="checkbox" id="checkbox_note" onChange={() => handleChange('noteCheck', !state[0].noteCheck)} checked={state[0].noteCheck} />
-            <label htmlFor="checkbox_note"></label>
-            <label htmlFor="checkbox_note">Poznámka k objednávce</label>
+            <AnimateHeight duration={ 500 } height={ state[0].noteCheck ? 'auto' : 0 } >
+              <Note state={note[0]} setState={note[1]} />
+            </AnimateHeight>
           </div>
-
-          <AnimateHeight duration={ 500 } height={ state[0].noteCheck ? 'auto' : 0 } >
-            <Note state={note[0]} setState={note[1]} />
-          </AnimateHeight>
 
           <ShipPay delivery={deliveryMethod[0]} error={error} setDelivery={deliveryMethod[1]} payment={paymentMethod[0]} setPayment={paymentMethod[1]}/>
 

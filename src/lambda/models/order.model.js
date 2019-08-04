@@ -29,6 +29,8 @@ const schema = new mongoose.Schema({
     ico: {type: String, default: ''},
     dic: {type: String, default: ''}
   },
+  idOrder: Number,
+  status: {type: String, default: ''},
   note: {type: String, default: ''},
   basket: {type: Object},
   sum: {type: String, default: ''},

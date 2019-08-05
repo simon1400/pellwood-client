@@ -33,6 +33,12 @@
 	}
 }
 
+.uk-alert-danger{
+	p{
+		color: red!important;
+	}
+}
+
 .success{
 	display: block;
 	color: #7AC843;
@@ -46,6 +52,7 @@ body {
 	min-width: 320px;
 	position: relative;
 	line-height: 1.65;
+	overflow-x: hidden;
 	font-family: $font;
 	font-weight: 300;
 	color: $text;
@@ -75,13 +82,11 @@ b, strong {
 header{
 	position: absolute;
 	top: 30px;
-	left: 0;
-	width: calc(100% - 60px);
+	left: 40px;
+	width: calc(100% - 95px);
 	background-color: $accent;
 	height: 90px;
 	z-index: 1000;
-	margin-right: 40px;
-	margin-left: 40px;
 	.logo-wrap{
 		img{
 			width: 200px;

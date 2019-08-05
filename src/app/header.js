@@ -36,6 +36,10 @@ const Header = () => {
   const [password, setPassword] = useState('')
   const [loginUser, setLoginUser] = useState(false)
   const [hamburger, setHamburger] = useState(false)
+  const [error, setError] = useState({
+    loginEmail: false,
+    loginPassword: false
+  })
 
   useEffect(() => {
     if(JSON.parse(localStorage.getItem('user'))){
@@ -54,21 +58,37 @@ const Header = () => {
 
   const onRegister = e => {
     e.preventDefault()
+
+    if(!email && !password){
+      setError({ ...error, loginEmail: 'empty', loginPassword: 'empty' })
+      return
+    }else if(!email){
+      setError({ ...error, loginEmail: 'empty' })
+      return
+    }else if(!password){
+      setError({ ...error, loginPassword: 'empty' })
+      return
+    }
+
     var registerData = {
       email,
-      password,
-      phone: '',
-      name: '',
-      surname: '',
-      country: '',
-      city: '',
-      address: '',
-      code: ''
+      password
     }
     axios.post('/.netlify/functions/userCreate', registerData).then(res => {
-      localStorage.setItem('user', JSON.stringify(res.data.data))
-      setLoginUser(true)
-      window.location.pathname = "/user"
+
+      if(res.data.error === 'email'){
+        setError({ ...error, loginEmail: 'exist' })
+      }else if(res.data.error && res.data.error.email){
+        setError({ ...error, loginEmail: 'empty' })
+      }else if(res.data.error && res.data.error.password){
+        setError({ ...error, loginPassword: 'empty' })
+      }else{
+        axios.post('/.netlify/functions/sendRegistration', {email: res.data.data.email}).then(res => console.log('send mail'))
+        localStorage.setItem('user', JSON.stringify(res.data.data))
+        setLoginUser(true)
+        window.location.pathname = "/user"
+      }
+
     }).catch(err => {
       console.log(err);
     })
@@ -76,6 +96,18 @@ const Header = () => {
 
   const onLogin = e => {
     e.preventDefault()
+
+    if(!email && !password){
+      setError({ ...error, loginEmail: 'empty', loginPassword: 'empty' })
+      return
+    }else if(!email){
+      setError({ ...error, loginEmail: 'empty' })
+      return
+    }else if(!password){
+      setError({ ...error, loginPassword: 'empty' })
+      return
+    }
+
     var loginData = {
       email,
       password
@@ -86,6 +118,7 @@ const Header = () => {
       UIkit.modal(UIkit.util.find('#modal-login')).hide();
     }).catch(err => {
       console.log(err);
+      setError({ ...error, loginEmail: 'notExist' })
     })
   }
 
@@ -103,7 +136,7 @@ const Header = () => {
   return(
     <Fragment>
       <Canvas update={setHandleUpdate} currency={currency}/>
-      <Login onLogin={onLogin} email={email} password={password} setEmail={setEmail} setPassword={setPassword} onRegister={onRegister}/>
+      <Login onLogin={onLogin} email={email} password={password} setEmail={setEmail} setPassword={setPassword} onRegister={onRegister} error={error} setError={setError}/>
       <header>
         <div className="uk-container uk-container-expand uk-height-1-1">
           <div className="uk-flex uk-flex-between uk-flex-middle uk-height-1-1">

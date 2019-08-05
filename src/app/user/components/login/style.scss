@@ -4,6 +4,19 @@
     padding-bottom: 25px;
     margin-bottom: 30px;
   }
+  .input_item{
+    margin-bottom: 30px;
+    input{
+      height: 56px;
+    }
+    label{
+      background-color: #F1F1F1;
+      top: 21px;
+    }
+  }
+  .input_item input.hasValue + label, .input_item input:focus + label{
+    top: -8px;
+  }
   .uk-modal-dialog{
     width: 500px;
     padding: 50px;
@@ -30,31 +43,31 @@ hr{
 }
 
 
-.input_login{
-  margin-bottom: 15px;
-  input{
-    width: calc(100% - 40px);
-    height: 15px;
-    font-size: 15px;
-    padding: 20px;
-    border: 1px solid #CBCBCB;
-    color: #232323;
-    font-family: 'Oswald', sans-serif;
-    font-size : 15px;
-    letter-spacing : 1.5px;
-  }
-  ::-webkit-input-placeholder { /* Edge */
-    color: #989898!important;
-  }
-
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #989898!important;
-  }
-
-  ::placeholder {
-    color: #989898!important;
-  }
-}
+// .input_login{
+//   margin-bottom: 15px;
+//   input{
+//     width: calc(100% - 40px);
+//     height: 15px;
+//     font-size: 15px;
+//     padding: 20px;
+//     border: 1px solid #CBCBCB;
+//     color: #232323;
+//     font-family: 'Oswald', sans-serif;
+//     font-size : 15px;
+//     letter-spacing : 1.5px;
+//   }
+//   ::-webkit-input-placeholder { /* Edge */
+//     color: #989898!important;
+//   }
+//
+//   :-ms-input-placeholder { /* Internet Explorer 10-11 */
+//     color: #989898!important;
+//   }
+//
+//   ::placeholder {
+//     color: #989898!important;
+//   }
+// }
 
 .tm-button-text{
   border: none!important;

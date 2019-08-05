@@ -97,7 +97,7 @@ legend{
     letter-spacing: 1.5px;
     position: relative;
     background-color: transparent;
-    &:invalid{
+    &:invalid, &.invalid{
       border-color: #EC1C24!important;
       color: #EC1C24;
       & + label{

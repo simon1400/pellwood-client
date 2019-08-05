@@ -3,15 +3,7 @@ import React, {useState} from 'react';
 const Delivery = ({state, setState}) => {
 
 
-  // const [errors, setErrors] = useState({
-  //   email: false
-  // })
-
   const handleChange = (name, value) => {
-
-    // if(name === 'email'){
-    //
-    // }
 
     let newState = state;
     newState[name] = value;

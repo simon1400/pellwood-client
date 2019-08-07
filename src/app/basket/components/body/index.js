@@ -6,10 +6,10 @@ const Body = ({setSum, sum, basket, setBasket, currency}) => {
 
   const changeCount = (index, handle) => {
     var newBasket = basket
-    if(handle === 'down' && newBasket[index].countVariant > 0){
-      newBasket[index].countVariant = basket[index].countVariant - 1
+    if(handle === 'down' && newBasket[index].countVariant > 1){
+      newBasket[index].countVariant = +basket[index].countVariant - 1
     }else if(handle === 'up'){
-      newBasket[index].countVariant = basket[index].countVariant + 1
+      newBasket[index].countVariant = +basket[index].countVariant + 1
     }
     setBasket([...newBasket])
 

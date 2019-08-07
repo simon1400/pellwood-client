@@ -14,6 +14,11 @@ export default ({update, currency}) => {
   useEffect(() => {
     setBasket(JSON.parse(localStorage.getItem('basket')))
     setBasketCount(JSON.parse(localStorage.getItem('basketCount')))
+  }, [])
+
+  useEffect(() => {
+    setBasket(JSON.parse(localStorage.getItem('basket')))
+    setBasketCount(JSON.parse(localStorage.getItem('basketCount')))
   }, [window.location.search.length])
 
 
@@ -67,45 +72,50 @@ export default ({update, currency}) => {
           <h2>Kosik</h2>
           <Link to={window.location.pathname}><button className="tm-canvas-close uk-close-large" type="button" uk-close="" onClick={e => closeCanvas()}></button></Link>
         </div>
-
-        {basket ? basket.map((item, index) =>
-          <div key={index} className="tm-canvas-basket-item-wrap">
-            <div className="tm-basket-item">
-              <div data-src={item.imgUrl} className="tm-basket-img-wrap uk-background-contain" uk-img=""></div>
-              <div className="tm-basket-item-info">
-                <h3 className="tm-basket-item-head">{item.nameProduct}</h3>
-                <span>{item.variantName}</span>
-                <span>{item.variantPrice instanceof String ? item.variantPrice : item.variantPrice+' '+currency}</span>
-                <div className="tm-canvas-basket-item-count">
-                  <span>{item.countVariant} páry</span>
-                  <Link to={window.location.pathname +'?delete'+item.id+item.variantName}><button className="tm-canvas-item-remove" data-id={item.id} data-name={item.variantName} type="button" onClick={e => deleteItem(e)} uk-close=""></button></Link>
+        {basketCount ?
+          <div>
+            {basket ? basket.map((item, index) =>
+              <div key={index} className="tm-canvas-basket-item-wrap">
+                <div className="tm-basket-item">
+                  <div data-src={item.imgUrl} className="tm-basket-img-wrap uk-background-contain" uk-img=""></div>
+                  <div className="tm-basket-item-info">
+                    <h3 className="tm-basket-item-head">{item.nameProduct}</h3>
+                    <span>{item.variantName}</span>
+                    <span>{item.variantPrice instanceof String ? item.variantPrice : item.variantPrice+' '+currency}</span>
+                    <div className="tm-canvas-basket-item-count">
+                      <span>{item.countVariant} páry</span>
+                      <Link to={window.location.pathname +'?delete'+item.id+item.variantName}><button className="tm-canvas-item-remove" data-id={item.id} data-name={item.variantName} type="button" onClick={e => deleteItem(e)} uk-close=""></button></Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </div>)
+             : ''}
+
+
+          <div className="tm-basket-total">
+            <table className="uk-table uk-table-divider">
+              <tbody>
+                <tr>
+                  <td>Doprava</td>
+                  <td>ZDARMA</td>
+                </tr>
+                <tr>
+                  <td>Celková cena</td>
+                  <td>{basket !== undefined ? onSumItems() : 0}{' ' + currency}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        ) : ''}
 
 
-        <div className="tm-basket-total">
-          <table className="uk-table uk-table-divider">
-            <tbody>
-              <tr>
-                <td>Doprava</td>
-                <td>ZDARMA</td>
-              </tr>
-              <tr>
-                <td>Celková cena</td>
-                <td>{basket !== undefined ? onSumItems() : 0}{' ' + currency}</td>
-              </tr>
-            </tbody>
-          </table>
+
+          <div className="tm-basket-footer">
+            <Link to="/basket" className="tm-button tm-bare-button" onClick={() => closeCanvas()}>košík</Link>
+            <Link to="/basket/checkout" className="tm-button tm-black-button" onClick={() => closeCanvas()}>přejít k objednávce</Link>
+          </div>
         </div>
-
-
-        <div className="tm-basket-footer">
-          <Link to="/basket" className="tm-button tm-bare-button" onClick={() => closeCanvas()}>košík</Link>
-          <Link to="/basket/checkout" className="tm-button tm-black-button" onClick={() => closeCanvas()}>přejít k objednávce</Link>
-        </div>
+        : <p className="uk-text-center">Váš košík je prázdný</p>
+      }
 
       </div>
     </div>

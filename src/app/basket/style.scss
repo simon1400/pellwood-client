@@ -48,6 +48,19 @@
 }
 
 
+.uk-table th, .uk-table td{
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
+
+.uk-table th{
+  padding-top: 0!important;
+  font-weight: 200!important;
+  letter-spacing: 0.05em;
+  font-size: 18px;
+  font-family: "Oswald", sans-serif;
+  line-height: 1.3;
+}
 
 .basket-right-panel{
   width: 40%;
@@ -60,6 +73,7 @@
   .tm-basket-total{
     margin-top: 0;
     padding-top: 100px;
+    margin-bottom: 50px;
   }
   .basket-right-content{
     max-width: 500px;

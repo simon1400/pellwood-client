@@ -78,12 +78,28 @@ b, strong {
 	font-weight: bold;
 }
 
+nav.sub_menu ul li{
+	a{
+		&:hover{
+			color: inherit;
+		}
+		&:after{
+			background-color: #232323;
+		}
+	}
+}
+
+.search_input{
+	font-family: $font;
+	letter-spacing: 0.13em;
+}
+
 
 header{
 	position: absolute;
 	top: 30px;
 	left: 40px;
-	width: calc(100% - 95px);
+	width: calc(100% - 80px);
 	background-color: $accent;
 	height: 90px;
 	z-index: 1000;
@@ -273,28 +289,71 @@ a{
   &:hover{
     text-decoration: none;
   }
+
   &.tm-bare-button{
     border: 1px solid #232323;
     color: #232323;
 		background-color: transparent;
 		padding-left: 55px;
 		padding-right: 55px;
+		&:hover{
+			background-color: #232323!important;
+			color: white;
+		}
   }
+	&.tm-button-text{
+		margin-bottom: 0;
+    background-color: transparent;
+		border: none!important;
+		span{
+	    position: relative;
+	    &:after{
+	      content: '';
+	      position: absolute;
+				left: -10px;
+				bottom: -8px;
+	      display: block;
+	      width: 0;
+	      height: 1px;
+	      background-color: #232323;
+	      transition: all .5s ease;
+	    }
+	  }
+		&:hover{
+			background-color: transparent!important;
+			color: inherit;
+			span:after{
+	      width: calc(100% + 20px);
+	    }
+		}
+	}
   &.tm-black-button{
     background-color: #232323;
     color: white;
     border: 1px solid #232323;
 		&:hover{
-			box-shadow: inset -14em 0 0 0 lighten($accent, 10%), inset 14em 0 0 0 lighten($accent, 10%);
+			background-color: lighten($accent, 10%);
 		}
   }
 	&.tm-contrast{
 		border-color: white;
 		color: white;
 		&:hover{
-			background-color: #fff;
+			background-color: #fff!important;
 			color: $accent;
 		}
+	}
+}
+
+.uk-slider-nav{
+	margin-top: 50px!important;
+}
+.uk-dotnav>*>*{
+	border: 1px solid darken(#f1f1f1, 20%);
+	width: 25px;
+	height: 25px;
+	&:hover{
+		background-color: darken(#f1f1f1, 20%);
 	}
 }
 
@@ -348,8 +407,24 @@ footer{
 			color: white;
 			font-size: 15px;
 			letter-spacing: .02em;
+			position: relative;
 			&:after{
+				content: '';
+				position: absolute;
+				left: -10px;
 				bottom: -5px;
+				width: 0;
+				height: 1px;
+				background-color: white;
+				display: block;
+				transition: all .5s ease;
+			}
+			&:hover{
+				text-decoration: none;
+				color: white;
+				&:after{
+					width: calc(100% + 20px);
+				}
 			}
 		}
 		ul{
@@ -459,7 +534,7 @@ footer{
 }
 
 .content_wrap, .article_img_wrap{
-	padding-top: 180px;
+	padding-top: 210px;
 }
 
 .content_wrap{

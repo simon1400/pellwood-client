@@ -163,13 +163,14 @@ export default ({match}) => {
       <section className="full product">
         <div className="uk-grid uk-child-width-1-1 uk-child-width-1-2@m" uk-grid="" uk-height-match="target: > div > div">
           <div>
-            <div className="article_img_wrap">
+            <div className={`article_img_wrap ${product.orientedImage ? 'scale_img' : ''}`}>
               <div className="uk-visible@m">
                 {product.orientedImage ? <img src={urlFor(product.image).orientation(270).url()} alt={product.title} />
                 : <img src={urlFor(product.image).url()} alt={product.title} />}
               </div>
-              <div className="uk-hidden@m">
-                <img src={urlFor(product.image).url()} alt={product.title} />
+              <div className={`uk-hidden@m ${product.orientedImage ? 'orianted-img' : ''}`}>
+                {product.orientedImage ? <img src={urlFor(product.image).orientation(180).url()} alt={product.title} />
+                : <img src={urlFor(product.image).url()} alt={product.title} />}
               </div>
             </div>
           </div>

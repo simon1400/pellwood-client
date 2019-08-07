@@ -16,6 +16,7 @@ const ShortBlock = ({data, currency}) => {
             <ul className="uk-slider-items uk-grid uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m" uk-scrollspy="target: > li > a; cls: uk-animation-slide-top-small; delay: 500">
               {(data || []).map((item, index) => <Cart key={index} item={item} currency={currency}/>)}
             </ul>
+            <ul className="uk-slider-nav uk-dotnav uk-flex-center uk-margin uk-hidden@s"></ul>
           </div>
 
         </div>

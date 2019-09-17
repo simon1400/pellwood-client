@@ -15,7 +15,7 @@ const Cart = ({item, currency}) => {
   const [price, setPrice] = useState(0)
 
   useEffect(() => {
-    if(item.variants.length > 1){
+    if(item.variants && item.variants.length > 1){
       setPricesGroup(true)
       var allPrices = []
       item.variants.map(item => {
@@ -23,7 +23,7 @@ const Cart = ({item, currency}) => {
       })
       var minPrice = Math.min(...allPrices)
       setPrice(minPrice)
-    }else if(item.variants.length === 1){
+    }else if(item.variants && item.variants.length === 1){
       setPrice(item.variants[0].price)
     }else{
       setPrice(item.price)
@@ -31,13 +31,13 @@ const Cart = ({item, currency}) => {
   }, [])
 
   return(
-    <li data-category={item.category._ref} data-price={item.variants.length ? item.variants[0].price : ''}>
+    <li data-category={item.category._ref} data-price={item.variants && item.variants.length ? item.variants[0].price : ''}>
       <a href={`/product/${item.slug.current}`} className="card_short">
         <h3 className="card_short_head">{item.title}</h3>
         <div className="cart_img">
           <img src={urlFor(item.image).url()} alt={item.title} />
         </div>
-        <span className="short_price">{item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>
+        <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>
       </a>
     </li>
   )

@@ -50,7 +50,8 @@ export default ({match}) => {
                 <div className="content_wrap grey">
                   <div>
                     <div className="content">
-                      <h1 className="head_1">{item.title}</h1>
+                      {!index && <h1 className="head_1">{item.title}</h1>}
+                      {!!index && <h2 className="head_1">{item.title}</h2>}
                       <BlockContent blocks={item.text} />
                     </div>
                   </div>

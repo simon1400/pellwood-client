@@ -25,7 +25,7 @@ const Login = ({email, password, setEmail, setPassword, onRegister, onLogin, err
       <div className="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 
         <div className="tm-canvas-head">
-          <h2>Přihlašte se</h2>
+          <h2>Přihlásit se</h2>
           <button className="tm-canvas-close uk-close-large" type="button" uk-close="" onClick={e => closeModal()}></button>
         </div>
 
@@ -41,7 +41,7 @@ const Login = ({email, password, setEmail, setPassword, onRegister, onLogin, err
 
             {error.loginEmail === 'empty' || error.loginPassword === 'empty'
               ? <div className="uk-alert-danger" uk-alert="">
-                  <p>Prosime, vyplnte vsechni pole</p>
+                  <p>Vyplňte všechna pole</p>
                 </div>
               : ''
             }
@@ -54,10 +54,10 @@ const Login = ({email, password, setEmail, setPassword, onRegister, onLogin, err
               <input className={`${password.length ? 'hasValue' : ''} ${error.loginPassword || error.loginEmail === 'notExist' ? 'invalid' : ''}`} type="password" value={password} onChange={e => handleInput(e, 'password')} tabIndex="2"/>
               <label>Heslo</label>
             </div>
-            <button type="submit" className="tm-button tm-black-button uk-width-1-1">Přihlašte se</button>
+            <button type="submit" className="tm-button tm-black-button uk-width-1-1">Přihlásit se</button>
             <Link to="/basket" className="tm-button tm-bare-button tm-button-text uk-width-1-1"><span>zapomenuté heslo</span></Link>
             <hr />
-            <p>Nemáte jěště účet?</p>
+            <p>Chcete si založit účet?</p>
             <button className="tm-button tm-bare-button uk-width-1-1" onClick={e => onRegister(e)}><span>REGISTROVAT</span></button>
           </form>
         </div>

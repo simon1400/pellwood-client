@@ -157,7 +157,7 @@ const Header = () => {
                   {(menu || []).map((item, index) => <li key={index}><a href={item.slug.current}>{item.title}</a></li>)}
                 </ul>
               </nav>
-              <div className="lang-nav uk-hidden@m">
+              {/*<div className="lang-nav uk-hidden@m">
                 <nav>
                   <ul>
                     <li className="menu_active"><a href="/">cz</a></li>
@@ -165,7 +165,7 @@ const Header = () => {
                     <li><a href="/">de</a></li>
                   </ul>
                 </nav>
-              </div>
+              </div>*/}
               <div className="user-area uk-hidden@m">
                 <div className="login">
                   {loginUser
@@ -175,7 +175,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-            <div className="lang-nav uk-visible@m">
+            {/*<div className="lang-nav uk-visible@m">
               <nav>
                 <ul>
                   <li className="menu_active"><a href="/">cz</a></li>
@@ -183,10 +183,10 @@ const Header = () => {
                   <li><a href="/">de</a></li>
                 </ul>
               </nav>
-            </div>
+            </div>*/}
             <div className="user-area">
               <div className="login">
-                {loginUser ? <Link to="/user" className="uk-visible@m">Účet</Link> : <a href="#modal-login" className="uk-visible@m" uk-toggle="">Přihlašení</a>}
+                {loginUser ? <Link to="/user" className="uk-visible@m">Účet</Link> : <a href="#modal-login" className="uk-visible@m" uk-toggle="">Přihlášení</a>}
                 <a nohref="" className="basket_count" uk-toggle="target: #offcanvas-flip">
                   {basketCount ? basketCount : JSON.parse(localStorage.getItem('basketCount')) ? JSON.parse(localStorage.getItem('basketCount')) : 0}
                 </a>

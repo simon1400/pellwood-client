@@ -47,7 +47,7 @@ export default ({match}) => {
   const [carts, setCarts] = useState([])
   const [articleFirst, setArticleFirst] = useState([])
   const [articleSeccond, setArticleSeccond] = useState([])
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(1)
   const [loader, setLoader] = useState(false)
 
   const [select, setSelect] = useState({
@@ -74,12 +74,13 @@ export default ({match}) => {
 
   const selectHandle = (e) => {
     e.preventDefault()
+    UIkit.drop(UIkit.util.find(".select_dropdown")).hide();
     setSelect({
       ...select,
       name: e.currentTarget.dataset.name,
       price: e.currentTarget.dataset.price
     })
-    setError({ ...error, select: false, })
+    setError({ ...error, select: false })
   }
 
   const shuffle = (a, count) => {
@@ -165,7 +166,7 @@ export default ({match}) => {
           <div>
             <div className={`article_img_wrap ${product.orientedImage ? 'scale_img' : ''}`}>
               <div className="uk-visible@m">
-                {product.orientedImage ? <img src={urlFor(product.image).orientation(270).url()} alt={product.title} />
+                {product.orientedImage ? <img src={urlFor(product.image).width(Math.round(window.innerHeight + (window.innerHeight * 20 / 100))).orientation(270).url()} alt={product.title} />
                 : <img src={urlFor(product.image).url()} alt={product.title} />}
               </div>
               <div className={`uk-hidden@m ${product.orientedImage ? 'orianted-img' : ''}`}>

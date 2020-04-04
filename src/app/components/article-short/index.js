@@ -28,7 +28,7 @@ const Article = ({lang, data, firstUrl, seccondUrl}) => {
       <Link to={`/${baseUrl}/${data.slug.current}`} className="big_category">
         <div className="category_wrap">
           <div className="uk-inline uk-height-1-1 uk-width-1-1">
-            <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src={urlFor(data.image)} uk-img=""></div>
+            <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src={urlFor(data.image).width(window.innerWidth >= 640 ? (window.innerWidth - 120) / 2 : window.innerWidth - 30).url()} uk-img=""></div>
             <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
               <h2 className="category_short_name">{data.title}</h2>
             </div>

@@ -69,7 +69,7 @@ export default ({update, currency}) => {
 
         <div className="tm-canvas-head">
           <span className="tm-circle-count">{basketCount ? basketCount : 0}</span>
-          <h2>Kosik</h2>
+          <h2>Košík</h2>
           <Link to={window.location.pathname}><button className="tm-canvas-close uk-close-large" type="button" uk-close="" onClick={e => closeCanvas()}></button></Link>
         </div>
         {basketCount ?

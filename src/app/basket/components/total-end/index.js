@@ -28,11 +28,11 @@ const TotalEnd = ({sum, basket, delivery, payment, currency}) => {
           <tbody>
             <tr>
               <td>Doprava</td>
-              <td><span className={delivery === 'ZDARMA' ? 'tm-positive' : ''}>{delivery.length ? delivery : 'Navybrano'}</span></td>
+              <td><span className={delivery === 'ZDARMA' ? 'tm-positive' : ''}>{delivery.length ? delivery : 'Nevybráno'}</span></td>
             </tr>
             <tr>
               <td>Platba</td>
-              <td><span className={payment === 'ZDARMA' ? 'tm-positive' : ''}>{payment.length ? payment : 'Navybrano'}</span></td>
+              <td><span className={payment === 'ZDARMA' ? 'tm-positive' : ''}>{payment.length ? payment : 'Nevybráno'}</span></td>
             </tr>
             <tr>
               <td>Celková cena</td>

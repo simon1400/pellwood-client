@@ -31,7 +31,7 @@ const ShipPay = ({delivery, error, setDelivery, payment, setPayment}) => {
           </div>
         )}
         {error.delivery ? <div className="uk-alert-danger" uk-alert="">
-          <p>Prosim vyberte spusob dopravy</p>
+          <p>Vyberte způsob dopravy</p>
         </div> : ''}
       </div>
 
@@ -50,7 +50,7 @@ const ShipPay = ({delivery, error, setDelivery, payment, setPayment}) => {
           </div>
         )}
         {error.payment ? <div className="uk-alert-danger" uk-alert="">
-          <p>Prosim vyberte spusob platby</p>
+          <p>Vyberte způsob platby</p>
         </div> : ''}
 
       </div>

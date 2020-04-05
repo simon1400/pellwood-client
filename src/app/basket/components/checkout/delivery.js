@@ -1,10 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 const Delivery = ({state, setState}) => {
 
-
   const handleChange = (name, value) => {
-
     let newState = state;
     newState[name] = value;
     setState({...newState})

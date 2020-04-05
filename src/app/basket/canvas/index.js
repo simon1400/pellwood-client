@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import './style.scss'
-// import Cookies from 'js-cookie';
 import UIkit from 'uikit'
-
-import img from '../../assets/product-horizontal.jpg'
 
 export default ({update, currency}) => {
 

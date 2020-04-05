@@ -200,7 +200,7 @@ export default ({match}) => {
                             <ul style={{height: `calc(55px * ${product.variants ? product.variants.length : ''} + ${product.variants ? product.variants.length : ''}px)`}}>
                               {(product.variants || []).map((item, index) =>
                                 <li key={index}>
-                                  <a href="#" className="variant_select" data-name={item.title} data-price={item.price} onClick={e => selectHandle(e)} title={item.title}>
+                                  <a href="/" className="variant_select" data-name={item.title} data-price={item.price} onClick={e => selectHandle(e)} title={item.title}>
                                     <span className="uk-grid uk-grid-small">
                                       <span className="uk-width-3-5" >{item.title}</span>
                                       <span className="uk-width-2-5 uk-text-right">{currency === '$' ? currency: ''} {item.price} {currency !== '$' ? currency: ''}</span>

@@ -154,7 +154,7 @@ const Header = () => {
               <nav>
                 <ul>
                   <li><a href='/produkty'>Produkty</a></li>
-                  {(menu || []).map((item, index) => <li key={index}><a href={item.slug.current}>{item.title}</a></li>)}
+                  {(menu || []).map((item, index) => <li key={index}><a href={`/${item.slug.current}`}>{item.title}</a></li>)}
                 </ul>
               </nav>
               {/*<div className="lang-nav uk-hidden@m">
@@ -187,7 +187,7 @@ const Header = () => {
             <div className="user-area">
               <div className="login">
                 {loginUser ? <Link to="/user" className="uk-visible@m">Účet</Link> : <a href="#modal-login" className="uk-visible@m" uk-toggle="">Přihlášení</a>}
-                <a nohref="" className="basket_count" uk-toggle="target: #offcanvas-flip">
+                <a nohref="" href="/" className="basket_count" uk-toggle="target: #offcanvas-flip">
                   {basketCount ? basketCount : JSON.parse(localStorage.getItem('basketCount')) ? JSON.parse(localStorage.getItem('basketCount')) : 0}
                 </a>
               </div>

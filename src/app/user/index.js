@@ -6,15 +6,16 @@ import AnimateHeight from 'react-animate-height';
 import './style.scss'
 import axios from 'axios'
 
-var lang = 'cz', currency = 'Kč'
+// var lang = 'cz'
+var currency = 'Kč'
 if(window.location.pathname.split('/')[1] === 'en'){
-  lang = 'en';
+  // lang = 'en';
   currency = '$';
 }else if(window.location.pathname.split('/')[1] === 'de'){
-  lang = 'de';
+  // lang = 'de';
   currency = '&euro;';
 }else{
-  lang = 'cz';
+  // lang = 'cz';
   currency = 'Kč';
 }
 

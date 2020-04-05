@@ -1,4 +1,4 @@
-import React, {useState, useLayoutEffect, useEffect, useRef} from 'react';
+import React, {useState, useLayoutEffect, useEffect} from 'react';
 import {Link} from 'react-router-dom'
 
 import './style.scss'
@@ -31,7 +31,7 @@ function useWindowSize() {
 const SubMenu = ({data}) => {
 
   const [responseMenu, setResponseMenu] = useState(false)
-  const [width, height] = useWindowSize();
+  const [width] = useWindowSize();
 
   useEffect(() => {
     reespMenu()

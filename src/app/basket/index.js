@@ -11,15 +11,16 @@ import Checkout from './components/checkout'
 import Total from './components/total'
 import TotalEnd from './components/total-end'
 
-var lang = 'cz', currency = 'Kč'
+// var lang = 'cz',
+var currency = 'Kč'
 if(window.location.pathname.split('/')[1] === 'en'){
-  lang = 'en';
+  // lang = 'en';
   currency = '$';
 }else if(window.location.pathname.split('/')[1] === 'de'){
-  lang = 'de';
+  // lang = 'de';
   currency = '&euro;';
 }else{
-  lang = 'cz';
+  // lang = 'cz';
   currency = 'Kč';
 }
 
@@ -189,7 +190,7 @@ const Basket = () => {
           </Switch>
           <div>
             <p>Všechny ceny jsou včetně DPH 21 %</p>
-            <Route exact path="/basket/checkout" render={() => <p>Odesláním objednávky souhlasíte s <a href="">obchodními podmínkami</a>.</p>} />
+            <Route exact path="/basket/checkout" render={() => <p>Odesláním objednávky souhlasíte s <a href="/">obchodními podmínkami</a>.</p>} />
           </div>
           <div>
             <div className="tm-basket-footer tm-footer-single">

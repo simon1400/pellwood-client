@@ -21,7 +21,7 @@ if(window.location.pathname.split('/')[1] === 'en'){
 
 const query = `{
   'product': *[_type == "product"].${lang},
-  'category': *[_type == "category"],
+  'category': *[_type == "category"] | order(sort asc),
   'articles': *[_type == "article"].${lang}
 }`;
 

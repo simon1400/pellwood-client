@@ -33,16 +33,18 @@ export default ({match}) => {
     })
   }, [])
 
+
+
   if(chapters || chapters.length > 0){
     return (
-      <Page id="blog" title="Blog">
+      <Page id="blog" description={chapters.descriptionHead} title={chapters.titleHead}>
         {chapters.map((item, index) =>
           <section key={index} className="full">
             <div className="uk-grid uk-grid-large uk-child-width-1-1 uk-child-width-1-2@m" uk-grid="" uk-height-match="target: > div > div">
               <div>
                 <div className="article_img_wrap">
                   <div uk-sticky="bottom: true; media: @m">
-                    <img src={urlFor(item.image).url()} alt={item.title} />
+                    <img src={urlFor(item.image).width(window.innerWidth / 2).url()} alt={item.title} />
                   </div>
                 </div>
               </div>

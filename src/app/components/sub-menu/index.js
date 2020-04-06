@@ -28,10 +28,20 @@ function useWindowSize() {
 
 // active_sub
 
-const SubMenu = ({data}) => {
+const SubMenu = ({data, articles = false}) => {
 
   const [responseMenu, setResponseMenu] = useState(false)
   const [width] = useWindowSize();
+
+  const [baseUrl, setBaseUrl] = useState('')
+
+  useEffect(() => {
+    if(lang !== 'cz'){
+      setBaseUrl(window.location.pathname.split('/')[2])
+    }else{
+      setBaseUrl(window.location.pathname.split('/')[1])
+    }
+  }, [])
 
   useEffect(() => {
     reespMenu()
@@ -59,9 +69,13 @@ const SubMenu = ({data}) => {
       <ul>
         {window.location.pathname.split('/')[1] === 'produkty' || window.location.pathname.split('/')[2] === 'produkty'
           ? <li uk-filter-control="" className="sub_menu_item"><Link to="/">Všechny produkty</Link></li> : ''}
-        {data.map((item, index) =>
-          <li key={index} className="sub_menu_item" uk-filter-control={`[data-category*='${item._id}']`}><Link to="/">{item[lang].title}</Link></li>
-        )}
+        {data.length && data.map((item, index) => {
+          if(!articles) {
+            return <li key={index} className="sub_menu_item" uk-filter-control={`[data-category*='${item._id}']`}><Link to="/">{item[lang].title}</Link></li>
+          }else{
+            return <li key={index} className="sub_menu_item"><a href={`${baseUrl}/${item.slug.current}`}>{item.title}</a></li>
+          }
+        })}
       </ul>
     </nav>
   )

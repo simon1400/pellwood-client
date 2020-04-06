@@ -26,17 +26,12 @@ if(window.location.pathname.split('/')[1] === 'en'){
   currency = 'Kč';
 }
 
-// 'archive': *[_type == "archive" && !(_id in ['3cc07543-ce81-4ad2-ace0-8bf754217065', '52fa0f08-6a67-4697-8ac4-d80b1b499871'])]{
-//   ${lang},
-//   _id
-// }
-
 const query = `{
   'homepage': *[_type == "homepage"] {
     ${lang},
-    "carts": *[ _type == "product" && _id in [^.${lang}.recommendedProducts.product_1._ref, ^.${lang}.recommendedProducts.product_2._ref, ^.${lang}.recommendedProducts.product_3._ref]].${lang}
+    "carts": *[ _type == "product" && _id in [^.${lang}.recommendedProducts.product_1._ref, ^.${lang}.recommendedProducts.product_2._ref, ^.${lang}.recommendedProducts.product_3._ref]].${lang} | order(sort asc)
   }[0...10],
-  'articles': *[_type == "article"].${lang}
+  'articles': *[_type == "article"].${lang} | order(sort asc)
 }`;
 
 export default () => {
@@ -69,7 +64,7 @@ export default () => {
 
   if(homepage.title !== undefined){
     return (
-      <Page id="homepage" title="Uvodni stranka">
+      <Page id="homepage" description={homepage.descriptionHead} title={homepage.titleHead}>
 
         <section className="homepage_slide">
           <div className="uk-inline uk-cover-container uk-height-1-1 uk-width-1-1">

@@ -191,6 +191,12 @@
 }
 
 @media(max-width: 640px){
+  .slider-card{
+    > div.uk-container-expand{
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
   .uk-offcanvas-bar{
     width: 100%;
   }

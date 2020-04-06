@@ -96,7 +96,7 @@ export default ({match}) => {
 
   const onBuy = () => {
     setLoader(true)
-    if(select.name === 'Vybrat variantu' && product.variants.length){
+    if(select.name === 'Vybrat variantu' && product?.variants?.length){
       setError({ ...error, select: true })
       setLoader(false)
       return;
@@ -117,7 +117,7 @@ export default ({match}) => {
       imgUrl: urlFor(product.image).url()
     }
 
-    if(!product.variants.length){
+    if(!product?.variants?.length){
       newBasketItem.variantName = product.title
       newBasketItem.variantPrice = product.price
     }else{
@@ -179,7 +179,7 @@ export default ({match}) => {
               <div className="content_wrap grey">
                 <div className="content">
                   <h1 className="head_1">{product.title}</h1>
-                  {product.variants.length ? <div className="variants_list">
+                  {product?.variants?.length ? <div className="variants_list">
                     {(product.variants || []).map((item, index) =>
                       <div key={index} className="uk-grid uk-grid-medium" uk-grid="">
                         <div className="uk-width-expand">{item.title}</div>
@@ -187,7 +187,7 @@ export default ({match}) => {
                       </div>
                     )}
                   </div> : ''}
-                  {product.variants !== undefined && product.variants.length ? <div className="order_block">
+                  {product?.variants !== undefined && product?.variants?.length ? <div className="order_block">
                     <div className="uk-flex uk-flex-between">
                       <div>
                         <div className="uk-width-1-1 uk-width-auto@m">
@@ -197,8 +197,8 @@ export default ({match}) => {
                               <span><img src={down} alt="Down" /></span>
                             </button>
                             <div className="select_dropdown" uk-drop="mode: click">
-                              <ul style={{height: `calc(55px * ${product.variants ? product.variants.length : ''} + ${product.variants ? product.variants.length : ''}px)`}}>
-                                {(product.variants || []).map((item, index) =>
+                              <ul style={{height: `calc(55px * ${product?.variants ? product?.variants?.length : ''} + ${product?.variants ? product?.variants?.length : ''}px)`}}>
+                                {(product?.variants || []).map((item, index) =>
                                   <li key={index}>
                                     <a href="/" className="variant_select" data-name={item.title} data-price={item.price} onClick={e => selectHandle(e)} title={item.title}>
                                       <span className="uk-grid uk-grid-small">
@@ -225,7 +225,7 @@ export default ({match}) => {
                     </div>
                     <Link to={window.location.pathname +'?buy'}><button className="uk-width-1-1 uk-margin-top tm-button tm-black-button" href="/" onClick={() => onBuy()}>{loader ? <div uk-spinner="" className="uk-icon uk-spinner"></div> : ''}PŘIDAT DO KOŠÍKU</button></Link>
                   </div> : ''}
-                  {!product.variants.length ?
+                  {!product?.variants?.length ?
                     <div className="tm-single-order">
                       <div className="tm-single-price uk-text-center uk-margin-bottom">{currency === '$' ? currency: ''} {product.price} {currency !== '$' ? currency: ''}</div>
                       <div className="uk-grid-small uk-grid" uk-grid="">

@@ -33,9 +33,9 @@ export default ({match}) => {
     })
   }, [])
 
+  console.log(chapters);
 
-
-  if(chapters || chapters.length > 0){
+  if(chapters || chapters?.length){
     return (
       <Page id="blog" description={chapters.descriptionHead} title={chapters.titleHead}>
         {chapters.map((item, index) =>

@@ -31,7 +31,7 @@ const Cart = ({item, currency}) => {
   }, [])
 
   return(
-    <li data-category={item.category._ref} data-price={item.variants && item.variants.length ? item.variants[0].price : ''}>
+    <li data-category={item?.category?._ref} data-price={item?.variants && item?.variants?.length ? item?.variants[0]?.price : ''}>
       <a href={`/product/${item.slug.current}`} className="card_short">
         <h3 className="card_short_head">{item.title}</h3>
         <div className="cart_img">

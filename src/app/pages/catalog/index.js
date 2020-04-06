@@ -100,7 +100,7 @@ export default () => {
       </div>
       <div className="uk-container uk-container-expand">
         <ul className="js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s" uk-grid="" uk-scrollspy="target: > li > a; cls: uk-animation-slide-top-small; delay: 500">
-          {(product || []).map((item, index) => <Cart item={item} key={index} currency={currency} />)}
+          {!!product.length && product.map((item, index) => <Cart item={item} key={index} currency={currency} />)}
         </ul>
       </div>
     </section>

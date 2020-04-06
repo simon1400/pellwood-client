@@ -35,7 +35,7 @@ const Cart = ({item, currency}) => {
       <a href={`/product/${item.slug.current}`} className="card_short">
         <h3 className="card_short_head">{item.title}</h3>
         <div className="cart_img">
-          <img src={urlFor(item.image).width(((window.innerWidth - 160) / 3) * 2).url()} alt={item.title} />
+          <img src={urlFor(item.image).width(Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
         </div>
         <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>
       </a>

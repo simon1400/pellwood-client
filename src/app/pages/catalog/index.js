@@ -22,7 +22,8 @@ if(window.location.pathname.split('/')[1] === 'en'){
 const query = `{
   'product': *[_type == "product"].${lang},
   'category': *[_type == "category"] | order(sort asc),
-  'articles': *[_type == "article"].${lang}
+  'articles': *[_type == "article"].${lang},
+  'settings': *[_type == "settings"].${lang}
 }`;
 
 export default () => {
@@ -31,6 +32,7 @@ export default () => {
   const [articleFirst, setArticleFirst] = useState([])
   const [articleSeccond, setArticleSeccond] = useState([])
   const [category, setCategory] = useState([])
+  const [settings, setSettings] = useState([])
 
   const shuffle = (a, count) => {
     for (let i = a.length - 1; i > 0; i--) {
@@ -51,6 +53,7 @@ export default () => {
       var articlesFilteredSeccond = data.articles.filter(item => item.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
       shuffle(articlesFilteredSeccond, 1)
       setCategory(data.category)
+      setSettings(data.settings[0])
     })
   }, [])
 
@@ -59,8 +62,8 @@ export default () => {
     <section className="head_category">
       <div className="uk-container uk-container-expand">
         <div className="content_head_wrap">
-          <h1>Prvotřídní bubenické paličky PELLWOOD</h1>
-          <p>Od roku 2009 zavedla naše firma unikátní technologii která spočívá ve VÁŽENÍ DŘEVA UŽ PŘED VÝROBOU. Dřevo je pak vytříděno do váhových kategorií a každý náš model paliček má doslova přidělené dřevo s hmotností</p>
+          <h1>{settings.titleCategory}</h1>
+          <p>{settings.descriptionCategory}</p>
         </div>
       </div>
     </section>

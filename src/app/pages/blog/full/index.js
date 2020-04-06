@@ -44,7 +44,7 @@ export default ({match}) => {
               <div>
                 <div className="article_img_wrap">
                   <div uk-sticky="bottom: true; media: @m">
-                    <img src={urlFor(item.image).width(window.innerWidth / 2).url()} alt={item.title} />
+                    <img src={urlFor(item.image).width(Math.round(window.innerWidth / 2)).url()} alt={item.title} />
                   </div>
                 </div>
               </div>

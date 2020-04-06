@@ -68,7 +68,7 @@ export default () => {
 
         <section className="homepage_slide">
           <div className="uk-inline uk-cover-container uk-height-1-1 uk-width-1-1">
-            <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src={urlFor(homepage.image).width(window.innerWidth).url()} uk-img=""></div>
+            <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src={urlFor(homepage.image).width(Math.round(window.innerWidth)).url()} uk-img=""></div>
             <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
               <div >
                 <h1 className="contrast" uk-scrollspy="cls: uk-animation-slide-top-small; delay: 500">{homepage.title}</h1>
@@ -95,7 +95,7 @@ export default () => {
                 <a href={homepage.banner.url} className="big_category big_grid">
                   <div className="category_wrap">
                     <div className="uk-inline uk-height-1-1 uk-width-1-1">
-                      <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src={urlFor(homepage.banner.image).width(window.innerWidth - 80).url()} uk-img=""></div>
+                      <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src={urlFor(homepage.banner.image).width(Math.round(window.innerWidth - 80)).url()} uk-img=""></div>
                       <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
                         <h2 className="category_short_name">{homepage.banner.title}</h2>
                       </div>

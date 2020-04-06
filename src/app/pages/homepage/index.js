@@ -86,7 +86,7 @@ export default () => {
           </div>
         </section>
 
-        <ShortBlock data={carts} currency={currency}/>
+        {carts.length && <ShortBlock data={carts} currency={currency}/>}
 
         <section className="section_base">
           <div className="uk-container uk-container-expand">

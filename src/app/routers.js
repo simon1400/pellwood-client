@@ -30,12 +30,12 @@ const Routers = () => {
 
       <Route exact path="/kontakty" component={BlogShort} />
       <Route exact path="/kontakty/:url" component={BlogFull} />
-      
+
       <Route exact path="/o-nas" component={BlogShort} />
       <Route exact path="/o-nas/:url" component={BlogFull} />
 
-      <Route exact path="/product/:url" component={Product} />
-      <Route exact path="/product/:url/:handle" component={Product} />
+      <Route exact path="/produkt/:url" component={Product} />
+      <Route exact path="/produkt/:url/:handle" component={Product} />
 
       <Route path="/basket" component={Basket} />
       <Route exact path="/thank-you" component={ThankYou} />

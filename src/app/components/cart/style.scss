@@ -12,7 +12,7 @@
 		color: $accent;
 		text-decoration: none;
 		.card_short_head:after{
-			width: calc(100% + 20px);
+			width: 100%
 		}
 		.cart_img img{
 			transform: translateY(-50%) scale(3);
@@ -28,7 +28,7 @@
 		&:after{
 			content: '';
 			position: absolute;
-			left: -10px;
+			left: 0;
 			bottom: -8px;
 			width: 0;
 			height: 1px;

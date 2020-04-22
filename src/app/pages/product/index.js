@@ -35,9 +35,9 @@ const query = `{
   'products': *[_type == "product" && ${lang}.slug.current == $url] {
     _id,
     ${lang},
-    "linkedCarts": *[ _type == "product" && _id in [^.${lang}.linkedProducts.product_1._ref, ^.${lang}.linkedProducts.product_2._ref, ^.${lang}.linkedProducts.product_3._ref]].${lang}
+    "linkedCarts": *[ _type == "product" && _id in [^.${lang}.linkedProducts.product_1._ref, ^.${lang}.linkedProducts.product_2._ref, ^.${lang}.linkedProducts.product_3._ref]].${lang} | order(sort asc)
   },
-  'articles': *[_type == "article"].${lang}
+  'articles': *[_type == "article"].${lang} | order(sort asc)
 }`;
 
 export default ({match}) => {
@@ -266,7 +266,7 @@ export default ({match}) => {
           </div>
         </section>
 
-        <ShortBlock data={carts}/>
+        <ShortBlock data={carts} currency={currency}/>
         <RandomArticles lang={lang} articleFirst={articleFirst} articleSeccond={articleSeccond} />
       </Page>
     )

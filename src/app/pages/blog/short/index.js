@@ -21,7 +21,7 @@ const archive = `*[_type == "archive" && '${firstUrl}' == ${lang}.slug.current] 
   _id,
   titleHead,
   descriptionHead
-}`;
+} | order(sort asc)`;
 
 
 const query = `*[_type == "article" && $id == ${lang}.category._ref].${lang} {

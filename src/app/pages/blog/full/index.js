@@ -26,14 +26,14 @@ const query = `*[_type == "article" && ${lang}.slug.current == $url].${lang}.cha
 export default ({match}) => {
 
   const [chapters, setChapters] = useState([])
+  const [tablet] = useState(window.innerWidth <= 960 && window.innerWidth > 640)
+  const [mobile] = useState(window.innerWidth <= 640)
 
   useEffect(() => {
     sanityClient.fetch(query, {url: match.params.url}).then(data => {
       setChapters(...data)
     })
   }, [])
-
-  console.log(chapters);
 
   if(chapters || chapters?.length){
     return (
@@ -44,7 +44,7 @@ export default ({match}) => {
               <div>
                 <div className="article_img_wrap">
                   <div uk-sticky="bottom: true; media: @m">
-                    <img src={urlFor(item.image).width(Math.round(window.innerWidth / 2)).url()} alt={item.title} />
+                    <img src={urlFor(item.image).width(!tablet && !mobile ? Math.round(window.innerWidth / 2) : window.innerWidth).url()} alt={item.title} />
                   </div>
                 </div>
               </div>

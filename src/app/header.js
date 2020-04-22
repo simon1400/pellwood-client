@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Canvas from './basket/canvas'
 import sanityClient from "../lib/sanity.js";
 import Login from './user/components/login'
@@ -27,7 +27,7 @@ const query = `*[_type == "archive" && !(_id == '3cc07543-ce81-4ad2-ace0-8bf7542
 }`;
 
 
-const Header = () => {
+const Header = ({history}) => {
 
   const [menu, setMenu] = useState([])
   const [handleUpdate, setHandleUpdate] = useState(0)
@@ -132,6 +132,8 @@ const Header = () => {
     setHamburger(!hamburger)
   }
 
+  console.log(history.location.pathname.indexOf('produkty') >= 0);
+
   // menu_active
   return(
     <Fragment>
@@ -153,8 +155,8 @@ const Header = () => {
             <div className={`top-nav ${hamburger ? 'menu-active' : ''}`}>
               <nav>
                 <ul>
-                  <li><a href='/produkty'>Produkty</a></li>
-                  {(menu || []).map((item, index) => <li key={index}><a href={`/${item.slug.current}`}>{item.title}</a></li>)}
+                  <li className={history.location.pathname.indexOf('/produkty') >= 0 ? 'active-menu-top' : ''}><a href='/produkty'>Produkty</a></li>
+                  {(menu || []).map((item, index) => <li key={index} className={history.location.pathname.indexOf(item.slug.current) >= 0 ? 'active-menu-top' : ''}><a href={`/${item.slug.current}`}>{item.title}</a></li>)}
                 </ul>
               </nav>
               {/*<div className="lang-nav uk-hidden@m">
@@ -200,4 +202,4 @@ const Header = () => {
 }
 
 
-export default Header
+export default withRouter(Header)

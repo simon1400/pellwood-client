@@ -15,6 +15,38 @@
 	overflow-y: scroll!important;
 }
 
+#homepage{
+	.homepage_slide .tm-button.tm-contrast{
+		opacity: 0;
+	}
+}
+
+.copyright{
+	position: absolute;
+	bottom: 20px;
+	right: 40px;
+	width: 100%;
+	text-align: right;
+	span{
+		color: white;
+	  opacity: .6;
+	  font-family: "Oswald", sans-serif;
+	  font-weight: 300;
+	  font-size: 15px;
+	  letter-spacing: 1px;
+	  margin-bottom: 0;
+		display: inline-block;
+	}
+	img{
+		height: 18px;
+		display: inline-block;
+		width: auto;
+		opacity: .5;
+		margin-left: 10px;
+		margin-top: -5px;
+	}
+}
+
 .uk-offcanvas-container{
 	overflow-y: hidden!important;
 	position: fixed;
@@ -411,6 +443,7 @@ a{
 footer{
 	background-color: $accent;
 	padding: 90px 0;
+	position: relative;
 	.cart_method_foot{
 		> div{
 			&:not(:first-child){
@@ -637,6 +670,9 @@ footer{
 .custom-select-wrap{
 	width: 100%;
 	position: relative;
+	button.uk-open{
+		background-color: #fff;
+	}
 }
 
 .select_dropdown{
@@ -666,7 +702,7 @@ footer{
 			}
 			a{
 				display: block;
-				font-size: 16px;
+				font-size: 14px;
 				line-height: 55px;
 				color: $text;
 				transition: all .2s ease;

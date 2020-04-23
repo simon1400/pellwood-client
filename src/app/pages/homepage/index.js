@@ -5,6 +5,7 @@ import ShortBlock from '../../components/small-short-cart';
 import sanityClient from "../../../lib/sanity.js";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
+import Cart from '../../components/cart'
 
 import './style.scss'
 
@@ -60,6 +61,7 @@ export default () => {
       var articlesFilteredSeccond = data.articles.filter(item => item.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
       shuffle(articlesFilteredSeccond, 1)
     })
+
   }, [])
 
   if(homepage.title !== undefined){
@@ -87,6 +89,7 @@ export default () => {
         </section>
 
         {carts.length && <ShortBlock data={carts} currency={currency}/>}
+
 
         <section className="section_base">
           <div className="uk-container uk-container-expand">

@@ -34,6 +34,10 @@ export default () => {
   const [category, setCategory] = useState([])
   const [settings, setSettings] = useState([])
 
+  const [searchProduct, setSearchProduct] = useState([])
+
+  const [seacrh, setSearch] = useState('')
+
   const shuffle = (a, count) => {
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -57,6 +61,17 @@ export default () => {
     })
   }, [])
 
+  const handleSearch = (value) => {
+    setSearch(value)
+    const newProduct = product.filter(item => {
+      let title = item.title.toLowerCase()
+      if(title.indexOf(value.toLowerCase()) >= 0){
+        return true
+      }
+    })
+    setSearchProduct(newProduct)
+  }
+
   return (
     <Page id="catalog" title="Catalog">
     <section className="head_category">
@@ -77,7 +92,7 @@ export default () => {
             <div className="search_wrap">
               <div className="input_animation">
                 <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="search" className="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M508.5 481.6l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-10.3C395 312 416 262.5 416 208 416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c54.5 0 104-21 141.1-55.2V371c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l9.9-9.9c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z"></path></svg>
-                <label><input className="effect-9 search_input" type="text" placeholder="Hledat..." /></label>
+                <label><input className="effect-9 search_input" type="text" placeholder="Hledat..." value={seacrh} onChange={e => handleSearch(e.target.value)} /></label>
                 <span className="focus-border">
                   <i></i>
                 </span>
@@ -103,8 +118,9 @@ export default () => {
         </div>
       </div>
       <div className="uk-container uk-container-expand">
-        <ul className="js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s" uk-grid="" uk-scrollspy="target: > li > a; cls: uk-animation-slide-top-small; delay: 500">
-          {!!product.length && product.map((item, index) => <Cart item={item} key={index} currency={currency} />)}
+        <ul className="js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s" uk-grid="" uk-scrollspy="target: > li > a; cls: uk-animation-slide-top-small; delay: 300">
+          {!!product.length && !searchProduct.length && product.map((item, index) => <Cart item={item} key={index} currency={currency} />)}
+          {!!searchProduct.length && searchProduct.map((item, index) => <Cart item={item} key={index} currency={currency} />)}
         </ul>
       </div>
     </section>

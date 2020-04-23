@@ -9,7 +9,7 @@ function urlFor(source) {
   return imageBuilder.image(source);
 }
 
-const Cart = ({item, currency}) => {
+const Cart = ({item, currency, block}) => {
 
   const [pricesGroup, setPricesGroup] = useState(false)
   const [price, setPrice] = useState(0)
@@ -33,17 +33,32 @@ const Cart = ({item, currency}) => {
     }
   }, [])
 
-  return(
-    <li data-category={item?.category?._ref} data-price={item?.variants && item?.variants?.length ? item?.variants[0]?.price : ''}>
-      <a href={`/produkt/${item.slug.current}`} className="card_short">
-        <h3 className="card_short_head">{item.title}</h3>
-        <div className="cart_img">
-          <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
-        </div>
-        <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>
-      </a>
-    </li>
-  )
+
+  if(block) {
+    return(
+      <div>
+        <a href={`/produkt/${item.slug.current}`} className="card_short" style={{opacity: 1}}>
+          <h3 className="card_short_head">{item.title}</h3>
+          <div className="cart_img">
+            <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
+          </div>
+          <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>
+        </a>
+      </div>
+    )
+  }else{
+    return (
+      <li data-category={item?.category?._ref} data-price={item?.variants && item?.variants?.length ? item?.variants[0]?.price : ''}>
+        <a href={`/produkt/${item.slug.current}`} className="card_short">
+          <h3 className="card_short_head">{item.title}</h3>
+          <div className="cart_img">
+            <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
+          </div>
+          <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>
+        </a>
+      </li>
+    )
+  }
 }
 
 export default Cart

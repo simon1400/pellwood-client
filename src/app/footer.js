@@ -3,6 +3,7 @@ import sanityClient from "../lib/sanity.js";
 import mastercard from './assets/mastercard.svg'
 import visa from './assets/visa.svg'
 import BlockContent from "@sanity/block-content-to-react";
+import hardart from './assets/hardart.svg'
 
 var lang = 'cz'
 if(window.location.pathname.split('/')[1] === 'en'){
@@ -45,6 +46,10 @@ export default () => {
             </div>
           )}
         </div>
+      </div>
+      <div className="copyright">
+        <span>Made in Brno by</span>
+        <img src={hardart} />
       </div>
     </footer>
   )

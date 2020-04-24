@@ -90,7 +90,6 @@ export default () => {
 
         {carts.length && <ShortBlock data={carts} currency={currency}/>}
 
-
         <section className="section_base">
           <div className="uk-container uk-container-expand">
             <div className="uk-grid" uk-grid="" uk-scrollspy="target: > div > a; cls: uk-animation-slide-top-small; delay: 500">

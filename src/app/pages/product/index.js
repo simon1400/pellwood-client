@@ -202,8 +202,8 @@ export default ({match}) => {
                                   <li key={index}>
                                     <a href="/" className="variant_select" data-name={item.title} data-price={item.price} onClick={e => selectHandle(e)} title={item.title}>
                                       <span className="uk-grid uk-grid-small">
-                                        <span className="uk-width-3-5" >{item.title}</span>
-                                      <span className="uk-width-2-5 uk-text-right" style={{textTransform: 'none'}}>{currency === '$' ? currency: ''} {item.price} {currency !== '$' ? currency: ''}</span>
+                                        <span className="uk-width-4-5" >{item.title}</span>
+                                      <span className="uk-width-1-5 uk-text-right" style={{textTransform: 'none'}}>{currency === '$' ? currency: ''} {item.price} {currency !== '$' ? currency: ''}</span>
                                       </span>
                                     </a>
                                   </li>

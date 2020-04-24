@@ -68,7 +68,7 @@ const SubMenu = ({data, articles = false}) => {
     <nav className={`sub_menu ${responseMenu ? "sub_menu_responsive" : ''}`}>
       <ul>
         {window.location.pathname.split('/')[1] === 'produkty' || window.location.pathname.split('/')[2] === 'produkty'
-          ? <li uk-filter-control="" className="sub_menu_item"><Link to="#catalog-short" scroll={el => el.scrollIntoView({behavior: "smooth", block: "start"})}>Všechny produkty</Link></li> : ''}
+          ? <li uk-filter-control="" className={`sub_menu_item`}><Link to="#catalog-short" scroll={el => el.scrollIntoView({behavior: "smooth", block: "start"})}>Všechny produkty</Link></li> : ''}
         {data.length && data.map((item, index) => {
           if(!articles) {
             return <li key={index} className="sub_menu_item" uk-filter-control={`[data-category*='${item._id}']`}><Link to="#catalog-short" scroll={el => el.scrollIntoView({behavior: "smooth",block: "start"})}>{item[lang].title}</Link></li>

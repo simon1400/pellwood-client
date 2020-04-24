@@ -4,22 +4,21 @@
 	font-size: 40px;
 	font-family: $font;
 	font-weight: 200;
-	text-transform: uppercase;
 	letter-spacing: 1px;
 	color: white;
 	margin-bottom: 0!important;
 	position: relative;
-	&:after{
-		content: '';
-		position: absolute;
-		left: -10px;
-		bottom: -8px;
-		width: 0;
-		height: 1px;
-		background-color: white;
-		display: block;
-		transition: all .5s ease;
-	}
+	// &:after{
+	// 	content: '';
+	// 	position: absolute;
+	// 	left: -10px;
+	// 	bottom: -8px;
+	// 	width: 0;
+	// 	height: 1px;
+	// 	background-color: white;
+	// 	display: block;
+	// 	transition: all .5s ease;
+	// }
 }
 
 

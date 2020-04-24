@@ -49,7 +49,7 @@ export default () => {
       </div>
       <div className="copyright">
         <span>Made in Brno by</span>
-        <img src={hardart} />
+        <a href="mailto:danielkokes@gmail.com"><img src={hardart} alt="Hardart studio"/></a>
       </div>
     </footer>
   )

@@ -71,7 +71,7 @@ const SubMenu = ({data, articles = false}) => {
           ? <li uk-filter-control="" className={`sub_menu_item`}><Link to="#catalog-short" scroll={el => el.scrollIntoView({behavior: "smooth", block: "start"})}>Všechny produkty</Link></li> : ''}
         {data.length && data.map((item, index) => {
           if(!articles) {
-            return <li key={index} className="sub_menu_item" uk-filter-control={`[data-category*='${item._id}']`}><Link to="#catalog-short" scroll={el => el.scrollIntoView({behavior: "smooth",block: "start"})}>{item[lang].title}</Link></li>
+            return <li key={index} className="sub_menu_item" uk-filter-control={`[data-category*='${item._id}']`}><Link to="#catalog-short" scroll={el => el.scrollIntoView({behavior: "smooth",block: "start"})}>{item.title}</Link></li>
           }else{
             return <li key={index} className="sub_menu_item"><a href={`${baseUrl}/${item.slug.current}`}>{item.title}</a></li>
           }

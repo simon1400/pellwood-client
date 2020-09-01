@@ -84,7 +84,7 @@ class Page extends Component {
     const { children, id, className, ...rest } = this.props;
 
     return (
-      <div id={id} className={className}>
+      <main id={id} className={className}>
         <Helmet
           htmlAttributes={{
             lang: 'en',
@@ -103,7 +103,7 @@ class Page extends Component {
           meta={this.getMetaTags(rest, this.props.location.pathname)}
         />
         {children}
-      </div>
+      </main>
     );
   }
 }

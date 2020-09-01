@@ -22,8 +22,8 @@ if(window.location.pathname.split('/')[1] === 'en'){
 }
 
 const query = `{
-  'product': *[_type == "product"].${lang} | order(sort asc),
-  'category': *[_type == "category"] | order(sort asc),
+  'product': *[_type == "product"].${lang} | order(sort asc) | order(title asc),
+  'category': *[_type == "category"].${lang} | order(sort asc),
   'articles': *[_type == "article"].${lang} | order(sort asc),
   'settings': *[_type == "settings"].${lang}
 }`;
@@ -58,6 +58,7 @@ export default () => {
       shuffle(articlesFilteredFirst, 0)
       var articlesFilteredSeccond = data.articles.filter(item => item.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
       shuffle(articlesFilteredSeccond, 1)
+      console.log(data.category);
       setCategory(data.category)
       setSettings(data.settings[0])
     })
@@ -85,54 +86,54 @@ export default () => {
 
   return (
     <Page id="catalog" title="Catalog">
-    <section className="head_category">
-      <div className="uk-container uk-container-expand">
-        <div className="content_head_wrap">
-          <h1>{settings.titleCategory}</h1>
-          <p>{settings.descriptionCategory}</p>
+      <section className="head_category">
+        <div className="uk-container uk-container-expand">
+          <div className="content_head_wrap">
+            <h1>{settings.titleCategory}</h1>
+            <p>{settings.descriptionCategory}</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
 
-    <section className="category grey" uk-filter="target: .js-filter" id="catalog-short">
-      <div className="uk-container uk-container-expand">
-        <div className="category_menu uk-flex uk-flex-between uk-flex-middle uk-flex-wrap">
-          <div className="uk-flex uk-flex-middle uk-width-1-1 uk-flex-between uk-flex-wrap">
-            <SubMenu data={category}/>
-            <div className="search_wrap">
-              <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="search" className="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M508.5 481.6l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-10.3C395 312 416 262.5 416 208 416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c54.5 0 104-21 141.1-55.2V371c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l9.9-9.9c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z"></path></svg>
-              <label><input className="effect-9 search_input" type="text" placeholder="Hledat..." value={seacrh} onChange={e => handleSearch(e.target.value)} /></label>
-              {!!seacrh.length && <img src={times} onClick={() => clearSearch()} alt="clear" />}
-          </div>
-          </div>
-
-          {/*<div>
-            <div className="custom-select-wrap">
-              <button className="custom-select uk-button uk-button-default" type="button" tabIndex="-1">
-                <span>seřadit podle cenys eřadit podle ceny</span>
-                <span><img src="/img/chevron-down-light.svg" alt="" /></span>
-              </button>
-              <div className="select_dropdown" uk-drop="mode: click">
-                <ul style={{height: `calc(55px * 3 + 4px)`}}>
-                  <li uk-filter-control=""><a href="#" title="seřadit podle cenys eřadit podle ceny"><span>Doporučení</span></a></li>
-                  <li uk-filter-control="sort: data-price; order: asc"><a href="#" title="seřadit podle cenys eřadit podle ceny"><span>Od nejdražšího</span></a></li>
-                  <li uk-filter-control="sort: data-price; order: desc"><a href="#" title="seřadit podle nejlevnejsi"><span>Od nejlevnějšího</span></a></li>
-                </ul>
-              </div>
+      <section className="category grey" uk-filter="target: .js-filter" id="catalog-short">
+        <div className="uk-container uk-container-expand">
+          <div className="category_menu uk-flex uk-flex-between uk-flex-middle uk-flex-wrap">
+            <div className="uk-flex uk-flex-middle uk-width-1-1 uk-flex-between uk-flex-wrap">
+              <SubMenu data={category}/>
+              <div className="search_wrap">
+                <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="search" className="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M508.5 481.6l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-10.3C395 312 416 262.5 416 208 416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c54.5 0 104-21 141.1-55.2V371c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l9.9-9.9c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z"></path></svg>
+                <label><input className="effect-9 search_input" type="text" placeholder="Hledat..." value={seacrh} onChange={e => handleSearch(e.target.value)} /></label>
+                {!!seacrh.length && <img src={times} onClick={() => clearSearch()} alt="clear" />}
             </div>
-          </div>*/}
-        </div>
-      </div>
-      <div className="uk-container uk-container-expand">
-        <ul className={`js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s${resetFilter ? ' show-all' : ''}`} uk-grid="" uk-scrollspy="target: > li > a; cls: uk-animation-slide-top-small; delay: 300">
-          {!!product.length && !searchProduct.length && product.map((item, index) => <Cart item={item} key={index} currency={currency} />)}
-          {!!searchProduct.length && searchProduct.map((item, index) => <Cart item={item} key={index} currency={currency} />)}
-        </ul>
-      </div>
-    </section>
+            </div>
 
-    <RandomArticles lang={lang} articleFirst={articleFirst} articleSeccond={articleSeccond}/>
+            {/*<div>
+              <div className="custom-select-wrap">
+                <button className="custom-select uk-button uk-button-default" type="button" tabIndex="-1">
+                  <span>seřadit podle cenys eřadit podle ceny</span>
+                  <span><img src="/img/chevron-down-light.svg" alt="" /></span>
+                </button>
+                <div className="select_dropdown" uk-drop="mode: click">
+                  <ul style={{height: `calc(55px * 3 + 4px)`}}>
+                    <li uk-filter-control=""><a href="#" title="seřadit podle cenys eřadit podle ceny"><span>Doporučení</span></a></li>
+                    <li uk-filter-control="sort: data-price; order: asc"><a href="#" title="seřadit podle cenys eřadit podle ceny"><span>Od nejdražšího</span></a></li>
+                    <li uk-filter-control="sort: data-price; order: desc"><a href="#" title="seřadit podle nejlevnejsi"><span>Od nejlevnějšího</span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>*/}
+          </div>
+        </div>
+        <div className="uk-container uk-container-expand">
+          <ul className={`js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s${resetFilter ? ' show-all' : ''}`} uk-grid="" uk-scrollspy="target: > li > a; cls: uk-animation-slide-top-small; delay: 300">
+            {!!product.length && !searchProduct.length && product.map((item, index) => <Cart item={item} key={index} currency={currency} />)}
+            {!!searchProduct.length && searchProduct.map((item, index) => <Cart item={item} key={index} currency={currency} />)}
+          </ul>
+        </div>
+      </section>
+
+      <RandomArticles lang={lang} articleFirst={articleFirst} articleSeccond={articleSeccond}/>
 
     </Page>
   )

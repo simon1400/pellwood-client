@@ -9,7 +9,7 @@ function urlFor(source) {
   return imageBuilder.image(source);
 }
 
-const Cart = ({item, currency, block}) => {
+const Cart = ({item, lang, currency, block}) => {
 
   const [pricesGroup, setPricesGroup] = useState(false)
   const [price, setPrice] = useState(0)
@@ -33,11 +33,10 @@ const Cart = ({item, currency, block}) => {
     }
   }, [])
 
-
   if(block) {
     return(
       <div>
-        <a href={`/produkt/${item.slug.current}`} className="card_short" style={{opacity: 1}}>
+        <a href={`${lang === 'cz' ? '' : '/' + lang}/produkt/${item.slug.current}`} className="card_short" style={{opacity: 1}}>
           <h3 className="card_short_head">{item.title}</h3>
           <div className="cart_img">
             <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
@@ -49,7 +48,7 @@ const Cart = ({item, currency, block}) => {
   }else{
     return (
       <li data-category={item?.category?._ref} data-price={item?.variants && item?.variants?.length ? item?.variants[0]?.price : ''}>
-        <a href={`/produkt/${item.slug.current}`} className="card_short">
+        <a href={`${lang === 'cz' ? '' : '/' + lang}/produkt/${item.slug.current}`} className="card_short">
           <h3 className="card_short_head">{item.title}</h3>
           <div className="cart_img">
             <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />

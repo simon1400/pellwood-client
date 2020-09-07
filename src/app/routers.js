@@ -17,30 +17,80 @@ import ThankYou from './basket/thankYou';
 
 import User from './user';
 
+const routesArr = [
+  {
+    path: '/',
+    component: Homepage,
+    exact: true
+  },
+  {
+    path: '/produkty',
+    component: Catalog,
+    exact: true
+  },
+  {
+    path: '/sluzby',
+    component: BlogShort,
+    exact: true
+  },
+  {
+    path: '/sluzby/:url',
+    component: BlogFull,
+    exact: true
+  },
+  {
+    path: '/kontakty',
+    component: BlogShort,
+    exact: true
+  },
+  {
+    path: '/kontakty/:url',
+    component: BlogFull,
+    exact: true
+  },
+  {
+    path: '/o-nas',
+    component: BlogShort,
+    exact: true
+  },
+  {
+    path: '/o-nas/:url',
+    component: BlogFull,
+    exact: true
+  },
+  {
+    path: '/produkt/:url',
+    component: Product,
+    exact: true
+  },
+  {
+    path: '/produkt/:url/:handle',
+    component: Product,
+    exact: true
+  },
+  {
+    path: '/basket',
+    component: Basket,
+    exact: false
+  },
+  {
+    path: '/thank-you',
+    component: ThankYou,
+    exact: true
+  },
+  {
+    path: '/user',
+    component: User,
+    exact: true
+  }
+]
+
 
 const Routers = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Homepage} />
-
-      <Route exact path="/produkty" component={Catalog} />
-
-      <Route exact path="/sluzby" component={BlogShort} />
-      <Route exact path="/sluzby/:url" component={BlogFull} />
-
-      <Route exact path="/kontakty" component={BlogShort} />
-      <Route exact path="/kontakty/:url" component={BlogFull} />
-
-      <Route exact path="/o-nas" component={BlogShort} />
-      <Route exact path="/o-nas/:url" component={BlogFull} />
-
-      <Route exact path="/produkt/:url" component={Product} />
-      <Route exact path="/produkt/:url/:handle" component={Product} />
-
-      <Route path="/basket" component={Basket} />
-      <Route exact path="/thank-you" component={ThankYou} />
-
-      <Route exact path="/user" component={User} />
+      {routesArr.map((item, index) => <Route key={index} exact={item.exact} path={item.path} component={item.component} />)}
+      {routesArr.map((item, index) => <Route key={index} exact={item.exact} path={`/:lang${item.path}`} component={item.component} />)}
 
       <Route component={NotFound} />
     </Switch>

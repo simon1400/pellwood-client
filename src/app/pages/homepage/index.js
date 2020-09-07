@@ -16,6 +16,7 @@ function urlFor(source) {
 }
 
 var lang = 'cz', currency = 'Kč'
+console.log(window.location.pathname.split('/')[1]);
 if(window.location.pathname.split('/')[1] === 'en'){
   lang = 'en';
   currency = '$';
@@ -55,16 +56,17 @@ export default () => {
   useEffect(() => {
     sanityClient.fetch(query).then(data => {
       setHomepage(data.homepage[0][lang])
+      console.log(data.homepage);
       setCarts(data.homepage[0].carts)
-      var articlesFilteredFirst = data.articles.filter(item => item.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
+      var articlesFilteredFirst = data.articles.filter(item => item?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
       shuffle(articlesFilteredFirst, 0)
-      var articlesFilteredSeccond = data.articles.filter(item => item.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
+      var articlesFilteredSeccond = data.articles.filter(item => item?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
       shuffle(articlesFilteredSeccond, 1)
     })
 
   }, [])
 
-  if(homepage.title !== undefined){
+  if(homepage?.title !== undefined){
     return (
       <Page id="homepage" description={homepage.descriptionHead} title={homepage.titleHead}>
 

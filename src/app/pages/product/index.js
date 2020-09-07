@@ -64,10 +64,11 @@ export default ({match}) => {
     sanityClient.fetch(query, {url: match.params.url}).then(data => {
       setProduct(data.products[0][lang])
       setProductId(data.products[0]._id)
-      setCarts(data.products[0].linkedCarts)
-      var articlesFilteredFirst = data.articles.filter(item => item.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
+      const filteredLinedcards = data.products[0].linkedCarts.filter(item => item?.title)
+      setCarts(filteredLinedcards)
+      const articlesFilteredFirst = data.articles.filter(item => item?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
       shuffle(articlesFilteredFirst, 0)
-      var articlesFilteredSeccond = data.articles.filter(item => item.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
+      const articlesFilteredSeccond = data.articles.filter(item => item?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
       shuffle(articlesFilteredSeccond, 1)
     })
   }, [])
@@ -266,7 +267,7 @@ export default ({match}) => {
           </div>
         </section>
 
-        <ShortBlock data={carts} currency={currency}/>
+        <ShortBlock data={carts} lang={lang} currency={currency}/>
         <RandomArticles lang={lang} articleFirst={articleFirst} articleSeccond={articleSeccond} />
       </Page>
     )

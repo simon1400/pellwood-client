@@ -53,14 +53,17 @@ export default () => {
 
   useEffect(() => {
     sanityClient.fetch(query).then(data => {
-      setProduct(data.product)
-      var articlesFilteredFirst = data.articles.filter(item => item.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
+      const filteredProduct = data.product.filter(item => item?.title)
+      setProduct(filteredProduct)
+      const articlesFilteredFirst = data.articles.filter(item => item?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
       shuffle(articlesFilteredFirst, 0)
-      var articlesFilteredSeccond = data.articles.filter(item => item.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
+      const articlesFilteredSeccond = data.articles.filter(item => item?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
       shuffle(articlesFilteredSeccond, 1)
-      console.log(data.category);
-      setCategory(data.category)
-      setSettings(data.settings[0])
+      const filterCategory = data.category.filter(item => item?._id)
+      setCategory(filterCategory)
+      const filterSettings = data.category.filter(item => item?.titleCategory)
+      console.log(filterSettings);
+      setSettings(filterSettings[0])
     })
   }, [])
 
@@ -86,14 +89,14 @@ export default () => {
 
   return (
     <Page id="catalog" title="Catalog">
-      <section className="head_category">
+      {settings?.length && <section className="head_category">
         <div className="uk-container uk-container-expand">
           <div className="content_head_wrap">
             <h1>{settings.titleCategory}</h1>
             <p>{settings.descriptionCategory}</p>
           </div>
         </div>
-      </section>
+      </section>}
 
 
       <section className="category grey" uk-filter="target: .js-filter" id="catalog-short">
@@ -127,8 +130,8 @@ export default () => {
         </div>
         <div className="uk-container uk-container-expand">
           <ul className={`js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s${resetFilter ? ' show-all' : ''}`} uk-grid="" uk-scrollspy="target: > li > a; cls: uk-animation-slide-top-small; delay: 300">
-            {!!product.length && !searchProduct.length && product.map((item, index) => <Cart item={item} key={index} currency={currency} />)}
-            {!!searchProduct.length && searchProduct.map((item, index) => <Cart item={item} key={index} currency={currency} />)}
+            {!!product.length && !searchProduct.length && product.map((item, index) => <Cart item={item} key={index} lang={lang} currency={currency} />)}
+            {!!searchProduct.length && searchProduct.map((item, index) => <Cart item={item} key={index} lang={lang} currency={currency} />)}
           </ul>
         </div>
       </section>

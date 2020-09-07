@@ -1,12 +1,12 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import Canvas from './basket/canvas'
-import sanityClient from "../lib/sanity.js";
-import Login from './user/components/login'
+import Canvas from '../basket/canvas'
+import sanityClient from "../../lib/sanity.js";
+import Login from '../user/components/login'
 import axios from 'axios'
 import UIkit from 'uikit'
 
-import logo from './assets/logo.svg'
+import logo from '../assets/logo.svg'
 
 var lang = 'cz', currency = 'Kč'
 if(window.location.pathname.split('/')[1] === 'en'){
@@ -132,19 +132,17 @@ const Header = ({history}) => {
     setHamburger(!hamburger)
   }
 
-  console.log(history.location.pathname.indexOf('produkty') >= 0);
-
   // menu_active
   return(
-    <Fragment>
+    <>
       <Canvas update={setHandleUpdate} currency={currency}/>
       <Login onLogin={onLogin} email={email} password={password} setEmail={setEmail} setPassword={setPassword} onRegister={onRegister} error={error} setError={setError}/>
       <header>
         <div className="uk-container uk-container-expand uk-height-1-1">
           <div className="uk-flex uk-flex-between uk-flex-middle uk-height-1-1">
-            <Link to="/" className="logo-wrap">
+            <a href={`/${lang === 'cz' ? '' : lang}`} className="logo-wrap">
               <img src={logo} alt="Pellwood" />
-            </Link>
+            </a>
             <div className="uk-text-right uk-width-expand uk-hidden@m">
               <button className={`hamburger hamburger--spin ${hamburger ? 'is-active' : ''}`} onClick={() => handleHamburger()} type="button">
                 <span className="hamburger-box">
@@ -155,19 +153,19 @@ const Header = ({history}) => {
             <div className={`top-nav ${hamburger ? 'menu-active' : ''}`}>
               <nav>
                 <ul>
-                  <li className={history.location.pathname.indexOf('/produkty') >= 0 ? 'active-menu-top' : ''}><a href='/produkty'>Produkty</a></li>
-                  {(menu || []).map((item, index) => <li key={index} className={history.location.pathname.indexOf(item.slug.current) >= 0 ? 'active-menu-top' : ''}><a href={`/${item.slug.current}`}>{item.title}</a></li>)}
+                  <li className={history.location.pathname.indexOf('/produkty') >= 0 ? 'active-menu-top' : ''}><a href={`${lang === 'cz' ? '' : '/' + lang}/produkty`}>Produkty</a></li>
+                  {(menu || []).map((item, index) => <li key={index} className={history.location.pathname.indexOf(item?.slug?.current) >= 0 ? 'active-menu-top' : ''}><a href={`${lang === 'cz' ? '' : '/' + lang}/${item?.slug?.current}`}>{item.title}</a></li>)}
                 </ul>
               </nav>
-              {/*<div className="lang-nav uk-hidden@m">
+              <div className="lang-nav uk-hidden@m">
                 <nav>
                   <ul>
-                    <li className="menu_active"><a href="/">cz</a></li>
-                    <li><a href="/">en</a></li>
-                    <li><a href="/">de</a></li>
+                    <li className={lang === 'cz' ? "menu_active" : undefined}><a href="/">cz</a></li>
+                    <li className={lang === 'en' ? "menu_active" : undefined}><a href="/en">en</a></li>
+                    <li className={lang === 'de' ? "menu_active" : undefined}><a href="/de">de</a></li>
                   </ul>
                 </nav>
-              </div>*/}
+              </div>
               <div className="user-area uk-hidden@m">
                 <div className="login">
                   {loginUser
@@ -177,15 +175,15 @@ const Header = ({history}) => {
                 </div>
               </div>
             </div>
-            {/*<div className="lang-nav uk-visible@m">
+            <div className="lang-nav uk-visible@m">
               <nav>
                 <ul>
-                  <li className="menu_active"><a href="/">cz</a></li>
-                  <li><a href="/">en</a></li>
-                  <li><a href="/">de</a></li>
+                  <li className={lang === 'cz' ? "menu_active" : undefined}><a href="/">cz</a></li>
+                  <li className={lang === 'en' ? "menu_active" : undefined}><a href="/en">en</a></li>
+                  <li className={lang === 'de' ? "menu_active" : undefined}><a href="/de">de</a></li>
                 </ul>
               </nav>
-            </div>*/}
+            </div>
             <div className="user-area">
               <div className="login">
                 {loginUser ? <Link to="/user" className="uk-visible@m">Účet</Link> : <a href="#modal-login" className="uk-visible@m" uk-toggle="">Přihlášení</a>}
@@ -197,7 +195,7 @@ const Header = ({history}) => {
           </div>
         </div>
       </header>
-    </Fragment>
+    </>
   )
 }
 

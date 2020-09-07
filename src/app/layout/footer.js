@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import sanityClient from "../lib/sanity.js";
-import mastercard from './assets/mastercard.svg'
-import visa from './assets/visa.svg'
+import sanityClient from "../../lib/sanity.js";
+import mastercard from '../assets/mastercard.svg'
+import visa from '../assets/visa.svg'
 import BlockContent from "@sanity/block-content-to-react";
-import hardart from './assets/hardart.svg'
+import hardart from '../assets/hardart.svg'
 
 var lang = 'cz'
 if(window.location.pathname.split('/')[1] === 'en'){
@@ -39,7 +39,7 @@ export default () => {
               <img src={visa} alt="Visa" />
             </div>
           </div>
-          {footer.map(item =>
+          {footer?.length && footer.map(item =>
             <div key={item._key} className="footer-item">
               <h4 className="footer-item-head">{item.title}</h4>
               <BlockContent blocks={item.content} />

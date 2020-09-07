@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Cart from '../cart'
 
-const ShortBlock = ({data, currency}) => {
+const ShortBlock = ({data, lang, currency}) => {
 
   const [desktop, setDesktop] = useState(window.innerWidth > 960)
 
@@ -16,13 +16,13 @@ const ShortBlock = ({data, currency}) => {
         {!desktop && <div>
           <div className="uk-position-relative uk-visible-toggle uk-light" tabIndex="-1" uk-slider="center: true;">
             <ul className="uk-slider-items uk-grid uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m" uk-scrollspy="target: > li > a; cls: uk-animation-slide-top-small; delay: 500">
-              {(data || []).map((item, index) => <Cart key={index} item={item} currency={currency}/>)}
+              {(data || []).map((item, index) => <Cart key={index} item={item} lang={lang} currency={currency}/>)}
             </ul>
             <ul className="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
           </div>
         </div>}
         {desktop && <div className="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid" uk-grid="">
-          {(data || []).map((item, index) => <Cart key={index} item={item} currency={currency} block={true} />)}
+          {(data || []).map((item, index) => <Cart key={index} item={item} lang={lang} currency={currency} block={true} />)}
         </div>}
       </div>
     </section>

@@ -2,9 +2,9 @@
 import React, { Fragment } from 'react';
 import { withRouter } from 'react-router';
 
-import Header from './header';
+import Header from './layout/header';
 import Routes from './routers.js';
-import Footer from './footer'
+import Footer from './layout/footer'
 
 import './scss/main.scss'
 

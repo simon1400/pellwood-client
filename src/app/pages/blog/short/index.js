@@ -8,19 +8,19 @@ import sanityClient from "../../../../lib/sanity.js";
 var firstUrl = window.location.pathname.split('/')[1],
     seccondUrl = window.location.pathname.split('/')[2]
 
-var lang = 'cz'
+var lang = 'cz', baseUrl = window.location.pathname.split('/')[1]
 if(firstUrl === 'en'){
   lang = 'en'
+  baseUrl = window.location.pathname.split('/')[2]
 }else if(firstUrl === 'de'){
   lang = 'de'
+  baseUrl = window.location.pathname.split('/')[2]
 }else{
   lang = 'cz'
 }
 
-const archive = `*[_type == "archive" && '${firstUrl}' == ${lang}.slug.current] {
-  _id,
-  titleHead,
-  descriptionHead
+const archive = `*[_type == "archive" && '${baseUrl}' == ${lang}.slug.current] {
+  _id
 } | order(sort asc)`;
 
 

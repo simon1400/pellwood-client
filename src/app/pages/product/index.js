@@ -37,7 +37,7 @@ const query = `{
     ${lang},
     "linkedCarts": *[ _type == "product" && _id in [^.${lang}.linkedProducts.product_1._ref, ^.${lang}.linkedProducts.product_2._ref, ^.${lang}.linkedProducts.product_3._ref]].${lang} | order(sort asc)
   },
-  'articles': *[_type == "article"].${lang} | order(sort asc)
+  'articles': *[_type == "article"] | order(sort asc)
 }`;
 
 export default ({match}) => {
@@ -66,9 +66,9 @@ export default ({match}) => {
       setProductId(data.products[0]._id)
       const filteredLinedcards = data.products[0].linkedCarts.filter(item => item?.title)
       setCarts(filteredLinedcards)
-      const articlesFilteredFirst = data.articles.filter(item => item?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
+      const articlesFilteredFirst = data.articles.filter(item => item[lang]?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
       shuffle(articlesFilteredFirst, 0)
-      const articlesFilteredSeccond = data.articles.filter(item => item?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
+      const articlesFilteredSeccond = data.articles.filter(item => item[lang]?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
       shuffle(articlesFilteredSeccond, 1)
     })
   }, [])
@@ -181,14 +181,17 @@ export default ({match}) => {
                 <div className="content">
                   <h1 className="head_1">{product.title}</h1>
                   {product?.variants?.length ? <div className="variants_list">
-                    {(product.variants || []).map((item, index) =>
-                      <div key={index} className="uk-grid uk-grid-medium" uk-grid="">
-                        <div className="uk-width-expand">{item.title}</div>
-                        <div className="short_price">{currency === '$' ? currency: ''} {item.price} {currency !== '$' ? currency: ''}</div>
-                      </div>
-                    )}
+                    {(product.variants || []).map((item, index) => {
+                      if(item.price){
+                        return <div key={index} className="uk-grid uk-grid-medium" uk-grid="">
+                          <div className="uk-width-expand">{item.title}</div>
+                          <div className="short_price">{currency === '$' && item.price ? currency: ''} {item.price} {currency !== '$' && item.price ? currency: ''}</div>
+                        </div>
+                      }
+                      return ''
+                    })}
                   </div> : ''}
-                  {product?.variants !== undefined && product?.variants?.length ? <div className="order_block">
+                  {product?.variants !== undefined && product?.variants?.length && product?.variants.price ? <div className="order_block">
                     <div className="uk-flex uk-flex-between">
                       <div>
                         <div className="uk-width-1-1 uk-width-auto@m">
@@ -198,7 +201,7 @@ export default ({match}) => {
                               <span><img src={down} alt="Down" /></span>
                             </button>
                             <div className="select_dropdown" uk-drop="mode: click">
-                              <ul style={{height: `calc(55px * ${product?.variants ? product?.variants?.length : ''} + ${product?.variants ? product?.variants?.length : ''}px)`}}>
+                              <ul style={{height: `calc(55px * ${product?.variants ? product?.variants.length : ''} + ${product?.variants ? product?.variants.length : ''}px)`}}>
                                 {(product?.variants || []).map((item, index) =>
                                   <li key={index}>
                                     <a href="/" className="variant_select" data-name={item.title} data-price={item.price} onClick={e => selectHandle(e)} title={item.title}>

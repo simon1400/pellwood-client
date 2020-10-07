@@ -28,8 +28,10 @@ const Cart = ({item, lang, currency, block}) => {
       setPrice(minPrice)
     }else if(item.variants && item.variants.length === 1){
       setPrice(item.variants[0].price)
-    }else{
+    }else if (!item.variants.length){
       setPrice(item.price)
+    }else{
+      setPrice('')
     }
   }, [])
 
@@ -41,7 +43,7 @@ const Cart = ({item, lang, currency, block}) => {
           <div className="cart_img">
             <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
           </div>
-          <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>
+          {price.length && <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>}
         </a>
       </div>
     )
@@ -53,7 +55,7 @@ const Cart = ({item, lang, currency, block}) => {
           <div className="cart_img">
             <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
           </div>
-          <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>
+          {price.length && <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>}
         </a>
       </li>
     )

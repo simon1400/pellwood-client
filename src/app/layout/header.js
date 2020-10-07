@@ -132,7 +132,6 @@ const Header = ({history}) => {
     setHamburger(!hamburger)
   }
 
-  // menu_active
   return(
     <>
       <Canvas update={setHandleUpdate} currency={currency}/>
@@ -160,9 +159,8 @@ const Header = ({history}) => {
               <div className="lang-nav uk-hidden@m">
                 <nav>
                   <ul>
-                    <li className={lang === 'cz' ? "menu_active" : undefined}><a href="/">cz</a></li>
+                    <li className={lang === 'cz' ? "menu_active" : undefined}><a href="/">cs</a></li>
                     <li className={lang === 'en' ? "menu_active" : undefined}><a href="/en">en</a></li>
-                    <li className={lang === 'de' ? "menu_active" : undefined}><a href="/de">de</a></li>
                   </ul>
                 </nav>
               </div>
@@ -178,9 +176,8 @@ const Header = ({history}) => {
             <div className="lang-nav uk-visible@m">
               <nav>
                 <ul>
-                  <li className={lang === 'cz' ? "menu_active" : undefined}><a href="/">cz</a></li>
+                  <li className={lang === 'cz' ? "menu_active" : undefined}><a href="/">cs</a></li>
                   <li className={lang === 'en' ? "menu_active" : undefined}><a href="/en">en</a></li>
-                  <li className={lang === 'de' ? "menu_active" : undefined}><a href="/de">de</a></li>
                 </ul>
               </nav>
             </div>

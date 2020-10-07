@@ -21,6 +21,29 @@
 	}
 }
 
+.function-button-wrap{
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	.user-area .login{
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		align-items: center;;
+	}
+	.lang-nav, .lang-nav nav ul{
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+	}
+	.lang-nav nav{
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		align-items: center;
+	}
+}
+
 main{
 	min-height: 100vh;
 }
@@ -194,7 +217,6 @@ header{
 		}
 	}
 	.lang-nav{
-		min-width: 95px;
 		.menu_active a{
 			color: white;
 			&:after{

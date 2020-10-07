@@ -173,20 +173,22 @@ const Header = ({history}) => {
                 </div>
               </div>
             </div>
-            <div className="lang-nav uk-visible@m">
-              <nav>
-                <ul>
-                  <li className={lang === 'cz' ? "menu_active" : undefined}><a href="/">cs</a></li>
-                  <li className={lang === 'en' ? "menu_active" : undefined}><a href="/en">en</a></li>
-                </ul>
-              </nav>
-            </div>
-            <div className="user-area">
-              <div className="login">
-                {loginUser ? <Link to="/user" className="uk-visible@m">Účet</Link> : <a href="#modal-login" className="uk-visible@m" uk-toggle="">Přihlášení</a>}
-                <a nohref="" href="/" className="basket_count" uk-toggle="target: #offcanvas-flip">
-                  {basketCount ? basketCount : JSON.parse(localStorage.getItem('basketCount')) ? JSON.parse(localStorage.getItem('basketCount')) : 0}
-                </a>
+            <div className="function-button-wrap">
+              <div className="lang-nav uk-visible@m">
+                <nav>
+                  <ul>
+                    <li className={lang === 'cz' ? "menu_active" : undefined}><a href="/">cs</a></li>
+                    <li className={lang === 'en' ? "menu_active" : undefined}><a href="/en">en</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <div className="user-area">
+                <div className="login">
+                  {loginUser ? <Link to="/user" className="uk-visible@m">Účet</Link> : <a href="#modal-login" className="uk-visible@m" uk-toggle="">Přihlášení</a>}
+                  <a nohref="" href="/" className="basket_count" uk-toggle="target: #offcanvas-flip">
+                    {basketCount ? basketCount : JSON.parse(localStorage.getItem('basketCount')) ? JSON.parse(localStorage.getItem('basketCount')) : 0}
+                  </a>
+                </div>
               </div>
             </div>
           </div>

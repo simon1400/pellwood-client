@@ -43,7 +43,7 @@ const Cart = ({item, lang, currency, block}) => {
           <div className="cart_img">
             <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
           </div>
-          {price && <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>}
+          {!!price && <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>}
         </a>
       </div>
     )
@@ -55,7 +55,7 @@ const Cart = ({item, lang, currency, block}) => {
           <div className="cart_img">
             <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
           </div>
-          {price && <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>}
+          {!!price && <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>}
         </a>
       </li>
     )

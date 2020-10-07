@@ -18,7 +18,7 @@ const Cart = ({item, lang, currency, block}) => {
   const [compireMobile] = useState(window.innerWidth <= 640 ? 640 : false)
 
   useEffect(() => {
-    if(item.variants && item.variants.length > 1){
+    if(item?.variants?.length > 1){
       setPricesGroup(true)
       var allPrices = []
       item.variants.map(item => {
@@ -26,9 +26,9 @@ const Cart = ({item, lang, currency, block}) => {
       })
       var minPrice = Math.min(...allPrices)
       setPrice(minPrice)
-    }else if(item.variants && item.variants.length === 1){
+    }else if(item?.variants?.length === 1){
       setPrice(item.variants[0].price)
-    }else if (!item.variants.length){
+    }else if (!item?.variants?.length){
       setPrice(item.price)
     }else{
       setPrice('')
@@ -43,7 +43,7 @@ const Cart = ({item, lang, currency, block}) => {
           <div className="cart_img">
             <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
           </div>
-          {price.length && <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>}
+          {price && <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>}
         </a>
       </div>
     )
@@ -55,7 +55,7 @@ const Cart = ({item, lang, currency, block}) => {
           <div className="cart_img">
             <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
           </div>
-          {price.length && <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>}
+          {price && <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>}
         </a>
       </li>
     )

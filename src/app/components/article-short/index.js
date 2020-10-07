@@ -12,7 +12,6 @@ function urlFor(source) {
 
 const Article = ({lang, data, firstUrl, seccondUrl}) => {
 
-
   const [baseUrl, setBaseUrl] = useState('')
 
   useEffect(() => {
@@ -25,7 +24,7 @@ const Article = ({lang, data, firstUrl, seccondUrl}) => {
 
   const [compireTablet] = useState(window.innerWidth <= 960 && window.innerWidth > 640 ? 960 : false)
   const [compireMobile] = useState(window.innerWidth <= 640 ? 640 : false)
-
+  console.log(data);
   return(
     <div className="uk-width-1-1 uk-width-1-2@s">
       <Link to={`/${baseUrl}/${data.slug.current}`} aria-label="Big category" className="big_category">

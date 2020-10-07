@@ -23,8 +23,8 @@ if(window.location.pathname.split('/')[1] === 'en'){
 
 const query = `{
   'product': *[_type == "product"].${lang} | order(sort asc) | order(title asc),
-  'category': *[_type == "category"].${lang} | order(sort asc),
-  'articles': *[_type == "article"].${lang} | order(sort asc),
+  'category': *[_type == "category"] | order(sort asc),
+  'articles': *[_type == "article"] | order(sort asc),
   'settings': *[_type == "settings"].${lang}
 }`;
 
@@ -55,14 +55,14 @@ export default () => {
     sanityClient.fetch(query).then(data => {
       const filteredProduct = data.product.filter(item => item?.title)
       setProduct(filteredProduct)
-      const articlesFilteredFirst = data.articles.filter(item => item?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
+      const articlesFilteredFirst = data.articles.filter(item => item[lang]?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
       shuffle(articlesFilteredFirst, 0)
-      const articlesFilteredSeccond = data.articles.filter(item => item?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
+      const articlesFilteredSeccond = data.articles.filter(item => item[lang]?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
       shuffle(articlesFilteredSeccond, 1)
       const filterCategory = data.category.filter(item => item?._id)
+      console.log(data);
       setCategory(filterCategory)
-      const filterSettings = data.category.filter(item => item?.titleCategory)
-      console.log(filterSettings);
+      const filterSettings = data.settings.filter(item => item?.titleCategory)
       setSettings(filterSettings[0])
     })
   }, [])
@@ -89,7 +89,7 @@ export default () => {
 
   return (
     <Page id="catalog" title="Catalog">
-      {settings?.length && <section className="head_category">
+      {settings?.titleCategory && <section className="head_category">
         <div className="uk-container uk-container-expand">
           <div className="content_head_wrap">
             <h1>{settings.titleCategory}</h1>

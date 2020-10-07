@@ -16,7 +16,6 @@ function urlFor(source) {
 }
 
 var lang = 'cz', currency = 'Kč'
-console.log(window.location.pathname.split('/')[1]);
 if(window.location.pathname.split('/')[1] === 'en'){
   lang = 'en';
   currency = '$';
@@ -56,7 +55,6 @@ export default () => {
   useEffect(() => {
     sanityClient.fetch(query).then(data => {
       setHomepage(data.homepage[0][lang])
-      console.log(data.homepage);
       setCarts(data.homepage[0].carts)
       var articlesFilteredFirst = data.articles.filter(item => item?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
       shuffle(articlesFilteredFirst, 0)

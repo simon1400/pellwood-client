@@ -43,7 +43,7 @@ export default ({match}) => {
             <div className="uk-grid uk-grid-large uk-child-width-1-1 uk-child-width-1-2@m" uk-grid="" uk-height-match="target: > div > div">
               <div>
                 <div className="article_img_wrap">
-                  <div uk-sticky="bottom: true; media: @m">
+                  <div>
                     <img src={urlFor(item.image).width(!tablet && !mobile ? Math.round(window.innerWidth / 2) : window.innerWidth).url()} alt={item.title} />
                   </div>
                 </div>

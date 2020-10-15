@@ -685,7 +685,10 @@ footer{
 	&:not(:first-child){
 		.content_wrap, .article_img_wrap{
 			padding-top: 30px;
-
+			position: relative;
+			> div{
+				position: sticky;
+			}
 		}
 	}
 }

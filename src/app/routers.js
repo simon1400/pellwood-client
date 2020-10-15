@@ -29,12 +29,12 @@ const routesArr = [
     exact: true
   },
   {
-    path: '/:url/produkt',
+    path: '/produkt/:url',
     component: Product,
     exact: true
   },
   {
-    path: '/:url/:handle/produkt',
+    path: '/produkt/:url/:handle',
     component: Product,
     exact: true
   },
@@ -71,7 +71,6 @@ const Routers = () => {
     <Switch>
       {routesArr.map((item, index) => <Route key={index} exact={item.exact} path={item.path} component={item.component} />)}
       {routesArr.map((item, index) => <Route key={index} exact={item.exact} path={`/:lang${item.path}`} component={item.component} />)}
-
       <Route component={NotFound} />
     </Switch>
   )

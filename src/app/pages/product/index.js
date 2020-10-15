@@ -61,7 +61,9 @@ export default ({match}) => {
   })
 
   useEffect(() => {
+    console.log(match.params);
     sanityClient.fetch(query, {url: match.params.url}).then(data => {
+      console.log(data.products);
       setProduct(data.products[0][lang])
       setProductId(data.products[0]._id)
       const filteredLinedcards = data.products[0].linkedCarts.filter(item => item?.title)
@@ -191,7 +193,7 @@ export default ({match}) => {
                       return ''
                     })}
                   </div> : ''}
-                  {product?.variants !== undefined && product?.variants?.length && product?.variants.price ? <div className="order_block">
+                  {product?.variants !== undefined && product?.variants?.length && product?.variants[0].price ? <div className="order_block">
                     <div className="uk-flex uk-flex-between">
                       <div>
                         <div className="uk-width-1-1 uk-width-auto@m">
@@ -201,7 +203,7 @@ export default ({match}) => {
                               <span><img src={down} alt="Down" /></span>
                             </button>
                             <div className="select_dropdown" uk-drop="mode: click">
-                              <ul style={{height: `calc(55px * ${product?.variants ? product?.variants.length : ''} + ${product?.variants ? product?.variants.length : ''}px)`}}>
+                              <ul style={{height: `calc(55px * ${product.variants ? product.variants.length : ''} + ${product?.variants ? product.variants.length : ''}px)`}}>
                                 {(product?.variants || []).map((item, index) =>
                                   <li key={index}>
                                     <a href="/" className="variant_select" data-name={item.title} data-price={item.price} onClick={e => selectHandle(e)} title={item.title}>

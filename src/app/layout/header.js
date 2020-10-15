@@ -20,11 +20,12 @@ if(window.location.pathname.split('/')[1] === 'en'){
   currency = 'Kč';
 }
 
-
-const query = `*[_type == "archive" && !(_id == '3cc07543-ce81-4ad2-ace0-8bf754217065')].${lang} {
-  title,
-  slug
-}`;
+ // && !(_id == '3cc07543-ce81-4ad2-ace0-8bf754217065')
+const query = `*[_type == "archive"] {
+  "title": ${lang}.title,
+  "slug": ${lang}.slug,
+  "sort": ${lang}.sort
+} | order(sort asc)`;
 
 
 const Header = ({history}) => {
@@ -46,6 +47,7 @@ const Header = ({history}) => {
       setLoginUser(true)
     }
     sanityClient.fetch(query).then(data => {
+      console.log(data);
       setMenu(data)
     })
 
@@ -74,6 +76,7 @@ const Header = ({history}) => {
       email,
       password
     }
+
     axios.post('/.netlify/functions/userCreate', registerData).then(res => {
 
       if(res.data.error === 'email'){
@@ -112,6 +115,7 @@ const Header = ({history}) => {
       email,
       password
     }
+
     axios.post('/.netlify/functions/login', loginData).then(res => {
       localStorage.setItem('user', JSON.stringify(res.data.data))
       setLoginUser(true)
@@ -153,7 +157,7 @@ const Header = ({history}) => {
               <nav>
                 <ul>
                   <li className={history.location.pathname.indexOf('/produkty') >= 0 ? 'active-menu-top' : ''}><a href={`${lang === 'cz' ? '' : '/' + lang}/produkty`}>Produkty</a></li>
-                  {(menu || []).map((item, index) => <li key={index} className={history.location.pathname.indexOf(item?.slug?.current) >= 0 ? 'active-menu-top' : ''}><a href={`${lang === 'cz' ? '' : '/' + lang}/${item?.slug?.current}`}>{item.title}</a></li>)}
+                  {(menu || []).map((item, index) => <li key={index} className={history.location.pathname.indexOf(item?.slug?.current) >= 0 ? 'active-menu-top' : ''}><a href={`${lang === 'cz' ? '' : '/' + lang}/${item?.slug?.current}/kategorie`}>{item.title}</a></li>)}
                 </ul>
               </nav>
               <div className="lang-nav uk-hidden@m">

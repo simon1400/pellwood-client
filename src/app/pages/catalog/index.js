@@ -23,8 +23,8 @@ if(window.location.pathname.split('/')[1] === 'en'){
 
 const query = `{
   'product': *[_type == "product"].${lang} | order(sort asc) | order(title asc),
-  'category': *[_type == "category"] | order(sort asc),
-  'articles': *[_type == "article"] | order(sort asc),
+  'category': *[_type == "category"] | order(${lang}.sort asc),
+  'articles': *[_type == "article"] | order(${lang}.sort asc),
   'settings': *[_type == "settings"].${lang}
 }`;
 
@@ -60,7 +60,6 @@ export default () => {
       const articlesFilteredSeccond = data.articles.filter(item => item[lang]?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
       shuffle(articlesFilteredSeccond, 1)
       const filterCategory = data.category.filter(item => item?._id)
-      console.log(data);
       setCategory(filterCategory)
       const filterSettings = data.settings.filter(item => item?.titleCategory)
       setSettings(filterSettings[0])

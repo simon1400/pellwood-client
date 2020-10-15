@@ -29,43 +29,23 @@ const routesArr = [
     exact: true
   },
   {
-    path: '/sluzby',
-    component: BlogShort,
-    exact: true
-  },
-  {
-    path: '/sluzby/:url',
-    component: BlogFull,
-    exact: true
-  },
-  {
-    path: '/kontakty',
-    component: BlogShort,
-    exact: true
-  },
-  {
-    path: '/kontakty/:url',
-    component: BlogFull,
-    exact: true
-  },
-  {
-    path: '/o-nas',
-    component: BlogShort,
-    exact: true
-  },
-  {
-    path: '/o-nas/:url',
-    component: BlogFull,
-    exact: true
-  },
-  {
-    path: '/produkt/:url',
+    path: '/:url/produkt',
     component: Product,
     exact: true
   },
   {
-    path: '/produkt/:url/:handle',
+    path: '/:url/:handle/produkt',
     component: Product,
+    exact: true
+  },
+  {
+    path: '/:category/kategorie',
+    component: BlogShort,
+    exact: true
+  },
+  {
+    path: '/:url/:category/clanek',
+    component: BlogFull,
     exact: true
   },
   {

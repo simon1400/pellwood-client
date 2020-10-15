@@ -15,6 +15,10 @@
 	overflow-y: scroll!important;
 }
 
+i, em{
+	color: rgba(35,35,35,.7);
+}
+
 #homepage{
 	.homepage_slide .tm-button.tm-contrast{
 		opacity: 0;
@@ -85,7 +89,7 @@ p{
 	  font-family: "Oswald", sans-serif;
 	  font-weight: 300;
 	  font-size: 15px;
-	  letter-spacing: 1px;
+	  // letter-spacing: 1px;
 	  margin-bottom: 0;
 		display: inline-block;
 	}
@@ -138,7 +142,7 @@ p{
 	color: #7AC843;
 	font-size: 18px;
 	text-transform: uppercase;
-	letter-spacing: 1.8px;
+	// letter-spacing: 1.8px;
 }
 
 body {
@@ -186,7 +190,7 @@ nav.sub_menu ul li{
 
 .search_input{
 	font-family: $font;
-	letter-spacing: 0.13em;
+	// letter-spacing: 0.13em;
 }
 
 
@@ -330,7 +334,7 @@ nav{
 			a{
 				color: white;
 				font-size: 17px;
-				letter-spacing: 0.13em;
+				// letter-spacing: 0.13em;
 			}
 		}
 	}
@@ -347,7 +351,7 @@ h1{
 }
 
 h1, h2, h3, h4, h5, h6{
-	letter-spacing: 0.05em;
+	// letter-spacing: 0.05em;
 }
 
 .section_head, h2{
@@ -367,14 +371,14 @@ h1, h2, h3, h4, h5, h6{
 p{
 	font-family: $font-medium;
 	font-size: 15px;
-	letter-spacing: 0.02em;
+	// letter-spacing: 0.02em;
 	color: rgba($accent, .7);
 	line-height: 31px;
 }
 
-a{
-	letter-spacing: 0.13em;
-}
+// a{
+// 	letter-spacing: 0.13em;
+// }
 
 .form_column .tm-button{
 	padding-left: 55px;
@@ -392,7 +396,7 @@ a{
 	border: none;
 	cursor: pointer;
 	transition: all .5s ease;
-	letter-spacing: 0.13em;
+	// letter-spacing: 0.13em;
 	font-weight: 300;
 	&:focus{
 		outline: none;
@@ -538,19 +542,19 @@ footer{
 			font-family: $font;
 			font-weight: 300;
 			font-size: 15px;
-			letter-spacing: 1px;
+			// letter-spacing: 1px;
 			margin-bottom: 0;
 		}
 		a{
 			color: white;
 			font-size: 15px;
-			letter-spacing: .02em;
+			// letter-spacing: .02em;
 			position: relative;
 			&:after{
 				content: '';
 				position: absolute;
-				left: -10px;
-				bottom: -5px;
+				left: 0;
+				bottom: 0;
 				width: 0;
 				height: 1px;
 				background-color: white;
@@ -587,7 +591,7 @@ footer{
 	font-size: 50px;
 	font-family: $font;
 	font-weight: 200;
-	letter-spacing: 1px;
+	// letter-spacing: 1px;
 	margin-bottom: 40px;
 }
 
@@ -642,7 +646,7 @@ footer{
 	text-align: left;
 	font-size: 16px;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	// letter-spacing: 1px;
 	padding-left: 15px;
 	padding-right: 20px;
 	position: relative;
@@ -769,7 +773,7 @@ footer{
 			width: calc(100% - 2px);
 			text-align: left;
 			text-transform: uppercase;
-			letter-spacing: 1px;
+			// letter-spacing: 1px;
 			overflow: hidden;
 			&:last-child{
 				border-bottom: 1px solid $accent;

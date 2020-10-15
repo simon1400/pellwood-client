@@ -11,7 +11,7 @@ function urlFor(source) {
 }
 
 const Article = ({lang, data, firstUrl, seccondUrl}) => {
-  
+
   const [baseUrl, setBaseUrl] = useState('')
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Article = ({lang, data, firstUrl, seccondUrl}) => {
 
   return(
     <div className="uk-width-1-1 uk-width-1-2@s">
-      <Link to={`/${baseUrl}/${data.slug.current}`} aria-label="Big category" className="big_category">
+      <a href={`/${data.slug.current}/${baseUrl}/clanek`} aria-label="Big category" className="big_category">
         <div className="category_wrap">
           <div className="uk-inline uk-height-1-1 uk-width-1-1">
             <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src={urlFor(data.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round((window.innerWidth - 120) / 2)).url()} uk-img=""></div>
@@ -36,7 +36,7 @@ const Article = ({lang, data, firstUrl, seccondUrl}) => {
             </div>
           </div>
         </div>
-      </Link>
+      </a>
     </div>
   )
 }

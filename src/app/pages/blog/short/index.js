@@ -24,10 +24,11 @@ const archive = `*[_type == "archive" && '${baseUrl}' == ${lang}.slug.current] {
 } | order(sort asc)`;
 
 
-const query = `*[_type == "article" && $id == ${lang}.category._ref].${lang} {
-  title,
-  image,
-  slug
+const query = `*[_type == "article" && $id == ${lang}.category._ref] {
+  "title": ${lang}.title,
+  "image": ${lang}.image,
+  "slug": ${lang}.slug,
+  "sort": ${lang}.sort
 } | order(sort asc)`;
 
 

@@ -137,9 +137,6 @@ const Basket = () => {
       return
     }
 
-
-
-
     const dataOrder = {
       sum,
       basket,

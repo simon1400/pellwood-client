@@ -20,8 +20,7 @@ if(window.location.pathname.split('/')[1] === 'en'){
   currency = 'Kč';
 }
 
- // && !(_id == '3cc07543-ce81-4ad2-ace0-8bf754217065')
-const query = `*[_type == "archive"] {
+const query = `*[_type == "archive" && !(_id == '3cc07543-ce81-4ad2-ace0-8bf754217065')] {
   "title": ${lang}.title,
   "slug": ${lang}.slug,
   "sort": ${lang}.sort

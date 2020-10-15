@@ -73,7 +73,7 @@ const SubMenu = ({data, articles = false}) => {
           if(!articles) {
             return <li key={index} className="sub_menu_item" uk-filter-control={`[data-category*='${item._id}']`}><Link to="#catalog-short" scroll={el => el.scrollIntoView({behavior: "smooth",block: "start"})}>{item[lang].title}</Link></li>
           }else{
-            return <li key={index} className="sub_menu_item"><a href={`${baseUrl}/${item.slug.current}`}>{item.title}</a></li>
+            return <li key={index} className="sub_menu_item"><a href={`${lang === 'cz' ? '' : '/' + lang}/${item.slug.current}/${baseUrl}/clanek`}>{item.title}</a></li>
           }
         })}
       </ul>

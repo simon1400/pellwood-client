@@ -1,5 +1,5 @@
 // The basics
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { withRouter } from 'react-router';
 
 import Header from './layout/header';
@@ -8,7 +8,8 @@ import Footer from './layout/footer'
 
 import './scss/main.scss'
 
-const App = () => {
+const App = ({match}) => {
+
   return (
     <Fragment>
       <Header />

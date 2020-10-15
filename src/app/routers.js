@@ -69,6 +69,7 @@ const routesArr = [
 const Routers = () => {
   return (
     <Switch>
+      <Route exact={true} path="/not-found" component={NotFound} />
       {routesArr.map((item, index) => <Route key={index} exact={item.exact} path={item.path} component={item.component} />)}
       {routesArr.map((item, index) => <Route key={index} exact={item.exact} path={`/:lang${item.path}`} component={item.component} />)}
       <Route component={NotFound} />

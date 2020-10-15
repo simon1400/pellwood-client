@@ -61,9 +61,10 @@ export default ({match}) => {
   })
 
   useEffect(() => {
-    console.log(match.params);
     sanityClient.fetch(query, {url: match.params.url}).then(data => {
-      console.log(data.products);
+      if(!data.products.length){
+        window.location.href = '/not-found' 
+      }
       setProduct(data.products[0][lang])
       setProductId(data.products[0]._id)
       const filteredLinedcards = data.products[0].linkedCarts.filter(item => item?.title)

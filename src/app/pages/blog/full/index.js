@@ -31,6 +31,9 @@ export default ({match}) => {
 
   useEffect(() => {
     sanityClient.fetch(query, {url: match.params.url}).then(data => {
+      if(!data.length){
+        window.location.href = '/not-found'
+      }
       setChapters(...data)
     })
   }, [])

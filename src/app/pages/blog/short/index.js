@@ -41,15 +41,21 @@ export default () => {
 
   useEffect(() => {
     sanityClient.fetch(archive).then(data => {
+      if(!data.length){
+        window.location.href = '/not-found'
+      }
       setId(data[0]._id)
       setArchives(data[0])
     })
   }, [])
 
   useEffect(() => {
-    sanityClient.fetch(query, {id: id}).then(data => {
-      setArticles(data)
-    })
+    if(id.length){
+      sanityClient.fetch(query, {id: id}).then(data => {
+        setArticles(data)
+      })
+    }
+
   }, [id])
 
   return (

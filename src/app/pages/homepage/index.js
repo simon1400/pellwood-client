@@ -35,7 +35,7 @@ const query = `{
   'articles': *[_type == "article"].${lang} | order(sort asc)
 }`;
 
-export default () => {
+export default ({match}) => {
   const [homepage, setHomepage] = useState([])
   const [carts, setCarts] = useState([])
   const [articleFirst, setArticleFirst] = useState([])
@@ -53,6 +53,9 @@ export default () => {
   }
 
   useEffect(() => {
+    if(match.params?.lang?.length > 2){
+      window.location.href = '/not-found'
+    }
     sanityClient.fetch(query).then(data => {
       setHomepage(data.homepage[0][lang])
       setCarts(data.homepage[0].carts)

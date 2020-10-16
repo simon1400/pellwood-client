@@ -21,7 +21,11 @@ if(window.location.pathname.split('/')[1] === 'en'){
 }
 
 
-const query = `*[_type == "article" && ${lang}.slug.current == $url].${lang}.chapters`;
+const query = `*[_type == "article" && ${lang}.slug.current == $url]{
+  "chapters": ${lang}.chapters,
+  "titleHead": ${lang}.titleHead,
+  "descriptionHead": ${lang}.descriptionHead
+}`;
 
 export default ({match}) => {
 
@@ -34,14 +38,14 @@ export default ({match}) => {
       if(!data.length){
         window.location.href = '/not-found'
       }
-      setChapters(...data)
+      setChapters(data[0])
     })
   }, [])
 
-  if(chapters || chapters?.length){
+  if(Object.keys(chapters).length){
     return (
       <Page id="blog" description={chapters.descriptionHead} title={chapters.titleHead}>
-        {chapters.map((item, index) =>
+        {chapters.chapters.map((item, index) =>
           <section key={index} className="full">
             <div className="uk-grid uk-grid-large uk-child-width-1-1 uk-child-width-1-2@m" uk-grid="" uk-height-match="target: > div > div">
               <div>

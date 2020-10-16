@@ -46,7 +46,6 @@ const Header = ({history}) => {
       setLoginUser(true)
     }
     sanityClient.fetch(query).then(data => {
-      console.log(data);
       setMenu(data)
     })
 

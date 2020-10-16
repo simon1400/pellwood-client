@@ -20,7 +20,9 @@ if(firstUrl === 'en'){
 }
 
 const archive = `*[_type == "archive" && '${baseUrl}' == ${lang}.slug.current] {
-  _id
+  _id,
+  "titleHead": ${lang}.titleHead,
+  "descriptionHead": ${lang}.descriptionHead
 } | order(sort asc)`;
 
 
@@ -55,14 +57,13 @@ export default () => {
         setArticles(data)
       })
     }
-
   }, [id])
 
   return (
     <Page id="blog" description={archives.descriptionHead} title={archives.titleHead}>
       <section className="head_category head_category_articles">
         <div className="uk-container uk-container-expand">
-           <SubMenu data={articles} articles/>
+           <SubMenu data={articles} articles />
         </div>
       </section>
 

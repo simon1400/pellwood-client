@@ -4,6 +4,9 @@ import RandomArticles from '../../components/random-articles';
 import Cart from '../../components/cart';
 import SubMenu from '../../components/sub-menu';
 import sanityClient from "../../../lib/sanity.js";
+import ModalFilter from './modalFilter'
+import {modal, util} from 'uikit'
+import InfiniteScroll from 'react-infinite-scroller'
 
 import times from '../../assets/times.svg'
 
@@ -35,10 +38,34 @@ export default () => {
   const [articleSeccond, setArticleSeccond] = useState([])
   const [category, setCategory] = useState([])
   const [settings, setSettings] = useState([])
-
-  const [searchProduct, setSearchProduct] = useState([])
+  const [filtered, setFiltered] = useState(false)
   const [resetFilter, setResetFilter] = useState('')
-  const [seacrh, setSearch] = useState('')
+  const [search, setSearch] = useState('')
+  const [hasMore, setHasMore] = useState(true)
+  const [urlProduct, setUrlProduct] = useState(`*[_type == "product"].${lang}`)
+  const [loading, setLoading] = useState(false)
+
+  const [stateRange, setStateRange] = useState({
+    length: {
+      min: 0,
+      max: 45
+    },
+    diameter: {
+      min: 0,
+      max: 45
+    }
+  })
+
+  const [rangeNumber, setRangeNumber] = useState({
+    length: {
+      min: 0,
+      max: 45
+    },
+    diameter: {
+      min: 0,
+      max: 45
+    }
+  })
 
   const shuffle = (a, count) => {
     for (let i = a.length - 1; i > 0; i--) {
@@ -51,10 +78,12 @@ export default () => {
 
   }
 
+  const closeModal = () => {
+    modal(util.find('#modal-filter')).hide();
+  }
+
   useEffect(() => {
     sanityClient.fetch(query).then(data => {
-      const filteredProduct = data.product.filter(item => item?.title)
-      setProduct(filteredProduct)
       const articlesFilteredFirst = data.articles.filter(item => item[lang]?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
       shuffle(articlesFilteredFirst, 0)
       const articlesFilteredSeccond = data.articles.filter(item => item[lang]?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
@@ -64,26 +93,112 @@ export default () => {
       const filterSettings = data.settings.filter(item => item?.titleCategory)
       setSettings(filterSettings[0])
     })
+    sanityClient.fetch(`${urlProduct} | order(sort asc) | order(title asc)`).then(data => {
+      const filteredProduct = data.filter(item => item?.title)
+
+      const lengthNumbers = [], diameterNumbers = []
+      var length = undefined, diameter = undefined, lengthNum = 0, diameterNum = 0;
+
+      for(var i = 0; i < filteredProduct.length; i++){
+        if(filteredProduct[i]?.parametrs){
+          length = filteredProduct[i]?.parametrs.find(o => o.title === 'Délka')
+          diameter = filteredProduct[i]?.parametrs.find(o => o.title === 'Průměr')
+          lengthNumbers.push(+length.value.substr(0, length.value.length - 3).replace(/,/g, '.') )
+          diameterNumbers.push(+diameter.value.substr(0, diameter.value.length - 3).replace(/,/g, '.') )
+        }
+      }
+      const rangeNum = {
+        length: {
+          min: Math.min(...lengthNumbers),
+          max: Math.max(...lengthNumbers)
+        },
+        diameter: {
+          min: Math.min(...diameterNumbers),
+          max: Math.max(...diameterNumbers)
+        }
+      }
+
+      setRangeNumber(rangeNum)
+      setStateRange(rangeNum)
+      // setProduct(filteredProduct)
+    })
   }, [])
 
-  const handleSearch = (value) => {
-    setSearch(value)
-    if(value.length){
-      setResetFilter(true)
+  const loadMore = async (empty = false, url) => {
+
+    if(empty){
+      var from = 0
+      var productsArr = []
+      var modifyUrlProduct = url
+      setHasMore(true)
     }else{
-      setResetFilter(false)
+      var from = product.length
+      var productsArr = [...product]
+      var modifyUrlProduct = urlProduct
     }
-    const newProduct = product.filter(item => {
-      let title = item.title.toLowerCase()
-      if(title.indexOf(value.toLowerCase()) >= 0){
-        return true
-      }
-    })
-    setSearchProduct(newProduct)
+    const size = 6
+
+    const newUrlProduct = `${modifyUrlProduct}[${from}...${from + size}]`
+    console.log(newUrlProduct);
+    if (loading) return
+    setLoading(true)
+    const data = await sanityClient.fetch(`${newUrlProduct} | order(sort asc) | order(title asc)`)
+    if(data.length){
+      const filteredProduct = data.filter(item => item?.title)
+      productsArr.push(...filteredProduct)
+      setProduct(productsArr)
+    }else{
+      setHasMore(false)
+    }
+
+    setLoading(false)
   }
 
-  const clearSearch = () => {
-    handleSearch('')
+
+
+  const handleFilter = (e) => {
+    e.preventDefault()
+
+    const newUrlProduct = `*[_type == "product" ${!!search.length ? '&& '+lang+'.title match "'+ search.split(/[,-]+/).join(' ') +'*"' : ''}].${lang}`
+    setUrlProduct(newUrlProduct)
+    const searchQuery = `${newUrlProduct} | order(sort asc) | order(title asc)`
+    sanityClient.fetch(searchQuery).then(data => {
+      const filteredProduct = data.filter(item => item?.title)
+      const filteredProdParameters = []
+      var length = undefined, diameter = undefined, lengthNum = 0, diameterNum = 0;
+
+      for(var i = 0; i < filteredProduct.length; i++){
+        if(filteredProduct[i]?.parametrs){
+          length = filteredProduct[i]?.parametrs.find(o => o.title === 'Délka')
+          diameter = filteredProduct[i]?.parametrs.find(o => o.title === 'Průměr')
+
+          if(length || diameter){
+            lengthNum = +length.value.substr(0, length.value.length - 3)
+            diameterNum = +diameter.value.substr(0, diameter.value.length - 3)
+            if(lengthNum <= stateRange.length.max
+              && lengthNum >= stateRange.length.min
+              && diameterNum <= stateRange.diameter.max
+              && diameterNum >= stateRange.diameter.min){
+                filteredProdParameters.push(filteredProduct[i])
+            }
+          }
+        }
+      }
+      setProduct(filteredProdParameters)
+    })
+    setHasMore(true)
+    closeModal()
+    setFiltered(true)
+  }
+
+
+  const cancelFilter = async (e) => {
+    e.preventDefault()
+    setFiltered(false)
+    setStateRange(rangeNumber)
+    setSearch('')
+    setUrlProduct(`*[_type == "product"].${lang}`)
+    loadMore(true, `*[_type == "product"].${lang}`)
   }
 
   return (
@@ -102,40 +217,33 @@ export default () => {
         <div className="uk-container uk-container-expand">
           <div className="category_menu uk-flex uk-flex-between uk-flex-middle uk-flex-wrap">
             <div className="uk-flex uk-flex-middle uk-width-1-1 uk-flex-between uk-flex-wrap">
-              <SubMenu data={category}/>
-              <div className="search_wrap">
-                <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="search" className="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M508.5 481.6l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-10.3C395 312 416 262.5 416 208 416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c54.5 0 104-21 141.1-55.2V371c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l9.9-9.9c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z"></path></svg>
-                <label><input className="effect-9 search_input" type="text" placeholder="Hledat..." value={seacrh} onChange={e => handleSearch(e.target.value)} /></label>
-                {!!seacrh.length && <img src={times} onClick={() => clearSearch()} alt="clear" />}
-            </div>
-            </div>
-
-            {/*<div>
-              <div className="custom-select-wrap">
-                <button className="custom-select uk-button uk-button-default" type="button" tabIndex="-1">
-                  <span>seřadit podle cenys eřadit podle ceny</span>
-                  <span><img src="/img/chevron-down-light.svg" alt="" /></span>
-                </button>
-                <div className="select_dropdown" uk-drop="mode: click">
-                  <ul style={{height: `calc(55px * 3 + 4px)`}}>
-                    <li uk-filter-control=""><a href="#" title="seřadit podle cenys eřadit podle ceny"><span>Doporučení</span></a></li>
-                    <li uk-filter-control="sort: data-price; order: asc"><a href="#" title="seřadit podle cenys eřadit podle ceny"><span>Od nejdražšího</span></a></li>
-                    <li uk-filter-control="sort: data-price; order: desc"><a href="#" title="seřadit podle nejlevnejsi"><span>Od nejlevnějšího</span></a></li>
-                  </ul>
-                </div>
+              <div className="filter-controls-wrap">
+                <a className="tm-button tm-black-button" href="#modal-filter" uk-toggle="">Filtrovat</a>
+                {filtered && <button className="cancel-filtered tm-button tm-button-text" onClick={e => cancelFilter(e)}><img src={times} alt="Cancel filter" uk-svg="" />Zrusit vsechny filtry</button>}
               </div>
-            </div>*/}
+              <SubMenu data={category}/>
+            </div>
           </div>
         </div>
         <div className="uk-container uk-container-expand">
-          <ul className={`js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s${resetFilter ? ' show-all' : ''}`} uk-grid="" uk-scrollspy="target: > li > a; cls: uk-animation-slide-top-small; delay: 300">
-            {!!product.length && !searchProduct.length && product.map((item, index) => <Cart item={item} key={index} lang={lang} currency={currency} />)}
-            {!!searchProduct.length && searchProduct.map((item, index) => <Cart item={item} key={index} lang={lang} currency={currency} />)}
-          </ul>
+          <InfiniteScroll pageStart={0} loadMore={() => loadMore()} hasMore={hasMore} threshold={600}>
+            <ul className={`js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s${resetFilter ? ' show-all' : ''}`} uk-grid="">
+              {!!product.length && product.map((item, index) => <Cart item={item} key={index} lang={lang} currency={currency} />)}
+            </ul>
+          </InfiniteScroll>
         </div>
       </section>
 
       <RandomArticles lang={lang} articleFirst={articleFirst} articleSeccond={articleSeccond}/>
+
+      <ModalFilter
+        setSearch={setSearch}
+        search={search}
+        closeModal={closeModal}
+        setStateRange={setStateRange}
+        handleFilter={handleFilter}
+        rangeNumber={rangeNumber}
+        stateRange={stateRange} />
 
     </Page>
   )

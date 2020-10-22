@@ -1,6 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import './style.scss'
+import translate from '../../../data/staticTranslate'
+
+import localize from '../../../data/localize'
+const {lang} = localize(window.location.href)
+
 
 const Body = ({setSum, sum, basket, setBasket, currency}) => {
 
@@ -57,7 +62,7 @@ const Body = ({setSum, sum, basket, setBasket, currency}) => {
           <tr>
             <th>Položka</th>
             <th>Počet</th>
-            <th>Cena</th>
+            <th>{translate.price[lang]}</th>
           </tr>
         </thead>
         <tbody>

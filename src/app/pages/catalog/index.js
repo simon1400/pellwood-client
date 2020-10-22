@@ -12,17 +12,8 @@ import times from '../../assets/times.svg'
 
 import './style.scss'
 
-var lang = 'cz', currency = 'Kč'
-if(window.location.pathname.split('/')[1] === 'en'){
-  lang = 'en';
-  currency = '$';
-}else if(window.location.pathname.split('/')[1] === 'de'){
-  lang = 'de';
-  currency = '&euro;';
-}else{
-  lang = 'cz';
-  currency = 'Kč';
-}
+import localize from '../../data/localize'
+const {lang, currency} = localize(window.location.href)
 
 const query = `{
   'product': *[_type == "product"].${lang} | order(sort asc) | order(title asc),
@@ -225,7 +216,7 @@ export default () => {
             <div className="uk-flex uk-flex-middle uk-width-1-1 uk-flex-between uk-flex-wrap">
               <div className="filter-controls-wrap">
                 <a className="tm-button tm-black-button" href="#modal-filter" uk-toggle="">Filtrovat</a>
-                {filtered && <button className="cancel-filtered tm-button tm-button-text" onClick={e => cancelFilter(e)}><img src={times} alt="Cancel filter" uk-svg="" />Zrusit vsechny filtry</button>}
+                {filtered && <button className="cancel-filtered tm-button tm-button-text" onClick={e => cancelFilter(e)}><img src={times} alt="Cancel filter" uk-svg="" />Zrušit všechny filtry</button>}
               </div>
               <SubMenu data={category}/>
             </div>
@@ -245,6 +236,7 @@ export default () => {
       <ModalFilter
         setSearch={setSearch}
         search={search}
+        lang={lang}
         closeModal={closeModal}
         setStateRange={setStateRange}
         handleFilter={handleFilter}

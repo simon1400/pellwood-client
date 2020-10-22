@@ -3,6 +3,7 @@ import {Switch, Route, Link} from 'react-router-dom';
 import { withRouter } from "react-router";
 import axios from 'axios'
 import './style.scss'
+import translate from '../data/staticTranslate'
 
 import NotFound from '../pages/not-found';
 import Head from './components/head'
@@ -11,18 +12,8 @@ import Checkout from './components/checkout'
 import Total from './components/total'
 import TotalEnd from './components/total-end'
 
-// var lang = 'cz',
-var currency = 'Kč'
-if(window.location.pathname.split('/')[1] === 'en'){
-  // lang = 'en';
-  currency = '$';
-}else if(window.location.pathname.split('/')[1] === 'de'){
-  // lang = 'de';
-  currency = '&euro;';
-}else{
-  // lang = 'cz';
-  currency = 'Kč';
-}
+import localize from '../data/localize'
+const {lang, currency} = localize(window.location.href)
 
 
 const Basket = () => {
@@ -186,13 +177,13 @@ const Basket = () => {
             <Route exact path="/basket/checkout" render={() => <TotalEnd sum={sum} basket={basket} delivery={deliveryMethod[0].price} payment={paymentMethod[0].price} currency={currency} />} />
           </Switch>
           <div>
-            <p>Všechny ceny jsou včetně DPH 21 %</p>
+            <p>{translate.infovat[lang]}</p>
             <Route exact path="/basket/checkout" render={() => <p>Odesláním objednávky souhlasíte s <a href="/">obchodními podmínkami</a>.</p>} />
           </div>
           <div>
             <div className="tm-basket-footer tm-footer-single">
               <Switch>
-                <Route exact path="/basket" render={() => <Link to="/basket/checkout" className="tm-button tm-black-button">přejít k objednávce</Link>} />
+                <Route exact path="/basket" render={() => <Link to="/basket/checkout" className="tm-button tm-black-button">{translate.checkout[lang]}</Link>} />
                 <Route exact path="/basket/checkout" render={() => <button className="tm-button tm-black-button" onClick={() => sendOrder()}>Objednat</button>} />
               </Switch>
             </div>

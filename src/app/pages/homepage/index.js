@@ -9,23 +9,16 @@ import Cart from '../../components/cart'
 
 import './style.scss'
 
+import localize from '../../data/localize'
+const {lang, currency} = localize(window.location.href)
+
 const imageBuilder = imageUrlBuilder(sanityClient);
 
 function urlFor(source) {
   return imageBuilder.image(source);
 }
 
-var lang = 'cz', currency = 'Kč'
-if(window.location.pathname.split('/')[1] === 'en'){
-  lang = 'en';
-  currency = '$';
-}else if(window.location.pathname.split('/')[1] === 'de'){
-  lang = 'de';
-  currency = '&euro;';
-}else{
-  lang = 'cz';
-  currency = 'Kč';
-}
+
 
 const query = `{
   'homepage': *[_type == "homepage"] {

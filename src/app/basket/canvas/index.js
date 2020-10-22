@@ -2,8 +2,12 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import './style.scss'
 import UIkit from 'uikit'
+import translate from '../../data/staticTranslate'
 
-export default ({update, currency}) => {
+import localize from '../../data/localize'
+const {lang, currency} = localize(window.location.href)
+
+export default ({update}) => {
 
   const [basket, setBasket] = useState([])
   const [basketCount, setBasketCount] = useState(0)
@@ -66,7 +70,7 @@ export default ({update, currency}) => {
 
         <div className="tm-canvas-head">
           <span className="tm-circle-count">{basketCount ? basketCount : 0}</span>
-          <h2>Košík</h2>
+          <h2>{translate.basket[lang]}</h2>
           <Link to={window.location.pathname}><button className="tm-canvas-close uk-close-large" type="button" uk-close="" onClick={e => closeCanvas()}></button></Link>
         </div>
         {basketCount ?
@@ -78,7 +82,7 @@ export default ({update, currency}) => {
                   <div className="tm-basket-item-info">
                     <h3 className="tm-basket-item-head">{item.nameProduct}</h3>
                     <span>{item.variantName}</span>
-                    <span>{item.variantPrice instanceof String ? item.variantPrice : item.variantPrice+' '+currency}</span>
+                    <span>{item.variantPrice instanceof String ? item.variantPrice : item.variantPrice + ' ' + currency}</span>
                     <div className="tm-canvas-basket-item-count">
                       <span>{item.countVariant} páry</span>
                       <Link to={window.location.pathname +'?delete'+item.id+item.variantName}><button className="tm-canvas-item-remove" data-id={item.id} data-name={item.variantName} type="button" onClick={e => deleteItem(e)} uk-close=""></button></Link>
@@ -93,11 +97,11 @@ export default ({update, currency}) => {
             <table className="uk-table uk-table-divider">
               <tbody>
                 <tr>
-                  <td>Doprava</td>
+                  <td>{translate.delivery[lang]}</td>
                   <td>ZDARMA</td>
                 </tr>
                 <tr>
-                  <td>Celková cena</td>
+                  <td>{translate.totalprice[lang]}</td>
                   <td>{basket !== undefined ? onSumItems() : 0}{' ' + currency}</td>
                 </tr>
               </tbody>
@@ -107,11 +111,11 @@ export default ({update, currency}) => {
 
 
           <div className="tm-basket-footer">
-            <Link to="/basket" className="tm-button tm-bare-button" onClick={() => closeCanvas()}>košík</Link>
-            <Link to="/basket/checkout" className="tm-button tm-black-button" onClick={() => closeCanvas()}>přejít k objednávce</Link>
+            <Link to="/basket" className="tm-button tm-bare-button" onClick={() => closeCanvas()}>{translate.basket[lang]}</Link>
+            <Link to="/basket/checkout" className="tm-button tm-black-button" onClick={() => closeCanvas()}>{translate.checkout[lang]}</Link>
           </div>
         </div>
-        : <p className="uk-text-center">Váš košík je prázdný</p>
+        : <p className="uk-text-center">{translate.emptybasket[lang]}</p>
       }
 
       </div>

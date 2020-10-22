@@ -1,4 +1,8 @@
 import React from 'react';
+import translate from '../../data/staticTranslate'
+
+import localize from '../../data/localize'
+const {lang, currency} = localize(window.location.href)
 
 const Delivery = ({state, setState}) => {
 
@@ -13,11 +17,11 @@ const Delivery = ({state, setState}) => {
       <div className="form_column">
         <div className="uk-margin input_item">
           <input className={state.email.length ? 'hasValue' : ''} type="text" value={state.email} onChange={(e) => handleChange('email', e.target.value)} tabIndex="1"/>
-          <label>E-mail</label>
+          <label>{translate.formemail[lang]}</label>
         </div>
         <div className="uk-margin input_item">
           <input className={state.name.length ? 'hasValue' : ''} type="text" value={state.name} onChange={(e) => handleChange('name', e.target.value)} tabIndex="3"/>
-          <label>Jméno</label>
+          <label>{translate.formname[lang]}</label>
         </div>
         <div className="uk-margin select_item">
           <div uk-form-custom="target: > * > span:first-child">
@@ -36,26 +40,26 @@ const Delivery = ({state, setState}) => {
         </div>
         <div className="uk-margin input_item">
           <input className={state.address.length ? 'hasValue' : ''} type="text" value={state.address} onChange={(e) => handleChange('address', e.target.value)} tabIndex="7"/>
-          <label>Ulice a č. p.</label>
+          <label>{translate.formstreet[lang]}</label>
         </div>
       </div>
 
       <div className="form_column">
         <div className="uk-margin input_item">
           <input className={state.phone.length ? 'hasValue' : ''} type="text" value={state.phone} onChange={(e) => handleChange('phone', e.target.value)} tabIndex="2"/>
-          <label>Telefon</label>
+          <label>{translate.formphone[lang]}</label>
         </div>
         <div className="uk-margin input_item">
           <input className={state.surname.length ? 'hasValue' : ''} type="text" value={state.surname} onChange={(e) => handleChange('surname', e.target.value)} tabIndex="4"/>
-          <label>Příjmení</label>
+          <label>{translate.formsurname[lang]}</label>
         </div>
         <div className="uk-margin input_item">
           <input className={state.city.length ? 'hasValue' : ''} type="text" value={state.city} onChange={(e) => handleChange('city', e.target.value)} tabIndex="6"/>
-          <label>Město</label>
+          <label>{translate.formcity[lang]}</label>
         </div>
         <div className="uk-margin input_item">
           <input className={state.code.length ? 'hasValue' : ''} type="text" value={state.code} onChange={(e) => handleChange('code', e.target.value)} tabIndex="8"/>
-          <label>PSČ</label>
+          <label>{translate.formzip[lang]}</label>
         </div>
       </div>
     </div>

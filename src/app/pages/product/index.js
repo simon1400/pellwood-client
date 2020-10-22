@@ -8,10 +8,11 @@ import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
 import UIkit from 'uikit'
 
-
 import down from '../../assets/chevron-down-light.svg'
 
 import './style.scss'
+import localize from '../../data/localize'
+const {lang, currency} = localize(window.location.href)
 
 const imageBuilder = imageUrlBuilder(sanityClient);
 
@@ -19,17 +20,6 @@ function urlFor(source) {
   return imageBuilder.image(source);
 }
 
-var lang = 'cz', currency = 'Kč'
-if(window.location.pathname.split('/')[1] === 'en'){
-  lang = 'en';
-  currency = '$';
-}else if(window.location.pathname.split('/')[1] === 'de'){
-  lang = 'de';
-  currency = '&euro;';
-}else{
-  lang = 'cz';
-  currency = 'Kč';
-}
 
 const query = `{
   'products': *[_type == "product" && ${lang}.slug.current == $url] {
@@ -51,7 +41,7 @@ export default ({match}) => {
   const [loader, setLoader] = useState(false)
 
   const [select, setSelect] = useState({
-    name: 'Vybrat variantu',
+    name: '{translate.selectvariant[lang]}',
     price: ''
   })
 
@@ -63,7 +53,7 @@ export default ({match}) => {
   useEffect(() => {
     sanityClient.fetch(query, {url: match.params.url}).then(data => {
       if(!data.products.length){
-        window.location.href = '/not-found' 
+        window.location.href = '/not-found'
       }
       setProduct(data.products[0][lang])
       setProductId(data.products[0]._id)
@@ -100,7 +90,7 @@ export default ({match}) => {
 
   const onBuy = () => {
     setLoader(true)
-    if(select.name === 'Vybrat variantu' && product?.variants?.length){
+    if(select.name === '{translate.selectvariant[lang]}' && product?.variants?.length){
       setError({ ...error, select: true })
       setLoader(false)
       return;

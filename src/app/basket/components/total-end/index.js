@@ -1,13 +1,17 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import './style.scss'
+import translate from '../../../data/staticTranslate'
+
+import localize from '../../../data/localize'
+const {lang, currency} = localize(window.location.href)
 
 const TotalEnd = ({sum, basket, delivery, payment, currency}) => {
 
   return(
     <div className="tm-total-end">
       <div className="tm-head-total">
-        <h2>Souhrn objednávky</h2>
+        <h2>{translate.ordersummary[lang]}</h2>
         <Link to="/basket">Upravit položky</Link>
       </div>
       <div className="tm-canvas-basket-item-wrap">
@@ -27,15 +31,15 @@ const TotalEnd = ({sum, basket, delivery, payment, currency}) => {
         <table className="uk-table uk-table-divider">
           <tbody>
             <tr>
-              <td>Doprava</td>
+              <td>{translate.delivery[lang]}</td>
               <td><span className={delivery === 'ZDARMA' ? 'tm-positive' : ''}>{delivery.length ? delivery : 'Nevybráno'}</span></td>
             </tr>
             <tr>
-              <td>Platba</td>
+              <td>{translate.payment[lang]}</td>
               <td><span className={payment === 'ZDARMA' ? 'tm-positive' : ''}>{payment.length ? payment : 'Nevybráno'}</span></td>
             </tr>
             <tr>
-              <td>Celková cena</td>
+              <td>{translate.totalprice[lang]}</td>
               <td>{sum} {' ' + currency}</td>
             </tr>
           </tbody>

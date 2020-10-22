@@ -1,4 +1,8 @@
 import React from 'react'
+import translate from '../../data/staticTranslate'
+
+import localize from '../../data/localize'
+const {lang, currency} = localize(window.location.href)
 
 const Corporate = ({state, setState}) => {
 
@@ -13,7 +17,7 @@ const Corporate = ({state, setState}) => {
       <div className="form_column">
         <div className="uk-margin input_item">
           <input className={state.companyName.length ? 'hasValue' : ''} type="text" value={state.companyName} onChange={(e) => handleChange('companyName', e.target.value)} />
-          <label>Obchodní jméno</label>
+          <label>Obchodní {translate.formname[lang]}</label>
         </div>
         <div className="uk-margin input_item">
           <input className={state.ico.length ? 'hasValue' : ''} type="text" value={state.ico} onChange={(e) => handleChange('ico', e.target.value)} />

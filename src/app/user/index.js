@@ -5,19 +5,10 @@ import Head from './components/head'
 import AnimateHeight from 'react-animate-height';
 import './style.scss'
 import axios from 'axios'
+import translate from '../data/staticTranslate'
 
-// var lang = 'cz'
-var currency = 'Kč'
-if(window.location.pathname.split('/')[1] === 'en'){
-  // lang = 'en';
-  currency = '$';
-}else if(window.location.pathname.split('/')[1] === 'de'){
-  // lang = 'de';
-  currency = '&euro;';
-}else{
-  // lang = 'cz';
-  currency = 'Kč';
-}
+import localize from '../data/localize'
+const {lang, currency} = localize(window.location.href)
 
 const User = () => {
 
@@ -46,6 +37,7 @@ const User = () => {
     axios.post('/.netlify/functions/getOrder', {email: state[0].email}).then(res => {
       setOrders(res.data.data)
     })
+
   }, [])
 
   const handleChange = (name, value) => {
@@ -83,7 +75,7 @@ const User = () => {
           <div className="uk-margin-small checkbox_item">
             <input type="checkbox" id="checkbox_another_address" onChange={() => handleChange('anotherAddressCheck', !state[0].anotherAddressCheck)} checked={state[0].anotherAddressCheck} />
             <label htmlFor="checkbox_another_address"></label>
-            <label htmlFor="checkbox_another_address">Doručit na jinou adresu</label>
+            <label htmlFor="checkbox_another_address">{translate.checkdifferentadress[lang]}</label>
           </div>
 
           <AnimateHeight duration={ 500 } height={ state[0].anotherAddressCheck ? 'auto' : 0 } >
@@ -93,7 +85,7 @@ const User = () => {
           <div className="uk-margin-small checkbox_item">
             <input type="checkbox" id="checkbox_firm_data" onChange={() => handleChange('companyDataCheck', !state[0].companyDataCheck)} checked={state[0].companyDataCheck} />
             <label htmlFor="checkbox_firm_data"></label>
-            <label htmlFor="checkbox_firm_data">Doplnit firemní údaje</label>
+            <label htmlFor="checkbox_firm_data">{translate.checkcompanydata[lang]}</label>
           </div>
 
           <AnimateHeight duration={ 500 } height={ state[0].companyDataCheck ? 'auto' : 0 } >

@@ -1,4 +1,8 @@
 import React from 'react'
+import translate from '../../../data/staticTranslate'
+
+import localize from '../../../data/localize'
+const {lang, currency} = localize(window.location.href)
 
 const deliveryData = [
   {value: 'Osobní odběr na pobočce', price: 'ZDARMA'},
@@ -7,7 +11,7 @@ const deliveryData = [
 ];
 const paymentData = [
   {value: 'Bankovní převod', price: 'ZDARMA'},
-  {value: 'Platba kartou on-line', price: 'ZDARMA'},
+  {value: '{translate.payment[lang]} kartou on-line', price: 'ZDARMA'},
   {value: 'Online bankovní platby', price: 'ZDARMA'}
 ];
 
@@ -16,7 +20,7 @@ const ShipPay = ({delivery, error, setDelivery, payment, setPayment}) => {
   return(
     <div className="form_container tm-payship">
       <div className="form_column">
-        <legend className="uk-legend">Doprava</legend>
+        <legend className="uk-legend">{translate.delivery[lang]}</legend>
 
         {deliveryData.map((item, index) =>
           <div key={index} className="uk-grid-small" uk-grid="">
@@ -36,7 +40,7 @@ const ShipPay = ({delivery, error, setDelivery, payment, setPayment}) => {
       </div>
 
       <div className="form_column">
-        <legend className="uk-legend">Platba</legend>
+        <legend className="uk-legend">{translate.payment[lang]}</legend>
         {paymentData.map((item, index) =>
           <div key={index} className="uk-grid-small" uk-grid="">
             <div className="uk-width-expand">

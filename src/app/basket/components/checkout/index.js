@@ -1,13 +1,16 @@
 import React from 'react'
 import './style.scss'
 import AnimateHeight from 'react-animate-height';
-
+import translate from '../../../data/staticTranslate'
 
 import Delivery from './delivery.js'
 import Corporate from './corporate.js'
 import Password from './password.js'
 import Note from './note.js'
 import ShipPay from './shipPay.js'
+
+import localize from '../../../data/localize'
+const {lang, currency} = localize(window.location.href)
 
 const Checkout = ({state, error, user, anotherAdress, companyData, password, note, deliveryMethod, paymentMethod}) => {
 
@@ -30,7 +33,7 @@ const Checkout = ({state, error, user, anotherAdress, companyData, password, not
             <div className="uk-margin checkbox_item">
               <input type="checkbox" id="checkbox_another_address" onChange={() => handleChange('anotherAddressCheck', !state[0].anotherAddressCheck)} checked={state[0].anotherAddressCheck} />
               <label htmlFor="checkbox_another_address"></label>
-              <label htmlFor="checkbox_another_address">Doručit na jinou adresu</label>
+              <label htmlFor="checkbox_another_address">{translate.checkdifferentadress[lang]}</label>
             </div>
 
             <AnimateHeight duration={ 500 } height={ state[0].anotherAddressCheck ? 'auto' : 0 } >
@@ -43,7 +46,7 @@ const Checkout = ({state, error, user, anotherAdress, companyData, password, not
             <div className="uk-margin checkbox_item">
               <input type="checkbox" id="checkbox_firm_data" onChange={() => handleChange('companyDataCheck', !state[0].companyDataCheck)} checked={state[0].companyDataCheck} />
               <label htmlFor="checkbox_firm_data"></label>
-              <label htmlFor="checkbox_firm_data">Doplnit firemní údaje</label>
+              <label htmlFor="checkbox_firm_data">{translate.checkcompanydata[lang]}</label>
             </div>
 
             <AnimateHeight duration={ 500 } height={ state[0].companyDataCheck ? 'auto' : 0 } >
@@ -57,7 +60,7 @@ const Checkout = ({state, error, user, anotherAdress, companyData, password, not
                 <div className="uk-margin checkbox_item">
                   <input type="checkbox" id="checkbox_registration" onChange={() => handleChange('registrationCheck', !state[0].registrationCheck)} checked={state[0].registrationCheck} />
                   <label htmlFor="checkbox_registration"></label>
-                  <label htmlFor="checkbox_registration">Založit účet pro příští objednávky</label>
+                  <label htmlFor="checkbox_registration">{translate.chcekcreatecaccout[lang]}</label>
                 </div>
 
                 <AnimateHeight duration={ 500 } height={ state[0].registrationCheck ? 'auto' : 0 } >
@@ -71,7 +74,7 @@ const Checkout = ({state, error, user, anotherAdress, companyData, password, not
             <div className="uk-margin checkbox_item">
               <input type="checkbox" id="checkbox_note" onChange={() => handleChange('noteCheck', !state[0].noteCheck)} checked={state[0].noteCheck} />
               <label htmlFor="checkbox_note"></label>
-              <label htmlFor="checkbox_note">Poznámka k objednávce</label>
+              <label htmlFor="checkbox_note">{translate.chceknote[lang]}</label>
             </div>
 
             <AnimateHeight duration={ 500 } height={ state[0].noteCheck ? 'auto' : 0 } >

@@ -3,14 +3,8 @@ import { HashLink as Link } from "react-router-hash-link";
 
 import './style.scss'
 
-var lang = 'cz'
-if(window.location.pathname.split('/')[1] === 'en'){
-  lang = 'en'
-}else if(window.location.pathname.split('/')[1] === 'de'){
-  lang = 'de'
-}else{
-  lang = 'cz'
-}
+import localize from '../../data/localize'
+const {lang} = localize(window.location.href)
 
 const SubMenu = ({data, articles = false}) => {
 

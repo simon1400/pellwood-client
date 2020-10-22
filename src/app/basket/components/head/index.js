@@ -1,6 +1,10 @@
 import React from 'react'
 import './style.scss'
 import UIkit from 'uikit'
+import translate from '../../../data/staticTranslate'
+
+import localize from '../../../data/localize'
+const {lang, currency} = localize(window.location.href)
 
 const Head = ({head, user}) => {
 
@@ -11,7 +15,7 @@ const Head = ({head, user}) => {
   return(
     <div className="tm-basket-head">
       <h1>{head}</h1>
-      {user.email === undefined ? <a href="#modal-login" className="tm-button tm-bare-button" onClick={() => modal()}>přihlásit</a> : ''}
+      {user.email === undefined ? <a href="#modal-login" className="tm-button tm-bare-button" onClick={() => modal()}>{translate.login2[lang]}</a> : ''}
     </div>
   )
 }

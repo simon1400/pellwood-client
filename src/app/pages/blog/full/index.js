@@ -3,23 +3,14 @@ import Page from '../../../components/page';
 import sanityClient from "../../../../lib/sanity.js";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
+import localize from '../../../data/localize'
+const {lang} = localize(window.location.href)
 
 const imageBuilder = imageUrlBuilder(sanityClient);
 
 function urlFor(source) {
   return imageBuilder.image(source);
 }
-
-
-var lang = 'cz';
-if(window.location.pathname.split('/')[1] === 'en'){
-  lang = 'en'
-}else if(window.location.pathname.split('/')[1] === 'de'){
-  lang = 'de'
-}else{
-  lang = 'cz'
-}
-
 
 const query = `*[_type == "article" && ${lang}.slug.current == $url]{
   "chapters": ${lang}.chapters,

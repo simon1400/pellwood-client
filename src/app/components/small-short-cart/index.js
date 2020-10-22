@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Cart from '../cart'
+import translate from '../../data/staticTranslate'
 
 const ShortBlock = ({data, lang, currency}) => {
 
@@ -10,7 +11,7 @@ const ShortBlock = ({data, lang, currency}) => {
       <div className="uk-container uk-container-expand">
         <div className="uk-grid uk-child-width-1-1" uk-grid="">
           <div>
-            <h2 className="section_head" uk-scrollspy="cls: uk-animation-slide-top-small; delay: 500">Mohlo by vás zajímat</h2>
+            <h2 className="section_head" uk-scrollspy="cls: uk-animation-slide-top-small; delay: 500">{translate.interestedproducts[lang]}</h2>
           </div>
         </div>
         {!desktop && <div>

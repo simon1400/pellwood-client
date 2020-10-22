@@ -2,7 +2,10 @@ import React from 'react'
 import UIkit from 'uikit'
 import './style.scss'
 import {Link} from 'react-router-dom'
+import translate from '../../../data/staticTranslate'
 
+import localize from '../../../data/localize'
+const {lang, currency} = localize(window.location.href)
 
 const Login = ({email, password, setEmail, setPassword, onRegister, onLogin, error, setError}) => {
 
@@ -25,7 +28,7 @@ const Login = ({email, password, setEmail, setPassword, onRegister, onLogin, err
       <div className="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 
         <div className="tm-canvas-head">
-          <h2>Přihlásit se</h2>
+          <h2>{translate.login[lang]}</h2>
           <button className="tm-canvas-close uk-close-large" type="button" uk-close="" onClick={e => closeModal()}></button>
         </div>
 
@@ -48,17 +51,17 @@ const Login = ({email, password, setEmail, setPassword, onRegister, onLogin, err
 
             <div className="uk-margin input_item">
               <input className={`${email.length ? 'hasValue' : ''} ${error.loginEmail  ? 'invalid' : ''}`} type="email" value={email} onChange={e => handleInput(e, 'email')} tabIndex="1" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"/>
-              <label>E-mail</label>
+              <label>{translate.formemail[lang]}</label>
             </div>
             <div className="uk-margin input_item">
               <input className={`${password.length ? 'hasValue' : ''} ${error.loginPassword || error.loginEmail === 'notExist' ? 'invalid' : ''}`} type="password" value={password} onChange={e => handleInput(e, 'password')} tabIndex="2"/>
-              <label>Heslo</label>
+              <label>{translate.formpassword[lang]}</label>
             </div>
-            <button type="submit" className="tm-button tm-black-button uk-width-1-1">Přihlásit se</button>
-            <Link to="/basket" className="tm-button tm-bare-button tm-button-text uk-width-1-1"><span>zapomenuté heslo</span></Link>
+            <button type="submit" className="tm-button tm-black-button uk-width-1-1">{translate.login[lang]}</button>
+            <Link to="/basket" className="tm-button tm-bare-button tm-button-text uk-width-1-1"><span>{translate.forgottenpassword[lang]}</span></Link>
             <hr />
-            <p>Chcete si založit účet?</p>
-            <button className="tm-button tm-bare-button uk-width-1-1" onClick={e => onRegister(e)}><span>REGISTROVAT</span></button>
+            <p>{translate.notyetaccount[lang]}</p>
+            <button className="tm-button tm-bare-button uk-width-1-1" onClick={e => onRegister(e)}><span>{translate.registration[lang]}</span></button>
           </form>
         </div>
 

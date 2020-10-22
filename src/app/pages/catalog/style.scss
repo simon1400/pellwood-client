@@ -6,7 +6,8 @@
 	height: 53px;
 	border: 1px solid #ccc;
 	position: relative;
-	color: $accent;
+	color: #989898;
+	font-family: $font-medium;
 	font-size: 18px;
 	transition: 0.4s;
 	border: none;
@@ -21,7 +22,6 @@
 	height: 53px;
 	width: calc(100% - 30px);
 	border: 1px solid rgba(#232323, .2);
-	background-color: #f1f1f1;
 	padding-right: 30px;
 	overflow: hidden;
 	margin-top: 30px;
@@ -62,6 +62,14 @@
 		margin-top: 0;
 		padding-bottom: 20px;
 	}
+	.tm-button{
+		margin-top: 30px;
+	}
+	.uk-modal-dialog{
+		width: 500px;
+		padding: 50px;
+		background-color: #f1f1f1;
+	}
 }
 
 .category{
@@ -81,11 +89,13 @@
 .range-wrap{
 	margin-bottom: 30px;
 	margin-top: 30px;
+
 	.input-range__slider{
 		margin-top: -18px;
 		width: 25px;
 		height: 25px;
-		background-color: #4D4D4D;
+		background: #4D4D4D;
+		border: none;
 	}
 	.input-range__track{
 		height: 10px;
@@ -103,12 +113,14 @@
 		display: -ms-flex;
 		display: flex;
 		justify-content: space-between;
-		font-size: 20px;
+		font-size: 18px;
+		font-weight: normal;
 		.name-range{
-			font-weight: normal;
+			font-family: $font-medium;
+			color: #989898
 		}
 		.value-range{
-			font-weight: bold;
+			// font-weight: bold;
 		}
 	}
 }

@@ -27,6 +27,29 @@
 
 @media(max-width: 960px){
 
+  .category_menu{
+    .sub_menu{
+      margin-bottom: 30px;
+    }
+    >.uk-flex{
+      flex-direction: column-reverse;
+      flex-wrap: nowrap;
+      .sub_menu{
+        max-width: 100%;
+        overflow-y: none;
+        text-align: center;
+        ul{
+          -webkit-overflow-scrolling: touch; /* apply iOS momentum scrolling effect to this element */
+          display: inline-block;
+          max-width: 100%;
+          overflow: auto;
+          height: 35px;
+          white-space: nowrap
+        }
+      }
+  	}
+  }
+
   .full{
     > div > .uk-grid-margin{
       margin-top: 0;
@@ -187,6 +210,15 @@
 }
 
 @media(max-width: 640px){
+
+
+
+  .filter-controls-wrap{
+    .tm-button{
+      max-width: 100%;
+      width: calc(100% - 200px);
+    }
+  }
 
   header .top-nav li:not(:last-child){
     margin-bottom: 10px;

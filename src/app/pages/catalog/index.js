@@ -101,10 +101,14 @@ export default () => {
 
       for(var i = 0; i < filteredProduct.length; i++){
         if(filteredProduct[i]?.parametrs){
-          length = filteredProduct[i]?.parametrs.find(o => o.title === 'Délka')
-          diameter = filteredProduct[i]?.parametrs.find(o => o.title === 'Průměr')
-          lengthNumbers.push(+length.value.substr(0, length.value.length - 3).replace(/,/g, '.') )
-          diameterNumbers.push(+diameter.value.substr(0, diameter.value.length - 3).replace(/,/g, '.') )
+          length = filteredProduct[i]?.parametrs.find(o => o.title === 'Délka' || o.title === 'Length')
+          diameter = filteredProduct[i]?.parametrs.find(o => o.title === 'Průměr' || o.title === 'Diameter')
+          if(length){
+            lengthNumbers.push(+length.value.substr(0, length.value.length - 3).replace(/,/g, '.') )
+          }
+          if(diameter){
+            diameterNumbers.push(+diameter.value.substr(0, diameter.value.length - 3).replace(/,/g, '.') )
+          }
         }
       }
       const rangeNum = {
@@ -120,7 +124,6 @@ export default () => {
 
       setRangeNumber(rangeNum)
       setStateRange(rangeNum)
-      // setProduct(filteredProduct)
     })
   }, [])
 
@@ -139,7 +142,6 @@ export default () => {
     const size = 6
 
     const newUrlProduct = `${modifyUrlProduct}[${from}...${from + size}]`
-    console.log(newUrlProduct);
     if (loading) return
     setLoading(true)
     const data = await sanityClient.fetch(`${newUrlProduct} | order(sort asc) | order(title asc)`)
@@ -169,12 +171,16 @@ export default () => {
 
       for(var i = 0; i < filteredProduct.length; i++){
         if(filteredProduct[i]?.parametrs){
-          length = filteredProduct[i]?.parametrs.find(o => o.title === 'Délka')
-          diameter = filteredProduct[i]?.parametrs.find(o => o.title === 'Průměr')
+          length = filteredProduct[i]?.parametrs.find(o => o.title === 'Délka' || o.title === 'Length')
+          diameter = filteredProduct[i]?.parametrs.find(o => o.title === 'Průměr' || o.title === 'Diameter')
 
           if(length || diameter){
-            lengthNum = +length.value.substr(0, length.value.length - 3)
-            diameterNum = +diameter.value.substr(0, diameter.value.length - 3)
+            if(length){
+              lengthNum = +length.value.substr(0, length.value.length - 3)
+            }
+            if(diameter){
+              diameterNum = +diameter.value.substr(0, diameter.value.length - 3)
+            }
             if(lengthNum <= stateRange.length.max
               && lengthNum >= stateRange.length.min
               && diameterNum <= stateRange.diameter.max

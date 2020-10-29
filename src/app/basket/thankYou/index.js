@@ -9,10 +9,10 @@ const {lang, currency} = localize(window.location.href)
 const ThankYou = () => {
 
   useEffect(() => {
-    var serchUrl = getUrl(window.location.search);
-    axios.post('/.netlify/functions/getStatusPayment', {id: serchUrl.id}).then(res => {
-      console.log(res.data.data);
-    })
+    // var serchUrl = getUrl(window.location.search);
+    // axios.post('/.netlify/functions/getStatusPayment', {id: serchUrl.id}).then(res => {
+    //   console.log(res.data.data);
+    // })
   }, [])
 
   return(

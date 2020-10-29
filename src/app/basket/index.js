@@ -23,14 +23,14 @@ const Basket = () => {
   const [user] = useState(JSON.parse(localStorage.getItem('user')) || {})
 
   const state = useState({
-    email: '',
-    phone: '',
-    name: '',
-    surname: '',
+    email: 'nejaky@mail.com',
+    phone: '774048983',
+    name: 'Test',
+    surname: 'Tester',
     country: 'cz',
-    city: '',
-    address: '',
-    code: '',
+    city: 'Brno',
+    address: 'Masarykova 12',
+    code: '60200',
     anotherAddressCheck: false,
     companyDataCheck: false,
     registrationCheck: false,
@@ -144,19 +144,19 @@ const Basket = () => {
       currency: currency
     }
 
-    // if(state[0].registrationCheck){
-    //   axios.post('/.netlify/functions/update', {data: dataOrder.user, type: 'create'}).then(res => localStorage.setItem('user', JSON.stringify(res.data.data)))
-    // }
+    if(state[0].registrationCheck){
+      axios.post('/.netlify/functions/update', {data: dataOrder.user, type: 'create'}).then(res => localStorage.setItem('user', JSON.stringify(res.data.data)))
+    }
 
-    // axios.post('/.netlify/functions/createOrder', dataOrder).then(res => {
-    //   localStorage.removeItem('basket')
-    //   localStorage.setItem('basketCount', 0)
-    //   window.location.href = '/thank-you'
-    // })
-
-    axios.post('/.netlify/functions/testPayment', dataOrder).then(res => {
-      window.location.href = decodeURIComponent(res.data.data.redirect)
+    axios.post('/.netlify/functions/createOrder', dataOrder).then(res => {
+      localStorage.removeItem('basket')
+      localStorage.setItem('basketCount', 0)
+      window.location.href = '/thank-you'
     })
+
+    // axios.post('/.netlify/functions/testPayment', dataOrder).then(res => {
+    //   window.location.href = decodeURIComponent(res.data.data.redirect)
+    // })
   }
 
 

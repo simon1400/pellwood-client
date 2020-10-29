@@ -27,7 +27,7 @@ const Basket = () => {
     phone: '',
     name: '',
     surname: '',
-    country: '',
+    country: 'cz',
     city: '',
     address: '',
     code: '',
@@ -42,7 +42,7 @@ const Basket = () => {
     phone: '',
     name: '',
     surname: '',
-    country: '',
+    country: 'cz',
     city: '',
     address: '',
     code: ''
@@ -140,17 +140,22 @@ const Basket = () => {
       },
       delivery: deliveryMethod[0],
       payment: paymentMethod[0],
-      note: note[0]
+      note: note[0],
+      currency: currency
     }
 
-    if(state[0].registrationCheck){
-      axios.post('/.netlify/functions/update', {data: dataOrder.user, type: 'create'}).then(res => localStorage.setItem('user', JSON.stringify(res.data.data)))
-    }
+    // if(state[0].registrationCheck){
+    //   axios.post('/.netlify/functions/update', {data: dataOrder.user, type: 'create'}).then(res => localStorage.setItem('user', JSON.stringify(res.data.data)))
+    // }
 
-    axios.post('/.netlify/functions/createOrder', dataOrder).then(res => {
-      localStorage.removeItem('basket')
-      localStorage.setItem('basketCount', 0)
-      window.location.href = '/thank-you'
+    // axios.post('/.netlify/functions/createOrder', dataOrder).then(res => {
+    //   localStorage.removeItem('basket')
+    //   localStorage.setItem('basketCount', 0)
+    //   window.location.href = '/thank-you'
+    // })
+
+    axios.post('/.netlify/functions/testPayment', dataOrder).then(res => {
+      window.location.href = decodeURIComponent(res.data.data.redirect)
     })
   }
 

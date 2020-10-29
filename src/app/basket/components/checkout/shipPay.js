@@ -11,7 +11,7 @@ const deliveryData = [
 ];
 const paymentData = [
   {value: 'Bankovní převod', price: 'ZDARMA'},
-  {value: '{translate.payment[lang]} kartou on-line', price: 'ZDARMA'},
+  {value: 'Platba kartou on-line', price: 'ZDARMA'},
   {value: 'Online bankovní platby', price: 'ZDARMA'}
 ];
 

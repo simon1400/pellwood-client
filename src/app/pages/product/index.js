@@ -7,6 +7,7 @@ import sanityClient from "../../../lib/sanity.js";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
 import UIkit from 'uikit'
+import translate from '../../data/staticTranslate'
 
 import down from '../../assets/chevron-down-light.svg'
 
@@ -41,7 +42,7 @@ export default ({match}) => {
   const [loader, setLoader] = useState(false)
 
   const [select, setSelect] = useState({
-    name: '{translate.selectvariant[lang]}',
+    name: translate.selectvariant[lang],
     price: ''
   })
 

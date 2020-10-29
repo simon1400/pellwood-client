@@ -1,8 +1,9 @@
 import React from 'react';
 import translate from '../../../data/staticTranslate'
+import countryData from '../../../data/country'
 
 import localize from '../../../data/localize'
-const {lang, currency} = localize(window.location.href)
+const {lang} = localize(window.location.href)
 
 const Delivery = ({state, setState}) => {
 
@@ -16,21 +17,17 @@ const Delivery = ({state, setState}) => {
     <div className="form_container">
       <div className="form_column">
         <div className="uk-margin input_item">
-          <input className={state.email.length ? 'hasValue' : ''} type="email" value={state.email} onChange={(e) => handleChange('email', e.target.value)} tabIndex="1" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"/>
+          <input className={state.email?.length && 'hasValue'} type="email" value={state.email} onChange={(e) => handleChange('email', e.target.value)} tabIndex="1" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"/>
           <label>{translate.formemail[lang]}</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={state.name.length ? 'hasValue' : ''} type="text" value={state.name} onChange={(e) => handleChange('name', e.target.value)} tabIndex="3" pattern="^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$"/>
+          <input className={state.name?.length && 'hasValue'} type="text" value={state.name} onChange={(e) => handleChange('name', e.target.value)} tabIndex="3" pattern="^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$"/>
           <label>{translate.formname[lang]}</label>
         </div>
         <div className="uk-margin select_item">
           <div uk-form-custom="target: > * > span:first-child">
             <select value={state.country} onChange={(e) => handleChange('country', e.target.value)} >
-              <option value="">Please select...</option>
-              <option value="1">Option 01</option>
-              <option value="2">Option 02</option>
-              <option value="3">Option 03</option>
-              <option value="4">Option 04</option>
+              {countryData.map((item, index) => <option key={index} value={item.name}>{item.value}</option>)}
             </select>
             <button className="uk-button uk-button-default" type="button" tabIndex="5">
               <span></span>
@@ -39,26 +36,26 @@ const Delivery = ({state, setState}) => {
           </div>
         </div>
         <div className="uk-margin input_item">
-          <input className={state.address.length ? 'hasValue' : ''} type="text" value={state.address} onChange={(e) => handleChange('address', e.target.value)} tabIndex="7" pattern="^(.*[^0-9]+) (([1-9][0-9]*)/)?([1-9][0-9]*[a-cA-C]?)$"/>
+          <input className={state.address?.length && 'hasValue'} type="text" value={state.address} onChange={(e) => handleChange('address', e.target.value)} tabIndex="7" pattern="^(.*[^0-9]+) (([1-9][0-9]*)/)?([1-9][0-9]*[a-cA-C]?)$"/>
           <label>{translate.formstreet[lang]}</label>
         </div>
       </div>
 
       <div className="form_column">
         <div className="uk-margin input_item">
-          <input className={state.phone.length ? 'hasValue' : ''} type="text" value={state.phone} onChange={(e) => handleChange('phone', e.target.value)} tabIndex="2" pattern="^(\+?420)? ?[0-9]{3} ?[0-9]{3} ?[0-9]{3}$"/>
+          <input className={state.phone?.length && 'hasValue'} type="text" value={state.phone} onChange={(e) => handleChange('phone', e.target.value)} tabIndex="2" pattern="^(\+?420)? ?[0-9]{3} ?[0-9]{3} ?[0-9]{3}$"/>
           <label>{translate.formphone[lang]}</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={state.surname.length ? 'hasValue' : ''} type="text" value={state.surname} onChange={(e) => handleChange('surname', e.target.value)} tabIndex="4" pattern="^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$"/>
+          <input className={state.surname?.length && 'hasValue'} type="text" value={state.surname} onChange={(e) => handleChange('surname', e.target.value)} tabIndex="4" pattern="^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$"/>
           <label>{translate.formsurname[lang]}</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={state.city.length ? 'hasValue' : ''} type="text" value={state.city} onChange={(e) => handleChange('city', e.target.value)} tabIndex="6" pattern="^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$"/>
+          <input className={state.city?.length && 'hasValue'} type="text" value={state.city} onChange={(e) => handleChange('city', e.target.value)} tabIndex="6" pattern="^([^ \x21-\x26\x28-\x2C\x2E-\x40\x5B-\x60\x7B-\xAC\xAE-\xBF\xF7\xFE]+)$"/>
           <label>{translate.formcity[lang]}</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={state.code.length ? 'hasValue' : ''} type="text" value={state.code} onChange={(e) => handleChange('code', e.target.value)} tabIndex="8" pattern="\d{3} ?\d{2}"/>
+          <input className={state.code?.length && 'hasValue'} type="text" value={state.code} onChange={(e) => handleChange('code', e.target.value)} tabIndex="8" pattern="\d{3} ?\d{2}"/>
           <label>{translate.formzip[lang]}</label>
         </div>
       </div>

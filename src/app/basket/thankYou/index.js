@@ -1,11 +1,20 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './style.scss'
 import translate from '../../data/staticTranslate'
-
+import getUrl from '../../function/getSearch'
 import localize from '../../data/localize'
+import axios from 'axios'
 const {lang, currency} = localize(window.location.href)
 
 const ThankYou = () => {
+
+  useEffect(() => {
+    var serchUrl = getUrl(window.location.search);
+    axios.post('/.netlify/functions/getStatusPayment', {id: serchUrl.id}).then(res => {
+      console.log(res.data.data);
+    })
+  }, [])
+
   return(
     <div className="thank-you-page base-page">
       <h1>Děkujeme za Vaši objednávku</h1>

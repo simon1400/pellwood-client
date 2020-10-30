@@ -14,7 +14,7 @@ exports.handler = async (event, context) => {
     const {note, user, basket, payment, delivery, sum, idOrder, status, currency} = JSON.parse(event.body)
 
     const paymentData = {
-      merchant: process.env.PAYED_ID,
+      merchant: 147005,
       test: true,
       price: sum * 100,
       curr: currency == 'Kč' ? 'CZK' : 'EUR',
@@ -24,7 +24,7 @@ exports.handler = async (event, context) => {
       method: 'ALL',
       prepareOnly: true,
       email: user.email,
-      secret: process.env.PAYED_PASSWORD
+      secret: 'MBfhNsBL5v2DaKIhUnVsipeHyHwfoYhY'
     }
 
     console.log('paymentData -- ', paymentData);

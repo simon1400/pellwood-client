@@ -11,6 +11,7 @@ exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
+    console.log(event);
     const {note, user, basket, payment, delivery, sum, idOrder, status, currency} = JSON.parse(event.body)
 
     const paymentData = {

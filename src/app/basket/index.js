@@ -144,19 +144,20 @@ const Basket = () => {
       currency: currency
     }
 
-    // if(state[0].registrationCheck){
-    //   axios.post('/api/update', {data: dataOrder.user, type: 'create'}).then(res => localStorage.setItem('user', JSON.stringify(res.data.data)))
-    // }
-    //
-    // axios.post('/api/createOrder', dataOrder).then(res => {
-    //   localStorage.removeItem('basket')
-    //   localStorage.setItem('basketCount', 0)
-    //   window.location.href = '/thank-you'
-    // })
+    if(state[0].registrationCheck){
+      axios.post('/api/update', {data: dataOrder.user, type: 'create'}).then(res => localStorage.setItem('user', JSON.stringify(res.data.data)))
+    }
 
-    axios.post('/api/testPayment', dataOrder).then(res => {
-      window.location.href = decodeURIComponent(res.data.data.redirect)
+    axios.post('/api/createOrder', dataOrder).then(res => {
+      localStorage.removeItem('basket')
+      localStorage.setItem('basketCount', 0)
+      window.location.href = '/thank-you'
     })
+
+    // axios.post('/api/testPayment', dataOrder).then(res => {
+    //   console.log(res.data.data);
+    //   window.location.href = decodeURIComponent(res.data.data.redirect)
+    // })
   }
 
 

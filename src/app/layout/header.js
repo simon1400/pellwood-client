@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import Canvas from '../basket/canvas'
 import sanityClient from "../../lib/sanity.js";
 import Login from '../user/components/login'
+import ForgotPassword from '../user/components/forgotPassword'
 import axios from 'axios'
 import UIkit from 'uikit'
 import translate from '../data/staticTranslate'
@@ -126,14 +127,21 @@ const Header = ({history}) => {
     setHamburger(!hamburger)
   }
 
+  const changeLanguage = (e, url) => {
+    e.preventDefault()
+    localStorage.clear()
+    window.location.href = url
+  }
+
   return(
     <>
       <Canvas update={setHandleUpdate} currency={currency}/>
+      <ForgotPassword />
       <Login onLogin={onLogin} email={email} password={password} setEmail={setEmail} setPassword={setPassword} onRegister={onRegister} error={error} setError={setError}/>
       <header>
         <div className="uk-container uk-container-expand uk-height-1-1">
           <div className="uk-flex uk-flex-between uk-flex-middle uk-height-1-1">
-            <a href={`/${lang === 'cz' ? '' : lang}`} className="logo-wrap">
+            <a href={`/${lang === 'cz' ? '' : lang}`} className="logo-wrap uk-width-auto">
               <img src={logo} alt="Pellwood" />
             </a>
             <div className="uk-text-right uk-width-expand uk-hidden@m">
@@ -143,7 +151,7 @@ const Header = ({history}) => {
                 </span>
               </button>
             </div>
-            <div className={`top-nav ${hamburger ? 'menu-active' : ''}`}>
+            <div className={`top-nav uk-width-expand ${hamburger ? 'menu-active' : ''}`}>
               <nav>
                 <ul>
                   <li className={history.location.pathname.indexOf('/produkty') >= 0 ? 'active-menu-top' : ''}><a href={`${lang === 'cz' ? '' : '/' + lang}/produkty`}>{translate.products[lang]}</a></li>
@@ -167,12 +175,12 @@ const Header = ({history}) => {
                 </div>
               </div>
             </div>
-            <div className="function-button-wrap">
+            <div className="uk-flex function-button-wrap uk-width-auto">
               <div className="lang-nav uk-visible@m">
                 <nav>
                   <ul>
-                    <li className={lang === 'cz' ? "menu_active" : undefined}><a href="/">cs</a></li>
-                    <li className={lang === 'en' ? "menu_active" : undefined}><a href="/en">en</a></li>
+                    <li className={lang === 'cz' ? "menu_active" : undefined}><a href="/" onClick={e => changeLanguage(e, '/')}>cs</a></li>
+                    <li className={lang === 'en' ? "menu_active" : undefined}><a href="/en" onClick={e => changeLanguage(e, '/en')}>en</a></li>
                   </ul>
                 </nav>
               </div>

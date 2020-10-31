@@ -23,14 +23,14 @@ const Basket = () => {
   const [user] = useState(JSON.parse(localStorage.getItem('user')) || {})
 
   const state = useState({
-    email: 'nejaky@mail.com',
-    phone: '774048983',
-    name: 'Test',
-    surname: 'Tester',
+    email: '',
+    phone: '',
+    name: '',
+    surname: '',
     country: 'cz',
-    city: 'Brno',
-    address: 'Masarykova 12',
-    code: '60200',
+    city: '',
+    address: '',
+    code: '',
     anotherAddressCheck: false,
     companyDataCheck: false,
     registrationCheck: false,
@@ -100,16 +100,16 @@ const Basket = () => {
     var newBasket = basket
     newBasket.map((item, index) => {
       if(item.variantPrice instanceof String){
-        sumItem = +item.variantPrice.split(' ')[0] * item.countVariant
+        sumItem = +item.variantPrice.split(' ')[0].replace(/,/g, '.') * item.countVariant
       }else{
-        sumItem = item.variantPrice * item.countVariant
+        sumItem = item.variantPrice.replace(/,/g, '.') * item.countVariant
       }
       sumAll = +sumItem + sumAll
     })
 
     if(delivery || payment){
-      if(delivery !== 'ZDARMA') sumAll = +sumAll + +delivery.split(' ')[0]
-      if(payment !== 'ZDARMA') sumAll = +sumAll + +payment.split(' ')[0]
+      if(delivery !== 'ZDARMA' && delivery !== 'FREE') sumAll = +sumAll + +delivery.split(' ')[0]
+      if(payment !== 'ZDARMA' && payment !== 'FREE') sumAll = +sumAll + +payment.split(' ')[0]
     }
 
     setSum(sumAll)
@@ -145,7 +145,9 @@ const Basket = () => {
     }
 
     if(state[0].registrationCheck){
-      axios.post('/api/update', {data: dataOrder.user, type: 'create'}).then(res => localStorage.setItem('user', JSON.stringify(res.data.data)))
+      axios.post('/api/update', {data: dataOrder.user, type: 'create'}).then(res =>
+        localStorage.setItem('user', JSON.stringify(res.data.data))
+      )
     }
 
     axios.post('/api/createOrder', dataOrder).then(res => {
@@ -163,10 +165,14 @@ const Basket = () => {
           <Switch>
             <Route exact path="/basket" render={() => <Head head="Váš nákupní košík" user={user}/>} />
             <Route exact path="/basket/checkout" render={() => <Head head="Objednávka" user={user}/>} />
+            <Route exact path="/en/basket" render={() => <Head head="Váš nákupní košík" user={user}/>} />
+            <Route exact path="/en/basket/checkout" render={() => <Head head="Objednávka" user={user}/>} />
           </Switch>
           <Switch>
             <Route exact path="/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} currency={currency} />} />
             <Route exact path="/basket/checkout" render={() => <Checkout state={state} error={error} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
+            <Route exact path="/en/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} currency={currency} />} />
+            <Route exact path="/en/basket/checkout" render={() => <Checkout state={state} error={error} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
             <Route component={NotFound} />
           </Switch>
         </div>
@@ -176,16 +182,21 @@ const Basket = () => {
           <Switch>
             <Route exact path="/basket" render={() => <Total sum={sum} currency={currency} />} />
             <Route exact path="/basket/checkout" render={() => <TotalEnd sum={sum} basket={basket} delivery={deliveryMethod[0].price} payment={paymentMethod[0].price} currency={currency} />} />
+            <Route exact path="/en/basket" render={() => <Total sum={sum} currency={currency} />} />
+            <Route exact path="/en/basket/checkout" render={() => <TotalEnd sum={sum} basket={basket} delivery={deliveryMethod[0].price} payment={paymentMethod[0].price} currency={currency} />} />
           </Switch>
           <div>
             <p>{translate.infovat[lang]}</p>
             <Route exact path="/basket/checkout" render={() => <p>Odesláním objednávky souhlasíte s <a href="/">obchodními podmínkami</a>.</p>} />
+            <Route exact path="/en/basket/checkout" render={() => <p>Odesláním objednávky souhlasíte s <a href="/">obchodními podmínkami</a>.</p>} />
           </div>
           <div>
             <div className="tm-basket-footer tm-footer-single">
               <Switch>
                 <Route exact path="/basket" render={() => <Link to="/basket/checkout" className="tm-button tm-black-button">{translate.checkout[lang]}</Link>} />
                 <Route exact path="/basket/checkout" render={() => <button className="tm-button tm-black-button" onClick={() => sendOrder()}>Objednat</button>} />
+                <Route exact path="/en/basket" render={() => <Link to="/basket/checkout" className="tm-button tm-black-button">{translate.checkout[lang]}</Link>} />
+                <Route exact path="/en/basket/checkout" render={() => <button className="tm-button tm-black-button" onClick={() => sendOrder()}>Objednat</button>} />
               </Switch>
             </div>
           </div>

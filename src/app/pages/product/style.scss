@@ -9,6 +9,14 @@
 	}
 }
 
+.custom-select-wrap{
+	width: 100%;
+	position: relative;
+	button.uk-open{
+		background-color: #fff;
+	}
+}
+
 .tm-single-order{
 	.tm-single-price{
 		font-size: 20px;
@@ -25,10 +33,10 @@
 	}
 	.uk-flex{
 		>div:first-child{
-			width: 67.47%;
+			width: 68%;
 		}
 		>div:last-child{
-			width: 27.68%;
+			width: 28%;
 		}
 	}
 	.custom-select{
@@ -162,4 +170,33 @@ input[type=number]
 		padding-left: 0;
 		padding-right: 0;
 	}
+}
+
+
+.select-variant.uk-dropdown{
+	padding: 0;
+	border: 1px solid #232323;
+	border-top: none;
+	ul{
+		padding: 0;
+		li{
+			font-size: 14px;
+			line-height: 55px;
+			color: #333;
+			background-color: #f1f1f1;
+			cursor: pointer;
+			padding: 0 15px;
+			&:not(:last-child){
+				border-bottom: 1px solid #d0d0d0;
+			}
+			&:hover{
+				color: white;
+				background-color: #232323;
+			}
+			span{
+
+			}
+		}
+	}
+
 }

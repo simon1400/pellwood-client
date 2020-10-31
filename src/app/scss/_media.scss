@@ -211,7 +211,11 @@
 
 @media(max-width: 640px){
 
-
+  .sub_menu{
+    ul li{
+      height: 100%;
+    }
+  }
 
   .filter-controls-wrap{
     .tm-button{
@@ -303,6 +307,12 @@
 }
 
 @media(max-width: 440px){
+  header .user-area {
+    margin-left: 0;
+    .basket_count{
+      margin-left: 0;
+    }
+  }
   .tm-basket-item{
     flex-wrap: wrap;
     .tm-basket-img-wrap{

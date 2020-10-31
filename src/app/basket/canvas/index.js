@@ -105,8 +105,8 @@ export default ({update}) => {
           </div>
 
           <div className="tm-basket-footer">
-            <Link to="/basket" className="tm-button tm-bare-button" onClick={() => closeCanvas()}>{translate.basket[lang]}</Link>
-            <Link to="/basket/checkout" className="tm-button tm-black-button" onClick={() => closeCanvas()}>{translate.checkout[lang]}</Link>
+            <Link to={`${lang === 'cz' ? '' : '/' + lang}/basket`} className="tm-button tm-bare-button" onClick={() => closeCanvas()}>{translate.basket[lang]}</Link>
+            <Link to={`${lang === 'cz' ? '' : '/' + lang}/basket/checkout`} className="tm-button tm-black-button" onClick={() => closeCanvas()}>{translate.checkout[lang]}</Link>
           </div>
 
         </div> : <p className="uk-text-center">{translate.emptybasket[lang]}</p>}

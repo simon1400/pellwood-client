@@ -4,16 +4,25 @@ import translate from '../../../data/staticTranslate'
 import localize from '../../../data/localize'
 const {lang, currency} = localize(window.location.href)
 
-const deliveryData = [
-  {value: 'Osobní odběr na pobočce', price: 'ZDARMA'},
-  {value: 'Balík do ruky Česká pošta', price: '185 Kč'},
-  {value: 'Večerní dodaní PPL', price: '250 Kč'}
-];
-const paymentData = [
-  {value: 'Bankovní převod', price: 'ZDARMA'},
-  {value: 'Platba kartou on-line', price: 'ZDARMA'},
-  {value: 'Online bankovní platby', price: 'ZDARMA'}
-];
+const deliveryData = {
+  cz: [
+    {value: 'PPL standartní doručení v ČR', price: '150 Kč'},
+    {value: 'PPL na Slovensko', price: '200 Kč'}
+  ],
+  en: [
+    {value: 'DHL', price: '10 €'}
+  ]
+}
+const paymentData = {
+  cz: [
+    {value: 'Online bankovní platby', price: 'ZDARMA'},
+    {value: 'Platba kartou on-line', price: 'ZDARMA'}
+  ],
+  en: [
+    {value: 'Online bank transfer', price: 'FREE'},
+    {value: 'Card payment', price: 'FREE'}
+  ]
+}
 
 const ShipPay = ({delivery, error, setDelivery, payment, setPayment}) => {
 
@@ -22,7 +31,7 @@ const ShipPay = ({delivery, error, setDelivery, payment, setPayment}) => {
       <div className="form_column">
         <legend className="uk-legend">{translate.delivery[lang]}</legend>
 
-        {deliveryData.map((item, index) =>
+        {deliveryData[lang].map((item, index) =>
           <div key={index} className="uk-grid-small" uk-grid="">
             <div className="uk-width-expand">
               <div className="radio_item">
@@ -31,17 +40,15 @@ const ShipPay = ({delivery, error, setDelivery, payment, setPayment}) => {
                 <label htmlFor={`delivery_${index}`}>{item.value}</label>
               </div>
             </div>
-            <div className={`method-price ${item.price === 'ZDARMA' ? 'tm-positive' : ''}`}>{item.price}</div>
+            <div className={`method-price ${(item.price === 'ZDARMA' || item.price === 'FREE') && 'tm-positive'}`}>{item.price}</div>
           </div>
         )}
-        {error.delivery ? <div className="uk-alert-danger" uk-alert="">
-          <p>Vyberte způsob dopravy</p>
-        </div> : ''}
+        {error.delivery && <div className="uk-alert-danger" uk-alert=""><p>Vyberte způsob dopravy</p></div>}
       </div>
 
       <div className="form_column">
         <legend className="uk-legend">{translate.payment[lang]}</legend>
-        {paymentData.map((item, index) =>
+        {paymentData[lang].map((item, index) =>
           <div key={index} className="uk-grid-small" uk-grid="">
             <div className="uk-width-expand">
               <div className="radio_item">
@@ -50,12 +57,11 @@ const ShipPay = ({delivery, error, setDelivery, payment, setPayment}) => {
                 <label htmlFor={`pay_${index}`}>{item.value}</label>
               </div>
             </div>
-            <div className={`method-price ${item.price === 'ZDARMA' ? 'tm-positive' : ''}`}>{item.price}</div>
+            <div className={`method-price ${(item.price === 'ZDARMA' || item.price === 'FREE') && 'tm-positive'}`}>{item.price}</div>
           </div>
         )}
-        {error.payment ? <div className="uk-alert-danger" uk-alert="">
-          <p>Vyberte způsob platby</p>
-        </div> : ''}
+
+        {error.payment && <div className="uk-alert-danger" uk-alert=""><p>Vyberte způsob platby</p></div>}
 
       </div>
     </div>

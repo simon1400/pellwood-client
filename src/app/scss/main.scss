@@ -20,8 +20,14 @@ i, em{
 }
 
 #homepage{
-	.homepage_slide .tm-button.tm-contrast{
-		opacity: 0;
+	.homepage_slide {
+		h1{
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+		.tm-button.tm-contrast{
+			opacity: 0;
+		}
 	}
 }
 
@@ -242,7 +248,6 @@ header{
 		}
 	}
 	.user-area{
-		min-width: 92px;
 		margin-left: 15px;
 		a:not(.basket_count){
 			color: white;
@@ -433,7 +438,7 @@ p{
 	    &:after{
 	      content: '';
 	      position: absolute;
-				left: -10px;
+				left: 0;
 				bottom: -8px;
 	      display: block;
 	      width: 0;
@@ -756,13 +761,7 @@ footer{
 	}
 }
 
-.custom-select-wrap{
-	width: 100%;
-	position: relative;
-	button.uk-open{
-		background-color: #fff;
-	}
-}
+
 
 .select_dropdown{
 	margin-top: 0;

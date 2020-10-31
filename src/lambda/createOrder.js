@@ -36,7 +36,7 @@ exports.handler = async (event, context) => {
             deliveryPrice: delivery.price
           };
 
-    // const orderData = await Order.create(order)
+    const orderData = await Order.create(order)
 
     const paymentData = {
       merchant: 147005,

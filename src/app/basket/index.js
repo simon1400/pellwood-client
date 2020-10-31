@@ -131,7 +131,7 @@ const Basket = () => {
     const dataOrder = {
       sum,
       basket,
-      status: 'new_payet',
+      status: 'PENDING',
       user: {
         ...state[0],
         anotherAdress: anotherAdress[0],
@@ -152,13 +152,7 @@ const Basket = () => {
       localStorage.removeItem('basket')
       localStorage.setItem('basketCount', 0)
       window.location.href = decodeURIComponent(res.data.data.redirect)
-      // window.location.href = '/thank-you'
     })
-
-    // axios.post('/api/testPayment', dataOrder).then(res => {
-    //   console.log(res.data.data);
-    //   window.location.href = decodeURIComponent(res.data.data.redirect)
-    // })
   }
 
 

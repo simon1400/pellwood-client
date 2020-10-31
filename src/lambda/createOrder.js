@@ -4,13 +4,13 @@ import mongoose from 'mongoose'
 import db from './server'
 // Load the Order Model
 import Order from './models/order.model'
-
+import axios from 'axios'
 
 exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
-    const {note, user, basket, payment, delivery, sum, idOrder, status} = JSON.parse(event.body),
+    const {note, currency, user, basket, payment, delivery, sum, idOrder, status} = JSON.parse(event.body),
           order = {
             _id: mongoose.Types.ObjectId(),
             email: user.email,
@@ -36,14 +36,52 @@ exports.handler = async (event, context) => {
             deliveryPrice: delivery.price
           };
 
-    const orderData = await Order.create(order)
+    // const orderData = await Order.create(order)
+
+    const paymentData = {
+      merchant: 147005,
+      test: true,
+      price: sum * 100,
+      curr: currency == 'Kč' ? 'CZK' : 'EUR',
+      label: user.name + ' ' + user.surname,
+      refId: order.idOrder,
+      cat: 'DIGITAL',
+      method: 'ALL',
+      prepareOnly: true,
+      email: user.email,
+      secret: 'MBfhNsBL5v2DaKIhUnVsipeHyHwfoYhY'
+    }
+
+    var paymentReq = ''
+
+    for (const [key, value] of Object.entries(paymentData)) {
+      if(!paymentReq.length){
+        paymentReq += `${key}=${value}`
+      }else{
+        paymentReq += `&${key}=${value}`
+      }
+    }
+
+    var resPayment = await axios.post(`https://payments.comgate.cz/v1.0/create?${paymentReq}`)
+
+    console.log('resPayment.data -- ', resPayment.data);
+    const resData = resPayment.data.split('&')
+    const resDataParse = {}
+    resData.forEach(item => {
+      var itemSpliting = item.split('=');
+      resDataParse[itemSpliting[0]] = itemSpliting[1]
+    })
+
+    console.log('resDataParse -- ', resDataParse);
+
+
     const response = {
       msg: "Order successfully created",
-      data: orderData
+      data: resDataParse
     }
 
     return {
-      statusCode: 201,
+      statusCode: 200,
       body: JSON.stringify(response)
     }
   } catch (err) {

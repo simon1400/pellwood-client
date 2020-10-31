@@ -1,6 +1,7 @@
 // The basics
 import React, { Fragment, useEffect } from 'react';
 import { withRouter } from 'react-router';
+import axios from 'axios'
 
 import Header from './layout/header';
 import Routes from './routers.js';

@@ -151,7 +151,8 @@ const Basket = () => {
     axios.post('/api/createOrder', dataOrder).then(res => {
       localStorage.removeItem('basket')
       localStorage.setItem('basketCount', 0)
-      window.location.href = '/thank-you'
+      window.location.href = decodeURIComponent(res.data.data.redirect)
+      // window.location.href = '/thank-you'
     })
 
     // axios.post('/api/testPayment', dataOrder).then(res => {

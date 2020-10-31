@@ -67,7 +67,7 @@ const Header = ({history}) => {
       password
     }
 
-    axios.post('/.netlify/functions/userCreate', registerData).then(res => {
+    axios.post('/api/userCreate', registerData).then(res => {
 
       if(res.data.error === 'email'){
         setError({ ...error, loginEmail: 'exist' })
@@ -76,7 +76,7 @@ const Header = ({history}) => {
       }else if(res.data.error && res.data.error.password){
         setError({ ...error, loginPassword: 'empty' })
       }else{
-        axios.post('/.netlify/functions/sendRegistration', {email: res.data.data.email}).then(res => console.log('send mail'))
+        axios.post('/api/sendRegistration', {email: res.data.data.email}).then(res => console.log('send mail'))
         localStorage.setItem('user', JSON.stringify(res.data.data))
         setLoginUser(true)
         window.location.pathname = "/user"
@@ -106,7 +106,7 @@ const Header = ({history}) => {
       password
     }
 
-    axios.post('/.netlify/functions/login', loginData).then(res => {
+    axios.post('/api/login', loginData).then(res => {
       localStorage.setItem('user', JSON.stringify(res.data.data))
       setLoginUser(true)
       UIkit.modal(UIkit.util.find('#modal-login')).hide();

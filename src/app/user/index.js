@@ -34,7 +34,7 @@ const User = () => {
 
 
   useEffect(() => {
-    axios.post('/.netlify/functions/getOrder', {email: state[0].email}).then(res => {
+    axios.post('/api/getOrder', {email: state[0].email}).then(res => {
       setOrders(res.data.data)
     })
 
@@ -53,7 +53,7 @@ const User = () => {
       anotherAdress: anotherAdress[0],
       companyData: companyData[0]
     }
-    await axios.post('/.netlify/functions/update', {data: saveData, type: 'update'}).then(res => {
+    await axios.post('/api/update', {data: saveData, type: 'update'}).then(res => {
       localStorage.setItem('user', JSON.stringify(res.data.data))
     }).catch(err => {
       console.log(err);

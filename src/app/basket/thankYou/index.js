@@ -10,7 +10,7 @@ const ThankYou = () => {
 
   useEffect(() => {
     // var serchUrl = getUrl(window.location.search);
-    // axios.post('/.netlify/functions/getStatusPayment', {id: serchUrl.id}).then(res => {
+    // axios.post('/api/getStatusPayment', {id: serchUrl.id}).then(res => {
     //   console.log(res.data.data);
     // })
   }, [])

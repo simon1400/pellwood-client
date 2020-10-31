@@ -1,13 +1,25 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {modal, util} from 'uikit'
 import './style.scss'
 import {Link} from 'react-router-dom'
 import translate from '../../../data/staticTranslate'
+import validationEmail from '../../../function/validationEmail'
+import axios from 'axios'
 
 import localize from '../../../data/localize'
 const {lang, currency} = localize(window.location.href)
 
-const Login = ({email, password, setEmail, setPassword, onRegister, onLogin, error, setError}) => {
+const Login = ({setLoginUser}) => {
+
+
+  const [email, setEmail] = useState('pechunka@gmail.com')
+  const [password, setPassword] = useState('12345678')
+  const [error, setError] = useState({
+    loginEmail: false,
+    loginPassword: false
+  })
+
+
 
   const closeModal = () => {
     modal('#modal-login').hide();
@@ -23,10 +35,63 @@ const Login = ({email, password, setEmail, setPassword, onRegister, onLogin, err
     }
   }
 
+  const onBlur = (type) => {
+    if(type === 'email' && !validationEmail(email)){
+      setError({ ...error, loginEmail: true})
+      return false
+    }else if(type === 'password' && password.length < 8 && password.length > 0){
+      setError({ ...error, loginPassword: true})
+      return false
+    }
+  }
+
   const forgotPassword = e => {
     e.preventDefault()
     modal('#modal-login').hide();
-    modal(util.find('#forgot-password')).show();
+    modal('#forgot-password').show();
+  }
+
+  const onLogin = e => {
+    e.preventDefault()
+
+    if(onBlur('email') !== undefined || onBlur('password') !== undefined){
+      return
+    }
+
+    axios.post('/api/login', { email, password }).then(res => {
+      localStorage.setItem('user', JSON.stringify(res.data.data))
+      setLoginUser(true)
+      modal('#modal-login').hide();
+    }).catch(err => {
+      console.log(err.response);
+      setError({ ...error, loginEmail: 'notExist' })
+    })
+  }
+
+  const onRegister = e => {
+    e.preventDefault()
+
+    if(onBlur('email') !== undefined || onBlur('password') !== undefined){
+      return
+    }
+
+    axios.post('/api/userCreate', { email, password }).then(res => {
+      if(res.data.error === 'email'){
+        setError({ ...error, loginEmail: 'exist' })
+      }else if(res.data.error && res.data.error.email){
+        setError({ ...error, loginEmail: 'empty' })
+      }else if(res.data.error && res.data.error.password){
+        setError({ ...error, loginPassword: 'empty' })
+      }else{
+        // axios.post('/api/sendRegistration', {email: res.data.data.email}).then(res => console.log('send mail'))
+        localStorage.setItem('user', JSON.stringify(res.data.data))
+        setLoginUser(true)
+        window.location.pathname = "/user"
+      }
+
+    }).catch(err => {
+      console.log(err);
+    })
   }
 
   return(
@@ -53,11 +118,23 @@ const Login = ({email, password, setEmail, setPassword, onRegister, onLogin, err
               </div>}
 
             <div className="uk-margin input_item">
-              <input className={`${email.length && 'hasValue'} ${error.loginEmail && 'invalid'}`} type="email" value={email} onChange={e => handleInput(e, 'email')} tabIndex="1" />
+              <input
+                className={`${email.length && 'hasValue'} ${!!error.loginEmail && 'invalid'}`}
+                type="email"
+                value={email}
+                onBlur={() => onBlur('email')}
+                onChange={e => handleInput(e, 'email')}
+                tabIndex="1" />
               <label>{translate.formemail[lang]}</label>
             </div>
             <div className="uk-margin input_item">
-              <input className={`${password.length && 'hasValue'} ${(error.loginPassword || error.loginEmail === 'notExist') && 'invalid'}`} type="password" value={password} onChange={e => handleInput(e, 'password')} tabIndex="2"/>
+              <input
+                className={`${password.length && 'hasValue'} ${(error.loginPassword || error.loginEmail === 'notExist') && 'invalid'}`}
+                type="password"
+                onBlur={() => onBlur('password')}
+                value={password}
+                onChange={e => handleInput(e, 'password')}
+                tabIndex="2"/>
               <label>{translate.formpassword[lang]}</label>
             </div>
             <button type="submit" className="tm-button tm-black-button uk-width-1-1">{translate.login[lang]}</button>

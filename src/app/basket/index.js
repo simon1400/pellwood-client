@@ -12,6 +12,10 @@ import Checkout from './components/checkout'
 import Total from './components/total'
 import TotalEnd from './components/total-end'
 
+
+import validationName from '../function/validationName'
+import validationEmail from '../function/validationEmail'
+
 import localize from '../data/localize'
 const {lang, currency} = localize(window.location.href)
 
@@ -68,6 +72,13 @@ const Basket = () => {
   })
 
   const [error, setError] = useState({
+    email: false,
+    phone: false,
+    name: false,
+    surname: false,
+    city: false,
+    address: false,
+    code: false,
     delivery: false,
     payment: false
   })
@@ -113,6 +124,13 @@ const Basket = () => {
     }
 
     setSum(sumAll)
+  }
+
+  const onBlur = (type) => {
+    if(type === 'email' && validationEmail(state[0].email) !== undefined){
+      setError({...error, email: true})
+      return
+    }
   }
 
 
@@ -170,9 +188,9 @@ const Basket = () => {
           </Switch>
           <Switch>
             <Route exact path="/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} currency={currency} />} />
-            <Route exact path="/basket/checkout" render={() => <Checkout state={state} error={error} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
+            <Route exact path="/basket/checkout" render={() => <Checkout state={state} setError={setError} error={error} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
             <Route exact path="/en/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} currency={currency} />} />
-            <Route exact path="/en/basket/checkout" render={() => <Checkout state={state} error={error} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
+            <Route exact path="/en/basket/checkout" render={() => <Checkout state={state} error={error} setError={setError} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
             <Route component={NotFound} />
           </Switch>
         </div>
@@ -181,7 +199,7 @@ const Basket = () => {
         <div className="basket-right-content">
           <Switch>
             <Route exact path="/basket" render={() => <Total sum={sum} currency={currency} />} />
-            <Route exact path="/basket/checkout" render={() => <TotalEnd sum={sum} basket={basket} delivery={deliveryMethod[0].price} payment={paymentMethod[0].price} currency={currency} />} />
+            <Route exact path="/basket/checkout" render={() => <TotalEnd error sum={sum} basket={basket} delivery={deliveryMethod[0].price} payment={paymentMethod[0].price} currency={currency} />} />
             <Route exact path="/en/basket" render={() => <Total sum={sum} currency={currency} />} />
             <Route exact path="/en/basket/checkout" render={() => <TotalEnd sum={sum} basket={basket} delivery={deliveryMethod[0].price} payment={paymentMethod[0].price} currency={currency} />} />
           </Switch>

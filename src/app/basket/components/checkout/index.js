@@ -12,10 +12,11 @@ import ShipPay from './shipPay.js'
 import localize from '../../../data/localize'
 const {lang, currency} = localize(window.location.href)
 
-const Checkout = ({state, error, user, anotherAdress, companyData, password, note, deliveryMethod, paymentMethod}) => {
+const Checkout = ({state, error, setError, user, anotherAdress, companyData, password, note, deliveryMethod, paymentMethod}) => {
 
   const handleChange = (name, value) => {
     let newState = state[0];
+    setError({...error, [name]: false})
     newState[name] = value;
     state[1]({...newState})
   }
@@ -27,7 +28,7 @@ const Checkout = ({state, error, user, anotherAdress, companyData, password, not
 
           <legend className="uk-legend">Dodací údaje</legend>
 
-          <Delivery state={state[0]} setState={state[1]} />
+          <Delivery state={state[0]} setState={state[1]} error={error} setError={setError} />
 
           <div className="">
             <div className="uk-margin checkbox_item">

@@ -144,7 +144,7 @@ const Product = ({match, history}) => {
     }else{
       let indexBasket = -1;
       basket.map((item, index) => {
-        if(product.variants.length){
+        if(product?.variants?.length){
           if(item.id === productId && basket[index].variantName === select.name){
             indexBasket = index
           }

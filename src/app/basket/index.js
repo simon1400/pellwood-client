@@ -82,6 +82,13 @@ const Basket = () => {
   })
 
   useEffect(() => {
+    if(!basket.length){
+      window.location.href = '/'
+    }
+  }, [basket])
+
+  useEffect(() => {
+
     sumTotal(0, 0)
     if(Object.keys(user).length){
       state[1]({
@@ -111,7 +118,7 @@ const Basket = () => {
       if(item.variantPrice instanceof String){
         sumItem = +item.variantPrice.split(' ')[0].replace(/,/g, '.') * item.countVariant
       }else{
-        sumItem = item.variantPrice.replace(/,/g, '.') * item.countVariant
+        sumItem = item.variantPrice * item.countVariant
       }
       sumAll = +sumItem + sumAll
     })
@@ -145,6 +152,11 @@ const Basket = () => {
     }
 
     if(onBlur('code') || onBlur('address') || onBlur('city') || onBlur('surname') || onBlur('name') || onBlur('phone') || onBlur('email')){
+      return
+    }
+
+    if(!basket.length){
+      window.location.href = '/'
       return
     }
 

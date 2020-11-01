@@ -47,7 +47,7 @@ const Checkout = ({
             setError={setError}
             onBlur={onBlur} />
 
-          <div className="">
+          <div>
             <div className="uk-margin checkbox_item">
               <input type="checkbox" id="checkbox_another_address" onChange={() => handleChange('anotherAddressCheck', !state[0].anotherAddressCheck)} checked={state[0].anotherAddressCheck} />
               <label htmlFor="checkbox_another_address"></label>
@@ -110,7 +110,7 @@ const Checkout = ({
             setError={setError}
             delivery={deliveryMethod[0]}
             setDelivery={deliveryMethod[1]}
-            payment={paymentMethod[0]} 
+            payment={paymentMethod[0]}
             setPayment={paymentMethod[1]}/>
 
         </fieldset>

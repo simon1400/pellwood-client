@@ -67,8 +67,7 @@ const Body = ({setSum, sum, basket, setBasket, currency}) => {
         </thead>
         <tbody>
 
-        {basket.map((item, index) =>
-          <tr key={index}>
+        {basket.map((item, index) => <tr key={index}>
             <td>
               <div className="tm-basket-item">
                 <div data-src={item.imgUrl} className="tm-basket-img-wrap uk-background-contain" uk-img=""></div>
@@ -80,21 +79,16 @@ const Body = ({setSum, sum, basket, setBasket, currency}) => {
               </div>
             </td>
             <td>
-              <div>
-                <div className="custom_number quantity">
-                  <input type="number" min="1" max="1000" step="1" value={item.countVariant} onChange={(e) => handleChange(index, e.target.value)} />
-                  <div className="quantity-nav">
-                    <div className="quantity-button quantity-up" onClick={() => changeCount(index, 'up')}>+</div>
-                    <div className="quantity-button quantity-down" onClick={() => changeCount(index, 'down')}>-</div>
-                  </div>
+              <div className="custom_number quantity">
+                <input type="number" min="1" max="1000" step="1" value={item.countVariant} onChange={(e) => handleChange(index, e.target.value)} />
+                <div className="quantity-nav">
+                  <div className="quantity-button quantity-up" onClick={() => changeCount(index, 'up')}>+</div>
+                  <div className="quantity-button quantity-down" onClick={() => changeCount(index, 'down')}>-</div>
                 </div>
               </div>
             </td>
             <td><span className="basket-body-price">{item.variantPrice instanceof String ? item.variantPrice : item.variantPrice+' '+currency}</span></td>
-          </tr>
-        )}
-
-
+          </tr>)}
         </tbody>
       </table>
     </div>

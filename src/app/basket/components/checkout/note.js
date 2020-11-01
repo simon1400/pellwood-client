@@ -2,13 +2,13 @@ import React from 'react'
 
 const Note = ({state, setState}) => {
   return(
-    <div className="form_container">
+    <div>
       <div className="form_column">
-        <div className="uk-margin textarea_item">
+        <div className="textarea_item">
           <textarea value={state} onChange={(e) => setState(e.target.value)} />
         </div>
+        <div className="textarea_item"></div>
       </div>
-      <div className="form_column"></div>
     </div>
   )
 }

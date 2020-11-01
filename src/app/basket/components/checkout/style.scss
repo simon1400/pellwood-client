@@ -1,7 +1,9 @@
-.form_container{
+.form_column{
   display: flex;
   justify-content: space-between;
-  .form_column{
+  > div{
+    margin-bottom: 20px;
+    width: 100%;
     &:first-child{
       margin-right: 25px;
     }
@@ -9,11 +11,12 @@
       margin-left: 25px;
     }
   }
+
 }
 
 .textarea_item{
   textarea{
-    width: 100%;
+    width: calc(100% - 40px);
     border: 1px solid #CBCBCB;
     min-height: 90px;
     resize: none;
@@ -33,7 +36,6 @@ legend{
 }
 
 .form_column{
-  // max-width: 380px;
   width: 100%;
 }
 
@@ -163,19 +165,23 @@ legend{
   }
 }
 
-.tm-payship .uk-grid{
-  margin-top: 5px!important;
-  label, .method-price{
-    cursor: pointer;
-    font-size: 15px;
-    font-family: "Oswald", sans-serif;
-    letter-spacing: 1.5px;
-    color: #4D4D4D;
+.tm-payship {
+  .uk-legend{
+    margin-bottom: 15px;
+  }
+  .uk-grid{
+    margin-top: 5px!important;
+    label, .method-price{
+      cursor: pointer;
+      font-size: 15px;
+      font-family: "Oswald", sans-serif;
+      letter-spacing: 1.5px;
+      color: #4D4D4D;
+    }
   }
 }
 
 .radio_item{
-
   input{
     display: none;
     & + label{

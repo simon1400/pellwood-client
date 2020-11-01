@@ -38,12 +38,12 @@ const ShipPay = ({delivery, error, setError, setDelivery, payment, setPayment}) 
   }
 
   return(
-    <div className="form_container tm-payship">
+    <div className="tm-payship">
       <div className="form_column">
-        <legend className="uk-legend">{translate.delivery[lang]}</legend>
+        <div>
+          <legend className="uk-legend">{translate.delivery[lang]}</legend>
 
-        {deliveryData[lang].map((item, index) =>
-          <div key={index} className="uk-grid-small" uk-grid="">
+          {deliveryData[lang].map((item, index) => <div key={index} className="uk-grid-small" uk-grid="">
             <div className="uk-width-expand">
               <div className="radio_item">
                 <input type="radio" id={`delivery_${index}`} onChange={() => onChange('delivery', item)} checked={delivery.value === item.value ? true : false }/>
@@ -52,15 +52,13 @@ const ShipPay = ({delivery, error, setError, setDelivery, payment, setPayment}) 
               </div>
             </div>
             <div className={`method-price ${(item.price === 'ZDARMA' || item.price === 'FREE') && 'tm-positive'}`}>{item.price}</div>
-          </div>
-        )}
-        {error.delivery && <div className="uk-alert-danger" uk-alert=""><p>Vyberte způsob dopravy</p></div>}
-      </div>
-
-      <div className="form_column">
-        <legend className="uk-legend">{translate.payment[lang]}</legend>
-        {paymentData[lang].map((item, index) =>
-          <div key={index} className="uk-grid-small" uk-grid="">
+          </div>)}
+          {error.delivery && <div className="uk-alert-danger" uk-alert=""><p>Vyberte způsob dopravy</p></div>}
+        </div>
+        
+        <div>
+          <legend className="uk-legend">{translate.payment[lang]}</legend>
+          {paymentData[lang].map((item, index) => <div key={index} className="uk-grid-small" uk-grid="">
             <div className="uk-width-expand">
               <div className="radio_item">
                 <input type="radio" id={`pay_${index}`} onChange={() => onChange('payment', item)} checked={payment.value === item.value ? true : false }/>
@@ -69,11 +67,10 @@ const ShipPay = ({delivery, error, setError, setDelivery, payment, setPayment}) 
               </div>
             </div>
             <div className={`method-price ${(item.price === 'ZDARMA' || item.price === 'FREE') && 'tm-positive'}`}>{item.price}</div>
-          </div>
-        )}
+          </div>)}
 
-        {error.payment && <div className="uk-alert-danger" uk-alert=""><p>Vyberte způsob platby</p></div>}
-
+          {error.payment && <div className="uk-alert-danger" uk-alert=""><p>Vyberte způsob platby</p></div>}
+        </div>
       </div>
     </div>
   )

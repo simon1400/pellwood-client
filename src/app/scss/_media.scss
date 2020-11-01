@@ -27,6 +27,25 @@
 
 @media(max-width: 960px){
 
+  .tm-basket-body{
+    tr{
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    td{
+      // display: block;
+      width: 100%!important;
+      &:last-child{
+        text-align: left!important;
+      }
+    }
+    th{
+      display: none;
+    }
+  }
+
   .category_menu{
     .sub_menu{
       margin-bottom: 30px;
@@ -71,12 +90,6 @@
     position: relative;
     z-index: 1100;
   }
-
-  // .search_wrap{
-  //   width: 100%;
-  //   margin-top: 30px;
-  //   margin-left: 0;
-  // }
 
   .effect-9:focus{
   	width: 235px;
@@ -211,6 +224,37 @@
 
 @media(max-width: 640px){
 
+  .form_column{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    > div{
+      &:first-child{
+        margin-right: 0;
+      }
+      &:last-child{
+        margin-left: 0;
+      }
+    }
+
+  }
+
+  .basket{
+    flex-direction: column;
+    .tm-basket-content-wrap{
+      padding-bottom: 40px;
+    }
+    .tm-basket-head, .tm-total-end{
+      padding-top: 20px;
+    }
+    .basket-right-panel{
+      width: 100%;
+      .basket-right-content{
+        max-width: 100%;
+      }
+    }
+  }
+
   .sub_menu{
     ul li{
       height: 100%;
@@ -278,6 +322,13 @@
       text-align: right;
     }
   }
+  .basket-right-panel{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    .tm-basket-total{
+      padding-top: 0;
+    }
+  }
   .sub_menu ul li:not(:last-child){
     margin-right: 20px;
   }
@@ -307,6 +358,27 @@
 }
 
 @media(max-width: 440px){
+
+  .tm-basket-body table tbody tr td .custom_number{
+    min-width: 140px;
+  }
+
+  .tm-basket-body{
+    td{
+      text-align: center;
+      &:nth-child(2){
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        justify-content: center;
+      }
+      &:last-child{
+        text-align: center!important;
+      }
+    }
+  }
+
+
   header .user-area {
     margin-left: 0;
     .basket_count{
@@ -357,15 +429,6 @@
       }
     }
   }
-
-  // .sub_menu ul li:not(:last-child), .sub_menu ul li:not(:first-child){
-  //   margin-right: 0px;
-  //   margin-left: 0px;
-  // }
-  // .custom-select{
-  //   margin-top: 30px;
-  //   width: 100%;
-  // }
   .select_dropdown{
     ul li{
       width: calc(100% - 2px);

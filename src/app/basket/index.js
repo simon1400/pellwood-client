@@ -82,7 +82,7 @@ const Basket = () => {
   })
 
   useEffect(() => {
-    if(!basket.length){
+    if(!basket?.length){
       window.location.href = '/'
     }
   }, [basket])

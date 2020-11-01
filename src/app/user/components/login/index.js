@@ -3,7 +3,7 @@ import {modal, util} from 'uikit'
 import './style.scss'
 import {Link} from 'react-router-dom'
 import translate from '../../../data/staticTranslate'
-import validationEmail from '../../../function/validationEmail'
+import validationForm from '../../../function/validationForm'
 import axios from 'axios'
 
 import localize from '../../../data/localize'
@@ -36,8 +36,7 @@ const Login = ({setLoginUser}) => {
   }
 
   const onBlur = (type) => {
-    if(type === 'email' && !validationEmail(email)){
-      setError({ ...error, loginEmail: true})
+    if(validationForm('email', {email}, error, setError)){
       return false
     }else if(type === 'password' && password.length < 8 && password.length > 0){
       setError({ ...error, loginPassword: true})

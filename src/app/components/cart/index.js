@@ -22,7 +22,7 @@ const Cart = ({item, lang, currency, block}) => {
       setPricesGroup(true)
       var allPrices = []
       item.variants.map(item => {
-        allPrices.push(+item.price)
+        allPrices.push(+item.price.replace(/,/g, '.'))
       })
       var minPrice = Math.min(...allPrices)
       setPrice(minPrice)
@@ -38,24 +38,31 @@ const Cart = ({item, lang, currency, block}) => {
   if(block) {
     return(
       <div>
-        <a href={`${lang === 'cz' ? '' : '/' + lang}/produkt/${item.slug.current}`} className="card_short" style={{opacity: 1}}>
+        <a href={`${lang !== 'cz' && '/' + lang}/produkt/${item.slug.current}`} className="card_short" style={{opacity: 1}}>
           <h3 className="card_short_head">{item.title}</h3>
           <div className="cart_img">
             <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
           </div>
-          {!!price && <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>}
+          {!!price && <span className="short_price">
+            {!!item?.variants?.length && pricesGroup && `od ${price} ${currency}`}
+            {(!!item?.variants?.length && !pricesGroup || !item?.variants?.length) && `${price} ${currency}`}
+          </span>}
         </a>
       </div>
     )
   }else{
     return (
       <li data-category={item?.category?._ref} data-price={item?.variants && item?.variants?.length ? item?.variants[0]?.price : ''}>
-        <a href={`${lang === 'cz' ? '' : '/' + lang}/produkt/${item.slug.current}`} className="card_short">
+        <a href={`${lang !== 'cz' && '/' + lang}/produkt/${item.slug.current}`} className="card_short">
           <h3 className="card_short_head">{item.title}</h3>
           <div className="cart_img">
             <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
           </div>
-          {!!price && <span className="short_price">{item.variants && item.variants.length ? pricesGroup ? 'od '+price : price : price} {currency}</span>}
+          {!!price &&
+            <span className="short_price">
+              {!!item?.variants?.length && pricesGroup && `od ${price} ${currency}`}
+              {(!!item?.variants?.length && !pricesGroup || !item?.variants?.length) && `${price} ${currency}`}
+            </span>}
         </a>
       </li>
     )

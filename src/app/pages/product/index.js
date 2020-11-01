@@ -42,7 +42,7 @@ const Variant = ({handle, name, price}) => {
   )
 }
 
-const Product = ({match}) => {
+const Product = ({match, history}) => {
 
   const [product, setProduct] = useState([])
   const [productId, setProductId] = useState([])
@@ -79,9 +79,9 @@ const Product = ({match}) => {
   }, [])
 
   const selectHandle = (name, price) => {
-    dropdown(".select-variant").hide();
     setSelect({ ...select, name, price })
     setError({ ...error, select: false })
+    dropdown(".select-variant").hide();
   }
 
   const shuffle = (a, count) => {
@@ -100,13 +100,17 @@ const Product = ({match}) => {
     if(select.name === translate.selectvariant[lang] && product?.variants?.length){
       setError({ ...error, select: true })
       setLoader(false)
+      history.push({search: ''})
       return;
     }
     if(count === 0){
       setError({ ...error, count: true })
       setLoader(false)
+      history.push({search: ''})
       return;
     }
+
+    history.push({search: '?buy=true'})
 
     var newBasketItem = {
       id: productId,
@@ -191,7 +195,7 @@ const Product = ({match}) => {
                     })}
                   </div>}
 
-                  {product?.variants && product?.variants?.length && product?.variants[0].price && <div className="order_block">
+                  {!!product?.variants?.length && product?.variants[0].price && <div className="order_block">
                     <div className="uk-flex uk-flex-between">
                       <div className="uk-width-1-1 uk-width-auto@m">
                         <div className="custom-select-wrap">
@@ -214,7 +218,7 @@ const Product = ({match}) => {
                         </div>
                       </div>
                     </div>
-                    <Link to={window.location.pathname +'?buy'}><button className="uk-width-1-1 uk-margin-top tm-button tm-black-button" href="/" onClick={() => onBuy()}>{loader && <div uk-spinner="" className="uk-icon uk-spinner"></div>}PŘIDAT DO KOŠÍKU</button></Link>
+                    <button className="uk-width-1-1 uk-margin-top tm-button tm-black-button" onClick={() => onBuy()}>{loader && <div uk-spinner="" className="uk-icon uk-spinner"></div>}PŘIDAT DO KOŠÍKU</button>
                   </div>}
                   {!product?.variants?.length && <div className="tm-single-order">
                     <div className="tm-single-price uk-text-center uk-margin-bottom">{currency === '$' && currency} {product.price} {currency !== '$' && currency}</div>
@@ -229,7 +233,7 @@ const Product = ({match}) => {
                         </div>
                       </div>
                       <div className="uk-width-2-3">
-                        <Link to={window.location.pathname +'?buy'}><button className="uk-width-1-1 tm-button tm-black-button" href="/" onClick={() => onBuy()}>{loader && <div uk-spinner="" className="uk-icon uk-spinner"></div>}PŘIDAT DO KOŠÍKU</button></Link>
+                        <button className="uk-width-1-1 tm-button tm-black-button" onClick={() => onBuy()}>{loader && <div uk-spinner="" className="uk-icon uk-spinner"></div>}PŘIDAT DO KOŠÍKU</button>
                       </div>
                     </div>
                   </div>}

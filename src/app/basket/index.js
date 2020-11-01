@@ -12,9 +12,7 @@ import Checkout from './components/checkout'
 import Total from './components/total'
 import TotalEnd from './components/total-end'
 
-
-import validationName from '../function/validationName'
-import validationEmail from '../function/validationEmail'
+import validationForm from '../function/validationForm'
 
 import localize from '../data/localize'
 const {lang, currency} = localize(window.location.href)
@@ -127,14 +125,14 @@ const Basket = () => {
   }
 
   const onBlur = (type) => {
-    if(type === 'email' && validationEmail(state[0].email) !== undefined){
-      setError({...error, email: true})
-      return
+    if(validationForm(type, state[0], error, setError)){
+      return true
     }
+    return false
   }
 
 
-  const sendOrder = () => {
+  const sendOrder = async () => {
 
     if(!deliveryMethod[0].value.length){
       setError({ ...error, delivery: true })
@@ -143,6 +141,10 @@ const Basket = () => {
 
     if(!paymentMethod[0].value.length){
       setError({ ...error, payment: true })
+      return
+    }
+
+    if(onBlur('code') || onBlur('address') || onBlur('city') || onBlur('surname') || onBlur('name') || onBlur('phone') || onBlur('email')){
       return
     }
 
@@ -168,7 +170,7 @@ const Basket = () => {
       )
     }
 
-    axios.post('/api/createOrder', dataOrder).then(res => {
+    await axios.post('/api/createOrder', dataOrder).then(res => {
       localStorage.removeItem('basket')
       localStorage.setItem('basketCount', 0)
       window.location.href = decodeURIComponent(res.data.data.redirect)
@@ -187,10 +189,42 @@ const Basket = () => {
             <Route exact path="/en/basket/checkout" render={() => <Head head="Objednávka" user={user}/>} />
           </Switch>
           <Switch>
-            <Route exact path="/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} currency={currency} />} />
-            <Route exact path="/basket/checkout" render={() => <Checkout state={state} setError={setError} error={error} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
-            <Route exact path="/en/basket" render={() => <Body setSum={setSum} sum={sum} basket={basket} setBasket={setBasket} currency={currency} />} />
-            <Route exact path="/en/basket/checkout" render={() => <Checkout state={state} error={error} setError={setError} user={user} anotherAdress={anotherAdress} companyData={companyData} password={password} note={note} deliveryMethod={deliveryMethod} paymentMethod={paymentMethod} />} />
+            <Route exact path="/basket" render={() => <Body
+                setSum={setSum}
+                sum={sum}
+                basket={basket}
+                setBasket={setBasket}
+                currency={currency} />} />
+            <Route exact path="/basket/checkout" render={() => <Checkout
+                state={state}
+                onBlur={onBlur}
+                setError={setError}
+                error={error}
+                user={user}
+                anotherAdress={anotherAdress}
+                companyData={companyData}
+                password={password}
+                note={note}
+                deliveryMethod={deliveryMethod}
+                paymentMethod={paymentMethod} />} />
+            <Route exact path="/en/basket" render={() => <Body
+                setSum={setSum}
+                sum={sum}
+                basket={basket}
+                setBasket={setBasket}
+                currency={currency} />} />
+            <Route exact path="/en/basket/checkout" render={() => <Checkout
+                state={state}
+                onBlur={onBlur}
+                error={error}
+                setError={setError}
+                user={user}
+                anotherAdress={anotherAdress}
+                companyData={companyData}
+                password={password}
+                note={note}
+                deliveryMethod={deliveryMethod}
+                paymentMethod={paymentMethod} />} />
             <Route component={NotFound} />
           </Switch>
         </div>

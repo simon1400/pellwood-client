@@ -5,19 +5,12 @@ import countryData from '../../../data/country'
 import localize from '../../../data/localize'
 const {lang} = localize(window.location.href)
 
-const Delivery = ({state, setState}) => {
-
-  const [error, setError] = useState({
-    email: false,
-    phone: false,
-    name: false,
-    surname: false,
-    city: false,
-    address: false,
-    code: false,
-    delivery: false,
-    payment: false
-  })
+const Delivery = ({
+  state,
+  setState,
+  error,
+  onBlur,
+  setError}) => {
 
   const handleChange = (name, value) => {
     let newState = state;
@@ -30,11 +23,11 @@ const Delivery = ({state, setState}) => {
     <div className="form_container">
       <div className="form_column">
         <div className="uk-margin input_item">
-          <input className={`${state.email.length && 'hasValue'} ${error.email && 'invalid'}`} type="email" value={state.email} onChange={(e) => handleChange('email', e.target.value)} tabIndex="1"/>
+          <input className={`${state.email.length && 'hasValue'} ${error.email && 'invalid'}`} type="email" onBlur={() => onBlur('email')} value={state.email} onChange={(e) => handleChange('email', e.target.value)} tabIndex="1"/>
           <label>{translate.formemail[lang]}</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={`${state.name.length && 'hasValue'} ${error.name && 'invalid'}`} type="text" value={state.name} onChange={(e) => handleChange('name', e.target.value)} tabIndex="3"/>
+          <input className={`${state.name.length && 'hasValue'} ${error.name && 'invalid'}`} type="text" onBlur={() => onBlur('name')} value={state.name} onChange={(e) => handleChange('name', e.target.value)} tabIndex="3"/>
           <label>{translate.formname[lang]}</label>
         </div>
         <div className="uk-margin select_item">
@@ -49,26 +42,26 @@ const Delivery = ({state, setState}) => {
           </div>
         </div>
         <div className="uk-margin input_item">
-          <input className={`${state.address.length && 'hasValue'} ${error.address && 'invalid'}`} type="text" value={state.address} onChange={(e) => handleChange('address', e.target.value)} tabIndex="7"/>
+          <input className={`${state.address.length && 'hasValue'} ${error.address && 'invalid'}`} type="text" onBlur={() => onBlur('address')} value={state.address} onChange={(e) => handleChange('address', e.target.value)} tabIndex="7"/>
           <label>{translate.formstreet[lang]}</label>
         </div>
       </div>
 
       <div className="form_column">
         <div className="uk-margin input_item">
-          <input className={`${state.phone.length && 'hasValue'} ${error.phone && 'invalid'}`} type="text" value={state.phone} onChange={(e) => handleChange('phone', e.target.value)} tabIndex="2"/>
+          <input className={`${state.phone.length && 'hasValue'} ${error.phone && 'invalid'}`} type="text" value={state.phone} onBlur={() => onBlur('phone')} onChange={(e) => handleChange('phone', e.target.value)} tabIndex="2"/>
           <label>{translate.formphone[lang]}</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={`${state.surname.length && 'hasValue'} ${error.surname && 'invalid'}`} type="text" value={state.surname} onChange={(e) => handleChange('surname', e.target.value)} tabIndex="4"/>
+          <input className={`${state.surname.length && 'hasValue'} ${error.surname && 'invalid'}`} type="text" value={state.surname} onBlur={() => onBlur('surname')} onChange={(e) => handleChange('surname', e.target.value)} tabIndex="4"/>
           <label>{translate.formsurname[lang]}</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={`${state.city.length && 'hasValue'} ${error.city && 'invalid'}`} type="text" value={state.city} onChange={(e) => handleChange('city', e.target.value)} tabIndex="6"/>
+          <input className={`${state.city.length && 'hasValue'} ${error.city && 'invalid'}`} type="text" value={state.city} onBlur={() => onBlur('city')} onChange={(e) => handleChange('city', e.target.value)} tabIndex="6"/>
           <label>{translate.formcity[lang]}</label>
         </div>
         <div className="uk-margin input_item">
-          <input className={`${state.code.length && 'hasValue'} ${error.code && 'invalid'}`} type="text" value={state.code} onChange={(e) => handleChange('code', e.target.value)} tabIndex="8"/>
+          <input className={`${state.code.length && 'hasValue'} ${error.code && 'invalid'}`} type="text" value={state.code} onBlur={() => onBlur('code')} onChange={(e) => handleChange('code', e.target.value)} tabIndex="8"/>
           <label>{translate.formzip[lang]}</label>
         </div>
       </div>

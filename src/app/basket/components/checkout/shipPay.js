@@ -24,7 +24,18 @@ const paymentData = {
   ]
 }
 
-const ShipPay = ({delivery, error, setDelivery, payment, setPayment}) => {
+const ShipPay = ({delivery, error, setError, setDelivery, payment, setPayment}) => {
+
+
+  const onChange = (type, item) => {
+    if(type === 'delivery'){
+      setDelivery({value: item.value, price: item.price})
+      setError({...error, delivery: false})
+    }else if(type === 'payment'){
+      setPayment({value: item.value, price: item.price})
+      setError({...error, payment: false})
+    }
+  }
 
   return(
     <div className="form_container tm-payship">
@@ -35,7 +46,7 @@ const ShipPay = ({delivery, error, setDelivery, payment, setPayment}) => {
           <div key={index} className="uk-grid-small" uk-grid="">
             <div className="uk-width-expand">
               <div className="radio_item">
-                <input type="radio" id={`delivery_${index}`} onChange={() => setDelivery({value: item.value, price: item.price})} checked={delivery.value === item.value ? true : false }/>
+                <input type="radio" id={`delivery_${index}`} onChange={() => onChange('delivery', item)} checked={delivery.value === item.value ? true : false }/>
                 <label htmlFor={`delivery_${index}`}></label>
                 <label htmlFor={`delivery_${index}`}>{item.value}</label>
               </div>
@@ -52,7 +63,7 @@ const ShipPay = ({delivery, error, setDelivery, payment, setPayment}) => {
           <div key={index} className="uk-grid-small" uk-grid="">
             <div className="uk-width-expand">
               <div className="radio_item">
-                <input type="radio" id={`pay_${index}`} onChange={() => setPayment({value: item.value, price: item.price})} checked={payment.value === item.value ? true : false }/>
+                <input type="radio" id={`pay_${index}`} onChange={() => onChange('payment', item)} checked={payment.value === item.value ? true : false }/>
                 <label htmlFor={`pay_${index}`}></label>
                 <label htmlFor={`pay_${index}`}>{item.value}</label>
               </div>

@@ -10,9 +10,21 @@ import Note from './note.js'
 import ShipPay from './shipPay.js'
 
 import localize from '../../../data/localize'
-const {lang, currency} = localize(window.location.href)
+const {lang} = localize(window.location.href)
 
-const Checkout = ({state, error, setError, user, anotherAdress, companyData, password, note, deliveryMethod, paymentMethod}) => {
+const Checkout = ({
+  state,
+  error,
+  setError,
+  user,
+  anotherAdress,
+  companyData,
+  password,
+  note,
+  deliveryMethod,
+  paymentMethod,
+  onBlur
+}) => {
 
   const handleChange = (name, value) => {
     let newState = state[0];
@@ -28,7 +40,12 @@ const Checkout = ({state, error, setError, user, anotherAdress, companyData, pas
 
           <legend className="uk-legend">Dodací údaje</legend>
 
-          <Delivery state={state[0]} setState={state[1]} error={error} setError={setError} />
+          <Delivery
+            state={state[0]}
+            setState={state[1]}
+            error={error}
+            setError={setError}
+            onBlur={onBlur} />
 
           <div className="">
             <div className="uk-margin checkbox_item">
@@ -38,7 +55,12 @@ const Checkout = ({state, error, setError, user, anotherAdress, companyData, pas
             </div>
 
             <AnimateHeight duration={ 500 } height={ state[0].anotherAddressCheck ? 'auto' : 0 } >
-              <Delivery state={anotherAdress[0]} setState={anotherAdress[1]}/>
+              <Delivery
+                state={anotherAdress[0]}
+                setState={anotherAdress[1]}
+                error={error}
+                setError={setError}
+                onBlur={onBlur}/>
             </AnimateHeight>
           </div>
 
@@ -83,7 +105,13 @@ const Checkout = ({state, error, setError, user, anotherAdress, companyData, pas
             </AnimateHeight>
           </div>
 
-          <ShipPay delivery={deliveryMethod[0]} error={error} setDelivery={deliveryMethod[1]} payment={paymentMethod[0]} setPayment={paymentMethod[1]}/>
+          <ShipPay
+            error={error}
+            setError={setError}
+            delivery={deliveryMethod[0]}
+            setDelivery={deliveryMethod[1]}
+            payment={paymentMethod[0]} 
+            setPayment={paymentMethod[1]}/>
 
         </fieldset>
       </form>

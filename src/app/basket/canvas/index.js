@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import './style.scss'
-import UIkit from 'uikit'
+import {offcanvas} from 'uikit'
 import translate from '../../data/staticTranslate'
 
 import localize from '../../data/localize'
@@ -30,7 +30,7 @@ export default ({update}) => {
 
 
   const closeCanvas = () => {
-    UIkit.offcanvas(UIkit.util.find('#offcanvas-flip')).hide();
+    offcanvas('#offcanvas-flip').hide();
   }
 
   const onSumItems = () => {
@@ -83,7 +83,16 @@ export default ({update}) => {
                 <span>{item.variantPrice instanceof String ? item.variantPrice : item.variantPrice + ' ' + currency}</span>
                 <div className="tm-canvas-basket-item-count">
                   <span>{item.countVariant} páry</span>
-                  <Link to={window.location.pathname +'?delete'+item.id+item.variantName}><button className="tm-canvas-item-remove" data-id={item.id} data-name={item.variantName} type="button" onClick={e => deleteItem(e)} uk-close=""></button></Link>
+                  <Link to={window.location.pathname +'?delete'+item.id+item.variantName}>
+                    <button
+                      className="tm-canvas-item-remove"
+                      data-id={item.id}
+                      data-name={item.variantName}
+                      type="button"
+                      onClick={e => deleteItem(e)}
+                      uk-close="">
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -105,8 +114,8 @@ export default ({update}) => {
           </div>
 
           <div className="tm-basket-footer">
-            <Link to={`${lang === 'cz' ? '' : '/' + lang}/basket`} className="tm-button tm-bare-button" onClick={() => closeCanvas()}>{translate.basket[lang]}</Link>
-            <Link to={`${lang === 'cz' ? '' : '/' + lang}/basket/checkout`} className="tm-button tm-black-button" onClick={() => closeCanvas()}>{translate.checkout[lang]}</Link>
+            <Link to={`${lang !== 'cz' && '/' + lang}/basket`} className="tm-button tm-bare-button" onClick={() => closeCanvas()}>{translate.basket[lang]}</Link>
+            <Link to={`${lang !== 'cz' && '/' + lang}/basket/checkout`} className="tm-button tm-black-button" onClick={() => closeCanvas()}>{translate.checkout[lang]}</Link>
           </div>
 
         </div> : <p className="uk-text-center">{translate.emptybasket[lang]}</p>}

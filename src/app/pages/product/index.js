@@ -123,7 +123,12 @@ const Product = ({match, history}) => {
 
     if(!product?.variants?.length){
       newBasketItem.variantName = product.title
-      newBasketItem.variantPrice = product.price.replace(/,/g, '.')
+      if(typeof product.price === 'string'){
+        newBasketItem.variantPrice = product.price.replace(/,/g, '.')
+      }else{
+        newBasketItem.variantPrice = product.price
+      }
+
     }else{
       newBasketItem.variantName = select.name
       newBasketItem.variantPrice = select.price.replace(/,/g, '.')

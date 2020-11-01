@@ -6,7 +6,7 @@ import AnimateHeight from 'react-animate-height';
 import './style.scss'
 import axios from 'axios'
 import translate from '../data/staticTranslate'
-
+import validationForm from '../function/validationForm'
 import localize from '../data/localize'
 const {lang, currency} = localize(window.location.href)
 
@@ -28,6 +28,16 @@ const User = () => {
     companyDataCheck: false
   })
 
+  const [error, setError] = useState({
+    email: false,
+    phone: false,
+    name: false,
+    surname: false,
+    city: false,
+    address: false,
+    code: false
+  })
+
   const anotherAdress = useState({...user.anotherAdress})
 
   const companyData = useState({...user.companyData})
@@ -47,6 +57,10 @@ const User = () => {
   }
 
   const onSave = async e => {
+    if(onBlur('code') || onBlur('address') || onBlur('city') || onBlur('surname') || onBlur('name') || onBlur('phone') || onBlur('email')){
+      return
+    }
+
     let saveData = {
       id: user._id,
       ...state[0],
@@ -65,12 +79,19 @@ const User = () => {
     window.location.href = '/'
   }
 
+  const onBlur = (type) => {
+    if(validationForm(type, state[0], error, setError)){
+      return true
+    }
+    return false
+  }
+
   return(
     <main className="basket user">
       <div className="tm-basket-content-wrap">
         <div className="tm-basket-content">
           <Head head="Váš ucet" />
-          <Delivery state={state[0]} setState={state[1]}/>
+          <Delivery state={state[0]} setState={state[1]} error={error} setError={setError} onBlur={onBlur}/>
 
           <div className="uk-margin-small checkbox_item">
             <input type="checkbox" id="checkbox_another_address" onChange={() => handleChange('anotherAddressCheck', !state[0].anotherAddressCheck)} checked={state[0].anotherAddressCheck} />
@@ -79,7 +100,7 @@ const User = () => {
           </div>
 
           <AnimateHeight duration={ 500 } height={ state[0].anotherAddressCheck ? 'auto' : 0 } >
-            <Delivery state={anotherAdress[0]} setState={anotherAdress[1]}/>
+            <Delivery state={anotherAdress[0]} setState={anotherAdress[1]} error={error} setError={setError} onBlur={onBlur}/>
           </AnimateHeight>
 
           <div className="uk-margin-small checkbox_item">
@@ -119,8 +140,7 @@ const User = () => {
               : <tr>
                   <td>Nemate zadnu objednavku</td>
                   <td className="uk-text-right"></td>
-                </tr>
-              }
+                </tr>}
             </tbody>
             </table>
           </div>

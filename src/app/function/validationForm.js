@@ -14,10 +14,6 @@ const validationAddress = address => {
   const re = /^[a-zA-Z0-9\s,'-]*$/g;
   return re.test(address);
 }
-const validationZip = zip => {
-  const re = /^\d{5}[-\s]?(?:\d{4})?$/gm;
-  return re.test(zip);
-}
 
 
 const validationForm = (type, state, error, setError) => {
@@ -39,10 +35,6 @@ const validationForm = (type, state, error, setError) => {
   }
   if(type === 'address' && !validationAddress(state.address)){
     setError({...error, address: true})
-    return true
-  }
-  if(type === 'code' && !validationZip(state.code)){
-    setError({...error, code: true})
     return true
   }
 

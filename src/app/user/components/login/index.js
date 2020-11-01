@@ -12,11 +12,11 @@ const {lang, currency} = localize(window.location.href)
 const Login = ({setLoginUser}) => {
 
 
-  const [email, setEmail] = useState('pechunka@gmail.com')
-  const [password, setPassword] = useState('12345678')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [error, setError] = useState({
-    loginEmail: false,
-    loginPassword: false
+    email: false,
+    password: false
   })
 
 
@@ -27,21 +27,23 @@ const Login = ({setLoginUser}) => {
 
   const handleInput = (e, type) => {
     if(type === 'email'){
-      setError({ ...error, loginEmail: false})
+      setError({ ...error, email: false})
       setEmail(e.target.value)
     }else if(type === 'password'){
-      setError({ ...error, loginPassword: false})
+      setError({ ...error, password: false})
       setPassword(e.target.value)
     }
   }
 
   const onBlur = (type) => {
     if(validationForm('email', {email}, error, setError)){
-      return false
-    }else if(type === 'password' && password.length < 8 && password.length > 0){
-      setError({ ...error, loginPassword: true})
-      return false
+      return true
     }
+    if(type === 'password' && password.length < 8 && password.length > 0){
+      setError({ ...error, password: true})
+      return true
+    }
+    return false
   }
 
   const forgotPassword = e => {
@@ -53,7 +55,7 @@ const Login = ({setLoginUser}) => {
   const onLogin = e => {
     e.preventDefault()
 
-    if(onBlur('email') !== undefined || onBlur('password') !== undefined){
+    if(onBlur('email') || onBlur('password')){
       return
     }
 
@@ -63,24 +65,23 @@ const Login = ({setLoginUser}) => {
       modal('#modal-login').hide();
     }).catch(err => {
       console.log(err.response);
-      setError({ ...error, loginEmail: 'notExist' })
+      setError({ ...error, email: 'notExist' })
     })
   }
 
   const onRegister = e => {
     e.preventDefault()
 
-    if(onBlur('email') !== undefined || onBlur('password') !== undefined){
+    console.log(onBlur('email'));
+    console.log(onBlur('password'));
+    if(onBlur('email') || onBlur('password')){
       return
     }
 
     axios.post('/api/userCreate', { email, password }).then(res => {
-      if(res.data.error === 'email'){
-        setError({ ...error, loginEmail: 'exist' })
-      }else if(res.data.error && res.data.error.email){
-        setError({ ...error, loginEmail: 'empty' })
-      }else if(res.data.error && res.data.error.password){
-        setError({ ...error, loginPassword: 'empty' })
+      if(res.data.error === 'email'){ setError({ ...error, email: 'exist' })
+      }else if(res.data?.error?.email){ setError({ ...error, email: 'empty' })
+      }else if(res.data?.error?.password){ setError({ ...error, password: 'empty' })
       }else{
         // axios.post('/api/sendRegistration', {email: res.data.data.email}).then(res => console.log('send mail'))
         localStorage.setItem('user', JSON.stringify(res.data.data))
@@ -104,21 +105,21 @@ const Login = ({setLoginUser}) => {
 
         <div className="login_form">
           <form onSubmit={e => onLogin(e)}>
-            {error.loginEmail === 'notExist' && <div className="uk-alert-danger" uk-alert="">
+            {error.email === 'notExist' && <div className="uk-alert-danger" uk-alert="">
               <p>Zadaliste spatne email nebo heslo</p>
             </div>}
 
-            {error.loginEmail === 'exist' && <div className="uk-alert-danger" uk-alert="">
+            {error.email === 'exist' && <div className="uk-alert-danger" uk-alert="">
               <p>Uzivatel s timto emailem uz existuje</p>
             </div>}
 
-            {(error.loginEmail === 'empty' || error.loginPassword === 'empty') && <div className="uk-alert-danger" uk-alert="">
+            {(error.email === 'empty' || error.password === 'empty') && <div className="uk-alert-danger" uk-alert="">
                 <p>Vyplňte všechna pole</p>
               </div>}
 
             <div className="uk-margin input_item">
               <input
-                className={`${email.length && 'hasValue'} ${!!error.loginEmail && 'invalid'}`}
+                className={`${email.length && 'hasValue'} ${!!error.email && 'invalid'}`}
                 type="email"
                 value={email}
                 onBlur={() => onBlur('email')}
@@ -128,7 +129,7 @@ const Login = ({setLoginUser}) => {
             </div>
             <div className="uk-margin input_item">
               <input
-                className={`${password.length && 'hasValue'} ${(error.loginPassword || error.loginEmail === 'notExist') && 'invalid'}`}
+                className={`${password.length && 'hasValue'} ${(error.password || error.email === 'notExist') && 'invalid'}`}
                 type="password"
                 onBlur={() => onBlur('password')}
                 value={password}

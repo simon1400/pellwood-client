@@ -170,7 +170,6 @@ const Basket = () => {
     }
 
     const dataOrder = {
-      sum: sum.replace(/,/g, '.'),
       basket,
       status: 'PENDING',
       user: {
@@ -184,6 +183,12 @@ const Basket = () => {
       note: note[0],
       currency: currency
     }
+    if(lang === 'en'){
+      dataOrder.sum = sum.replace(/,/g, '.')
+    }else{
+      dataOrder.sum = sum
+    }
+
 
     if(state[0].registrationCheck){
       axios.post('/api/update', {data: dataOrder.user, type: 'create'}).then(res =>

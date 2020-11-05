@@ -48,7 +48,7 @@ exports.handler = async (event, context) => {
       cat: 'DIGITAL',
       method: 'ALL',
       prepareOnly: true,
-      email: user.email,
+      email: encodeURIComponent(user.email),
       secret: 'MBfhNsBL5v2DaKIhUnVsipeHyHwfoYhY'
     }
 

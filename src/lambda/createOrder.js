@@ -36,8 +36,6 @@ exports.handler = async (event, context) => {
             deliveryPrice: delivery.price
           };
 
-    const orderData = await Order.create(order)
-
     const paymentData = {
       merchant: 147005,
       test: true,
@@ -70,6 +68,8 @@ exports.handler = async (event, context) => {
       var itemSpliting = item.split('=');
       resDataParse[itemSpliting[0]] = itemSpliting[1]
     })
+
+    await Order.create(order)
 
     const response = {
       msg: "Order successfully created",

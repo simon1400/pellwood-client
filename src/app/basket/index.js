@@ -171,7 +171,7 @@ const Basket = () => {
     }
 
     const dataOrder = {
-      sum,
+      sum: sum.replace(/,/g, '.'),
       basket,
       status: 'PENDING',
       user: {

@@ -64,16 +64,12 @@ exports.handler = async (event, context) => {
 
     var resPayment = await axios.post(`https://payments.comgate.cz/v1.0/create?${paymentReq}`)
 
-    console.log('resPayment.data -- ', resPayment.data);
     const resData = resPayment.data.split('&')
     const resDataParse = {}
     resData.forEach(item => {
       var itemSpliting = item.split('=');
       resDataParse[itemSpliting[0]] = itemSpliting[1]
     })
-
-    console.log('resDataParse -- ', resDataParse);
-
 
     const response = {
       msg: "Order successfully created",

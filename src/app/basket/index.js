@@ -81,6 +81,15 @@ const Basket = () => {
     delivery: false,
     payment: false
   })
+  const [errorAnother, setErrorAnother] = useState({
+    email: false,
+    phone: false,
+    name: false,
+    surname: false,
+    city: false,
+    address: false,
+    code: false
+  })
 
   useEffect(() => {
     if(!basket?.length){
@@ -213,6 +222,8 @@ const Basket = () => {
                 onBlur={onBlur}
                 setError={setError}
                 error={error}
+                errorAnother={errorAnother}
+                setErrorAnother={setErrorAnother}
                 user={user}
                 anotherAdress={anotherAdress}
                 companyData={companyData}
@@ -232,6 +243,8 @@ const Basket = () => {
                 error={error}
                 setError={setError}
                 user={user}
+                errorAnother={errorAnother}
+                setErrorAnother={setErrorAnother}
                 anotherAdress={anotherAdress}
                 companyData={companyData}
                 password={password}

@@ -22,6 +22,8 @@ const Checkout = ({
   password,
   note,
   deliveryMethod,
+  errorAnother,
+  setErrorAnother,
   paymentMethod,
   onBlur
 }) => {
@@ -58,8 +60,8 @@ const Checkout = ({
               <Delivery
                 state={anotherAdress[0]}
                 setState={anotherAdress[1]}
-                error={error}
-                setError={setError}
+                error={errorAnother}
+                setError={setErrorAnother}
                 onBlur={onBlur}/>
             </AnimateHeight>
           </div>

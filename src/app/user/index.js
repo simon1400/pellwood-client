@@ -58,9 +58,15 @@ const User = () => {
   }
 
   const onSave = async e => {
-    if(onBlur('code') || onBlur('address') || onBlur('city') || onBlur('surname') || onBlur('name') || onBlur('phone') || onBlur('email')){
-      return
-    }
+
+    if(!state[0].address.length) {setError({...error, address: true}); return;}
+    else if(!state[0].city.length) {setError({...error, city: true}); return;}
+    else if(!state[0].surname.length) {setError({...error, surname: true}); return;}
+    else if(!state[0].name.length) {setError({...error, name: true}); return;}
+    else if(!state[0].phone.length) {setError({...error, phone: true}); return;}
+    else if(!state[0].code.length) {setError({...error, code: true}); return;}
+
+    if(onBlur('email')) return;
 
     let saveData = {
       id: user._id,

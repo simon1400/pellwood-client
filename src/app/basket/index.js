@@ -144,11 +144,6 @@ const Basket = () => {
 
   const sendOrder = async () => {
 
-    if(!deliveryMethod[0].value.length){
-      setError({ ...error, delivery: true })
-      return
-    }
-
     if(!state[0].address.length) {setError({...error, address: true}); return;}
     else if(!state[0].city.length) {setError({...error, city: true}); return;}
     else if(!state[0].surname.length) {setError({...error, surname: true}); return;}
@@ -156,7 +151,10 @@ const Basket = () => {
     else if(!state[0].phone.length) {setError({...error, phone: true}); return;}
     else if(!state[0].code.length) {setError({...error, code: true}); return;}
 
-    if(onBlur('email')){
+    if(onBlur('email')) return
+
+    if(!deliveryMethod[0].value.length){
+      setError({ ...error, delivery: true })
       return
     }
 
@@ -164,6 +162,7 @@ const Basket = () => {
       setError({ ...error, payment: true })
       return
     }
+
 
     if(!basket.length){
       window.location.href = '/'

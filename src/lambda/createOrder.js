@@ -43,7 +43,7 @@ exports.handler = async (event, context) => {
       test: true,
       price: sum * 100,
       curr: currency == 'Kč' ? 'CZK' : 'EUR',
-      label: user.name + ' ' + user.surname,
+      label: user.name + '-' + user.surname,
       refId: order.idOrder,
       cat: 'DIGITAL',
       method: 'ALL',

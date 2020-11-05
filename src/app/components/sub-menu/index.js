@@ -22,11 +22,12 @@ const SubMenu = ({data, articles = false}) => {
   return(
     <nav className="sub_menu">
       <ul>
-        {window.location.pathname.split('/')[1] === 'produkty' || window.location.pathname.split('/')[2] === 'produkty'
-          ? <li uk-filter-control="" className={`sub_menu_item`}><Link to="#catalog-short" scroll={el => el.scrollIntoView({behavior: "smooth", block: "start"})}>Všechny produkty</Link></li> : ''}
+        {(window.location.pathname.split('/')[1] === 'produkty' || window.location.pathname.split('/')[2] === 'produkty') && <li uk-filter-control="" className="sub_menu_item">
+          <Link to="#catalog-short" scroll={el => el.scrollIntoView({behavior: "smooth", block: "start"})}>Všechny produkty</Link>
+        </li>}
         {data.length && data.map((item, index) => {
           if(!articles) {
-            return <li key={index} className="sub_menu_item" uk-filter-control={`[data-category*='${item._id}']`}><Link to="#catalog-short" scroll={el => el.scrollIntoView({behavior: "smooth",block: "start"})}>{item[lang].title}</Link></li>
+            return <li key={index} className="sub_menu_item" uk-filter-control={`[data-category='${item._id}']`}><Link to="#" scroll={el => el.scrollIntoView({behavior: "smooth",block: "start"})}>{item[lang].title}</Link></li>
           }else{
             return <li key={index} className="sub_menu_item"><a href={`${lang === 'cz' ? '' : '/' + lang}/${item.slug.current}/${baseUrl}/clanek`}>{item.title}</a></li>
           }

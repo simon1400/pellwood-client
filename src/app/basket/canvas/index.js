@@ -1,31 +1,27 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Link} from 'react-router-dom'
 import './style.scss'
 import {offcanvas} from 'uikit'
 import translate from '../../data/staticTranslate'
-
+import { DataStateContext } from '../../context/dataStateContext'
 import localize from '../../data/localize'
 const {lang, currency} = localize(window.location.href)
 
 export default ({update}) => {
 
-  const [basket, setBasket] = useState([])
-  const [basketCount, setBasketCount] = useState(0)
+  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
+  const [basket, setBasket] = useState(dataContextState.basket)
+  const [basketCount, setBasketCount] = useState(dataContextState.basketCount)
 
   useEffect(() => {
-    setBasket(JSON.parse(localStorage.getItem('basket')))
-    setBasketCount(JSON.parse(localStorage.getItem('basketCount')))
-  }, [])
-
-  useEffect(() => {
-    setBasket(JSON.parse(localStorage.getItem('basket')))
-    setBasketCount(JSON.parse(localStorage.getItem('basketCount')))
+    setBasket(dataContextState.basket)
+    setBasketCount(dataContextState.basketCount)
   }, [window.location.search.length])
 
 
   useEffect(() => {
-    localStorage.setItem('basket', JSON.stringify(basket))
-    localStorage.setItem('basketCount', basketCount)
+    dataContextDispatch({ state: basket, type: 'basket' })
+    dataContextDispatch({ state: basketCount, type: 'basketCount' })
   }, [basketCount])
 
 
@@ -39,16 +35,20 @@ export default ({update}) => {
     if(basket){
       basket.map((item, index) => {
         if(item.variantPrice instanceof String){
-          sumItem = +item.variantPrice.split(' ')[0] * item.countVariant
+          sumItem = item.variantPrice.split(' ')[0] * item.countVariant
         }else{
-          sumItem = item.variantPrice * item.countVariant
+          sumItem = item.variantPrice.replace(/,/g, '.') * item.countVariant
         }
 
         sumAll = +sumItem + sumAll
       })
     }
+    if(lang === 'en'){
+      return (Math.round(sumAll * 100) / 100).toFixed(2).replace(/\./g, ',');
+    }else{
+      return sumAll;
+    }
 
-    return sumAll;
   }
 
   const deleteItem = (e) => {
@@ -59,7 +59,6 @@ export default ({update}) => {
       }
     })
     let newBasketCount = +basketCount - 1
-    update(Math.random)
     setBasketCount(newBasketCount)
     setBasket(basket)
   }

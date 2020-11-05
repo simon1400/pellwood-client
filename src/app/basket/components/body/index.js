@@ -1,13 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import './style.scss'
 import translate from '../../../data/staticTranslate'
-
+import { DataStateContext } from '../../../context/dataStateContext'
 import localize from '../../../data/localize'
 const {lang} = localize(window.location.href)
 
 
 const Body = ({setSum, sum, basket, setBasket, currency}) => {
+
+  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
 
   const changeCount = (index, handle) => {
     var newBasket = basket
@@ -17,8 +19,7 @@ const Body = ({setSum, sum, basket, setBasket, currency}) => {
       newBasket[index].countVariant = +basket[index].countVariant + 1
     }
     setBasket([...newBasket])
-
-    localStorage.setItem('basket', JSON.stringify([...newBasket]))
+    dataContextDispatch({ state: newBasket, type: 'basket' })
 
     sumBasket(newBasket)
   }
@@ -41,17 +42,17 @@ const Body = ({setSum, sum, basket, setBasket, currency}) => {
     let newBasket = basket
     newBasket[index].countVariant = value
     setBasket([...newBasket])
-    localStorage.setItem('basket', JSON.stringify([...newBasket]))
+    dataContextDispatch({ state: newBasket, type: 'basket' })
   }
 
   const deleteItem = (e, index) => {
-    var basketCount = JSON.parse(localStorage.getItem('basketCount'))
+    var basketCount = dataContextState.basketCount
     basketCount = basketCount - 1
-    localStorage.setItem('basketCount', JSON.stringify(basketCount))
+    dataContextDispatch({ state: basketCount, type: 'basketCount' })
     let newBasket = basket
     newBasket.splice(index, 1)
     setBasket([...newBasket])
-    localStorage.setItem('basket', JSON.stringify([...newBasket]))
+    dataContextDispatch({ state: newBasket, type: 'basket' })
     sumBasket(newBasket)
   }
 

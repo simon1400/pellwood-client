@@ -1,8 +1,8 @@
 // The basics
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { withRouter } from 'react-router';
 import axios from 'axios'
-
+import { DataStateContext } from './context/dataStateContext'
 import Header from './layout/header';
 import Routes from './routers.js';
 import Footer from './layout/footer'
@@ -13,10 +13,11 @@ import './scss/main.scss'
 
 const App = ({match}) => {
 
+  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
   const [loginUser, setLoginUser] = useState(false)
 
   useEffect(() => {
-    if(JSON.parse(localStorage.getItem('user'))){
+    if(dataContextState.user){
       setLoginUser(true)
     }
   }, [])

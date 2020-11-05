@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import Delivery from './components/delivery.js'
 import Corporate from './components/corporate.js'
 import Head from './components/head'
 import AnimateHeight from 'react-animate-height';
 import './style.scss'
+import { DataStateContext } from '../context/dataStateContext'
 import axios from 'axios'
 import translate from '../data/staticTranslate'
 import validationForm from '../function/validationForm'
@@ -11,8 +12,8 @@ import localize from '../data/localize'
 const {lang, currency} = localize(window.location.href)
 
 const User = () => {
-
-  const [user] = useState(JSON.parse(localStorage.getItem('user')))
+  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
+  const [user] = useState(dataContextState.user)
   const [orders, setOrders] = useState([])
 
   const state = useState({
@@ -68,13 +69,14 @@ const User = () => {
       companyData: companyData[0]
     }
     await axios.post('/api/update', {data: saveData, type: 'update'}).then(res => {
-      localStorage.setItem('user', JSON.stringify(res.data.data))
+      dataContextDispatch({ state: res.data.data, type: 'user' })
     }).catch(err => {
       console.log(err);
     })
   }
 
   const onLogout = () => {
+    dataContextDispatch({ state: null, type: 'user' })
     localStorage.removeItem('user')
     window.location.href = '/'
   }

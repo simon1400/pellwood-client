@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {modal, util} from 'uikit'
 import './style.scss'
 import {Link} from 'react-router-dom'
 import translate from '../../../data/staticTranslate'
 import validationForm from '../../../function/validationForm'
+import { DataStateContext } from '../../../context/dataStateContext'
 import axios from 'axios'
 
 import localize from '../../../data/localize'
@@ -11,7 +12,7 @@ const {lang, currency} = localize(window.location.href)
 
 const Login = ({setLoginUser}) => {
 
-
+  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState({
@@ -60,7 +61,7 @@ const Login = ({setLoginUser}) => {
     }
 
     axios.post('/api/login', { email, password }).then(res => {
-      localStorage.setItem('user', JSON.stringify(res.data.data))
+      dataContextDispatch({ state: res.data.data, type: 'user' })
       setLoginUser(true)
       modal('#modal-login').hide();
     }).catch(err => {
@@ -84,7 +85,7 @@ const Login = ({setLoginUser}) => {
       }else if(res.data?.error?.password){ setError({ ...error, password: 'empty' })
       }else{
         // axios.post('/api/sendRegistration', {email: res.data.data.email}).then(res => console.log('send mail'))
-        localStorage.setItem('user', JSON.stringify(res.data.data))
+        dataContextDispatch({ state: res.data.data, type: 'user' })
         setLoginUser(true)
         window.location.pathname = "/user"
       }

@@ -1,10 +1,11 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Canvas from '../basket/canvas'
 import sanityClient from "../../lib/sanity.js";
 import axios from 'axios'
 import UIkit from 'uikit'
 import translate from '../data/staticTranslate'
+import { DataStateContext } from '../context/dataStateContext'
 
 import logo from '../assets/logo.svg'
 
@@ -18,8 +19,9 @@ const query = `*[_type == "archive" && !(_id == '3cc07543-ce81-4ad2-ace0-8bf7542
 } | order(sort asc)`;
 
 
-const Header = ({history, loginUser}) => {
+const Header = ({history}) => {
 
+  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
   const [menu, setMenu] = useState([])
   const [handleUpdate, setHandleUpdate] = useState(0)
   const [basketCount, setBasketCount] = useState(0)
@@ -32,7 +34,7 @@ const Header = ({history, loginUser}) => {
   }, [])
 
   useEffect(() => {
-    setBasketCount(JSON.parse(localStorage.getItem('basketCount')))
+    setBasketCount(dataContextState.basketCount)
   }, [window.location.search, handleUpdate])
 
 
@@ -86,10 +88,7 @@ const Header = ({history, loginUser}) => {
               </div>
               <div className="user-area uk-hidden@m">
                 <div className="login">
-                  {loginUser
-                    ? <Link to="/user">Účet</Link>
-                    : <a href="#modal-login" uk-toggle="">Přihlašení</a>
-                  }
+                  {dataContextState.user?.email ? <Link to="/user">Účet</Link> : <a href="#modal-login" uk-toggle="">Přihlašení</a>}
                 </div>
               </div>
             </div>
@@ -104,10 +103,8 @@ const Header = ({history, loginUser}) => {
               </div>
               <div className="user-area">
                 <div className="login">
-                  {loginUser ? <Link to="/user" className="uk-visible@m">Účet</Link> : <a href="#modal-login" className="uk-visible@m" uk-toggle="">{translate.login[lang]}</a>}
-                  <a nohref="" href="/" className="basket_count" uk-toggle="target: #offcanvas-flip">
-                    {basketCount ? basketCount : JSON.parse(localStorage.getItem('basketCount')) ? JSON.parse(localStorage.getItem('basketCount')) : 0}
-                  </a>
+                  {dataContextState.user?.email ? <Link to="/user" className="uk-visible@m">Účet</Link> : <a href="#modal-login" className="uk-visible@m" uk-toggle="">{translate.login[lang]}</a>}
+                  <a nohref="" href="/" className="basket_count" uk-toggle="target: #offcanvas-flip">{basketCount}</a>
                 </div>
               </div>
             </div>

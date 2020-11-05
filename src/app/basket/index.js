@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
 import { withRouter } from "react-router";
 import axios from 'axios'
 import './style.scss'
+import { DataStateContext } from '../context/dataStateContext'
 import translate from '../data/staticTranslate'
 
 import NotFound from '../pages/not-found';
@@ -17,22 +18,22 @@ import validationForm from '../function/validationForm'
 import localize from '../data/localize'
 const {lang, currency} = localize(window.location.href)
 
-
 const Basket = () => {
 
+  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
   const [sum, setSum] = useState(0)
-  const [basket, setBasket] = useState(JSON.parse(localStorage.getItem('basket')))
-  const [user] = useState(JSON.parse(localStorage.getItem('user')) || {})
+  const [basket, setBasket] = useState(dataContextState.basket)
+  const [user, setUser] = useState(dataContextState.user)
 
   const state = useState({
-    email: '',
-    phone: '',
-    name: '',
-    surname: '',
+    email: user?.email || '',
+    phone: user?.phone || '',
+    name: user?.name || '',
+    surname: user?.surname || '',
     country: 'cz',
-    city: '',
-    address: '',
-    code: '',
+    city: user?.city || '',
+    address: user?.address || '',
+    code: user?.code || '',
     anotherAddressCheck: false,
     companyDataCheck: false,
     registrationCheck: false,
@@ -88,23 +89,12 @@ const Basket = () => {
   }, [basket])
 
   useEffect(() => {
+    setUser(dataContextState.user)
+    state[1]({...state[0], ...dataContextState.user})
+  }, [dataContextState.user])
 
+  useEffect(() => {
     sumTotal(0, 0)
-    if(Object.keys(user).length){
-      state[1]({
-        email: user.email,
-        phone: user.phone,
-        name: user.name,
-        surname: user.surname,
-        country: user.country,
-        city: user.city,
-        address: user.address,
-        code: user.code,
-      })
-      anotherAdress[1]({...user.anotherAdress})
-      companyData[1]({...user.companyData})
-    }
-
   }, [])
 
   useEffect(() => {
@@ -116,9 +106,9 @@ const Basket = () => {
     var newBasket = basket
     newBasket.map((item, index) => {
       if(item.variantPrice instanceof String){
-        sumItem = +item.variantPrice.split(' ')[0].replace(/,/g, '.') * item.countVariant
+        sumItem = +item.variantPrice * item.countVariant
       }else{
-        sumItem = item.variantPrice * item.countVariant
+        sumItem = item.variantPrice.replace(/,/g, '.') * item.countVariant
       }
       sumAll = +sumItem + sumAll
     })
@@ -127,8 +117,12 @@ const Basket = () => {
       if(delivery !== 'ZDARMA' && delivery !== 'FREE') sumAll = +sumAll + +delivery.split(' ')[0]
       if(payment !== 'ZDARMA' && payment !== 'FREE') sumAll = +sumAll + +payment.split(' ')[0]
     }
+    if(lang === 'en'){
+      setSum((Math.round(sumAll * 100) / 100).toFixed(2).replace(/\./g, ','))
+    }else{
+      setSum(sumAll)
+    }
 
-    setSum(sumAll)
   }
 
   const onBlur = (type) => {
@@ -146,12 +140,19 @@ const Basket = () => {
       return
     }
 
-    if(!paymentMethod[0].value.length){
-      setError({ ...error, payment: true })
+    if(!state[0].address.length) {setError({...error, address: true}); return;}
+    else if(!state[0].city.length) {setError({...error, city: true}); return;}
+    else if(!state[0].surname.length) {setError({...error, surname: true}); return;}
+    else if(!state[0].name.length) {setError({...error, name: true}); return;}
+    else if(!state[0].phone.length) {setError({...error, phone: true}); return;}
+    else if(!state[0].code.length) {setError({...error, code: true}); return;}
+
+    if(onBlur('email')){
       return
     }
 
-    if(onBlur('code') || onBlur('address') || onBlur('city') || onBlur('surname') || onBlur('name') || onBlur('phone') || onBlur('email')){
+    if(!paymentMethod[0].value.length){
+      setError({ ...error, payment: true })
       return
     }
 
@@ -178,13 +179,13 @@ const Basket = () => {
 
     if(state[0].registrationCheck){
       axios.post('/api/update', {data: dataOrder.user, type: 'create'}).then(res =>
-        localStorage.setItem('user', JSON.stringify(res.data.data))
+        dataContextDispatch({ state: res.data.data, type: 'user' })
       )
     }
 
     await axios.post('/api/createOrder', dataOrder).then(res => {
-      localStorage.removeItem('basket')
-      localStorage.setItem('basketCount', 0)
+      dataContextDispatch({ state: [], type: 'basket' })
+      dataContextDispatch({ state: 0, type: 'basketCount' })
       window.location.href = decodeURIComponent(res.data.data.redirect)
     })
   }

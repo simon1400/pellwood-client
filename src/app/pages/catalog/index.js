@@ -75,17 +75,16 @@ export default () => {
 
   useEffect(() => {
     sanityClient.fetch(query).then(data => {
-      const articlesFilteredFirst = data.articles.filter(item => item[lang]?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
-      shuffle(articlesFilteredFirst, 0)
-      const articlesFilteredSeccond = data.articles.filter(item => item[lang]?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
-      shuffle(articlesFilteredSeccond, 1)
-      const filterCategory = data.category.filter(item => item?._id)
-      setCategory(filterCategory)
-      const filterSettings = data.settings.filter(item => item?.titleCategory)
-      setSettings(filterSettings[0])
+      shuffle(data.articles.filter(item => item[lang]?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b")), 0)
+      shuffle(data.articles.filter(item => item[lang]?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624")), 1)
+      setCategory(data.category.filter(item => item?._id))
+      setSettings(data.settings.filter(item => item?.titleCategory)?.[0])
     })
+
     sanityClient.fetch(`${urlProduct} | order(sort asc) | order(title asc)`).then(data => {
       const filteredProduct = data.filter(item => item?.title)
+
+      setProduct(filteredProduct)
 
       const lengthNumbers = [], diameterNumbers = []
       var length = undefined, diameter = undefined, lengthNum = 0, diameterNum = 0;
@@ -118,34 +117,34 @@ export default () => {
     })
   }, [])
 
-  const loadMore = async (empty = false, url) => {
-
-    if(empty){
-      var from = 0
-      var productsArr = []
-      var modifyUrlProduct = url
-      setHasMore(true)
-    }else{
-      var from = product.length
-      var productsArr = [...product]
-      var modifyUrlProduct = urlProduct
-    }
-    const size = 6
-
-    const newUrlProduct = `${modifyUrlProduct}[${from}...${from + size}]`
-    if (loading) return
-    setLoading(true)
-    const data = await sanityClient.fetch(`${newUrlProduct} | order(sort asc) | order(title asc)`)
-    if(data.length){
-      const filteredProduct = data.filter(item => item?.title)
-      productsArr.push(...filteredProduct)
-      setProduct(productsArr)
-    }else{
-      setHasMore(false)
-    }
-
-    setLoading(false)
-  }
+  // const loadMore = async (empty = false, url) => {
+  //
+  //   if(empty){
+  //     var from = 0
+  //     var productsArr = []
+  //     var modifyUrlProduct = url
+  //     setHasMore(true)
+  //   }else{
+  //     var from = product.length
+  //     var productsArr = [...product]
+  //     var modifyUrlProduct = urlProduct
+  //   }
+  //   const size = 6
+  //
+  //   const newUrlProduct = `${modifyUrlProduct}[${from}...${from + size}]`
+  //   if (loading) return
+  //   setLoading(true)
+  //   const data = await sanityClient.fetch(`${newUrlProduct} | order(sort asc) | order(title asc)`)
+  //   if(data.length){
+  //     const filteredProduct = data.filter(item => item?.title)
+  //     productsArr.push(...filteredProduct)
+  //     setProduct(productsArr)
+  //   }else{
+  //     setHasMore(false)
+  //   }
+  //
+  //   setLoading(false)
+  // }
 
 
 
@@ -195,11 +194,13 @@ export default () => {
     setStateRange(rangeNumber)
     setSearch('')
     setUrlProduct(`*[_type == "product"].${lang}`)
-    loadMore(true, `*[_type == "product"].${lang}`)
+    const data = await sanityClient.fetch(`*[_type == "product"].${lang} | order(sort asc) | order(title asc)`)
+    setProduct(data)
+    // loadMore(true, `*[_type == "product"].${lang}`)
   }
 
   return (
-    <Page id="catalog" title="Catalog">
+    <Page id="catalog" title={settings.metaCatalog?.title} description={settings.metaCatalog?.description}>
       {settings?.titleCategory && <section className="head_category">
         <div className="uk-container uk-container-expand">
           <div className="content_head_wrap">
@@ -210,7 +211,7 @@ export default () => {
       </section>}
 
 
-      <section className="category grey" uk-filter="target: .js-filter" id="catalog-short">
+      <section className="category grey" id="catalog-short" uk-filter="target: .js-filter">
         <div className="uk-container uk-container-expand">
           <div className="category_menu uk-flex uk-flex-between uk-flex-middle uk-flex-wrap">
             <div className="uk-flex uk-flex-middle uk-width-1-1 uk-flex-between uk-flex-wrap">
@@ -223,11 +224,9 @@ export default () => {
           </div>
         </div>
         <div className="uk-container uk-container-expand">
-          <InfiniteScroll pageStart={0} loadMore={() => loadMore()} hasMore={hasMore} threshold={600}>
-            <ul className={`js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s${resetFilter ? ' show-all' : ''}`} uk-grid="">
-              {!!product.length && product.map((item, index) => <Cart item={item} key={index} lang={lang} currency={currency} />)}
-            </ul>
-          </InfiniteScroll>
+          <ul className={`js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s${resetFilter ? ' show-all' : ''}`} uk-grid="">
+            {!!product.length && product.map((item, index) => <Cart item={item} key={index} lang={lang} currency={currency} />)}
+          </ul>
         </div>
       </section>
 

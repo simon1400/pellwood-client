@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import Page from '../../components/page';
 import RandomArticles from '../../components/random-articles';
@@ -8,6 +8,7 @@ import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
 import {dropdown, util, offcanvas} from 'uikit'
 import translate from '../../data/staticTranslate'
+import { DataStateContext } from '../../context/dataStateContext'
 
 import down from '../../assets/chevron-down-light.svg'
 
@@ -35,9 +36,7 @@ const Variant = ({handle, name, price}) => {
   return(
     <li className="variant_select uk-flex" onClick={e => handle(name, price)}>
       <span className="uk-width-expand" >{name}</span>
-      <span className="uk-width-auto uk-text-right">
-        {currency === '$' && currency} {price} {currency !== '$' && currency}
-      </span>
+      <span className="uk-width-auto uk-text-right">{lang === 'en' ? (Math.round(price.replace(/,/g, '.') * 100) / 100).toFixed(2).replace(/\./g, ',') : price} {currency}</span>
     </li>
   )
 }
@@ -51,6 +50,7 @@ const Product = ({match, history}) => {
   const [articleSeccond, setArticleSeccond] = useState([])
   const [count, setCount] = useState(1)
   const [loader, setLoader] = useState(false)
+  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
 
   const [select, setSelect] = useState({
     name: translate.selectvariant[lang],
@@ -111,7 +111,7 @@ const Product = ({match, history}) => {
     }
 
     history.push({search: '?buy=true'})
-
+    
     var newBasketItem = {
       id: productId,
       nameProduct: product.title,
@@ -124,18 +124,18 @@ const Product = ({match, history}) => {
     if(!product?.variants?.length){
       newBasketItem.variantName = product.title
       if(typeof product.price === 'string'){
-        newBasketItem.variantPrice = product.price.replace(/,/g, '.')
+        newBasketItem.variantPrice = product.price
       }else{
         newBasketItem.variantPrice = product.price
       }
 
     }else{
       newBasketItem.variantName = select.name
-      newBasketItem.variantPrice = select.price.replace(/,/g, '.')
+      newBasketItem.variantPrice = select.price
     }
 
-    let basket = JSON.parse(localStorage.getItem('basket'))
-    let basketCount = JSON.parse(localStorage.getItem('basketCount'))
+    let basket = dataContextState.basket
+    let basketCount = dataContextState.basketCount
 
     if(basket === undefined || basket === null || !basket){
       basket = []
@@ -160,9 +160,8 @@ const Product = ({match, history}) => {
       }
       indexBasket = -1
     }
-
-    localStorage.setItem('basket', JSON.stringify(basket))
-    localStorage.setItem('basketCount', JSON.stringify(basketCount))
+    dataContextDispatch({ state: basket, type: 'basket' })
+    dataContextDispatch({ state: basketCount, type: 'basketCount' })
     offcanvas('#offcanvas-flip').show();
     setLoader(false)
   }
@@ -189,18 +188,20 @@ const Product = ({match, history}) => {
                 <div className="content">
                   <h1 className="head_1">{product.title}</h1>
                   {!!product?.variants?.length && <div className="variants_list">
-                    {(product.variants || []).map((item, index) => {
+                    {product.variants.map((item, index) => {
                       if(item.price){
                         return <div key={index} className="uk-grid uk-grid-medium" uk-grid="">
                           <div className="uk-width-expand">{item.title}</div>
-                          <div className="short_price">{(currency === '$' && item.price) && currency} {item.price} {(currency !== '$' && item.price) && currency}</div>
+                          <div className="short_price">
+                            {lang === 'en' ? (Math.round(+item.price.replace(/,/g, '.') * 100) / 100).toFixed(2).replace(/\./g, ',') : item.price} {currency}
+                          </div>
                         </div>
                       }
                       return ''
                     })}
                   </div>}
 
-                  {!!product?.variants?.length && product?.variants[0].price && <div className="order_block">
+                  {!!product?.variants[0].price && <div className="order_block">
                     <div className="uk-flex uk-flex-between">
                       <div className="uk-width-1-1 uk-width-auto@m">
                         <div className="custom-select-wrap">

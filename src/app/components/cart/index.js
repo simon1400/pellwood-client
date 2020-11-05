@@ -4,10 +4,7 @@ import sanityClient from "../../../lib/sanity.js";
 import './style.scss'
 
 const imageBuilder = imageUrlBuilder(sanityClient);
-
-function urlFor(source) {
-  return imageBuilder.image(source);
-}
+const urlFor = source => imageBuilder.image(source);
 
 const Cart = ({item, lang, currency, block}) => {
 
@@ -25,11 +22,23 @@ const Cart = ({item, lang, currency, block}) => {
         allPrices.push(+item.price.replace(/,/g, '.'))
       })
       var minPrice = Math.min(...allPrices)
-      setPrice(minPrice)
+      if(lang === 'en'){
+        setPrice((Math.round(minPrice * 100) / 100).toFixed(2).replace(/\./g, ','))
+      }else{
+        setPrice(minPrice)
+      }
     }else if(item?.variants?.length === 1){
-      setPrice(item.variants[0].price)
+      if(lang === 'en'){
+        setPrice((Math.round(item.variants[0].price * 100) / 100).toFixed(2).replace(/\./g, ','))
+      }else{
+        setPrice(item.variants[0].price)
+      }
     }else if (!item?.variants?.length){
-      setPrice(item.price)
+      if(lang === 'en'){
+        setPrice((Math.round(+item.price * 100) / 100).toFixed(2).replace(/\./g, ','))
+      }else{
+        setPrice(item.price)
+      }
     }else{
       setPrice('')
     }
@@ -44,15 +53,15 @@ const Cart = ({item, lang, currency, block}) => {
             <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
           </div>
           {!!price && <span className="short_price">
-            {!!item?.variants?.length && pricesGroup && `od ${price} ${currency}`}
-            {(!!item?.variants?.length && !pricesGroup || !item?.variants?.length) && `${price} ${currency}`}
+            {pricesGroup && `od ${price} ${currency}`}
+            {(!pricesGroup || !item?.variants?.length) && `${price} ${currency}`}
           </span>}
         </a>
       </div>
     )
   }else{
     return (
-      <li data-category={item?.category?._ref} data-price={item?.variants && item?.variants?.length ? item?.variants[0]?.price : ''}>
+      <li data-category={item.category?._ref}>
         <a href={`${lang !== 'cz' ? '/' + lang : ''}/produkt/${item.slug.current}`} className="card_short">
           <h3 className="card_short_head">{item.title}</h3>
           <div className="cart_img">
@@ -60,8 +69,8 @@ const Cart = ({item, lang, currency, block}) => {
           </div>
           {!!price &&
             <span className="short_price">
-              {!!item?.variants?.length && pricesGroup && `od ${price} ${currency}`}
-              {(!!item?.variants?.length && !pricesGroup || !item?.variants?.length) && `${price} ${currency}`}
+              {pricesGroup && `od ${price} ${currency}`}
+              {(!pricesGroup || !item?.variants?.length) && `${price} ${currency}`}
             </span>}
         </a>
       </li>

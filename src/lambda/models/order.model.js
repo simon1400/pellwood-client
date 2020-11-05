@@ -8,6 +8,7 @@ const schema = new mongoose.Schema({
   phone: {type: String, default: ''},
   name: {type: String, default: ''},
   surname: {type: String, default: ''},
+  currency: {type: String, default: ''},
   country: {type: String, default: ''},
   city: {type: String, default: ''},
   address: {type: String, default: ''},

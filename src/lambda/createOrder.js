@@ -25,6 +25,7 @@ exports.handler = async (event, context) => {
             companyData: user.companyData,
             anotherAddressCheck: user.anotherAddressCheck,
             companyDataCheck: user.companyDataCheck,
+            currency,
             note,
             basket,
             sum,

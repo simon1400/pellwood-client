@@ -11,7 +11,7 @@ const TotalEnd = ({sum, basket, delivery, payment}) => {
     <div className="tm-total-end">
       <div className="tm-head-total">
         <h2>{translate.ordersummary[lang]}</h2>
-        <Link to="/basket">Upravit položky</Link>
+        <Link to={`${lang !== 'cz' ? '/' + lang : ''}/basket`}>{translate.editItems[lang]}</Link>
       </div>
       <div className="tm-canvas-basket-item-wrap">
       {(basket || []).map((item, index) =>
@@ -21,7 +21,7 @@ const TotalEnd = ({sum, basket, delivery, payment}) => {
             <h3 className="tm-basket-item-head">{item.nameProduct}</h3>
             {item.variantName === item.nameProduct ? '' : <span>{item.variantName}</span>}
             <span>{item.variantPrice instanceof String ? item.variantPrice : item.variantPrice+' '+currency}</span>
-            <span>{item.countVariant} páry</span>
+            <span>{item.countVariant} {translate.pc[lang]}</span>
           </div>
         </div>
       )}
@@ -31,11 +31,11 @@ const TotalEnd = ({sum, basket, delivery, payment}) => {
           <tbody>
             <tr>
               <td>{translate.delivery[lang]}</td>
-              <td><span className={(delivery === 'ZDARMA' || delivery === 'FREE') ? 'tm-positive' : ''}>{delivery.length ? delivery : 'Nevybráno'}</span></td>
+              <td><span className={(delivery === 'ZDARMA' || delivery === 'FREE') ? 'tm-positive' : ''}>{delivery.length ? delivery : translate.notSelected[lang]}</span></td>
             </tr>
             <tr>
               <td>{translate.payment[lang]}</td>
-              <td><span className={(payment === 'ZDARMA' || payment === 'FREE') ? 'tm-positive' : ''}>{payment.length ? payment : 'Nevybráno'}</span></td>
+              <td><span className={(payment === 'ZDARMA' || payment === 'FREE') ? 'tm-positive' : ''}>{payment.length ? payment : translate.notSelected[lang]}</span></td>
             </tr>
             <tr>
               <td>{translate.totalprice[lang]}</td>

@@ -13,7 +13,7 @@ const routes = [
 const HeadWrap = () => <>
   {routes.map((item, index) => <Switch key={index}>
     <Route exact path={item.basket} render={() => <Head head={translate.yourBasket[lang]} />} />
-    <Route exact path={item.checkout} render={() => <Head head="Objednávka"/>} />
+    <Route exact path={item.checkout} render={() => <Head head={translate.order[lang]}/>} />
   </Switch>)}
 </>
 

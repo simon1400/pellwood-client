@@ -98,7 +98,7 @@ const User = () => {
     <main className="basket user">
       <div className="tm-basket-content-wrap">
         <div className="tm-basket-content">
-          <Head head="Váš ucet" />
+          <Head head={translate.yourAccount[lang]} />
           <Delivery state={state[0]} setState={state[1]} error={error} setError={setError} onBlur={onBlur}/>
 
           <div className="uk-margin-small checkbox_item">
@@ -123,9 +123,13 @@ const User = () => {
 
           <hr />
 
-          <div className="form_container">
-            <div className="form_column"><button className="tm-button tm-bare-button" onClick={() => onLogout()}>Odhlásit se</button></div>
-            <div className="form_column uk-text-right"><button className="tm-button tm-black-button" onClick={e => onSave()}>ULOŽIT</button></div>
+          <div className="form_column">
+            <div>
+              <button className="tm-button tm-bare-button" onClick={() => onLogout()}>{translate.logOut[lang]}</button>
+            </div>
+            <div className="uk-text-right">
+              <button className="tm-button tm-black-button" onClick={e => onSave()}>{translate.save[lang]}</button>
+            </div>
           </div>
 
         </div>
@@ -136,17 +140,17 @@ const User = () => {
           <table className="uk-table uk-table-small uk-table-divider">
             <thead>
               <tr>
-                <th colSpan="2">Historie objednávek</th>
+                <th colSpan="2">{translate.orderHistory[lang]}</th>
               </tr>
             </thead>
             <tbody>
-              {orders.length ? orders.map(item =>
+              {orders?.length ? orders.map(item =>
                 <tr key={item._id}>
-                  <td>Objednávka č. {item.idOrder}</td>
+                  <td>{translate.orderNumber[lang]} {item.idOrder}</td>
                   <td className="uk-text-right">{item.sum} {' ' + currency}</td>
                 </tr>)
               : <tr>
-                  <td>Nemate zadnu objednavku</td>
+                  <td>{translate.noOrder[lang]}</td>
                   <td className="uk-text-right"></td>
                 </tr>}
             </tbody>

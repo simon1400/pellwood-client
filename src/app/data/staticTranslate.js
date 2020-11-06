@@ -314,19 +314,80 @@ export default {
     en: "Delivery details",
     de: "xxx"
   },
+  order: {
+    cz: "Objednávka",
+    en: "Order",
+    de: "xxx"
+  },
+  editItems: {
+    cz: "UPRAVIT POLOŽKY",
+    en: "Edit items",
+    de: "xxx"
+  },
+  notSelected: {
+    cz: "Nevybráno",
+    en: "Not selected",
+    de: "xxx"
+  },
+  accessCondition1: {
+    cz: "Odesláním objednávky souhlasíte s",
+    en: "By sending the order, you agree with the",
+    de: "xxx"
+  },
+  accessCondition2: {
+    cz: "obchodními podmínkami",
+    en: "business conditions",
+    de: "xxx"
+  },
+  yourAccount: {
+    cz: "Váš účet",
+    en: "Account",
+    de: "xxx"
+  },
+  account: {
+    cz: "Účet",
+    en: "Account",
+    de: "xxx"
+  },
+  lengthPalicek: {
+    cz: "délka paliček",
+    en: "length of drumsticks",
+    de: "xxx"
+  },
+  weightPalicek: {
+    cz: "průměr paliček",
+    en: "diameter of drumsticks",
+    de: "xxx"
+  },
+  logOut: {
+    cz: "Odhlásit se",
+    en: "Log out",
+    de: "xxx"
+  },
+  save: {
+    cz: "ULOŽIT",
+    en: "Save",
+    de: "xxx"
+  },
+  orderHistory: {
+    cz: "Historie objednávek",
+    en: "Order history",
+    de: "xxx"
+  },
+  noOrder: {
+    cz: "Nemate zadnu objednavku",
+    en: "You have no order",
+    de: "xxx"
+  },
+  orderNumber: {
+    cz: "Objednávka č.",
+    en: "Order no.",
+    de: "xxx"
+  },
 
 
 
 
   // odsud
-  lengthPalicek: {
-    cz: "délka paliček",
-    en: "xxx",
-    de: "xxx"
-  },
-  weightPalicek: {
-    cz: "průměr paliček",
-    en: "xxx",
-    de: "xxx"
-  },
+
 }

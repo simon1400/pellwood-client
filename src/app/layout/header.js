@@ -88,7 +88,7 @@ const Header = ({history}) => {
               </div>
               <div className="user-area uk-hidden@m">
                 <div className="login">
-                  {dataContextState.user?.email ? <Link to="/user">Účet</Link> : <a href="#modal-login" uk-toggle="">Přihlašení</a>}
+                  {dataContextState.user?.email ? <Link to={`${lang !== 'cz' ? '/' + lang : ''}/user`}>{translate.account[lang]}</Link> : <a href="#modal-login" uk-toggle="">Přihlašení</a>}
                 </div>
               </div>
             </div>
@@ -103,7 +103,7 @@ const Header = ({history}) => {
               </div>
               <div className="user-area">
                 <div className="login">
-                  {dataContextState.user?.email ? <Link to="/user" className="uk-visible@m">Účet</Link> : <a href="#modal-login" className="uk-visible@m" uk-toggle="">{translate.login[lang]}</a>}
+                  {dataContextState.user?.email ? <Link to={`${lang !== 'cz' ? '/' + lang : ''}/user`} className="uk-visible@m">{translate.account[lang]}</Link> : <a href="#modal-login" className="uk-visible@m" uk-toggle="">{translate.login[lang]}</a>}
                   <a nohref="" href="/" className="basket_count" uk-toggle="target: #offcanvas-flip">{basketCount}</a>
                 </div>
               </div>

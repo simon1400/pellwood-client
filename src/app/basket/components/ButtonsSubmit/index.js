@@ -12,7 +12,7 @@ const routes = [
 const ButtonsSubmit = ({sendOrder}) => <>
   {routes.map((item, index) => <Switch key={index}>
     <Route exact path={item.basket} render={() => <Link to={`${lang !== 'cz' ? '/' + lang : ''}/basket/checkout`} className="tm-button tm-black-button">{translate.checkout[lang]}</Link>} />
-    <Route exact path={item.checkout} render={() => <button className="tm-button tm-black-button" onClick={() => sendOrder()}>Objednat</button>} />
+    <Route exact path={item.checkout} render={() => <button className="tm-button tm-black-button" onClick={() => sendOrder()}>{translate.order[lang]}</button>} />
   </Switch>)}
 </>
 

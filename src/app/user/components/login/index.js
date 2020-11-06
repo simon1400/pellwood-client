@@ -73,8 +73,6 @@ const Login = ({setLoginUser}) => {
   const onRegister = e => {
     e.preventDefault()
 
-    console.log(onBlur('email'));
-    console.log(onBlur('password'));
     if(onBlur('email') || onBlur('password')){
       return
     }
@@ -87,7 +85,11 @@ const Login = ({setLoginUser}) => {
         // axios.post('/api/sendRegistration', {email: res.data.data.email}).then(res => console.log('send mail'))
         dataContextDispatch({ state: res.data.data, type: 'user' })
         setLoginUser(true)
-        window.location.pathname = "/user"
+        if(lang === 'en'){
+          window.location.pathname = `/${lang}/user`
+        }else{
+          window.location.pathname = "/user"
+        }
       }
 
     }).catch(err => {

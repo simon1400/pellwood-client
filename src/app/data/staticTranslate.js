@@ -31,7 +31,7 @@ export default {
   },
   formemail: {
     cz: "e-mail",
-    en: "e-mail",
+    en: "email",
     de: "xxx"
   },
   formpassword: {
@@ -375,8 +375,8 @@ export default {
     de: "xxx"
   },
   noOrder: {
-    cz: "Nemate zadnu objednavku",
-    en: "You have no order",
+    cz: "Zatím nemáte žádnou objednávku",
+    en: "You don't have any orders yet",
     de: "xxx"
   },
   orderNumber: {

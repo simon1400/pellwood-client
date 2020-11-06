@@ -7,6 +7,7 @@ import sanityClient from "../../../lib/sanity.js";
 import ModalFilter from './modalFilter'
 import {modal, util} from 'uikit'
 import InfiniteScroll from 'react-infinite-scroller'
+import translate from '../../data/staticTranslate'
 
 import times from '../../assets/times.svg'
 
@@ -216,7 +217,7 @@ export default () => {
           <div className="category_menu uk-flex uk-flex-between uk-flex-middle uk-flex-wrap">
             <div className="uk-flex uk-flex-middle uk-width-1-1 uk-flex-between uk-flex-wrap">
               <div className="filter-controls-wrap">
-                <a className="tm-button tm-black-button" href="#modal-filter" uk-toggle="">Filtrovat</a>
+                <a className="tm-button tm-black-button" href="#modal-filter" uk-toggle="">{translate.filter[lang]}</a>
                 {filtered && <button className="cancel-filtered tm-button tm-button-text" onClick={e => cancelFilter(e)}><img src={times} alt="Cancel filter" uk-svg="" />Zrušit všechny filtry</button>}
               </div>
               <SubMenu data={category}/>

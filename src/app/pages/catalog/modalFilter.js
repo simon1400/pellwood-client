@@ -13,14 +13,15 @@ const ModalFilter = ({
   rangeNumber,
   closeModal,
   handleFilter,
-  setStateRange}) => {
+  setStateRange
+}) => {
 
   return(
     <div id="modal-filter" className="uk-flex-top" uk-modal="">
       <div className="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 
         <div className="tm-canvas-head">
-          <h2>Hledat a filtrovat</h2>
+          <h2>{translate.searchAndFilter[lang]}</h2>
           <button className="tm-canvas-close uk-close-large" type="button" uk-close="" onClick={() => closeModal()}></button>
         </div>
 
@@ -35,7 +36,7 @@ const ModalFilter = ({
 
             <div className="range-wrap">
               <div className="range-info">
-                <span className="name-range">délka paliček</span>
+                <span className="name-range">{translate.lengthPalicek[lang]}</span>
                 <span className="value-range">{stateRange.length.min} - {stateRange.length.max} mm</span>
               </div>
               <InputRange
@@ -49,7 +50,7 @@ const ModalFilter = ({
 
             <div className="range-wrap">
               <div className="range-info">
-                <span className="name-range">průměr paliček</span>
+                <span className="name-range">{translate.weightPalicek[lang]}</span>
                 <span className="value-range">{stateRange.diameter.min} - {stateRange.diameter.max} mm</span>
               </div>
               <InputRange

@@ -1,25 +1,20 @@
-import React, {useState, useContext} from 'react'
-import './style.scss'
-import UIkit from 'uikit'
+import React from 'react'
+import {Switch, Route} from 'react-router-dom'
 import translate from '../../../data/staticTranslate'
-import { DataStateContext } from '../../../context/dataStateContext'
+import Head from './Head'
 import localize from '../../../data/localize'
-const {lang, currency} = localize(window.location.href)
+const {lang} = localize(window.location.href)
 
-const Head = ({head}) => {
+const routes = [
+  {basket: '/basket', checkout: '/basket/checkout'},
+  {basket: `/${lang}/basket`, checkout: `/${lang}/basket/checkout`},
+]
 
-  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
+const HeadWrap = () => <>
+  {routes.map((item, index) => <Switch key={index}>
+    <Route exact path={item.basket} render={() => <Head head={translate.yourBasket[lang]} />} />
+    <Route exact path={item.checkout} render={() => <Head head="Objednávka"/>} />
+  </Switch>)}
+</>
 
-  const modal = () => {
-    UIkit.modal(UIkit.util.find('#modal-login')).show();
-  }
-
-  return(
-    <div className="tm-basket-head">
-      <h1>{head}</h1>
-      {!dataContextState?.user?.email && <a href="#modal-login" className="tm-button tm-bare-button" onClick={() => modal()}>{translate.login2[lang]}</a>}
-    </div>
-  )
-}
-
-export default Head
+export default HeadWrap

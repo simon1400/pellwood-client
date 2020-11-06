@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import translate from '../../../data/staticTranslate'
-import countryData from '../../../data/country'
+import translate from '../../../../data/staticTranslate'
+import countryData from '../../../../data/country'
 
-import localize from '../../../data/localize'
+import localize from '../../../../data/localize'
 const {lang} = localize(window.location.href)
 
 const Delivery = ({

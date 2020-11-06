@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../../../lib/sanity.js";
 import './style.scss'
+import translate from '../../data/staticTranslate'
 
 const imageBuilder = imageUrlBuilder(sanityClient);
 const urlFor = source => imageBuilder.image(source);
@@ -53,7 +54,7 @@ const Cart = ({item, lang, currency, block}) => {
             <img src={urlFor(item.image).width(compireTablet ? compireTablet * 2 : compireMobile ? compireMobile * 2 : Math.round(((window.innerWidth - 160) / 3) * 2)).url()} alt={item.title} />
           </div>
           {!!price && <span className="short_price">
-            {pricesGroup && `od ${price} ${currency}`}
+            {pricesGroup && `${translate.from[lang]} ${price} ${currency}`}
             {(!pricesGroup || !item?.variants?.length) && `${price} ${currency}`}
           </span>}
         </a>
@@ -69,7 +70,7 @@ const Cart = ({item, lang, currency, block}) => {
           </div>
           {!!price &&
             <span className="short_price">
-              {pricesGroup && `od ${price} ${currency}`}
+              {pricesGroup && `${translate.from[lang]} ${price} ${currency}`}
               {(!pricesGroup || !item?.variants?.length) && `${price} ${currency}`}
             </span>}
         </a>

@@ -81,7 +81,7 @@ export default {
   },
   totalprice: {
     cz: "Celková cena",
-    en: "total price",
+    en: "Total price",
     de: "xxx"
   },
   ordersummary: {
@@ -257,6 +257,76 @@ export default {
   color: {
     cz: "Barva",
     en: "Color",
+    de: "xxx"
+  },
+  from: {
+    cz: "od",
+    en: "from",
+    de: "xxx"
+  },
+  allProducts: {
+    cz: "Všechny produkty",
+    en: "All products",
+    de: "xxx"
+  },
+  searchAndFilter: {
+    cz: "Hledat a filtrovat",
+    en: "Search and filter",
+    de: "xxx"
+  },
+  filter: {
+    cz: "Filtrovat",
+    en: "Filter",
+    de: "xxx"
+  },
+  addToBasket: {
+    cz: "PŘIDAT DO KOŠÍKU",
+    en: "Add to basket",
+    de: "xxx"
+  },
+  free: {
+    cz: "Zdarma",
+    en: "Free",
+    de: "xxx"
+  },
+  yourBasket: {
+    cz: "Váš nákupní košík",
+    en: "Basket",
+    de: "xxx"
+  },
+  item: {
+    cz: "Položka",
+    en: "Item",
+    de: "xxx"
+  },
+  quantity: {
+    cz: "Počet",
+    en: "Quantity",
+    de: "xxx"
+  },
+  remove: {
+    cz: "Odstranit",
+    en: "Remove",
+    de: "xxx"
+  },
+  deliveryDetails: {
+    cz: "Dodací údaje",
+    en: "Delivery details",
+    de: "xxx"
+  },
+
+
+
+
+  // odsud
+  lengthPalicek: {
+    cz: "délka paliček",
+    en: "xxx",
+    de: "xxx"
+  },
+  weightPalicek: {
+    cz: "průměr paliček",
+    en: "xxx",
     de: "xxx"
   },
 }

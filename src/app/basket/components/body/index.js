@@ -1,13 +1,17 @@
 import React, {useContext} from 'react'
-import {Link} from 'react-router-dom'
-import './style.scss'
-import translate from '../../../data/staticTranslate'
 import { DataStateContext } from '../../../context/dataStateContext'
+import Body from './Body'
+import {Route} from 'react-router-dom'
 import localize from '../../../data/localize'
 const {lang} = localize(window.location.href)
 
+const routes = ['/basket', `/${lang}/basket`]
 
-const Body = ({setSum, sum, basket, setBasket, currency}) => {
+const BodyWrap = ({
+  setSum,
+  basket,
+  setBasket
+}) => {
 
   const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
 
@@ -56,44 +60,17 @@ const Body = ({setSum, sum, basket, setBasket, currency}) => {
     sumBasket(newBasket)
   }
 
-  return (
-    <div className="tm-basket-body">
-      <table className="uk-table uk-table-divider uk-table-middle">
-        <thead>
-          <tr>
-            <th>Položka</th>
-            <th>Počet</th>
-            <th>{translate.price[lang]}</th>
-          </tr>
-        </thead>
-        <tbody>
 
-        {basket.map((item, index) => <tr key={index}>
-            <td>
-              <div className="tm-basket-item">
-                <div data-src={item.imgUrl} className="tm-basket-img-wrap uk-background-contain" uk-img=""></div>
-                <div className="tm-basket-item-info">
-                  <h3 className="tm-basket-item-head">{item.nameProduct}</h3>
-                  {item.variantName === item.nameProduct ? '' : <span>{item.variantName}</span>}
-                  <div className="tm-remove-item"><Link to={window.location.pathname +'?delete'+item.variantName.replace(/ /g, "_")} onClick={e => deleteItem(e, index)}><button uk-close=""></button>Odstranit</Link></div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div className="custom_number quantity">
-                <input type="number" min="1" max="1000" step="1" value={item.countVariant} onChange={(e) => handleChange(index, e.target.value)} />
-                <div className="quantity-nav">
-                  <div className="quantity-button quantity-up" onClick={() => changeCount(index, 'up')}>+</div>
-                  <div className="quantity-button quantity-down" onClick={() => changeCount(index, 'down')}>-</div>
-                </div>
-              </div>
-            </td>
-            <td><span className="basket-body-price">{item.variantPrice instanceof String ? item.variantPrice : item.variantPrice+' '+currency}</span></td>
-          </tr>)}
-        </tbody>
-      </table>
-    </div>
-  )
+
+  return <>
+    {routes.map((item, index) => <Route exact path={item} render={() => <Body
+      basket={basket}
+      deleteItem={deleteItem}
+      handleChange={handleChange}
+      sumBasket={sumBasket}
+      changeCount={changeCount}
+    />}/>)}
+  </>
 }
 
-export default Body
+export default BodyWrap

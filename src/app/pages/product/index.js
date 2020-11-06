@@ -111,7 +111,7 @@ const Product = ({match, history}) => {
     }
 
     history.push({search: '?buy=true'})
-    
+
     var newBasketItem = {
       id: productId,
       nameProduct: product.title,
@@ -224,7 +224,11 @@ const Product = ({match, history}) => {
                         </div>
                       </div>
                     </div>
-                    <button className="uk-width-1-1 uk-margin-top tm-button tm-black-button" onClick={() => onBuy()}>{loader && <div uk-spinner="" className="uk-icon uk-spinner"></div>}PŘIDAT DO KOŠÍKU</button>
+                    <button
+                      className="uk-width-1-1 uk-margin-top tm-button tm-black-button"
+                      onClick={() => onBuy()}>
+                      {loader && <div uk-spinner="" className="uk-icon uk-spinner"></div>}{translate.addToBasket[lang]}
+                    </button>
                   </div>}
                   {!product?.variants?.length && <div className="tm-single-order">
                     <div className="tm-single-price uk-text-center uk-margin-bottom">{currency === '$' && currency} {product.price} {currency !== '$' && currency}</div>
@@ -239,7 +243,11 @@ const Product = ({match, history}) => {
                         </div>
                       </div>
                       <div className="uk-width-2-3">
-                        <button className="uk-width-1-1 tm-button tm-black-button" onClick={() => onBuy()}>{loader && <div uk-spinner="" className="uk-icon uk-spinner"></div>}PŘIDAT DO KOŠÍKU</button>
+                        <button
+                          className="uk-width-1-1 tm-button tm-black-button"
+                          onClick={() => onBuy()}>
+                          {loader && <div uk-spinner="" className="uk-icon uk-spinner"></div>}{translate.addToBasket[lang]}
+                        </button>
                       </div>
                     </div>
                   </div>}

@@ -7,7 +7,8 @@ import { DataStateContext } from '../../context/dataStateContext'
 import localize from '../../data/localize'
 const {lang, currency} = localize(window.location.href)
 
-export default ({update}) => {
+
+const Canvas = () => {
 
   const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
   const [basket, setBasket] = useState(dataContextState.basket)
@@ -81,7 +82,7 @@ export default ({update}) => {
                 <span>{item.variantName}</span>
                 <span>{item.variantPrice instanceof String ? item.variantPrice : item.variantPrice + ' ' + currency}</span>
                 <div className="tm-canvas-basket-item-count">
-                  <span>{item.countVariant} páry</span>
+                  <span>{item.countVariant} {translate.pc[lang]}</span>
                   <Link to={window.location.pathname +'?delete'+item.id+item.variantName}>
                     <button
                       className="tm-canvas-item-remove"
@@ -102,7 +103,7 @@ export default ({update}) => {
               <tbody>
                 <tr>
                   <td>{translate.delivery[lang]}</td>
-                  <td>ZDARMA</td>
+                  <td>{translate.free[lang]}</td>
                 </tr>
                 <tr>
                   <td>{translate.totalprice[lang]}</td>
@@ -123,3 +124,5 @@ export default ({update}) => {
     </div>
   )
 }
+
+export default Canvas

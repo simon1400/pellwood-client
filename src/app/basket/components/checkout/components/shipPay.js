@@ -1,7 +1,7 @@
 import React from 'react'
-import translate from '../../../data/staticTranslate'
+import translate from '../../../../data/staticTranslate'
 
-import localize from '../../../data/localize'
+import localize from '../../../../data/localize'
 const {lang, currency} = localize(window.location.href)
 
 const deliveryData = {
@@ -55,7 +55,7 @@ const ShipPay = ({delivery, error, setError, setDelivery, payment, setPayment}) 
           </div>)}
           {error.delivery && <div className="uk-alert-danger" uk-alert=""><p>Vyberte způsob dopravy</p></div>}
         </div>
-        
+
         <div>
           <legend className="uk-legend">{translate.payment[lang]}</legend>
           {paymentData[lang].map((item, index) => <div key={index} className="uk-grid-small" uk-grid="">

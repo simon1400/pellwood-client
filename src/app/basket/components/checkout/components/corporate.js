@@ -1,7 +1,7 @@
 import React from 'react'
-import translate from '../../../data/staticTranslate'
+import translate from '../../../../data/staticTranslate'
 
-import localize from '../../../data/localize'
+import localize from '../../../../data/localize'
 const {lang, currency} = localize(window.location.href)
 
 const Corporate = ({state, setState}) => {

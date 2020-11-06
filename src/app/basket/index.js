@@ -12,8 +12,9 @@ import Body from './components/body'
 import Checkout from './components/checkout'
 import Total from './components/total'
 import TotalEnd from './components/total-end'
-
 import validationForm from '../function/validationForm'
+import AcceptInfo from './components/acceptInfo'
+import ButtonsSubmit from './components/ButtonsSubmit'
 
 import localize from '../data/localize'
 const {lang, currency} = localize(window.location.href)
@@ -208,79 +209,42 @@ const Basket = () => {
     <main className="basket">
       <div className="tm-basket-content-wrap">
         <div className="tm-basket-content">
-          <Switch>
-            <Route exact path="/basket" render={() => <Head head="Váš nákupní košík" user={user}/>} />
-            <Route exact path="/basket/checkout" render={() => <Head head="Objednávka" user={user}/>} />
-            <Route exact path="/en/basket" render={() => <Head head="Váš nákupní košík" user={user}/>} />
-            <Route exact path="/en/basket/checkout" render={() => <Head head="Objednávka" user={user}/>} />
-          </Switch>
-          <Switch>
-            <Route exact path="/basket" render={() => <Body
-                setSum={setSum}
-                sum={sum}
-                basket={basket}
-                setBasket={setBasket}
-                currency={currency} />} />
-            <Route exact path="/basket/checkout" render={() => <Checkout
-                state={state}
-                onBlur={onBlur}
-                setError={setError}
-                error={error}
-                errorAnother={errorAnother}
-                setErrorAnother={setErrorAnother}
-                user={user}
-                anotherAdress={anotherAdress}
-                companyData={companyData}
-                password={password}
-                note={note}
-                deliveryMethod={deliveryMethod}
-                paymentMethod={paymentMethod} />} />
-            <Route exact path="/en/basket" render={() => <Body
-                setSum={setSum}
-                sum={sum}
-                basket={basket}
-                setBasket={setBasket}
-                currency={currency} />} />
-            <Route exact path="/en/basket/checkout" render={() => <Checkout
-                state={state}
-                onBlur={onBlur}
-                error={error}
-                setError={setError}
-                user={user}
-                errorAnother={errorAnother}
-                setErrorAnother={setErrorAnother}
-                anotherAdress={anotherAdress}
-                companyData={companyData}
-                password={password}
-                note={note}
-                deliveryMethod={deliveryMethod}
-                paymentMethod={paymentMethod} />} />
-            <Route component={NotFound} />
-          </Switch>
+          <Head />
+          <Body
+            setSum={setSum}
+            sum={sum}
+            basket={basket}
+            setBasket={setBasket} />
+          <Checkout
+            state={state}
+            error={error}
+            setError={setError}
+            user={user}
+            anotherAdress={anotherAdress}
+            companyData={companyData}
+            password={password}
+            note={note}
+            deliveryMethod={deliveryMethod}
+            errorAnother={errorAnother}
+            setErrorAnother={setErrorAnother}
+            paymentMethod={paymentMethod}
+            onBlur={onBlur} />
         </div>
       </div>
       <div className="basket-right-panel">
         <div className="basket-right-content">
-          <Switch>
-            <Route exact path="/basket" render={() => <Total sum={sum} currency={currency} />} />
-            <Route exact path="/basket/checkout" render={() => <TotalEnd error sum={sum} basket={basket} delivery={deliveryMethod[0].price} payment={paymentMethod[0].price} currency={currency} />} />
-            <Route exact path="/en/basket" render={() => <Total sum={sum} currency={currency} />} />
-            <Route exact path="/en/basket/checkout" render={() => <TotalEnd sum={sum} basket={basket} delivery={deliveryMethod[0].price} payment={paymentMethod[0].price} currency={currency} />} />
-          </Switch>
+          <Total sum={sum} currency={currency} />
+          <TotalEnd
+            sum={sum}
+            basket={basket}
+            delivery={deliveryMethod[0].price}
+            payment={paymentMethod[0].price} />
           <div>
             <p>{translate.infovat[lang]}</p>
-            <Route exact path="/basket/checkout" render={() => <p>Odesláním objednávky souhlasíte s <a href="/">obchodními podmínkami</a>.</p>} />
-            <Route exact path="/en/basket/checkout" render={() => <p>Odesláním objednávky souhlasíte s <a href="/">obchodními podmínkami</a>.</p>} />
+            <AcceptInfo />
           </div>
-          <div>
-            <div className="tm-basket-footer tm-footer-single">
-              <Switch>
-                <Route exact path="/basket" render={() => <Link to="/basket/checkout" className="tm-button tm-black-button">{translate.checkout[lang]}</Link>} />
-                <Route exact path="/basket/checkout" render={() => <button className="tm-button tm-black-button" onClick={() => sendOrder()}>Objednat</button>} />
-                <Route exact path="/en/basket" render={() => <Link to="/basket/checkout" className="tm-button tm-black-button">{translate.checkout[lang]}</Link>} />
-                <Route exact path="/en/basket/checkout" render={() => <button className="tm-button tm-black-button" onClick={() => sendOrder()}>Objednat</button>} />
-              </Switch>
-            </div>
+          <div className="tm-basket-footer tm-footer-single">
+            <ButtonsSubmit />
           </div>
         </div>
       </div>

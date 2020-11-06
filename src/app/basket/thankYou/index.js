@@ -13,7 +13,6 @@ const ThankYou = () => {
   useEffect(() => {
     var serchUrl = getUrl(window.location.search);
     axios.post('/api/getStatusPayment', {id: serchUrl.refId}).then(res => {
-      console.log(res.data.data);
       setStatus(res.data.data[0].status)
     })
   }, [])

@@ -48,7 +48,6 @@ const User = () => {
     axios.post('/api/getOrder', {email: state[0].email}).then(res => {
       setOrders(res.data.data)
     })
-
   }, [])
 
   const handleChange = (name, value) => {

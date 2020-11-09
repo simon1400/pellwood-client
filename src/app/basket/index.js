@@ -244,7 +244,7 @@ const Basket = () => {
             <AcceptInfo />
           </div>
           <div className="tm-basket-footer tm-footer-single">
-            <ButtonsSubmit />
+            <ButtonsSubmit sendOrder={sendOrder} />
           </div>
         </div>
       </div>

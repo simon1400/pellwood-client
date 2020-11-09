@@ -20,6 +20,7 @@ const App = ({match}) => {
     if(dataContextState.user){
       setLoginUser(true)
     }
+    
   }, [])
 
   return (

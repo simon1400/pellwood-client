@@ -1,6 +1,7 @@
 // sendMail.js
 import mongoose from 'mongoose'
 import nodemailer from 'nodemailer'
+import InfoOrder from './mail_template/infoOrder.js'
 // Load the server
 import db from './server'
 
@@ -8,10 +9,10 @@ exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
-    const {subject, email, body} = JSON.parse(event.body);
+    const data = JSON.parse(event.body);
 
     let transporter = nodemailer.createTransport({
-      service: "gmail",
+      service: "gmail.com",
       auth: {
         user: 'pechunka04@gmail.com',
         pass: 'd04101996d'
@@ -19,12 +20,13 @@ exports.handler = async (event, context) => {
     });
 
     let mailOptions = {
-      from: '"Заявка с сайта"',
-      to: email, // list of receivers
-      subject: subject, // Subject line
-      text: body, // plain text body
-      html: body // html body
+      from: '"Objednávka dokončena - Pellwood" <info@pellwood.cz>',
+      to: data.email, // list of receivers
+      subject: 'Objednávka č.: ' + data.idOrder, // Subject line
+      text: "Objednávka dokončena - Pellwood", // plain text body
+      html: InfoOrder(data) // html body
     };
+
 
     transporter.sendMail(mailOptions, (err, info) => {
       if (err) {

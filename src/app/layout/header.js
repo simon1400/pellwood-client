@@ -23,7 +23,6 @@ const Header = ({history}) => {
 
   const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
   const [menu, setMenu] = useState([])
-  const [handleUpdate, setHandleUpdate] = useState(0)
   const [basketCount, setBasketCount] = useState(0)
   const [hamburger, setHamburger] = useState(false)
 
@@ -35,9 +34,7 @@ const Header = ({history}) => {
 
   useEffect(() => {
     setBasketCount(dataContextState.basketCount)
-  }, [window.location.search, handleUpdate])
-
-
+  }, [dataContextState.basketCount])
 
   const handleHamburger = () => {
     if(hamburger){
@@ -57,7 +54,7 @@ const Header = ({history}) => {
 
   return(
     <>
-      <Canvas update={setHandleUpdate} currency={currency}/>
+      <Canvas currency={currency}/>
       <header>
         <div className="uk-container uk-container-expand uk-height-1-1">
           <div className="uk-flex uk-flex-between uk-flex-middle uk-height-1-1">

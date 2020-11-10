@@ -388,6 +388,26 @@ export default {
     cz: "Sleva 5%",
     en: "Discount 5%",
     de: "xxx"
+  },
+  deliveryFreeCanvas: {
+    cz: "Doprava ZDARMA po ČR a SK",
+    en: "Free delivery to DE and AU",
+    de: "xxx"
+  },
+  saleCanvas: {
+    cz: "Sleva 5 % na všechny produkty",
+    en: "5% discount on all products",
+    de: "xxx"
+  },
+  deliveryFreeCanvasValue: {
+    cz: "nad 1500 Kč",
+    en: "over 100 €",
+    de: "xxx"
+  },
+  saleCanvasValue: {
+    cz: "nad 2000 Kč",
+    en: "over 150 €",
+    de: "xxx"
   }
 
 

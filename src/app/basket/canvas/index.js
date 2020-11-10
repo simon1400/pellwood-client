@@ -16,16 +16,7 @@ const Canvas = () => {
   const [sum, setSum] = useState(0)
   const [sale, setSale] = useState(0)
 
-  useEffect(() => {
-    setBasket(dataContextState.basket)
-    setBasketCount(dataContextState.basketCount)
-  }, [window.location.search.length])
 
-
-  useEffect(() => {
-    dataContextDispatch({ state: basket, type: 'basket' })
-    dataContextDispatch({ state: basketCount, type: 'basketCount' })
-  }, [basketCount])
 
 
   const closeCanvas = () => {
@@ -70,6 +61,18 @@ const Canvas = () => {
     onSumItems()
   }, [])
 
+  useEffect(() => {
+    setBasket(dataContextState.basket)
+    setBasketCount(dataContextState.basketCount)
+    onSumItems()
+  }, [window.location.search.length])
+
+
+  useEffect(() => {
+    dataContextDispatch({ state: basket, type: 'basket' })
+    dataContextDispatch({ state: basketCount, type: 'basketCount' })
+  }, [basketCount])
+
   const deleteItem = (e) => {
     e.preventDefault()
     basket.map((item, index) => {
@@ -81,6 +84,8 @@ const Canvas = () => {
     setBasketCount(newBasketCount)
     setBasket(basket)
   }
+
+  console.log(sum);
 
   return(
     <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true;">
@@ -130,21 +135,13 @@ const Canvas = () => {
                     </span>
                   </td>
                 </tr>
-                {lang === 'cz' && <tr>
-                  <td>Doprava ZDARMA po ČR a SK</td>
-                  <td>nad 1500 Kč</td>
+                {((lang === 'cz' && sum < 1500) || (lang === 'en' && sum < 100)) && <tr>
+                  <td>{translate.deliveryFreeCanvas[lang]}</td>
+                  <td>{translate.deliveryFreeCanvasValue[lang]}</td>
                 </tr>}
-                {lang === 'cz' && <tr>
-                  <td>Sleva 5 % na všechny produkty</td>
-                  <td>nad 2000 Kč</td>
-                </tr>}
-                {lang === 'en' && <tr>
-                  <td>Free delivery to DE and AU</td>
-                  <td>over 100 €</td>
-                </tr>}
-                {lang === 'en' && <tr>
-                  <td>5% discount on all products</td>
-                  <td>over 150 €</td>
+                {((lang === 'cz' && sum < 2000) || (lang === 'en' && sum < 150)) && <tr>
+                  <td>{translate.saleCanvas[lang]}</td>
+                  <td>{translate.saleCanvasValue[lang]}</td>
                 </tr>}
                 {sale > 0 && <tr>
                   <td>{translate.sale[lang]}</td>

@@ -31,7 +31,7 @@ const Canvas = () => {
         if(item.variantPrice instanceof String){
           sumItem = item.variantPrice.split(' ')[0] * item.countVariant
         }else{
-          sumItem = item.variantPrice.replace(/,/g, '.') * item.countVariant
+          sumItem = item.variantPrice * item.countVariant
         }
 
         sumAll = +sumItem + sumAll
@@ -46,12 +46,12 @@ const Canvas = () => {
       sumAll = sumAll - (sumAll * 0.05)
     }
 
-    if(lang === 'en' && sumAll < 150 || lang === 'cz' && sumAll < 2000){
+    if(lang === 'en' && sumAll <= 150 || lang === 'cz' && sumAll <= 2000){
       setSale(0)
     }
 
     if(lang === 'en'){
-      setSum((Math.round(sumAll * 100) / 100).toFixed(2).replace(/\./g, ','));
+      setSum((Math.round(sumAll * 100) / 100).toFixed(2));
     }else{
       setSum(Math.round(sumAll));
     }
@@ -85,8 +85,6 @@ const Canvas = () => {
     setBasket(basket)
   }
 
-  console.log(sum);
-
   return(
     <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true;">
       <div className="uk-offcanvas-bar">
@@ -96,7 +94,7 @@ const Canvas = () => {
           <h2>{translate.basket[lang]}</h2>
           <Link to={window.location.pathname}><button className="tm-canvas-close uk-close-large" type="button" uk-close="" onClick={e => closeCanvas()}></button></Link>
         </div>
-        {basketCount ? <div>
+        {basketCount && sum ? <div>
           {!!basket.length && basket.map((item, index) => <div key={index} className="tm-canvas-basket-item-wrap">
             <div className="tm-basket-item">
               <div data-src={item.imgUrl} className="tm-basket-img-wrap uk-background-contain" uk-img=""></div>
@@ -128,28 +126,28 @@ const Canvas = () => {
                   <td>{translate.delivery[lang]}</td>
                   <td>
                     <span className={`${lang === 'en' && sum > 100 || lang === 'cz' && sum > 1500 && "tm-positive"}`}>
-                      {lang === 'cz' && sum < 1500 && 'od 150 Kč'}
-                      {lang === 'en' && sum < 100 && '10 €'}
+                      {lang === 'cz' && sum <= 1500 && 'od 150 Kč'}
+                      {lang === 'en' && sum <= 100 && '10 €'}
                       {lang === 'en' && sum > 100 && translate.free[lang]}
                       {lang === 'cz' && sum > 1500 && translate.free[lang]}
                     </span>
                   </td>
                 </tr>
-                {((lang === 'cz' && sum < 1500) || (lang === 'en' && sum < 100)) && <tr>
+                {((lang === 'cz' && sum <= 1500) || (lang === 'en' && sum <= 100)) && <tr>
                   <td>{translate.deliveryFreeCanvas[lang]}</td>
                   <td>{translate.deliveryFreeCanvasValue[lang]}</td>
                 </tr>}
-                {((lang === 'cz' && sum < 2000) || (lang === 'en' && sum < 150)) && <tr>
+                {((lang === 'cz' && sum <= 2000) || (lang === 'en' && sum <= 150)) && <tr>
                   <td>{translate.saleCanvas[lang]}</td>
                   <td>{translate.saleCanvasValue[lang]}</td>
                 </tr>}
                 {sale > 0 && <tr>
                   <td>{translate.sale[lang]}</td>
-                  <td>-{lang === 'cz' ? sale : sale.replace(/\./g, ',')}{' ' + currency}</td>
+                  <td>-{sale} {currency}</td>
                 </tr>}
                 <tr>
                   <td>{translate.totalprice[lang]}</td>
-                  <td>{sum}{' ' + currency}</td>
+                  <td>{sum} {currency}</td>
                 </tr>
               </tbody>
             </table>

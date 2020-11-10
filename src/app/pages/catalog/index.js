@@ -84,6 +84,18 @@ export default () => {
 
     sanityClient.fetch(`${urlProduct} | order(sort asc) | order(title asc)`).then(data => {
       const filteredProduct = data.filter(item => item?.title)
+      if(lang === 'en'){
+        filteredProduct.map(item => {
+          if(typeof item.price === 'string'){
+            item.price.replace(/,/g, '.')
+          }else if(item.variants?.length){
+            item.variants = item.variants.map(variant => {
+              variant.price = variant.price.replace(/,/g, '.')
+              return variant
+            })
+          }
+        })
+      }
 
       setProduct(filteredProduct)
 
@@ -95,10 +107,10 @@ export default () => {
           length = filteredProduct[i]?.parametrs.find(o => o.title === 'Délka' || o.title === 'Length')
           diameter = filteredProduct[i]?.parametrs.find(o => o.title === 'Průměr' || o.title === 'Diameter')
           if(length){
-            lengthNumbers.push(+length.value.substr(0, length.value.length - 3).replace(/,/g, '.') )
+            lengthNumbers.push(+length.value.substr(0, length.value.length - 3))
           }
           if(diameter){
-            diameterNumbers.push(+diameter.value.substr(0, diameter.value.length - 3).replace(/,/g, '.') )
+            diameterNumbers.push(+diameter.value.substr(0, diameter.value.length - 3))
           }
         }
       }
@@ -117,37 +129,6 @@ export default () => {
       setStateRange(rangeNum)
     })
   }, [])
-
-  // const loadMore = async (empty = false, url) => {
-  //
-  //   if(empty){
-  //     var from = 0
-  //     var productsArr = []
-  //     var modifyUrlProduct = url
-  //     setHasMore(true)
-  //   }else{
-  //     var from = product.length
-  //     var productsArr = [...product]
-  //     var modifyUrlProduct = urlProduct
-  //   }
-  //   const size = 6
-  //
-  //   const newUrlProduct = `${modifyUrlProduct}[${from}...${from + size}]`
-  //   if (loading) return
-  //   setLoading(true)
-  //   const data = await sanityClient.fetch(`${newUrlProduct} | order(sort asc) | order(title asc)`)
-  //   if(data.length){
-  //     const filteredProduct = data.filter(item => item?.title)
-  //     productsArr.push(...filteredProduct)
-  //     setProduct(productsArr)
-  //   }else{
-  //     setHasMore(false)
-  //   }
-  //
-  //   setLoading(false)
-  // }
-
-
 
   const handleFilter = (e) => {
     e.preventDefault()

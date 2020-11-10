@@ -15,8 +15,8 @@ const Total = ({sum, sale}) => <div className="tm-basket-total">
           <td>{translate.delivery[lang]}</td>
           <td>
             <span className={`${lang === 'en' && sum > 100 || lang === 'cz' && sum > 1500 && "tm-positive"}`}>
-              {lang === 'cz' && sum < 1500 && 'od 150 Kč'}
-              {lang === 'en' && sum < 100 && '10 €'}
+              {lang === 'cz' && sum <= 1500 && 'od 150 Kč'}
+              {lang === 'en' && sum <= 100 && '10 €'}
               {lang === 'en' && sum > 100 && translate.free[lang]}
               {lang === 'cz' && sum > 1500 && translate.free[lang]}
             </span>
@@ -24,7 +24,7 @@ const Total = ({sum, sale}) => <div className="tm-basket-total">
         </tr>
         {sale > 0 && <tr>
           <td>{translate.sale[lang]}</td>
-          <td>-{lang === 'cz' ? sale : sale.replace(/\./g, ',')} {currency}</td>
+          <td>-{sale} {currency}</td>
         </tr>}
         <tr>
           <td>{translate.totalprice[lang]}</td>

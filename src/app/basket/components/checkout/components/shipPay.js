@@ -22,7 +22,7 @@ const paymentData = {
   en: [
     {value: 'Online bank transfer', price: 'FREE'},
     {value: 'Card payment', price: 'FREE'},
-    {value: 'Cash on delivery', price: '2,50 €'}
+    {value: 'Cash on delivery', price: '2.50 €'}
   ]
 }
 

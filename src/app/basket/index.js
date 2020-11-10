@@ -117,11 +117,10 @@ const Basket = () => {
     var sumAll = 0, sumItem = 0;
     var newBasket = basket
     newBasket.map((item, index) => {
-      if(item.variantPrice instanceof String){
-        sumItem = +item.variantPrice * item.countVariant
-      }else{
-        sumItem = item.variantPrice.replace(/,/g, '.') * item.countVariant
-      }
+
+      if(item.variantPrice instanceof String)sumItem = +item.variantPrice * item.countVariant
+      else sumItem = item.variantPrice * item.countVariant
+
       sumAll = +sumItem + sumAll
     })
 
@@ -129,35 +128,27 @@ const Basket = () => {
     setSumBefore(sumItemsBefore)
 
 
-    if(lang === 'en' && sumAll > 150){
-      setSale((Math.round(sumAll * 0.05 * 100) / 100).toFixed(2))
-      setSumBefore(sumAll - (sumAll * 0.05))
-      sumAll = sumAll - (sumAll * 0.05)
-    }else if(lang === 'cz' && sumAll > 2000) {
-      setSale(Math.round(sumAll * 0.05))
-      setSumBefore(sumAll - (sumAll * 0.05))
+    if(lang === 'en' && sumAll > 150) setSale((Math.round(sumAll * 0.05 * 100) / 100).toFixed(2))
+    else if(lang === 'cz' && sumAll > 2000) setSale(Math.round(sumAll * 0.05))
+
+    if(sumAll > 2000 || sumAll > 150){
+      setSumBefore(Math.round(sumAll - (sumAll * 0.05)))
       sumAll = sumAll - (sumAll * 0.05)
     }
 
-    if(lang === 'en' && sumAll < 150 || lang === 'cz' && sumAll < 2000){
-      setSale(0)
-    }
+    if(lang === 'en' && sumAll <= 150 || lang === 'cz' && sumAll <= 2000) setSale(0)
 
     if(delivery || payment){
-      if(delivery !== translate.free[lang] && ((lang === 'en' && sumAll < 100) || (lang === 'cz' && sumAll < 1500))) sumAll = +sumAll + +delivery.split(' ')[0].replace(/,/g, '.')
-      if(payment !== translate.free[lang]) sumAll = +sumAll + +payment.split(' ')[0].replace(/,/g, '.')
+      if(delivery !== translate.free[lang] && ((lang === 'en' && sumAll <= 100) || (lang === 'cz' && sumAll <= 1500))) sumAll = +sumAll + +delivery.split(' ')[0]
+      if(payment !== translate.free[lang]) sumAll = +sumAll + +payment.split(' ')[0]
     }
-    if(lang === 'en'){
-      setSum((Math.round(sumAll * 100) / 100).toFixed(2).replace(/\./g, ','))
-    }else{
-      setSum(Math.round(sumAll))
-    }
+
+    if(lang === 'en') setSum((Math.round(sumAll * 100) / 100).toFixed(2))
+    else setSum(Math.round(sumAll))
   }
 
   const onBlur = (type) => {
-    if(validationForm(type, state[0], error, setError)){
-      return true
-    }
+    if(validationForm(type, state[0], error, setError)) return true
     return false
   }
 
@@ -191,6 +182,7 @@ const Basket = () => {
 
     const dataOrder = {
       basket,
+      sum,
       status: 'PENDING',
       user: {
         ...state[0],
@@ -203,11 +195,7 @@ const Basket = () => {
       note: note[0],
       currency: currency
     }
-    if(lang === 'en'){
-      dataOrder.sum = sum.replace(/,/g, '.')
-    }else{
-      dataOrder.sum = sum
-    }
+    dataOrder.sum = sum
 
 
     if(state[0].registrationCheck){

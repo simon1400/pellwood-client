@@ -31,7 +31,7 @@ const TotalEnd = ({sum, sale, sumBefore, basket, delivery, payment}) => {
               <td>{translate.delivery[lang]}</td>
               <td>
                 <span className={(delivery === translate.free[lang] || (!!delivery.length && (lang === 'cz' && sumBefore > 1500 || lang === 'en' && sumBefore > 100))) ? 'tm-positive' : ''}>
-                  {!!delivery.length && (lang === 'cz' && sumBefore < 1500 || lang === 'en' && sumBefore < 100) && delivery}
+                  {!!delivery.length && (lang === 'cz' && sumBefore <= 1500 || lang === 'en' && sumBefore <= 100) && delivery}
                   {!!delivery.length && (lang === 'cz' && sumBefore > 1500 || lang === 'en' && sumBefore > 100) && translate.free[lang]}
                   {!delivery.length && translate.notSelected[lang]}
                 </span>
@@ -43,7 +43,7 @@ const TotalEnd = ({sum, sale, sumBefore, basket, delivery, payment}) => {
             </tr>
             {sale > 0 && <tr>
               <td>{translate.sale[lang]}</td>
-              <td>-{lang === 'cz' ? sale : sale.replace(/\./g, ',')} {currency}</td>
+              <td>-{sale} {currency}</td>
             </tr>}
             <tr>
               <td>{translate.totalprice[lang]}</td>

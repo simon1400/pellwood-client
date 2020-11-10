@@ -36,7 +36,7 @@ const Variant = ({handle, name, price}) => {
   return(
     <li className="variant_select uk-flex" onClick={e => handle(name, price)}>
       <span className="uk-width-expand" >{name}</span>
-      <span className="uk-width-auto uk-text-right">{lang === 'en' ? (Math.round(price.replace(/,/g, '.') * 100) / 100).toFixed(2).replace(/\./g, ',') : price} {currency}</span>
+      <span className="uk-width-auto uk-text-right">{lang === 'en' ? (Math.round(price * 100) / 100).toFixed(2) : price} {currency}</span>
     </li>
   )
 }
@@ -67,7 +67,20 @@ const Product = ({match, history}) => {
       if(!data.products.length){
         window.location.href = '/not-found'
       }
-      setProduct(data.products[0][lang])
+      console.log(data.products[0][lang]);
+      var product = data.products[0][lang]
+      if(lang === 'en'){
+        if(typeof product.price === 'string'){
+          product.price.replace(/,/g, '.')
+        }else if(product.variants?.length){
+          product.variants = product.variants.map(variant => {
+            variant.price = variant.price.replace(/,/g, '.')
+            return variant
+          })
+        }
+      }
+
+      setProduct(product)
       setProductId(data.products[0]._id)
       const filteredLinedcards = data.products[0].linkedCarts.filter(item => item?.title)
       setCarts(filteredLinedcards)
@@ -116,7 +129,7 @@ const Product = ({match, history}) => {
       id: productId,
       nameProduct: product.title,
       variantName: select.name,
-      variantPrice: select.price.replace(/,/g, '.'),
+      variantPrice: select.price,
       countVariant: count,
       imgUrl: urlFor(product.image).url()
     }
@@ -193,7 +206,7 @@ const Product = ({match, history}) => {
                         return <div key={index} className="uk-grid uk-grid-medium" uk-grid="">
                           <div className="uk-width-expand">{item.title}</div>
                           <div className="short_price">
-                            {lang === 'en' ? (Math.round(+item.price.replace(/,/g, '.') * 100) / 100).toFixed(2).replace(/\./g, ',') : item.price} {currency}
+                            {lang === 'en' ? (Math.round(+item.price * 100) / 100).toFixed(2) : item.price} {currency}
                           </div>
                         </div>
                       }

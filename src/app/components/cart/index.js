@@ -20,23 +20,23 @@ const Cart = ({item, lang, currency, block}) => {
       setPricesGroup(true)
       var allPrices = []
       item.variants.map(item => {
-        allPrices.push(+item.price.replace(/,/g, '.'))
+        allPrices.push(+item.price)
       })
       var minPrice = Math.min(...allPrices)
       if(lang === 'en'){
-        setPrice((Math.round(minPrice * 100) / 100).toFixed(2).replace(/\./g, ','))
+        setPrice((Math.round(minPrice * 100) / 100).toFixed(2))
       }else{
         setPrice(minPrice)
       }
     }else if(item?.variants?.length === 1){
       if(lang === 'en'){
-        setPrice((Math.round(item.variants[0].price * 100) / 100).toFixed(2).replace(/\./g, ','))
+        setPrice((Math.round(item.variants[0].price * 100) / 100).toFixed(2))
       }else{
         setPrice(item.variants[0].price)
       }
     }else if (!item?.variants?.length){
       if(lang === 'en'){
-        setPrice((Math.round(+item.price * 100) / 100).toFixed(2).replace(/\./g, ','))
+        setPrice((Math.round(+item.price * 100) / 100).toFixed(2))
       }else{
         setPrice(item.price)
       }

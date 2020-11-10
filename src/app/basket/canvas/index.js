@@ -148,7 +148,7 @@ const Canvas = () => {
                 </tr>}
                 {sale > 0 && <tr>
                   <td>{translate.sale[lang]}</td>
-                  <td>-{sale}{' ' + currency}</td>
+                  <td>-{lang === 'cz' ? sale : sale.replace(/\./g, ',')}{' ' + currency}</td>
                 </tr>}
                 <tr>
                   <td>{translate.totalprice[lang]}</td>

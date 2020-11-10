@@ -43,7 +43,7 @@ const TotalEnd = ({sum, sale, sumBefore, basket, delivery, payment}) => {
             </tr>
             {sale > 0 && <tr>
               <td>{translate.sale[lang]}</td>
-              <td>-{sale.replace(/\./g, ',')} {currency}</td>
+              <td>-{lang === 'cz' ? sale : sale.replace(/\./g, ',')} {currency}</td>
             </tr>}
             <tr>
               <td>{translate.totalprice[lang]}</td>

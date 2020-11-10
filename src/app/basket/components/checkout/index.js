@@ -10,6 +10,7 @@ const routes = ['/basket/checkout', `/${lang}/basket/checkout`]
 const CheckoutWrap = ({
   state,
   error,
+  sumBefore,
   setError,
   user,
   anotherAdress,
@@ -36,6 +37,7 @@ const CheckoutWrap = ({
         handleChange={handleChange}
         state={state}
         error={error}
+        sumBefore={sumBefore}
         setError={setError}
         user={user}
         anotherAdress={anotherAdress}

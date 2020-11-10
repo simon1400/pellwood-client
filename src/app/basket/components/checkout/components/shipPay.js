@@ -16,15 +16,17 @@ const deliveryData = {
 const paymentData = {
   cz: [
     {value: 'Online bankovní platby', price: 'ZDARMA'},
-    {value: 'Platba kartou on-line', price: 'ZDARMA'}
+    {value: 'Platba kartou on-line', price: 'ZDARMA'},
+    {value: 'Na dobírku', price: '30 Kč'}
   ],
   en: [
     {value: 'Online bank transfer', price: 'FREE'},
-    {value: 'Card payment', price: 'FREE'}
+    {value: 'Card payment', price: 'FREE'},
+    {value: 'Cash on delivery', price: '2,50 €'}
   ]
 }
 
-const ShipPay = ({delivery, error, setError, setDelivery, payment, setPayment}) => {
+const ShipPay = ({delivery, error, setError, sumBefore, setDelivery, payment, setPayment}) => {
 
 
   const onChange = (type, item) => {
@@ -36,6 +38,8 @@ const ShipPay = ({delivery, error, setError, setDelivery, payment, setPayment}) 
       setError({...error, payment: false})
     }
   }
+
+  console.log(sumBefore);
 
   return(
     <div className="tm-payship">
@@ -51,7 +55,11 @@ const ShipPay = ({delivery, error, setError, setDelivery, payment, setPayment}) 
                 <label htmlFor={`delivery_${index}`}>{item.value}</label>
               </div>
             </div>
-            <div className={`method-price ${(item.price === 'ZDARMA' || item.price === 'FREE') && 'tm-positive'}`}>{item.price}</div>
+            <div className={`method-price ${(item.price === 'ZDARMA' || item.price === 'FREE' || (lang === 'cz' && sumBefore > 1000) || (lang === 'en' && sumBefore > 100)) && 'tm-positive'}`}>
+              {(lang === 'cz' && sumBefore < 1000 || lang === 'en' && sumBefore < 100) && item.price}
+              {lang === 'cz' && sumBefore > 1000 && 'ZDARMA'}
+              {lang === 'en' && sumBefore > 100 && 'FREE'}
+            </div>
           </div>)}
           {error.delivery && <div className="uk-alert-danger" uk-alert=""><p>Vyberte způsob dopravy</p></div>}
         </div>

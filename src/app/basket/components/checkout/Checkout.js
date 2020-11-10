@@ -17,6 +17,7 @@ const Checkout = ({
   error,
   setError,
   user,
+  sumBefore,
   anotherAdress,
   companyData,
   password,
@@ -107,6 +108,7 @@ const Checkout = ({
             delivery={deliveryMethod[0]}
             setDelivery={deliveryMethod[1]}
             payment={paymentMethod[0]}
+            sumBefore={sumBefore}
             setPayment={paymentMethod[1]}/>
 
         </fieldset>

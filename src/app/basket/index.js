@@ -23,6 +23,7 @@ const Basket = () => {
 
   const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
   const [sum, setSum] = useState(0)
+  const [sumBefore, setSumBefore] = useState(0)
   const [basket, setBasket] = useState(dataContextState.basket)
   const [user, setUser] = useState(dataContextState.user)
 
@@ -123,17 +124,25 @@ const Basket = () => {
       sumAll = +sumItem + sumAll
     })
 
+    let sumItemsBefore = sumAll
+    setSumBefore(sumItemsBefore)
+
+    if((lang === 'en' && sumAll > 150) || (lang === 'cz' && sumAll > 2000)){
+      sumAll = sumAll - (sumAll * 0.05)
+    }
+
     if(delivery || payment){
-      if(delivery !== 'ZDARMA' && delivery !== 'FREE') sumAll = +sumAll + +delivery.split(' ')[0]
-      if(payment !== 'ZDARMA' && payment !== 'FREE') sumAll = +sumAll + +payment.split(' ')[0]
+      if(delivery !== 'ZDARMA' && delivery !== 'FREE' && ((lang === 'en' && sumAll < 100) || (lang === 'cz' && sumAll < 1000))) sumAll = +sumAll + +delivery.split(' ')[0].replace(/,/g, '.')
+      if(payment !== 'ZDARMA' && payment !== 'FREE') sumAll = +sumAll + +payment.split(' ')[0].replace(/,/g, '.')
     }
     if(lang === 'en'){
       setSum((Math.round(sumAll * 100) / 100).toFixed(2).replace(/\./g, ','))
     }else{
       setSum(sumAll)
     }
-
   }
+
+
 
   const onBlur = (type) => {
     if(validationForm(type, state[0], error, setError)){
@@ -228,6 +237,7 @@ const Basket = () => {
             errorAnother={errorAnother}
             setErrorAnother={setErrorAnother}
             paymentMethod={paymentMethod}
+            sumBefore={sumBefore}
             onBlur={onBlur} />
         </div>
       </div>
@@ -237,6 +247,7 @@ const Basket = () => {
           <TotalEnd
             sum={sum}
             basket={basket}
+            sumBefore={sumBefore}
             delivery={deliveryMethod[0].price}
             payment={paymentMethod[0].price} />
           <div>

@@ -129,17 +129,21 @@ const Basket = () => {
     setSumBefore(sumItemsBefore)
 
 
-    if((lang === 'en' && sumAll > 150) || (lang === 'cz' && sumAll > 2000)){
-      setSale(sumAll * 0.05)
+    if(lang === 'en' && sumAll > 150){
+      setSale((Math.round(sumAll * 0.05 * 100) / 100).toFixed(2))
+      sumAll = sumAll - (sumAll * 0.05)
+    }else if(lang === 'cz' && sumAll > 2000) {
+      setSale(Math.round(sumAll * 0.05))
       sumAll = sumAll - (sumAll * 0.05)
     }
 
-    if(delivery || payment){
-      if(delivery !== 'ZDARMA' && delivery !== 'FREE'
-          && ((lang === 'en' && sumAll < 100) || (lang === 'cz' && sumAll < 1500)))
-          sumAll = +sumAll + +delivery.split(' ')[0].replace(/,/g, '.')
+    if(lang === 'en' && sumAll < 150 || lang === 'cz' && sumAll < 2000){
+      setSale(0)
+    }
 
-      if(payment !== 'ZDARMA' && payment !== 'FREE') sumAll = +sumAll + +payment.split(' ')[0].replace(/,/g, '.')
+    if(delivery || payment){
+      if(delivery !== translate.free[lang] && ((lang === 'en' && sumAll < 100) || (lang === 'cz' && sumAll < 1500))) sumAll = +sumAll + +delivery.split(' ')[0].replace(/,/g, '.')
+      if(payment !== translate.free[lang]) sumAll = +sumAll + +payment.split(' ')[0].replace(/,/g, '.')
     }
     if(lang === 'en'){
       setSum((Math.round(sumAll * 100) / 100).toFixed(2).replace(/\./g, ','))
@@ -147,8 +151,6 @@ const Basket = () => {
       setSum(Math.round(sumAll))
     }
   }
-
-
 
   const onBlur = (type) => {
     if(validationForm(type, state[0], error, setError)){

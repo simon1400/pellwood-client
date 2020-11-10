@@ -42,8 +42,8 @@ const TotalEnd = ({sum, sale, sumBefore, basket, delivery, payment}) => {
               <td><span className={(payment === translate.free[lang]) ? 'tm-positive' : ''}>{payment.length ? payment : translate.notSelected[lang]}</span></td>
             </tr>
             {sale > 0 && <tr>
-              <td>Sleva 5%</td>
-              <td>-{sale} {currency}</td>
+              <td>{translate.sale[lang]}</td>
+              <td>-{sale.replace(/\./g, ',')} {currency}</td>
             </tr>}
             <tr>
               <td>{translate.totalprice[lang]}</td>

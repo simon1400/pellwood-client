@@ -13,6 +13,8 @@ const Canvas = () => {
   const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
   const [basket, setBasket] = useState(dataContextState.basket)
   const [basketCount, setBasketCount] = useState(dataContextState.basketCount)
+  const [sum, setSum] = useState(0)
+  const [sale, setSale] = useState(0)
 
   useEffect(() => {
     setBasket(dataContextState.basket)
@@ -44,13 +46,29 @@ const Canvas = () => {
         sumAll = +sumItem + sumAll
       })
     }
-    if(lang === 'en'){
-      return (Math.round(sumAll * 100) / 100).toFixed(2).replace(/\./g, ',');
-    }else{
-      return sumAll;
+
+    if(lang === 'en' && sumAll > 150){
+      setSale((Math.round(sumAll * 0.05 * 100) / 100).toFixed(2))
+      sumAll = sumAll - (sumAll * 0.05)
+    }else if(lang === 'cz' && sumAll > 2000) {
+      setSale(Math.round(sumAll * 0.05))
+      sumAll = sumAll - (sumAll * 0.05)
     }
 
+    if(lang === 'en' && sumAll < 150 || lang === 'cz' && sumAll < 2000){
+      setSale(0)
+    }
+
+    if(lang === 'en'){
+      setSum((Math.round(sumAll * 100) / 100).toFixed(2).replace(/\./g, ','));
+    }else{
+      setSum(Math.round(sumAll));
+    }
   }
+
+  useEffect(() => {
+    onSumItems()
+  }, [])
 
   const deleteItem = (e) => {
     e.preventDefault()
@@ -104,11 +122,11 @@ const Canvas = () => {
                 <tr>
                   <td>{translate.delivery[lang]}</td>
                   <td>
-                    <span className={`${lang === 'en' && onSumItems() > 100 || lang === 'cz' && onSumItems() > 1500 && "tm-positive"}`}>
-                      {lang === 'cz' && onSumItems() < 1500 && 'od 150 Kč'}
-                      {lang === 'en' && onSumItems() < 100 && '10 €'}
-                      {lang === 'en' && onSumItems() > 100 && translate.free[lang]}
-                      {lang === 'cz' && onSumItems() > 1500 && translate.free[lang]}
+                    <span className={`${lang === 'en' && sum > 100 || lang === 'cz' && sum > 1500 && "tm-positive"}`}>
+                      {lang === 'cz' && sum < 1500 && 'od 150 Kč'}
+                      {lang === 'en' && sum < 100 && '10 €'}
+                      {lang === 'en' && sum > 100 && translate.free[lang]}
+                      {lang === 'cz' && sum > 1500 && translate.free[lang]}
                     </span>
                   </td>
                 </tr>
@@ -128,9 +146,13 @@ const Canvas = () => {
                   <td>5% discount on all products</td>
                   <td>over 150 €</td>
                 </tr>}
+                {sale > 0 && <tr>
+                  <td>{translate.sale[lang]}</td>
+                  <td>-{sale}{' ' + currency}</td>
+                </tr>}
                 <tr>
                   <td>{translate.totalprice[lang]}</td>
-                  <td>{basket !== undefined ? onSumItems() : 0}{' ' + currency}</td>
+                  <td>{sum}{' ' + currency}</td>
                 </tr>
               </tbody>
             </table>

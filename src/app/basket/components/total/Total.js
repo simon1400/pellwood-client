@@ -23,8 +23,8 @@ const Total = ({sum, sale}) => <div className="tm-basket-total">
           </td>
         </tr>
         {sale > 0 && <tr>
-          <td>Sleva 5%</td>
-          <td>-{sale} {currency}</td>
+          <td>{translate.sale[lang]}</td>
+          <td>-{lang === 'cz' ? sale : sale.replace(/\./g, ',')} {currency}</td>
         </tr>}
         <tr>
           <td>{translate.totalprice[lang]}</td>

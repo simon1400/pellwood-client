@@ -127,11 +127,10 @@ const Basket = () => {
     let sumItemsBefore = sumAll
     setSumBefore(sumItemsBefore)
 
-
     if(lang === 'en' && sumAll > 150) setSale((Math.round(sumAll * 0.05 * 100) / 100).toFixed(2))
     else if(lang === 'cz' && sumAll > 2000) setSale(Math.round(sumAll * 0.05))
 
-    if(sumAll > 2000 || sumAll > 150){
+    if((lang === 'cz' && sumAll > 2000) || (lang === 'en' && sumAll > 150)){
       setSumBefore(Math.round(sumAll - (sumAll * 0.05)))
       sumAll = sumAll - (sumAll * 0.05)
     }

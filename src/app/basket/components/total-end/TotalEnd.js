@@ -5,7 +5,7 @@ import translate from '../../../data/staticTranslate'
 import localize from '../../../data/localize'
 const {lang, currency} = localize(window.location.href)
 
-const TotalEnd = ({sum, sumBefore, basket, delivery, payment}) => {
+const TotalEnd = ({sum, sale, sumBefore, basket, delivery, payment}) => {
 
   return(
     <div className="tm-total-end">
@@ -30,18 +30,21 @@ const TotalEnd = ({sum, sumBefore, basket, delivery, payment}) => {
             <tr>
               <td>{translate.delivery[lang]}</td>
               <td>
-                <span className={(delivery === 'ZDARMA' || delivery === 'FREE' || (!!delivery.length && (lang === 'cz' && sumBefore > 1000 || lang === 'en' && sumBefore > 100))) ? 'tm-positive' : ''}>
-                  {!!delivery.length && (lang === 'cz' && sumBefore < 1000 || lang === 'en' && sumBefore < 100) && delivery}
-                  {!!delivery.length && (lang === 'cz' && sumBefore > 1000) && 'ZDARMA'}
-                  {!!delivery.length && (lang === 'en' && sumBefore > 100) && 'FREE'}
+                <span className={(delivery === translate.free[lang] || (!!delivery.length && (lang === 'cz' && sumBefore > 1500 || lang === 'en' && sumBefore > 100))) ? 'tm-positive' : ''}>
+                  {!!delivery.length && (lang === 'cz' && sumBefore < 1500 || lang === 'en' && sumBefore < 100) && delivery}
+                  {!!delivery.length && (lang === 'cz' && sumBefore > 1500 || lang === 'en' && sumBefore > 100) && translate.free[lang]}
                   {!delivery.length && translate.notSelected[lang]}
                 </span>
             </td>
             </tr>
             <tr>
               <td>{translate.payment[lang]}</td>
-              <td><span className={(payment === 'ZDARMA' || payment === 'FREE') ? 'tm-positive' : ''}>{payment.length ? payment : translate.notSelected[lang]}</span></td>
+              <td><span className={(payment === translate.free[lang]) ? 'tm-positive' : ''}>{payment.length ? payment : translate.notSelected[lang]}</span></td>
             </tr>
+            {sale > 0 && <tr>
+              <td>Sleva 5%</td>
+              <td>-{sale} {currency}</td>
+            </tr>}
             <tr>
               <td>{translate.totalprice[lang]}</td>
               <td>{sum} {' ' + currency}</td>

@@ -7,12 +7,13 @@ const routes = ['/basket/checkout', `/${lang}/basket/checkout`]
 
 const TotalEndWrap = ({
   sum,
+  sale,
   sumBefore,
   basket,
   delivery,
   payment
 }) => <>
-  {routes.map((item, index) => <Route exact path={item} render={() => <TotalEnd sum={sum} sumBefore={sumBefore} basket={basket} delivery={delivery} payment={payment} />}/>)}
+  {routes.map((item, index) => <Route exact path={item} render={() => <TotalEnd sum={sum} sale={sale} sumBefore={sumBefore} basket={basket} delivery={delivery} payment={payment} />}/>)}
 </>
 
 export default TotalEndWrap

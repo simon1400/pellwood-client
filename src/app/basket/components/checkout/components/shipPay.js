@@ -55,9 +55,9 @@ const ShipPay = ({delivery, error, setError, sumBefore, setDelivery, payment, se
                 <label htmlFor={`delivery_${index}`}>{item.value}</label>
               </div>
             </div>
-            <div className={`method-price ${(item.price === 'ZDARMA' || item.price === 'FREE' || (lang === 'cz' && sumBefore > 1000) || (lang === 'en' && sumBefore > 100)) && 'tm-positive'}`}>
-              {(lang === 'cz' && sumBefore < 1000 || lang === 'en' && sumBefore < 100) && item.price}
-              {lang === 'cz' && sumBefore > 1000 && 'ZDARMA'}
+            <div className={`method-price ${(item.price === 'ZDARMA' || item.price === 'FREE' || (lang === 'cz' && sumBefore > 1500) || (lang === 'en' && sumBefore > 100)) && 'tm-positive'}`}>
+              {(lang === 'cz' && sumBefore < 1500 || lang === 'en' && sumBefore < 100) && item.price}
+              {lang === 'cz' && sumBefore > 1500 && 'ZDARMA'}
               {lang === 'en' && sumBefore > 100 && 'FREE'}
             </div>
           </div>)}

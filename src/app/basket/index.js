@@ -24,6 +24,7 @@ const Basket = () => {
   const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
   const [sum, setSum] = useState(0)
   const [sumBefore, setSumBefore] = useState(0)
+  const [sale, setSale] = useState(0)
   const [basket, setBasket] = useState(dataContextState.basket)
   const [user, setUser] = useState(dataContextState.user)
 
@@ -127,18 +128,23 @@ const Basket = () => {
     let sumItemsBefore = sumAll
     setSumBefore(sumItemsBefore)
 
+
     if((lang === 'en' && sumAll > 150) || (lang === 'cz' && sumAll > 2000)){
+      setSale(sumAll * 0.05)
       sumAll = sumAll - (sumAll * 0.05)
     }
 
     if(delivery || payment){
-      if(delivery !== 'ZDARMA' && delivery !== 'FREE' && ((lang === 'en' && sumAll < 100) || (lang === 'cz' && sumAll < 1000))) sumAll = +sumAll + +delivery.split(' ')[0].replace(/,/g, '.')
+      if(delivery !== 'ZDARMA' && delivery !== 'FREE'
+          && ((lang === 'en' && sumAll < 100) || (lang === 'cz' && sumAll < 1500)))
+          sumAll = +sumAll + +delivery.split(' ')[0].replace(/,/g, '.')
+
       if(payment !== 'ZDARMA' && payment !== 'FREE') sumAll = +sumAll + +payment.split(' ')[0].replace(/,/g, '.')
     }
     if(lang === 'en'){
       setSum((Math.round(sumAll * 100) / 100).toFixed(2).replace(/\./g, ','))
     }else{
-      setSum(sumAll)
+      setSum(Math.round(sumAll))
     }
   }
 
@@ -243,10 +249,11 @@ const Basket = () => {
       </div>
       <div className="basket-right-panel">
         <div className="basket-right-content">
-          <Total sum={sum} currency={currency} />
+          <Total sum={sumBefore} sale={sale} />
           <TotalEnd
             sum={sum}
             basket={basket}
+            sale={sale}
             sumBefore={sumBefore}
             delivery={deliveryMethod[0].price}
             payment={paymentMethod[0].price} />

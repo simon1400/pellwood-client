@@ -103,8 +103,31 @@ const Canvas = () => {
               <tbody>
                 <tr>
                   <td>{translate.delivery[lang]}</td>
-                  <td>{translate.free[lang]}</td>
+                  <td>
+                    <span className={`${lang === 'en' && onSumItems() > 100 || lang === 'cz' && onSumItems() > 1500 && "tm-positive"}`}>
+                      {lang === 'cz' && onSumItems() < 1500 && 'od 150 Kč'}
+                      {lang === 'en' && onSumItems() < 100 && '10 €'}
+                      {lang === 'en' && onSumItems() > 100 && translate.free[lang]}
+                      {lang === 'cz' && onSumItems() > 1500 && translate.free[lang]}
+                    </span>
+                  </td>
                 </tr>
+                {lang === 'cz' && <tr>
+                  <td>Doprava ZDARMA po ČR a SK</td>
+                  <td>nad 1500 Kč</td>
+                </tr>}
+                {lang === 'cz' && <tr>
+                  <td>Sleva 5 % na všechny produkty</td>
+                  <td>nad 2000 Kč</td>
+                </tr>}
+                {lang === 'en' && <tr>
+                  <td>Free delivery to DE and AU</td>
+                  <td>over 100 €</td>
+                </tr>}
+                {lang === 'en' && <tr>
+                  <td>5% discount on all products</td>
+                  <td>over 150 €</td>
+                </tr>}
                 <tr>
                   <td>{translate.totalprice[lang]}</td>
                   <td>{basket !== undefined ? onSumItems() : 0}{' ' + currency}</td>

@@ -6,7 +6,6 @@ import SubMenu from '../../components/sub-menu';
 import sanityClient from "../../../lib/sanity.js";
 import ModalFilter from './modalFilter'
 import {modal, util} from 'uikit'
-import InfiniteScroll from 'react-infinite-scroller'
 import translate from '../../data/staticTranslate'
 
 import times from '../../assets/times.svg'

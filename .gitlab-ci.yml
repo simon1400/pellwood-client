@@ -8,8 +8,8 @@ build:
       - pellwood-app
     script:
       - echo "Building deploy package"
-      - yarn install
-      - yarn build
+      - npm run install
+      - npm run build
       - echo "Build successful"
     artifacts:
       expire_in: 1 hour

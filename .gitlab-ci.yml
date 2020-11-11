@@ -8,7 +8,7 @@ build:
       - pellwood-app
     script:
       - echo "Building deploy package"
-      - npm run install
+      - npm install
       - npm run build
       - echo "Build successful"
     artifacts:

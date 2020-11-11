@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {modal} from 'uikit'
 import './style.scss'
+import {AxiosAPI} from '../../../restClient'
 import {Link} from 'react-router-dom'
 import translate from '../../../data/staticTranslate'
 
@@ -25,8 +26,12 @@ const ForgotPassword = () => {
     }
   }
 
-  const forgotPassword = e => {
+
+  const send = (e) => {
     e.preventDefault()
+    AxiosAPI.post(`${process.env.REACT_APP_API}/send/reset-password`, {email}).then(res => {
+      console.log(res);
+    }).catch(err => console.log(err))
   }
 
   return(
@@ -39,7 +44,7 @@ const ForgotPassword = () => {
         </div>
 
         <div className="login_form">
-          <form onSubmit={e => forgotPassword(e)}>
+          <form onSubmit={e => send(e)}>
 
             {error.loginEmail === 'notExist' && <div className="uk-alert-danger" uk-alert=""><p>Zadaliste spatne email nebo heslo</p></div>}
             {error.loginEmail === 'exist' && <div className="uk-alert-danger" uk-alert=""><p>Uzivatel s timto emailem uz existuje</p></div>}

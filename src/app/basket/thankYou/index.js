@@ -3,7 +3,7 @@ import './style.scss'
 import translate from '../../data/staticTranslate'
 import getUrl from '../../function/getSearch'
 import localize from '../../data/localize'
-import axios from 'axios'
+import {AxiosAPI} from '../../restClient'
 const {lang, currency} = localize(window.location.href)
 
 const ThankYou = () => {
@@ -12,8 +12,8 @@ const ThankYou = () => {
 
   useEffect(() => {
     var serchUrl = getUrl(window.location.search);
-    axios.post(`${process.env.REACT_APP_API}/payment/status/${serchUrl.refId}`).then(res => {
-      axios.post(`${process.env.REACT_APP_API}/send/orderInfo`, res.data.data[0]).then(res => {
+    AxiosAPI.post(`${process.env.REACT_APP_API}/payment/status/${serchUrl.refId}`).then(res => {
+      AxiosAPI.post(`${process.env.REACT_APP_API}/send/orderInfo`, res.data.data[0]).then(res => {
         console.log(res.data);
       })
       setStatus(res.data.data[0].status)

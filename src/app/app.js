@@ -1,7 +1,6 @@
 // The basics
 import React, { useState, useEffect, useContext } from 'react';
 import { withRouter } from 'react-router';
-import axios from 'axios'
 import { DataStateContext } from './context/dataStateContext'
 import Header from './layout/header';
 import Routes from './routers.js';

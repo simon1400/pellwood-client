@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
 import { withRouter } from "react-router";
-import axios from 'axios'
+import {AxiosAPI} from '../restClient'
 import './style.scss'
 import { DataStateContext } from '../context/dataStateContext'
 import translate from '../data/staticTranslate'
@@ -196,12 +196,12 @@ const Basket = () => {
     }
 
     if(state[0].registrationCheck){
-      axios.post(`${process.env.REACT_APP_API}/user`, {data: dataOrder.user, type: 'create'}).then(res =>
+      AxiosAPI.post(`${process.env.REACT_APP_API}/user`, {data: dataOrder.user, type: 'create'}).then(res =>
         dataContextDispatch({ state: res.data.data, type: 'user' })
       )
     }
 
-    await axios.post(`${process.env.REACT_APP_API}/order`, dataOrder).then(res => {
+    await AxiosAPI.post(`${process.env.REACT_APP_API}/order`, dataOrder).then(res => {
       dataContextDispatch({ state: [], type: 'basket' })
       dataContextDispatch({ state: 0, type: 'basketCount' })
       window.location.href = decodeURIComponent(res.data.data.redirect)

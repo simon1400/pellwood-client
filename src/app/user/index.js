@@ -5,7 +5,7 @@ import Head from './components/head'
 import AnimateHeight from 'react-animate-height';
 import './style.scss'
 import { DataStateContext } from '../context/dataStateContext'
-import axios from 'axios'
+import {AxiosAPI} from '../restClient'
 import translate from '../data/staticTranslate'
 import validationForm from '../function/validationForm'
 import localize from '../data/localize'
@@ -45,7 +45,7 @@ const User = () => {
 
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API}/order/${state[0].email}`).then(res => {
+    AxiosAPI.get(`${process.env.REACT_APP_API}/order/${state[0].email}`).then(res => {
       setOrders(res.data.data)
     })
   }, [])
@@ -73,7 +73,7 @@ const User = () => {
       anotherAdress: anotherAdress[0],
       companyData: companyData[0]
     }
-    await axios.put(`${process.env.REACT_APP_API}/user`, {data: saveData, type: 'update'}).then(res => {
+    await AxiosAPI.put(`${process.env.REACT_APP_API}/user`, {data: saveData, type: 'update'}).then(res => {
       dataContextDispatch({ state: res.data.data, type: 'user' })
     }).catch(err => {
       console.log(err);

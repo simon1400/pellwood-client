@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import translate from '../../../data/staticTranslate'
 import validationForm from '../../../function/validationForm'
 import { DataStateContext } from '../../../context/dataStateContext'
-import axios from 'axios'
+import {AxiosAPI} from '../../../restClient'
 
 import localize from '../../../data/localize'
 const {lang, currency} = localize(window.location.href)
@@ -60,7 +60,7 @@ const Login = ({setLoginUser}) => {
       return
     }
 
-    axios.post(`${process.env.REACT_APP_API}/user/login`, { email, password }).then(res => {
+    AxiosAPI.post(`${process.env.REACT_APP_API}/user/login`, { email, password }).then(res => {
       dataContextDispatch({ state: res.data.data, type: 'user' })
       setLoginUser(true)
       modal('#modal-login').hide();
@@ -77,12 +77,12 @@ const Login = ({setLoginUser}) => {
       return
     }
 
-    axios.post(`${process.env.REACT_APP_API}/user`, { email, password }).then(res => {
+    AxiosAPI.post(`${process.env.REACT_APP_API}/user`, { email, password }).then(res => {
       if(res.data.error === 'email'){ setError({ ...error, email: 'exist' })
       }else if(res.data?.error?.email){ setError({ ...error, email: 'empty' })
       }else if(res.data?.error?.password){ setError({ ...error, password: 'empty' })
       }else{
-        // axios.post(`${process.env.REACT_APP_API}/sendRegistration`, {email: res.data.data.email}).then(res => console.log('send mail'))
+        // AxiosAPI.post(`${process.env.REACT_APP_API}/sendRegistration`, {email: res.data.data.email}).then(res => console.log('send mail'))
         dataContextDispatch({ state: res.data.data, type: 'user' })
         setLoginUser(true)
         if(lang === 'en'){

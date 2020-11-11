@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Canvas from '../basket/canvas'
 import sanityClient from "../../lib/sanity.js";
-import axios from 'axios'
+import {AxiosAPI} from '../restClient'
 import UIkit from 'uikit'
 import translate from '../data/staticTranslate'
 import { DataStateContext } from '../context/dataStateContext'

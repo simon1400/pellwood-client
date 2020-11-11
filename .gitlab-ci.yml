@@ -9,7 +9,7 @@ build:
     script:
       - echo "Building deploy package"
       - npm install
-      - npm run build
+      - CI=npm run build
       - echo "Build successful"
     artifacts:
       expire_in: 1 hour

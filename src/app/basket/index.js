@@ -196,12 +196,12 @@ const Basket = () => {
     }
 
     if(state[0].registrationCheck){
-      axios.post('/api/user', {data: dataOrder.user, type: 'create'}).then(res =>
+      axios.post(`${process.env.REACT_APP_API}/user`, {data: dataOrder.user, type: 'create'}).then(res =>
         dataContextDispatch({ state: res.data.data, type: 'user' })
       )
     }
 
-    await axios.post('/api/order', dataOrder).then(res => {
+    await axios.post(`${process.env.REACT_APP_API}/order`, dataOrder).then(res => {
       dataContextDispatch({ state: [], type: 'basket' })
       dataContextDispatch({ state: 0, type: 'basketCount' })
       window.location.href = decodeURIComponent(res.data.data.redirect)

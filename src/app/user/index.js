@@ -45,7 +45,7 @@ const User = () => {
 
 
   useEffect(() => {
-    axios.get(`/api/order/${state[0].email}`).then(res => {
+    axios.get(`${process.env.REACT_APP_API}/order/${state[0].email}`).then(res => {
       setOrders(res.data.data)
     })
   }, [])
@@ -73,7 +73,7 @@ const User = () => {
       anotherAdress: anotherAdress[0],
       companyData: companyData[0]
     }
-    await axios.put('/api/user', {data: saveData, type: 'update'}).then(res => {
+    await axios.put(`${process.env.REACT_APP_API}/user`, {data: saveData, type: 'update'}).then(res => {
       dataContextDispatch({ state: res.data.data, type: 'user' })
     }).catch(err => {
       console.log(err);

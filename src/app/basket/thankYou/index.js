@@ -12,8 +12,8 @@ const ThankYou = () => {
 
   useEffect(() => {
     var serchUrl = getUrl(window.location.search);
-    axios.post(`/api/payment/status/${serchUrl.refId}`).then(res => {
-      axios.post('/api/send/orderInfo', res.data.data[0]).then(res => {
+    axios.post(`${process.env.REACT_APP_API}/payment/status/${serchUrl.refId}`).then(res => {
+      axios.post(`${process.env.REACT_APP_API}/send/orderInfo`, res.data.data[0]).then(res => {
         console.log(res.data);
       })
       setStatus(res.data.data[0].status)

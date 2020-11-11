@@ -60,7 +60,7 @@ const Login = ({setLoginUser}) => {
       return
     }
 
-    axios.post('/api/user/login', { email, password }).then(res => {
+    axios.post(`${process.env.REACT_APP_API}/user/login`, { email, password }).then(res => {
       dataContextDispatch({ state: res.data.data, type: 'user' })
       setLoginUser(true)
       modal('#modal-login').hide();
@@ -77,12 +77,12 @@ const Login = ({setLoginUser}) => {
       return
     }
 
-    axios.post('/api/user', { email, password }).then(res => {
+    axios.post(`${process.env.REACT_APP_API}/user`, { email, password }).then(res => {
       if(res.data.error === 'email'){ setError({ ...error, email: 'exist' })
       }else if(res.data?.error?.email){ setError({ ...error, email: 'empty' })
       }else if(res.data?.error?.password){ setError({ ...error, password: 'empty' })
       }else{
-        // axios.post('/api/sendRegistration', {email: res.data.data.email}).then(res => console.log('send mail'))
+        // axios.post(`${process.env.REACT_APP_API}/sendRegistration`, {email: res.data.data.email}).then(res => console.log('send mail'))
         dataContextDispatch({ state: res.data.data, type: 'user' })
         setLoginUser(true)
         if(lang === 'en'){

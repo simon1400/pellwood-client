@@ -1,71 +1,30 @@
-image: docker:latest
-
 stages:
-    - "build prod"
-    - "deploy prod"
+    - build
+    - deploy
 
-variables:
-    DOCKER_TLS_CERTDIR: "/certs"
-    DEMO_DIR_HOST: /var/bezones/app/demo/
-    PROD_DIR_HOST: /var/bezones/app/prod/
-    DEV_SERVER_SSH: bezones@git.bezones.cz
-    PROD_SERVER_SSH: bezones@git.bezones.cz
-    API_DEMO_URL: API_URL=https://api.demo.bezones.cz
-    API_PROD_URL: API_URL=https://api.bezones.cz
-before_script:
-    - mkdir -p ~/.ssh
-    - echo "$SSH_CONFIG" > ~/.ssh/config
-    - echo "$SSH_DEPLOY_KEY" > ~/.ssh/deploy
-    - chmod -R 600 ~/.ssh
-    - docker info
-    - docker login registry.bezones.cz -u $DOCKER_LOGIN_NAME -p $DOCKER_LOGIN_PASSWORD
-
-services:
-    - docker:dind
-
-build from prod:
-    stage: "build prod"
-    only:
-        refs:
-            - master
+build:
+    stage: build
+    tags:
+      - pellwood-app
     script:
-        - docker build -f ./docker/Dockerfile --no-cache -t ${CI_PROJECT_NAME}:${CI_COMMIT_BRANCH} .
-        - docker tag ${CI_PROJECT_NAME}:${CI_COMMIT_BRANCH} registry.bezones.cz/${CI_PROJECT_NAME}:${CI_COMMIT_BRANCH}
-        - docker push registry.bezones.cz/${CI_PROJECT_NAME}
-
-build from demo:
-    stage: "build demo"
-    only:
-        refs:
-            - demo
+      - echo "Building deploy package"
+      - yarn install
+      - yarn build
+      - echo "Build successful"
+    artifacts:
+      expire_in: 1 hour
+      paths:
+        - build
+deploy_production:
+    stage: deploy
+    tags:
+      - pellwood-app
     script:
-        - docker build -f ./docker/Dockerfile --build-arg BUILD_TYPE=demo --no-cache -t ${CI_PROJECT_NAME}:${CI_COMMIT_BRANCH} .
-        - docker tag ${CI_PROJECT_NAME}:${CI_COMMIT_BRANCH} registry.bezones.cz/${CI_PROJECT_NAME}:${CI_COMMIT_BRANCH}
-        - docker push registry.bezones.cz/${CI_PROJECT_NAME}
-
-deploy to host demo:
-    stage: "deploy demo"
+        - echo "Deploying to server"
+        - cp -rv build/* /var/www/pellwood/client/
+        - echo "Deployed"
+    environment:
+        name: production
+        url: https://pellwood.tk
     only:
-        refs:
-            - demo
-    script:
-        - ssh $DEV_SERVER_SSH -p 2222 "mkdir -p $DEMO_DIR_HOST"
-        - scp -P 2222 -rp ./deploy/demo/* $DEV_SERVER_SSH:$DEMO_DIR_HOST/
-        - ssh $DEV_SERVER_SSH -p 2222 "sudo docker login registry.bezones.cz -u $DOCKER_LOGIN_NAME -p $DOCKER_LOGIN_PASSWORD"
-        - ssh $DEV_SERVER_SSH -p 2222 "cd $DEMO_DIR_HOST && sudo docker-compose pull"
-        - ssh $DEV_SERVER_SSH -p 2222 "cd $DEMO_DIR_HOST && sudo docker-compose down"
-        - ssh $DEV_SERVER_SSH -p 2222 "cd $DEMO_DIR_HOST && sudo docker-compose up -d"
-        - ssh $DEV_SERVER_SSH -p 2222 "sudo docker image prune -f"
-
-deploy to host prod:
-    stage: "deploy prod"
-    only:
-        refs:
-            - master
-    script:
-        - ssh $PROD_SERVER_SSH -p 2222 "mkdir -p $PROD_DIR_HOST"
-        - scp -P 2222 -rp ./deploy/prod/* $PROD_SERVER_SSH:$PROD_DIR_HOST/
-        - ssh $PROD_SERVER_SSH -p 2222 "sudo docker login registry.bezones.cz -u $DOCKER_LOGIN_NAME -p $DOCKER_LOGIN_PASSWORD"
-        - ssh $PROD_SERVER_SSH -p 2222 "cd $PROD_DIR_HOST && sudo docker-compose pull"
-        - ssh $PROD_SERVER_SSH -p 2222 "cd $PROD_DIR_HOST && sudo docker-compose down"
-        - ssh $PROD_SERVER_SSH -p 2222 "cd $PROD_DIR_HOST && sudo docker-compose up -d"
+        - master

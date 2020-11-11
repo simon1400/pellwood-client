@@ -45,7 +45,7 @@ const User = () => {
 
 
   useEffect(() => {
-    axios.post('/api/getOrder', {email: state[0].email}).then(res => {
+    axios.get(`/api/order/${state[0].email}`).then(res => {
       setOrders(res.data.data)
     })
   }, [])
@@ -73,7 +73,7 @@ const User = () => {
       anotherAdress: anotherAdress[0],
       companyData: companyData[0]
     }
-    await axios.post('/api/update', {data: saveData, type: 'update'}).then(res => {
+    await axios.put('/api/user', {data: saveData, type: 'update'}).then(res => {
       dataContextDispatch({ state: res.data.data, type: 'user' })
     }).catch(err => {
       console.log(err);

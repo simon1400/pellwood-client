@@ -60,7 +60,7 @@ const Login = ({setLoginUser}) => {
       return
     }
 
-    axios.post('/api/login', { email, password }).then(res => {
+    axios.post('/api/user/login', { email, password }).then(res => {
       dataContextDispatch({ state: res.data.data, type: 'user' })
       setLoginUser(true)
       modal('#modal-login').hide();
@@ -77,7 +77,7 @@ const Login = ({setLoginUser}) => {
       return
     }
 
-    axios.post('/api/userCreate', { email, password }).then(res => {
+    axios.post('/api/user', { email, password }).then(res => {
       if(res.data.error === 'email'){ setError({ ...error, email: 'exist' })
       }else if(res.data?.error?.email){ setError({ ...error, email: 'empty' })
       }else if(res.data?.error?.password){ setError({ ...error, password: 'empty' })

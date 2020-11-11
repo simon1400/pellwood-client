@@ -130,7 +130,7 @@ const Basket = () => {
     if(lang === 'en' && sumAll > 150) setSale((Math.round(sumAll * 0.05 * 100) / 100).toFixed(2))
     else if(lang === 'cz' && sumAll > 2000) setSale(Math.round(sumAll * 0.05))
 
-    if((lang === 'cz' && sumAll > 2000) || (lang === 'en' && sumAll > 150)){
+    if(lang === 'cz' && sumAll > 2000 || lang === 'en' && sumAll > 150){
       setSumBefore(Math.round(sumAll - (sumAll * 0.05)))
       sumAll = sumAll - (sumAll * 0.05)
     }
@@ -194,16 +194,14 @@ const Basket = () => {
       note: note[0],
       currency: currency
     }
-    dataOrder.sum = sum
-
 
     if(state[0].registrationCheck){
-      axios.post('/api/update', {data: dataOrder.user, type: 'create'}).then(res =>
+      axios.post('/api/user', {data: dataOrder.user, type: 'create'}).then(res =>
         dataContextDispatch({ state: res.data.data, type: 'user' })
       )
     }
 
-    await axios.post('/api/createOrder', dataOrder).then(res => {
+    await axios.post('/api/order', dataOrder).then(res => {
       dataContextDispatch({ state: [], type: 'basket' })
       dataContextDispatch({ state: 0, type: 'basketCount' })
       window.location.href = decodeURIComponent(res.data.data.redirect)

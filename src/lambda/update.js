@@ -24,8 +24,6 @@ exports.handler = async (event, context) => {
         userData = await User.create(data)
       }
 
-      console.log(userData);
-
       let response = {
         msg: "User successfully",
         data: userData

@@ -285,8 +285,8 @@ export default {
     de: "xxx"
   },
   free: {
-    cz: "ZDARMA",
-    en: "FREE",
+    cz: "Zdarma",
+    en: "Free",
     de: "xxx"
   },
   yourBasket: {
@@ -404,12 +404,6 @@ export default {
     en: "over 150 €",
     de: "xxx"
   },
-
-
-
-
-  // odsud
-
   companyName: {
     cz: "Obchodní jméno",
     en: "Company name",
@@ -443,6 +437,60 @@ export default {
   sale: {
     cz: "Sleva 5%",
     en: "Discount 5%",
+    de: "xxx"
+  },
+
+	  // odsud
+
+
+  PayStatusCash: {
+    cz: "Platba na dobírku",
+    en: "Payment on delivery",
+    de: "xxx"
+  },
+  PayStatusError: {
+    cz: "Platba se nezdařila",
+    en: "Payment failed",
+    de: "xxx"
+  },
+  PayStatusOk: {
+    cz: "Platba zaplacena",
+    en: "Transaction completed",
+    de: "xxx"
+  },
+  PayStatusWait: {
+    cz: "Čeká na zaplacení",
+    en: "Awaiting payment",
+    de: "xxx"
+  },
+  selectDeliveryError: {
+    cz: "Vyberte způsob dopravy",
+    en: "Select a delivery method",
+    de: "xxx"
+  },
+  selectPayMehodError: {
+    cz: "Vyberte způsob platby",
+    en: "Select the payment method",
+    de: "xxx"
+  },
+  sendResetPasswordButton: {
+    cz: "Odeslat požadavek",
+    en: "Submit a request",
+    de: "xxx"
+  },
+  thankOrder: {
+    cz: "Děkujeme za Vaši objednávku",
+    en: "Thank you for your order",
+    de: "xxx"
+  },
+  thankInfo: {
+    cz: "Na Vámi uvedený e-mail bylo zasláno potvrzení o provedené objednávce.",
+    en: "A confirmation of the order has been sent to your e-mail.",
+    de: "xxx"
+  },
+  errorSendOrder: {
+    cz: "Chyba, zkontrolujte si prosím vaše údaje.",
+    en: "Error, please check your details.",
     de: "xxx"
   }
 }

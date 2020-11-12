@@ -59,7 +59,7 @@ const ShipPay = ({delivery, error, setError, sumBefore, setDelivery, payment, se
               {lang === 'en' && sumBefore > 100 && 'FREE'}
             </div>
           </div>)}
-          {error.delivery && <div className="uk-alert-danger" uk-alert=""><p>Vyberte způsob dopravy</p></div>}
+          {error.delivery && <div className="uk-alert-danger" uk-alert=""><p>{translate.selectDeliveryError[lang]}</p></div>}
         </div>
 
         <div>
@@ -75,7 +75,7 @@ const ShipPay = ({delivery, error, setError, sumBefore, setDelivery, payment, se
             <div className={`method-price ${(item.price === 'ZDARMA' || item.price === 'FREE') && 'tm-positive'}`}>{item.price}</div>
           </div>)}
 
-          {error.payment && <div className="uk-alert-danger" uk-alert=""><p>Vyberte způsob platby</p></div>}
+          {error.payment && <div className="uk-alert-danger" uk-alert=""><p>{translate.selectPayMehodError[lang]}</p></div>}
         </div>
       </div>
     </div>

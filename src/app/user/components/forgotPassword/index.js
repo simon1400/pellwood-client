@@ -55,7 +55,7 @@ const ForgotPassword = () => {
               <label>{translate.formemail[lang]}</label>
             </div>
 
-            <button type="submit" className="tm-button tm-black-button uk-width-1-1">Odeslat nove heslo</button>
+            <button type="submit" className="tm-button tm-black-button uk-width-1-1">{translate.sendResetPasswordButton[lang]}</button>
           </form>
         </div>
 

@@ -4,7 +4,7 @@ export default {
     {name: 'sk', value: 'Slovensko'},
   ],
   en: [
-    {name: 'de', value: 'Německo'},
-    {name: 'at', value: 'Rakousko'}
+    {name: 'de', value: 'Deutschland'},
+    {name: 'at', value: 'Austria'}
   ]
 }

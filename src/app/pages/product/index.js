@@ -67,7 +67,7 @@ const Product = ({match, history}) => {
       if(!data.products.length){
         window.location.href = '/not-found'
       }
-      console.log(data.products[0][lang]);
+
       var product = data.products[0][lang]
       if(lang === 'en'){
         if(typeof product.price === 'string'){
@@ -80,9 +80,22 @@ const Product = ({match, history}) => {
         }
       }
 
+
       setProduct(product)
       setProductId(data.products[0]._id)
       const filteredLinedcards = data.products[0].linkedCarts.filter(item => item?.title)
+      if(lang === 'en'){
+        filteredLinedcards.map(item => {
+          if(typeof item.price === 'string'){
+            item.price.replace(/,/g, '.')
+          }else if(item.variants?.length){
+            item.variants = item.variants.map(variant => {
+              variant.price = variant.price.replace(/,/g, '.')
+              return variant
+            })
+          }
+        })
+      }
       setCarts(filteredLinedcards)
       const articlesFilteredFirst = data.articles.filter(item => item[lang]?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
       shuffle(articlesFilteredFirst, 0)

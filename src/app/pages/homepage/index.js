@@ -18,8 +18,6 @@ function urlFor(source) {
   return imageBuilder.image(source);
 }
 
-
-
 const query = `{
   'homepage': *[_type == "homepage"] {
     ${lang},
@@ -51,6 +49,18 @@ export default ({match}) => {
     }
     sanityClient.fetch(query).then(data => {
       setHomepage(data.homepage[0][lang])
+      if(lang === 'en'){
+        data.homepage[0].carts.map(item => {
+          if(typeof item.price === 'string'){
+            item.price.replace(/,/g, '.')
+          }else if(item.variants?.length){
+            item.variants = item.variants.map(variant => {
+              variant.price = variant.price.replace(/,/g, '.')
+              return variant
+            })
+          }
+        })
+      }
       setCarts(data.homepage[0].carts)
       var articlesFilteredFirst = data.articles.filter(item => item?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
       shuffle(articlesFilteredFirst, 0)

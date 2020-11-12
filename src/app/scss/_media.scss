@@ -362,6 +362,10 @@
 }
 
 @media(max-width: 440px){
+  .basket .tm-basket-content{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 
   .tm-basket-body table tbody tr td .custom_number{
     min-width: 140px;

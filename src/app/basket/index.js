@@ -151,7 +151,6 @@ const Basket = () => {
 
   const onBlur = (type) => {
     if(validationForm(type, state[0], error, setError)) {
-      scroll('html').scrollTo('header');
       return true
     }
     return false
@@ -159,10 +158,6 @@ const Basket = () => {
 
 
   const sendOrder = async () => {
-
-    if(!state[0].address.length || !state[0].city.length || !state[0].surname.length || !state[0].name.length || !state[0].phone.length || !state[0].code.length){
-      scroll('html').scrollTo('header');
-    }
 
     if(!state[0].address.length) {setError({...error, address: true}); return;}
     else if(!state[0].city.length) {setError({...error, city: true}); return;}
@@ -255,7 +250,8 @@ const Basket = () => {
             <p>{translate.infovat[lang]}</p>
             <AcceptInfo />
           </div>
-          <div className="tm-basket-footer tm-footer-single">
+          <div className="tm-basket-footer tm-footer-single total-end-footer">
+            {Object.values(error).indexOf(true) >= 0 && <div className="uk-alert-danger uk-width-1-1 uk-text-center" uk-alert=""><p>{translate.errorSendOrder[lang]}</p></div>}
             <ButtonsSubmit sendOrder={sendOrder} />
           </div>
         </div>

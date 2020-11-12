@@ -83,7 +83,7 @@ const User = () => {
   const onLogout = () => {
     dataContextDispatch({ state: null, type: 'user' })
     localStorage.removeItem('user')
-    window.location.href = `/${lang === 'en' && 'en'}`
+    window.location.href = `/${lang === 'en' ? 'en' : ''}`
   }
 
   const onBlur = (type) => {
@@ -99,16 +99,6 @@ const User = () => {
         <div className="tm-basket-content">
           <Head head={translate.yourAccount[lang]} />
           <Delivery state={state[0]} setState={state[1]} error={error} setError={setError} onBlur={onBlur}/>
-
-          <div className="uk-margin-small checkbox_item">
-            <input type="checkbox" id="checkbox_another_address" onChange={() => handleChange('anotherAddressCheck', !state[0].anotherAddressCheck)} checked={state[0].anotherAddressCheck} />
-            <label htmlFor="checkbox_another_address"></label>
-            <label htmlFor="checkbox_another_address">{translate.checkdifferentadress[lang]}</label>
-          </div>
-
-          <AnimateHeight duration={ 500 } height={ state[0].anotherAddressCheck ? 'auto' : 0 } >
-            <Delivery state={anotherAdress[0]} setState={anotherAdress[1]} error={error} setError={setError} onBlur={onBlur}/>
-          </AnimateHeight>
 
           <div className="uk-margin-small checkbox_item">
             <input type="checkbox" id="checkbox_firm_data" onChange={() => handleChange('companyDataCheck', !state[0].companyDataCheck)} checked={state[0].companyDataCheck} />

@@ -33,7 +33,7 @@ const CheckoutWrap = ({
 
 
   return <>
-    {routes.map((item, index) => <Route exact path={item} render={() => <Checkout
+    {routes.map((item, index) => <Route key={index} exact path={item} render={() => <Checkout
         handleChange={handleChange}
         state={state}
         error={error}

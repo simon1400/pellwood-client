@@ -13,7 +13,7 @@ const TotalEndWrap = ({
   delivery,
   payment
 }) => <>
-  {routes.map((item, index) => <Route exact path={item} render={() => <TotalEnd sum={sum} sale={sale} sumBefore={sumBefore} basket={basket} delivery={delivery} payment={payment} />}/>)}
+  {routes.map((item, index) => <Route key={index} exact path={item} render={() => <TotalEnd sum={sum} sale={sale} sumBefore={sumBefore} basket={basket} delivery={delivery} payment={payment} />}/>)}
 </>
 
 export default TotalEndWrap

@@ -83,7 +83,7 @@ const User = () => {
   const onLogout = () => {
     dataContextDispatch({ state: null, type: 'user' })
     localStorage.removeItem('user')
-    window.location.href = '/'
+    window.location.href = `/${lang === 'en' && 'en'}`
   }
 
   const onBlur = (type) => {

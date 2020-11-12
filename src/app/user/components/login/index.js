@@ -79,8 +79,8 @@ const Login = ({setLoginUser}) => {
 
     AxiosAPI.post(`${process.env.REACT_APP_API}/user`, { email, password }).then(res => {
       if(res.data.error === 'email') setError({ ...error, email: 'exist' })
-      else if(res.data?.error.indexOf('password') >= 0) setError({ ...error, password: 'empty' })
-      else if(res.data?.error.indexOf('email') >= 0) setError({ ...error, email: 'empty' })
+      else if(res.data?.error?.indexOf('password') >= 0) setError({ ...error, password: 'empty' })
+      else if(res.data?.error?.indexOf('email') >= 0) setError({ ...error, email: 'empty' })
       else{
         // AxiosAPI.post(`${process.env.REACT_APP_API}/sendRegistration`, {email: res.data.data.email}).then(res => console.log('send mail'))
         dataContextDispatch({ state: res.data.data, type: 'user' })

@@ -285,8 +285,8 @@ export default {
     de: "xxx"
   },
   free: {
-    cz: "Zdarma",
-    en: "Free",
+    cz: "ZDARMA",
+    en: "FREE",
     de: "xxx"
   },
   yourBasket: {

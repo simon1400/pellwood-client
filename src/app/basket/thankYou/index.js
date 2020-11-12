@@ -21,7 +21,6 @@ const ThankYou = () => {
     dataContextDispatch({ state: [], type: 'basket' })
     dataContextDispatch({ state: 0, type: 'basketCount' })
     AxiosAPI.get(`${process.env.REACT_APP_API}/payment/status/${serchUrl.refId}`).then(res => {
-      console.log(res.data.data[0]);
       AxiosAPI.post(`${process.env.REACT_APP_API}/send/orderInfo`, res.data.data[0]).then(resMail => {
         console.log(resMail.data);
       }).catch(err => {
@@ -45,7 +44,7 @@ const ThankYou = () => {
     <div className="thank-you-page base-page">
       <h1>{translate.thankOrder[lang]}</h1>
       <p>{translate.thankInfo[lang]}</p>
-      {!!status.length && status === 'PENDING' && <div className="uk-text-warning">{translate.PayStatusError[lang]}</div>}
+      {!!status.length && status === 'PENDING' && <div className="uk-text-warning">{translate.PayStatusWait[lang]}</div>}
       {!!status.length && status === 'CANCELLED' && <div className="uk-text-danger">{translate.PayStatusError[lang]}</div>}
       {!!status.length && status === 'PAID' && <div className="uk-text-success">{translate.PayStatusOk[lang]}</div>}
       {!!status.length && status === 'dobirka' && <div className="uk-text-success">{translate.PayStatusCash[lang]}</div>}

@@ -46,7 +46,7 @@ const Delivery = ({
         <div className="select_item">
           <div uk-form-custom="target: > * > span:first-child">
             <select value={state.country} onChange={(e) => handleChange('country', e.target.value)} >
-              {countryData.map((item, index) => <option key={index} value={item.name}>{item.value}</option>)}
+              {countryData[lang].map((item, index) => <option key={index} value={item.name}>{item.value}</option>)}
             </select>
             <button className="uk-button uk-button-default" type="button" tabIndex="5">
               <span></span>

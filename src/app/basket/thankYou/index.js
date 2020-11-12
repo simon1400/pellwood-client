@@ -14,7 +14,7 @@ const ThankYou = () => {
 
   useEffect(() => {
     var serchUrl = getUrl(window.location.search);
-    if(!serchUrl.refId){
+    if(!serchUrl.refId || !serchUrl.dobirka){
       window.location.href = '/not-found'
       return
     }
@@ -26,10 +26,16 @@ const ThankYou = () => {
       }).catch(err => {
         console.log('Send Email error --- ', err);
       })
-      setStatus(res.data.data[0].status)
+      if(res.data.data[0].payOnline){
+        setStatus(res.data.data[0].status)
+      }else{
+        setStatus('dobirka')
+      }
+
     }).catch(err => {
       console.log('Error get status order --- ', err)
     })
+
   }, [])
 
   return(
@@ -39,6 +45,7 @@ const ThankYou = () => {
       {!!status.length && status === 'PENDING' && <div className="uk-text-warning">Platba nebyla vyrizena</div>}
       {!!status.length && status === 'CANCELLED' && <div className="uk-text-danger">Platba byla zrusena</div>}
       {!!status.length && status === 'PAID' && <div className="uk-text-success">Platba zaplacena</div>}
+      {!!status.length && status === 'dobirka' && <div className="uk-text-success">Platba na dobirku</div>}
 
       <a href="/" className="tm-button tm-black-button">zpět na hlavní stranu</a>
     </div>

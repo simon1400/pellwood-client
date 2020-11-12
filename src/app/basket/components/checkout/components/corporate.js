@@ -17,21 +17,21 @@ const Corporate = ({state, setState}) => {
       <div className="form_column">
         <div className="input_item">
           <input className={state.companyName?.length && 'hasValue'} type="text" value={state.companyName} onChange={(e) => handleChange('companyName', e.target.value)} />
-          <label>Obchodní {translate.formname[lang]}</label>
+          <label>{translate.companyName[lang]}</label>
         </div>
         <div className="input_item"></div>
       </div>
       <div className="form_column">
         <div className="input_item">
           <input className={state.ico?.length && 'hasValue'} type="text" value={state.ico} onChange={(e) => handleChange('ico', e.target.value)} />
-          <label>IČO</label>
+          <label>{translate.ico[lang]}</label>
         </div>
         <div className="input_item"></div>
       </div>
       <div className="form_column">
         <div className="input_item">
           <input className={state.dic?.length && 'hasValue'} type="text" value={state.dic} onChange={(e) => handleChange('dic', e.target.value)} />
-          <label>DIČ</label>
+          <label>{translate.dic[lang]}</label>
         </div>
         <div className="input_item"></div>
       </div>

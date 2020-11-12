@@ -285,8 +285,8 @@ export default {
     de: "xxx"
   },
   free: {
-    cz: "Zdarma",
-    en: "Free",
+    cz: "ZDARMA",
+    en: "FREE",
     de: "xxx"
   },
   yourBasket: {
@@ -335,8 +335,8 @@ export default {
     de: "xxx"
   },
   accessCondition2: {
-    cz: "obchodními podmínkami.",
-    en: "terms and conditions.",
+    cz: "obchodními podmínkami",
+    en: "business conditions",
     de: "xxx"
   },
   yourAccount: {
@@ -384,6 +384,11 @@ export default {
     en: "Order no.",
     de: "xxx"
   },
+  sale: {
+    cz: "Sleva 5%",
+    en: "Discount 5%",
+    de: "xxx"
+  },
   deliveryFreeCanvas: {
     cz: "Doprava ZDARMA po ČR a SK",
     en: "Free delivery to DE and AU",
@@ -403,41 +408,11 @@ export default {
     cz: "nad 2000 Kč",
     en: "over 150 €",
     de: "xxx"
-  },
+  }
 
 
 
 
   // odsud
 
-  companyName: {
-    cz: "Obchodní jméno",
-    en: "Company name",
-    de: "xxx"
-  },
-  ico: {
-    cz: "IČO",
-    en: "Company Registration No.",
-    de: "xxx"
-  },
-  dic: {
-    cz: "DIČ",
-    en: "VAT no.",
-    de: "xxx"
-  },
-  loginErrorExist: {
-    cz: "Uživatel s tímto e-mailem již existuje.",
-    en: "User with this email already exists.",
-    de: "xxx"
-  },
-  loginErrorWrong: {
-    cz: "Neplatý e-mail nebo heslo.",
-    en: "Invalid email or password.",
-    de: "xxx"
-  },
-  emptyFields: {
-    cz: "Vyplňte prosím všechna pole.",
-    en: "Please fill in all fields.",
-    de: "xxx"
-  }
 }

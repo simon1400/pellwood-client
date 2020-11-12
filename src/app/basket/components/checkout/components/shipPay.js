@@ -15,14 +15,14 @@ const deliveryData = {
 }
 const paymentData = {
   cz: [
-    {value: 'Online bankovní platby', price: 'ZDARMA'},
-    {value: 'Platba kartou on-line', price: 'ZDARMA'},
-    {value: 'Na dobírku', price: '30 Kč'}
+    {value: 'Online bankovní platby', price: 'ZDARMA', payOnline: true},
+    {value: 'Platba kartou on-line', price: 'ZDARMA', payOnline: true},
+    {value: 'Na dobírku', price: '30 Kč', payOnline: false}
   ],
   en: [
-    {value: 'Online bank transfer', price: 'FREE'},
-    {value: 'Card payment', price: 'FREE'},
-    {value: 'Cash on delivery', price: '2.50 €'}
+    {value: 'Online bank transfer', price: 'FREE', payOnline: true},
+    {value: 'Card payment', price: 'FREE', payOnline: true},
+    {value: 'Cash on delivery', price: '2.50 €', payOnline: false}
   ]
 }
 
@@ -38,8 +38,6 @@ const ShipPay = ({delivery, error, setError, sumBefore, setDelivery, payment, se
       setError({...error, payment: false})
     }
   }
-
-  console.log(sumBefore);
 
   return(
     <div className="tm-payship">

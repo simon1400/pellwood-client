@@ -266,6 +266,10 @@
       max-width: 100%;
       width: calc(100% - 200px);
     }
+    .cancel-filtered{
+      margin-top: 10px;
+      width: 100%;
+    }
   }
 
   header .top-nav li:not(:last-child){

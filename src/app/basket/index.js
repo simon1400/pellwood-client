@@ -3,6 +3,7 @@ import {Switch, Route, Link} from 'react-router-dom';
 import { withRouter } from "react-router";
 import {AxiosAPI} from '../restClient'
 import './style.scss'
+import {scroll} from 'uikit'
 import { DataStateContext } from '../context/dataStateContext'
 import translate from '../data/staticTranslate'
 
@@ -147,12 +148,19 @@ const Basket = () => {
   }
 
   const onBlur = (type) => {
-    if(validationForm(type, state[0], error, setError)) return true
+    if(validationForm(type, state[0], error, setError)) {
+      scroll('html').scrollTo('header');
+      return true
+    }
     return false
   }
 
 
   const sendOrder = async () => {
+
+    if(!state[0].address.length || !state[0].city.length || !state[0].surname.length || !state[0].name.length || !state[0].phone.length || !state[0].code.length){
+      scroll('html').scrollTo('header');
+    }
 
     if(!state[0].address.length) {setError({...error, address: true}); return;}
     else if(!state[0].city.length) {setError({...error, city: true}); return;}
@@ -163,16 +171,8 @@ const Basket = () => {
 
     if(onBlur('email')) return
 
-    if(!deliveryMethod[0].value.length){
-      setError({ ...error, delivery: true })
-      return
-    }
-
-    if(!paymentMethod[0].value.length){
-      setError({ ...error, payment: true })
-      return
-    }
-
+    if(!deliveryMethod[0].value.length){ setError({ ...error, delivery: true }); return;}
+    if(!paymentMethod[0].value.length){ setError({ ...error, payment: true }); return;}
 
     if(!basket.length){
       window.location.href = '/'
@@ -202,8 +202,13 @@ const Basket = () => {
     }
 
     await AxiosAPI.post(`${process.env.REACT_APP_API}/order`, dataOrder).then(res => {
-      window.location.href = decodeURIComponent(res.data.data.redirect)
+      if(dataOrder.payment.payOnline){
+        window.location.href = decodeURIComponent(res.data.data.redirect)
+      }else{
+        window.location.href = `/thank-you?refId=${res.data.data.idOrder}&dobirka=true`
+      }
     })
+
   }
 
 

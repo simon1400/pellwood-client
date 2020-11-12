@@ -106,10 +106,10 @@ export default () => {
           length = filteredProduct[i]?.parametrs.find(o => o.title === 'Délka' || o.title === 'Length')
           diameter = filteredProduct[i]?.parametrs.find(o => o.title === 'Průměr' || o.title === 'Diameter')
           if(length){
-            lengthNumbers.push(+length.value.substr(0, length.value.length - 3))
+            lengthNumbers.push(+length.value.substr(0, length.value.length - 3).split(',').join('.'))
           }
           if(diameter){
-            diameterNumbers.push(+diameter.value.substr(0, diameter.value.length - 3))
+            diameterNumbers.push(+diameter.value.substr(0, diameter.value.length - 3).split(',').join('.'))
           }
         }
       }
@@ -147,11 +147,13 @@ export default () => {
 
           if(length || diameter){
             if(length){
-              lengthNum = +length.value.substr(0, length.value.length - 3)
+              lengthNum = +length.value.substr(0, length.value.length - 3).split(',').join('.')
             }
             if(diameter){
-              diameterNum = +diameter.value.substr(0, diameter.value.length - 3)
+              diameterNum = +diameter.value.substr(0, diameter.value.length - 3).split(',').join('.')
             }
+            console.log(lengthNum);
+            console.log(diameterNum);
             if(lengthNum <= stateRange.length.max
               && lengthNum >= stateRange.length.min
               && diameterNum <= stateRange.diameter.max
@@ -197,7 +199,7 @@ export default () => {
           <div className="category_menu uk-flex uk-flex-between uk-flex-middle uk-flex-wrap">
             <div className="uk-flex uk-flex-middle uk-width-1-1 uk-flex-between uk-flex-wrap">
               <div className="filter-controls-wrap">
-                <a className="tm-button tm-black-button" href="#modal-filter" uk-toggle="">{translate.filter[lang]}</a>
+                <a className="tm-button tm-black-button" href="#modal-filter" uk-toggle="">{translate.searchAndFilter[lang]}</a>
                 {filtered && <button className="cancel-filtered tm-button tm-button-text" onClick={e => cancelFilter(e)}><img src={times} alt="Cancel filter" uk-svg="" />Zrušit všechny filtry</button>}
               </div>
               <SubMenu data={category}/>

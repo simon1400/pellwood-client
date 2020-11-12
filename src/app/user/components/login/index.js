@@ -78,20 +78,17 @@ const Login = ({setLoginUser}) => {
     }
 
     AxiosAPI.post(`${process.env.REACT_APP_API}/user`, { email, password }).then(res => {
-      if(res.data.error === 'email'){ setError({ ...error, email: 'exist' })
-      }else if(res.data?.error?.email){ setError({ ...error, email: 'empty' })
-      }else if(res.data?.error?.password){ setError({ ...error, password: 'empty' })
-      }else{
+      if(res.data.error === 'email') setError({ ...error, email: 'exist' })
+      else if(res.data?.error.indexOf('password') >= 0) setError({ ...error, password: 'empty' })
+      else if(res.data?.error.indexOf('email') >= 0) setError({ ...error, email: 'empty' })
+      else{
         // AxiosAPI.post(`${process.env.REACT_APP_API}/sendRegistration`, {email: res.data.data.email}).then(res => console.log('send mail'))
         dataContextDispatch({ state: res.data.data, type: 'user' })
         setLoginUser(true)
-        if(lang === 'en'){
-          window.location.pathname = `/${lang}/user`
-        }else{
-          window.location.pathname = "/user"
-        }
-      }
 
+        if(lang === 'en') window.location.pathname = `/${lang}/user`
+        else window.location.pathname = "/user"
+      }
     }).catch(err => {
       console.log(err);
     })
@@ -109,15 +106,15 @@ const Login = ({setLoginUser}) => {
         <div className="login_form">
           <form onSubmit={e => onLogin(e)}>
             {error.email === 'notExist' && <div className="uk-alert-danger" uk-alert="">
-              <p>Zadaliste spatne email nebo heslo</p>
+              <p>{translate.loginErrorWrong[lang]}</p>
             </div>}
 
             {error.email === 'exist' && <div className="uk-alert-danger" uk-alert="">
-              <p>Uzivatel s timto emailem uz existuje</p>
+              <p>{translate.loginErrorExist[lang]}</p>
             </div>}
 
             {(error.email === 'empty' || error.password === 'empty') && <div className="uk-alert-danger" uk-alert="">
-                <p>Vyplňte všechna pole</p>
+                <p>{translate.emptyFields[lang]}</p>
               </div>}
 
             <div className="uk-margin input_item">

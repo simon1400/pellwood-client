@@ -14,7 +14,7 @@ const ThankYou = () => {
 
   useEffect(() => {
     var serchUrl = getUrl(window.location.search);
-    if(!serchUrl.refId || !serchUrl.dobirka){
+    if(!serchUrl.refId){
       window.location.href = '/not-found'
       return
     }

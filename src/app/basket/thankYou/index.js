@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import './style.scss'
+import { DataStateContext } from '../../context/dataStateContext'
 import translate from '../../data/staticTranslate'
 import getUrl from '../../function/getSearch'
 import localize from '../../data/localize'
@@ -9,15 +10,26 @@ const {lang, currency} = localize(window.location.href)
 const ThankYou = () => {
 
   const [status, setStatus] = useState('')
+  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
 
   useEffect(() => {
     var serchUrl = getUrl(window.location.search);
-    AxiosAPI.post(`${process.env.REACT_APP_API}/payment/status/${serchUrl.refId}`).then(res => {
-      AxiosAPI.post(`${process.env.REACT_APP_API}/send/orderInfo`, res.data.data[0]).then(res => {
-        console.log(res.data);
+    if(!serchUrl.refId){
+      window.location.href = '/not-found'
+      return
+    }
+    dataContextDispatch({ state: [], type: 'basket' })
+    dataContextDispatch({ state: 0, type: 'basketCount' })
+    AxiosAPI.get(`${process.env.REACT_APP_API}/payment/status/${serchUrl.refId}`).then(res => {
+      AxiosAPI.post(`${process.env.REACT_APP_API}/send/orderInfo`, res.data.data[0]).then(resMail => {
+        console.log(resMail.data);
+      }).catch(err => {
+        console.log('Send Email error --- ', err);
       })
       setStatus(res.data.data[0].status)
-    }).catch(err => console.log(err))
+    }).catch(err => {
+      console.log('Error get status order --- ', err)
+    })
   }, [])
 
   return(

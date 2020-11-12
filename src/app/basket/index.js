@@ -202,8 +202,6 @@ const Basket = () => {
     }
 
     await AxiosAPI.post(`${process.env.REACT_APP_API}/order`, dataOrder).then(res => {
-      dataContextDispatch({ state: [], type: 'basket' })
-      dataContextDispatch({ state: 0, type: 'basketCount' })
       window.location.href = decodeURIComponent(res.data.data.redirect)
     })
   }

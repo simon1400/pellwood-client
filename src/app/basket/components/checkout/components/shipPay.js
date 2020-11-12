@@ -34,7 +34,7 @@ const ShipPay = ({delivery, error, setError, sumBefore, setDelivery, payment, se
       setDelivery({value: item.value, price: item.price})
       setError({...error, delivery: false})
     }else if(type === 'payment'){
-      setPayment({value: item.value, price: item.price})
+      setPayment({value: item.value, price: item.price, payOnline: item.payOnline})
       setError({...error, payment: false})
     }
   }

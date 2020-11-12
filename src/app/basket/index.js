@@ -67,11 +67,13 @@ const Basket = () => {
 
   const deliveryMethod = useState({
     value: '',
-    price: ''
+    price: '',
+    payOnline: false
   })
   const paymentMethod = useState({
     value: '',
-    price: ''
+    price: '',
+    payOnline: false
   })
 
   const [error, setError] = useState({

@@ -285,8 +285,8 @@ export default {
     de: "xxx"
   },
   free: {
-    cz: "Zdarma",
-    en: "Free",
+    cz: "ZDARMA",
+    en: "FREE",
     de: "xxx"
   },
   yourBasket: {
@@ -438,6 +438,11 @@ export default {
   emptyFields: {
     cz: "Vyplňte prosím všechna pole.",
     en: "Please fill in all fields.",
+    de: "xxx"
+  },
+  sale: {
+    cz: "Sleva 5%",
+    en: "Discount 5%",
     de: "xxx"
   }
 }

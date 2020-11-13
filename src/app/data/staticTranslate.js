@@ -492,5 +492,10 @@ export default {
     cz: "Chyba, zkontrolujte si prosím vaše údaje.",
     en: "Error, please check your details.",
     de: "xxx"
-  }
+  },
+  linkBuisness: {
+    cz: "/vseobecne-obchodni-podminky/technicke-clanky/clanek",
+    en: "/en/agb/technical/clanek",
+    de: "xxx"
+  },
 }

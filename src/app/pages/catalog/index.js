@@ -16,7 +16,7 @@ import localize from '../../data/localize'
 const {lang, currency} = localize(window.location.href)
 
 const query = `{
-  'product': *[_type == "product"].${lang} | order(sort asc) | order(title asc),
+  'product': *[_type == "product"].${lang} | order(${lang}.sort asc) | order(${lang}.title asc),
   'category': *[_type == "category"] | order(${lang}.sort asc),
   'articles': *[_type == "article"] | order(${lang}.sort asc),
   'settings': *[_type == "settings"].${lang}
@@ -81,8 +81,9 @@ export default () => {
       setSettings(data.settings.filter(item => item?.titleCategory)?.[0])
     })
 
-    sanityClient.fetch(`${urlProduct} | order(sort asc) | order(title asc)`).then(data => {
-      const filteredProduct = data.filter(item => item?.title)
+    sanityClient.fetch(`${urlProduct} | order(sort asc, title asc)`).then(data => {
+
+      let filteredProduct = data.filter(item => item?.title)
       if(lang === 'en'){
         filteredProduct.map(item => {
           if(typeof item.price === 'string'){
@@ -134,7 +135,7 @@ export default () => {
 
     const newUrlProduct = `*[_type == "product" ${!!search.length ? '&& '+lang+'.title match "'+ search.split(/[,-]+/).join(' ') +'*"' : ''}].${lang}`
     setUrlProduct(newUrlProduct)
-    const searchQuery = `${newUrlProduct} | order(sort asc) | order(title asc)`
+    const searchQuery = `${newUrlProduct} | order(sort asc, title asc)`
     sanityClient.fetch(searchQuery).then(data => {
       const filteredProduct = data.filter(item => item?.title)
       const filteredProdParameters = []
@@ -152,8 +153,6 @@ export default () => {
             if(diameter){
               diameterNum = +diameter.value.substr(0, diameter.value.length - 3).split(',').join('.')
             }
-            console.log(lengthNum);
-            console.log(diameterNum);
             if(lengthNum <= stateRange.length.max
               && lengthNum >= stateRange.length.min
               && diameterNum <= stateRange.diameter.max

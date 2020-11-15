@@ -29,7 +29,6 @@ const query = `{
 
 async function getData() {
   const res = await sanityClient.fetch(query)
-  console.log(res);
   return {
     product: res.product,
     category: res.category,

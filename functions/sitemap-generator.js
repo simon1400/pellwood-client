@@ -29,10 +29,11 @@ const query = `{
 
 async function getData() {
   const res = await sanityClient.fetch(query)
+  console.log(res);
   return {
-    product: res.data.result.product,
-    category: res.data.result.category,
-    article: res.data.result.article
+    product: res.product,
+    category: res.category,
+    article: res.article
   }
 }
 

@@ -21,13 +21,7 @@ deploy_production:
       - pellwood-app
     script:
         - echo "Deploying to server"
-        - cp -rv ./* /var/www/pellwood/client/
-        - rm -rf /var/www/pellwood/client/public
-        - rm -rf /var/www/pellwood/client/src/app
-        - rm -rf /var/www/pellwood/client/src/index.js
-        - rm -rf /var/www/pellwood/client/yarn.lock
-        - rm -rf /var/www/pellwood/client/crontab.txt
-        - rm -rf /var/www/pellwood/client/gitlab-ci.yml
+        - cp -rv ./ /var/www/pellwood/client/
         - echo "Deployed"
     environment:
         name: production

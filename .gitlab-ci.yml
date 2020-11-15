@@ -21,8 +21,10 @@ deploy_production:
       - pellwood-app
     script:
         - echo "Deploying to server"
-        - npm install
-        - cp -rv ./* /var/www/pellwood/client/
+        - cp -rv ./build /var/www/pellwood/client/
+        - cp -rv ./package.json /var/www/pellwood/client/
+        - cp -rv ./functions /var/www/pellwood/client/
+        - cp -rv ./src/lib /var/www/pellwood/client/src/
         - echo "Deployed"
     environment:
         name: production

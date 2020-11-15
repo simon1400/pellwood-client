@@ -9,6 +9,8 @@
 # production
 /build
 /lambda
+/public/google-product-feed.xml
+/public/sitemap.xml
 
 # misc
 # .env

@@ -85,15 +85,11 @@ const Routers = () => {
     <Switch>
       <Route exact={true} path="/not-found" component={NotFound} />
       {routesArr.map((item, index) => {
-        if(item?.allow){
-          return <Route key={index} exact={item.exact} path={item.path} component={item.component} />
-        }
+        if(item.allow) return <Route key={index} exact={item.exact} path={item.path} component={item.component} />
         return ''
       })}
       {routesArr.map((item, index) => {
-        if(item?.allow){
-          return <Route key={index} exact={item.exact} path={`/:lang${item.path}`} component={item.component} />
-        }
+        if(item.allow) return <Route key={index} exact={item.exact} path={`/:lang${item.path}`} component={item.component} />
         return ''
       })}
       <Route component={NotFound} />

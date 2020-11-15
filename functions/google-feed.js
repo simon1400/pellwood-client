@@ -79,9 +79,13 @@ async function generateSitemap() {
 
     const allProductsFeed = [...czProducts, ...enProducts]
     const resultXml = toXml(allProductsFeed)
-    fs.writeFile('../public/google-product-feed.xml', resultXml, (err) => {
+    var path = './public/google-product-feed.xml'
+    if(process.env.NODE_ENV === 'prod'){
+      path = './build/google-product-feed.xml'
+    }
+    fs.writeFile(path, resultXml, (err) => {
       if (err) return console.log(err);
-      console.log('Xml write in --> public/google-product-feed.xml');
+      console.log(`Xml write in --> ${path}`);
     });
 
   }catch(e){

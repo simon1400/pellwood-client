@@ -8,7 +8,7 @@ const toXml = data => {
 
   const dataTransform = data.reduce((result, item) => {
    return result + `<item>
-     <id>${item.id}</id>
+     <g:id>${item.id}</g:id>
      <title>${item.title}</title>
      <description>${item.description}</description>
      <link>${item.link}</link>

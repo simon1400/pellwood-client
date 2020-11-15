@@ -24,7 +24,7 @@ async function generateSitemap() {
       if(products[i].cz.variants && products[i].cz.variants.length){
         for(var a = 0; a < products[i].cz.variants.length; a++){
           productCzVariants.push({
-            id: products[i].cz.variants[a]._key,
+            id: products[i].cz.variants[a]._key + '_cz',
             title: products[i].cz.title + ' - ' + products[i].cz.variants[a].title,
             description: products[i].cz.descriptionHead,
             link: 'https://pellwood.com/produkt/' + products[i].cz.slug.current,
@@ -52,7 +52,7 @@ async function generateSitemap() {
       if(products[i].en && products[i].en.variants && products[i].en.variants.length){
         for(var a = 0; a < products[i].en.variants.length; a++){
           productEnVariants.push({
-            id: products[i].en.variants[a]._key,
+            id: products[i].en.variants[a]._key + '_en',
             title: products[i].en.title + ' - ' + products[i].en.variants[a].title,
             description: products[i].en.descriptionHead,
             link: 'https://pellwood.com/en/produkt/' + products[i].en.slug.current,

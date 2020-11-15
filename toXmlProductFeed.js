@@ -1,0 +1,27 @@
+const toXml = data => {
+  var xmlStringFeed = `<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+  <channel>
+  <title>Produkty | Prémiové bubenické paličky s garantovanou váhou</title>
+  <link>https://pellwood.com</link>
+  <description>Padesátiletá zkušenost výroby paliček, nadšení pro práci se dřevem a láska k hudbě jsou koktejlem příčin, proč jsou paličky PELLWOOD stále oblíbenější a čím dál více bubeníků se na ně může spolehnout.</description>\n`
+
+  const dataTransform = data.reduce((result, item) => {
+   return result + `<item>
+     <g:id>${item.id}</g:id>
+     <g:title>${item.title}</g:title>
+     <g:description>${item.description}</g:description>
+     <g:link>${item.link}</g:link>
+     <g:image_link>${item.image_link}</g:image_link>
+     <g:availability>in stock</g:availability>
+     <g:price>${item.price}</g:price>
+   </item>\n`
+  }, '')
+
+  xmlStringFeed += dataTransform
+  xmlStringFeed += `</channel>
+  </rss>`
+
+  return xmlStringFeed
+}
+
+export default toXml;

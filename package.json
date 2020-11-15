@@ -30,7 +30,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sitemap": "babel-node sitemap-generator.js"
+    "sitemap": "babel-node sitemap-generator.js",
+    "google-feed": "babel-node google-feed.js"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",

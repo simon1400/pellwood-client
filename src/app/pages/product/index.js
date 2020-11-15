@@ -18,9 +18,7 @@ const {lang, currency} = localize(window.location.href)
 
 const imageBuilder = imageUrlBuilder(sanityClient);
 
-function urlFor(source) {
-  return imageBuilder.image(source);
-}
+const urlFor = (source) => imageBuilder.image(source)
 
 
 const query = `{

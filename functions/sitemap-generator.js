@@ -67,7 +67,7 @@ async function generateSitemap() {
       new Sitemap(router)
         .applyParams(paramsConfig)
         .build("https://pellwood.com")
-        .save("../public/sitemap.xml")
+        .save("./public/sitemap.xml")
     );
   }catch(e){
     console.log(e);

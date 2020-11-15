@@ -21,7 +21,7 @@ deploy_production:
       - pellwood-app
     script:
         - echo "Deploying to server"
-        - cp -rv ./ /var/www/pellwood/client/
+        - cp -rv ./* /var/www/pellwood/client/
         - echo "Deployed"
     environment:
         name: production

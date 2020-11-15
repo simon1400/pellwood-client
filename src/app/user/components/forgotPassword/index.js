@@ -10,9 +10,8 @@ const {lang, currency} = localize(window.location.href)
 
 const ForgotPassword = () => {
 
-
   const [email, setEmail] = useState('')
-
+  const [done, setDone] = useState(false)
   const [error, setError] = useState({})
 
   const closeModal = () => {
@@ -31,6 +30,7 @@ const ForgotPassword = () => {
     e.preventDefault()
     AxiosAPI.post(`${process.env.REACT_APP_API}/send/reset-password`, {email}).then(res => {
       console.log(res);
+      setDone(true)
     }).catch(err => console.log(err))
   }
 
@@ -43,7 +43,7 @@ const ForgotPassword = () => {
           <button className="tm-canvas-close uk-close-large" type="button" uk-close="" onClick={e => closeModal()}></button>
         </div>
 
-        <div className="login_form">
+        {!done && <div className="login_form">
           <form onSubmit={e => send(e)}>
 
             {error.loginEmail === 'notExist' && <div className="uk-alert-danger" uk-alert=""><p>Zadaliste spatne email nebo heslo</p></div>}
@@ -57,7 +57,9 @@ const ForgotPassword = () => {
 
             <button type="submit" className="tm-button tm-black-button uk-width-1-1">{translate.sendResetPasswordButton[lang]}</button>
           </form>
-        </div>
+        </div>}
+
+        {done && <div className="uk-alert-success" uk-alert=""><p>Link pro obnoveni hesla byl zaslany na vas email</p></div>}
 
       </div>
     </div>

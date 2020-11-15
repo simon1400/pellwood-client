@@ -15,6 +15,9 @@ const toXml = data => {
      <g:image_link>${item.image_link}</g:image_link>
      <g:availability>in stock</g:availability>
      <g:price>${item.price}</g:price>
+     <g:mpn>false</g:mpn>
+     <g:gtin>false</g:gtin>
+     <g:identifier_exists>false</g:identifier_exists>
    </item>\n`
   }, '')
 

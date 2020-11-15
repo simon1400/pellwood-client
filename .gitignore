@@ -8,8 +8,8 @@
 
 # production
 /build
-#/public/google-product-feed.xml
-#/public/sitemap.xml
+/public/google-product-feed.xml
+/public/sitemap.xml
 
 # misc
 # .env

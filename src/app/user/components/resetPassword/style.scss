@@ -1,0 +1,42 @@
+#modal-login{
+  .tm-canvas-head{
+    margin-top: 0;
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+    h2{
+      font-size: 30px;
+    }
+  }
+  .input_item{
+    margin-bottom: 30px;
+    input{
+      height: 56px;
+    }
+    label{
+      background-color: #F1F1F1;
+      top: 21px;
+    }
+  }
+  .input_item input.hasValue + label, .input_item input:focus + label{
+    top: -8px;
+  }
+  .uk-modal-dialog{
+    width: 500px;
+    padding: 50px;
+    background-color: #F1F1F1;
+  }
+  a, button{
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  p{
+    text-align: center;
+    color: #989898;
+    font-size: 18px;
+  }
+}
+
+hr{
+  border-top: 1px solid #CECECE!important;
+}

@@ -7,6 +7,9 @@ import Routes from './routers.js';
 import Footer from './layout/footer'
 import Login from './user/components/login'
 import ForgotPassword from './user/components/forgotPassword'
+import ResetPassword from './user/components/resetPassword'
+import getUrl from './function/getSearch'
+import {modal} from 'uikit'
 
 import './scss/main.scss'
 
@@ -19,6 +22,11 @@ const App = ({match}) => {
     if(dataContextState.user){
       setLoginUser(true)
     }
+    var serchUrl = getUrl(window.location.search);
+    if(serchUrl.email){
+      modal('#reset-password').show();
+    }
+
   }, [])
 
   return (
@@ -27,6 +35,7 @@ const App = ({match}) => {
       <Routes />
       <Footer />
       <ForgotPassword />
+      <ResetPassword />
       <Login setLoginUser={setLoginUser}/>
     </>
   );

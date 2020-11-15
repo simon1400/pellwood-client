@@ -2,7 +2,7 @@ require("babel-register")({
   presets: ["es2015", "react"]
 });
 
-const sanityClient = require("./src/lib/sanity").default;
+const sanityClient = require("../src/lib/sanity").default;
 const imageUrlBuilder = require("@sanity/image-url");
 const axios = require('axios')
 const imageBuilder = imageUrlBuilder(sanityClient);
@@ -10,11 +10,9 @@ const urlFor = (source) => imageBuilder.image(source)
 const toXml = require('./toXmlProductFeed').default
 fs = require('fs');
 
-const query = `*[_type == "product"] {_id, en,cz}`;
-
 async function generateSitemap() {
   try{
-    const products = await sanityClient.fetch(query)
+    const products = await sanityClient.fetch(`*[_type == "product"] {_id, en,cz}`)
 
     let enProducts = [];
     let czProducts = [];
@@ -81,7 +79,7 @@ async function generateSitemap() {
 
     const allProductsFeed = [...czProducts, ...enProducts]
     const resultXml = toXml(allProductsFeed)
-    fs.writeFile('./public/google-product-feed.xml', resultXml, (err) => {
+    fs.writeFile('../public/google-product-feed.xml', resultXml, (err) => {
       if (err) return console.log(err);
       console.log('Xml write in --> public/google-product-feed.xml');
     });

@@ -2,9 +2,9 @@ require("babel-register")({
   presets: ["es2015", "react"]
 });
 
-const sanityClient = require("./src/lib/sanity");
+const sanityClient = require("../src/lib/sanity").default;
 const axios = require('axios')
-const router = require("./sitemap-routes").default;
+const router = require("../sitemap-routes").default;
 const Sitemap = require("react-router-sitemap").default;
 
 
@@ -28,7 +28,7 @@ const query = `{
 }`;
 
 async function getData() {
-  const res = await axios.get(`https://ejvonubx.apicdn.sanity.io/v1/data/query/production?query=${encodeURIComponent(query)}`)
+  const res = await sanityClient.fetch(query)
   return {
     product: res.data.result.product,
     category: res.data.result.category,
@@ -67,7 +67,7 @@ async function generateSitemap() {
       new Sitemap(router)
         .applyParams(paramsConfig)
         .build("https://pellwood.com")
-        .save("./public/sitemap.xml")
+        .save("../public/sitemap.xml")
     );
   }catch(e){
     console.log(e);

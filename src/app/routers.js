@@ -3,21 +3,21 @@ import { Route, Switch } from 'react-router-dom';
 import { DataStateContext } from './context/dataStateContext'
 import loadable from '@loadable/component'
 
-const NotFound = loadable(() => import('./pages/not-found'));
-const Homepage = loadable(() => import('./pages/homepage'));
-const Catalog = loadable(() => import('./pages/catalog'));
-const BlogShort = loadable(() => import('./pages/blog/short'));
-const BlogFull = loadable(() => import('./pages/blog/full'));
-const Product = loadable(() => import('./pages/product'));
+import NotFound from './pages/not-found';
+import Homepage from './pages/homepage';
+import Catalog from './pages/catalog';
+import BlogShort from './pages/blog/short';
+import BlogFull from './pages/blog/full';
+import Product from './pages/product';
 
 // ------------------------------------------ BASKET ------------------------------------- //
 
-const Basket = loadable(() => import('./basket'));
-const ThankYou = loadable(() => import('./basket/thankYou'));
+import Basket from './basket';
+import ThankYou from './basket/thankYou';
 
 // ------------------------------------------ USER ---------------------------------------//
 
-const User = loadable(() => import('./user'));
+import User from './user';
 
 
 const Routers = () => {

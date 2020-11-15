@@ -1,22 +1,23 @@
 import React , {useContext} from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { DataStateContext } from './context/dataStateContext'
+import loadable from '@loadable/component'
 
-import NotFound from './pages/not-found';
-import Homepage from './pages/homepage';
-import Catalog from './pages/catalog';
-import BlogShort from './pages/blog/short';
-import BlogFull from './pages/blog/full';
-import Product from './pages/product';
+const NotFound = loadable(() => import('./pages/not-found'));
+const Homepage = loadable(() => import('./pages/homepage'));
+const Catalog = loadable(() => import('./pages/catalog'));
+const BlogShort = loadable(() => import('./pages/blog/short'));
+const BlogFull = loadable(() => import('./pages/blog/full'));
+const Product = loadable(() => import('./pages/product'));
 
 // ------------------------------------------ BASKET ------------------------------------- //
 
-import Basket from './basket';
-import ThankYou from './basket/thankYou';
+const Basket = loadable(() => import('./basket'));
+const ThankYou = loadable(() => import('./basket/thankYou'));
 
 // ------------------------------------------ USER ---------------------------------------//
 
-import User from './user';
+const User = loadable(() => import('./user'));
 
 
 const Routers = () => {

@@ -1,22 +1,20 @@
 import React, {useState, useEffect} from 'react';
-import Page from '../../components/page';
-import Article from '../../components/article-short';
-import ShortBlock from '../../components/small-short-cart';
 import sanityClient from "../../../lib/sanity.js";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
-import Cart from '../../components/cart'
-
 import './style.scss'
-
 import localize from '../../data/localize'
-const {lang, currency} = localize(window.location.href)
+import loadable from '@loadable/component'
 
+const Page = loadable(() => import('../../components/page')) ;
+const Article = loadable(() => import('../../components/article-short')) ;
+const ShortBlock = loadable(() => import('../../components/small-short-cart')) ;
+const Cart = loadable(() => import('../../components/cart'))
+
+const {lang, currency} = localize(window.location.href)
 const imageBuilder = imageUrlBuilder(sanityClient);
 
-function urlFor(source) {
-  return imageBuilder.image(source);
-}
+const urlFor = source => imageBuilder.image(source)
 
 const query = `{
   'homepage': *[_type == "homepage"] {
@@ -26,7 +24,9 @@ const query = `{
   'articles': *[_type == "article"].${lang} | order(sort asc)
 }`;
 
-export default ({match}) => {
+const renderLoader = () => <p>Loading</p>;
+
+const Homepage = ({match}) => {
   const [homepage, setHomepage] = useState([])
   const [carts, setCarts] = useState([])
   const [articleFirst, setArticleFirst] = useState([])
@@ -121,7 +121,9 @@ export default ({match}) => {
       </Page>
     )
   }else{
-    return <div></div>
+    return <div>Loadding...</div>
   }
 
 };
+
+export default Homepage

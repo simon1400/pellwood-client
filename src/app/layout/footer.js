@@ -27,10 +27,10 @@ export default () => {
         <div className="uk-flex uk-flex-between uk-flex-middle uk-height-1-1 uk-flex-wrap" uk-height-match="target: > .footer-item">
           <div className="cart_method_foot uk-flex uk-flex-left">
             <div>
-              <img src={mastercard} alt="Mastercard" />
+              <img src={mastercard} width="100%" height="28" alt="Mastercard" />
             </div>
             <div>
-              <img src={visa} alt="Visa" />
+              <img src={visa} width="100%" height="28" alt="Visa" />
             </div>
           </div>
           {footer?.length && footer.map(item =>
@@ -43,7 +43,7 @@ export default () => {
       </div>
       <div className="copyright">
         <span>Made in Brno by</span>
-        <a href="mailto:danielkokes@gmail.com"><img src={hardart} alt="Hardart studio"/></a>
+        <a href="mailto:danielkokes@gmail.com"><img src={hardart} height="18" width="100%" alt="Hardart studio"/></a>
       </div>
     </footer>
   )

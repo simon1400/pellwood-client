@@ -2,16 +2,17 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { withRouter } from 'react-router';
 import { DataStateContext } from './context/dataStateContext'
-import Header from './layout/header';
-import Routes from './routers.js';
-import Footer from './layout/footer'
-import Login from './user/components/login'
-import ForgotPassword from './user/components/forgotPassword'
-import ResetPassword from './user/components/resetPassword'
-import getUrl from './function/getSearch'
+import loadable from '@loadable/component'
 import {modal} from 'uikit'
-
 import './scss/main.scss'
+import getUrl from './function/getSearch'
+
+const Header = loadable(() => import('./layout/header')) ;
+const Routes = loadable(() => import('./routers.js')) ;
+const Footer = loadable(() => import('./layout/footer'))
+const Login = loadable(() => import('./user/components/login'))
+const ForgotPassword = loadable(() => import('./user/components/forgotPassword'))
+const ResetPassword = loadable(() => import('./user/components/resetPassword'))
 
 const App = ({match}) => {
 

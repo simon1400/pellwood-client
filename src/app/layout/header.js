@@ -1,16 +1,16 @@
-import React, { Fragment, useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import Canvas from '../basket/canvas'
 import sanityClient from "../../lib/sanity.js";
 import {AxiosAPI} from '../restClient'
 import UIkit from 'uikit'
 import translate from '../data/staticTranslate'
 import { DataStateContext } from '../context/dataStateContext'
-
+import loadable from '@loadable/component'
 import logo from '../assets/logo.svg'
-
 import localize from '../data/localize'
+
 const {lang, currency} = localize(window.location.href)
+const Canvas = loadable(() => import('../basket/canvas'))
 
 const query = `*[_type == "archive" && !(_id == '3cc07543-ce81-4ad2-ace0-8bf754217065')] {
   "title": ${lang}.title,
@@ -59,7 +59,7 @@ const Header = ({history}) => {
         <div className="uk-container uk-container-expand uk-height-1-1">
           <div className="uk-flex uk-flex-between uk-flex-middle uk-height-1-1">
             <a href={`/${lang === 'cz' ? '' : lang}`} className="logo-wrap uk-width-auto">
-              <img src={logo} alt="Pellwood" />
+              <img src={logo} width="200" height="100%" alt="Pellwood" />
             </a>
             <div className="uk-text-right uk-width-expand uk-hidden@m">
               <button className={`hamburger hamburger--spin ${hamburger ? 'is-active' : ''}`} onClick={() => handleHamburger()} type="button">

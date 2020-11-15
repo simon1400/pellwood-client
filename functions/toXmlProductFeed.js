@@ -1,5 +1,6 @@
 const toXml = data => {
-  var xmlStringFeed = `<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+  var xmlStringFeed = `<?xml version="1.0" encoding="utf-8"?>\n
+  <rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
   <channel>
   <title>Produkty | Prémiové bubenické paličky s garantovanou váhou</title>
   <link>https://pellwood.com</link>
@@ -7,10 +8,10 @@ const toXml = data => {
 
   const dataTransform = data.reduce((result, item) => {
    return result + `<item>
-     <g:id>${item.id}</g:id>
-     <g:title>${item.title}</g:title>
-     <g:description>${item.description}</g:description>
-     <g:link>${item.link}</g:link>
+     <id>${item.id}</id>
+     <title>${item.title}</title>
+     <description>${item.description}</description>
+     <link>${item.link}</link>
      <g:image_link>${item.image_link}</g:image_link>
      <g:availability>in stock</g:availability>
      <g:price>${item.price}</g:price>

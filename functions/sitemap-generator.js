@@ -4,7 +4,7 @@ require("babel-register")({
 
 const sanityClient = require("../src/lib/sanity").default;
 const axios = require('axios')
-const router = require("../sitemap-routes").default;
+const router = require("./sitemap-routes").default;
 const Sitemap = require("react-router-sitemap").default;
 
 

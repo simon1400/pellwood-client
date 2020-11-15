@@ -21,11 +21,13 @@ deploy_production:
       - pellwood-app
     script:
         - echo "Deploying to server"
-        - cp -rv ./build /var/www/pellwood/client/
-        - cp -rv ./node_modules /var/www/pellwood/client/
-        - cp -rv ./package.json /var/www/pellwood/client/
-        - cp -rv ./functions /var/www/pellwood/client/
-        - cp -rv ./src/lib /var/www/pellwood/client/src/
+        - cp -rv ./* /var/www/pellwood/client/
+        - rm -rf /var/www/pellwood/client/public
+        - rm -rf /var/www/pellwood/client/src/app
+        - rm -rf /var/www/pellwood/client/src/index.js
+        - rm -rf /var/www/pellwood/client/yarn.lock
+        - rm -rf /var/www/pellwood/client/crontab.txt
+        - rm -rf /var/www/pellwood/client/gitlab-ci.yml
         - echo "Deployed"
     environment:
         name: production

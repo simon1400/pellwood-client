@@ -63,11 +63,16 @@ async function generateSitemap() {
       "/:lang/:url/:category/clanek": paramsArticles
     };
 
+    var path = './public/sitemap.xml'
+    if(process.env.NODE_ENV === 'prod'){
+      path = './build/sitemap.xml'
+    }
+
     return (
       new Sitemap(router)
         .applyParams(paramsConfig)
         .build("https://pellwood.com")
-        .save("./public/sitemap.xml")
+        .save(path)
     );
   }catch(e){
     console.log(e);

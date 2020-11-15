@@ -1,1 +1,0 @@
-0 * * * * cd /bezones && npm run sitemap >> /dev/stdout

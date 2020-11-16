@@ -8,8 +8,8 @@
 
 # production
 /build
-#/public/google-feed-cz.xml
-#/public/google-feed-en.xml
+/public/google-feed-cz.xml
+/public/google-feed-en.xml
 /public/sitemap.xml
 
 # misc

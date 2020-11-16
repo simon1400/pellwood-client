@@ -29,7 +29,7 @@ async function generateSitemap() {
             description: products[i].cz.descriptionHead,
             link: 'https://pellwood.com/produkt/' + products[i].cz.slug.current,
             image_link: urlFor(products[i].cz.image).url(),
-            mpn: products[i].cz.variants[a]._key+i+a,
+            mpn: products[i].cz.variants[a]._key.split('-').join('')+i+a,
             availability: 'in_stock',
             price: products[i].cz.variants[a].price + ' ' + 'CZK'
           })
@@ -42,7 +42,7 @@ async function generateSitemap() {
           link: 'https://pellwood.com/produkt/' + products[i].cz.slug.current,
           image_link: urlFor(products[i].cz.image).url(),
           availability: 'in_stock',
-          mpn: products[i]._id + 'cz'+(i+3),
+          mpn: products[i]._id.split('-').join('') + 'cz'+(i+3),
           price: products[i].cz.price + ' ' + 'CZK'
         });
       }
@@ -59,7 +59,7 @@ async function generateSitemap() {
             description: products[i].en.descriptionHead,
             link: 'https://pellwood.com/en/produkt/' + products[i].en.slug.current,
             image_link: urlFor(products[i].en.image).url(),
-            mpn: products[i].en.variants[a]._key+(a+i+3),
+            mpn: products[i].en.variants[a]._key.split('-').join('')+(a+i+3),
             availability: 'in_stock',
             price: products[i].en.variants[a].price.toString().split(',').join('.') + ' ' + 'EUR'
           })
@@ -72,7 +72,7 @@ async function generateSitemap() {
           link: 'https://pellwood.com/en/produkt/' + products[i].en.slug.current,
           image_link: urlFor(products[i].en.image).url(),
           availability: 'in_stock',
-          mpn: products[i]._id + 'en'+(i+5),
+          mpn: products[i]._id.split('-').join('') + 'en'+(i+5),
           price: products[i].en.price.toString().split(',').join('.') + ' ' + 'EUR'
         });
       }

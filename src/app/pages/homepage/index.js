@@ -4,7 +4,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 import localize from '../../data/localize'
 
-import Page from '../../components/page'
+import Page from '../../layout/page'
 import Article from '../../components/article-short'
 import ShortBlock from '../../components/small-short-cart'
 import Cart from '../../components/cart'

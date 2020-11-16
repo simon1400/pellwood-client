@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {Link} from 'react-router-dom';
-import Page from '../../components/page';
+import Page from '../../layout/page';
 import RandomArticles from '../../components/random-articles';
 import ShortBlock from '../../components/small-short-cart';
 import sanityClient from "../../../lib/sanity.js";

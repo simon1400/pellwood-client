@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Page from '../../../components/page';
+import Page from '../../../layout/page';
 import sanityClient from "../../../../lib/sanity.js";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";

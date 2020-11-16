@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Page from '../../components/page';
+import Page from '../../layout/page';
 import RandomArticles from '../../components/random-articles';
 import Cart from '../../components/cart';
 import SubMenu from '../../components/sub-menu';

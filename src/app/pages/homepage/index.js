@@ -2,14 +2,12 @@ import React, {useState, useEffect} from 'react';
 import sanityClient from "../../../lib/sanity.js";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
-import './style.scss'
 import localize from '../../data/localize'
-import loadable from '@loadable/component'
 
-const Page = loadable(() => import('../../components/page')) ;
-const Article = loadable(() => import('../../components/article-short')) ;
-const ShortBlock = loadable(() => import('../../components/small-short-cart')) ;
-const Cart = loadable(() => import('../../components/cart'))
+import Page from '../../components/page'
+import Article from '../../components/article-short'
+import ShortBlock from '../../components/small-short-cart'
+import Cart from '../../components/cart'
 
 const {lang, currency} = localize(window.location.href)
 const imageBuilder = imageUrlBuilder(sanityClient);

@@ -1,7 +1,6 @@
 import React , {useContext} from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { DataStateContext } from './context/dataStateContext'
-import loadable from '@loadable/component'
 
 import NotFound from './pages/not-found';
 import Homepage from './pages/homepage';

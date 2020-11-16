@@ -83,8 +83,8 @@
     }
   }
 
-  #modal-login .uk-modal-dialog{
-    padding: 50px 30px;
+  .uk-modal-dialog{
+    padding: 50px 30px!important;
   }
   .logo-wrap, .login{
     position: relative;
@@ -262,9 +262,12 @@
   }
 
   .filter-controls-wrap{
+    width: 100%;
     .tm-button{
       max-width: 100%;
-      width: calc(100% - 200px);
+      width: calc(100% - 30px);
+      padding-left: 15px;
+      padding-right: 15px;
     }
     .cancel-filtered{
       margin-top: 10px;

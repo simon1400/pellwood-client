@@ -11,6 +11,17 @@
 	color: #fff;
 }
 
+.homepage_slide{
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	.overlay{
+		height: 100%;
+		width: 100%;
+		text-align: center;
+	}
+}
+
 .uk-offcanvas-page{
 	overflow-y: scroll!important;
 }
@@ -806,7 +817,5 @@ footer{
 		}
 	}
 }
-
-
 
 @import "media"; // Always at the end

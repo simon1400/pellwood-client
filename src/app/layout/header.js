@@ -5,12 +5,11 @@ import {AxiosAPI} from '../restClient'
 import UIkit from 'uikit'
 import translate from '../data/staticTranslate'
 import { DataStateContext } from '../context/dataStateContext'
-import loadable from '@loadable/component'
 import logo from '../assets/logo.svg'
 import localize from '../data/localize'
+import Canvas from '../basket/canvas'
 
 const {lang, currency} = localize(window.location.href)
-const Canvas = loadable(() => import('../basket/canvas'))
 
 const query = `*[_type == "archive" && !(_id == '3cc07543-ce81-4ad2-ace0-8bf754217065')] {
   "title": ${lang}.title,
@@ -27,9 +26,7 @@ const Header = ({history}) => {
   const [hamburger, setHamburger] = useState(false)
 
   useEffect(() => {
-    sanityClient.fetch(query).then(data => {
-      setMenu(data)
-    })
+    sanityClient.fetch(query).then(data => setMenu(data))
   }, [])
 
   useEffect(() => {

@@ -70,7 +70,7 @@ const Homepage = ({match}) => {
 
   if(homepage?.title !== undefined){
     return (
-      <Page id="homepage" description={homepage.descriptionHead} title={homepage.titleHead}>
+      <Page id="homepage" description={homepage.descriptionHead} title={homepage.titleHead} image={urlFor(homepage.image).url()}>
 
         <section className="homepage_slide">
           <div className="uk-inline uk-cover-container uk-height-1-1 uk-width-1-1">

@@ -192,7 +192,7 @@ const Product = ({match, history}) => {
 
   if(!Array.isArray(product)){
     return (
-      <Page id="product" description={product.descriptionHead} title={product.titleHead}>
+      <Page id="product" description={product.descriptionHead} title={product.titleHead} image={product.orientedImage ? urlFor(product.image).orientation(270).url() : urlFor(product.image).url()}>
         <section className="full product">
           <div className="uk-grid uk-child-width-1-1 uk-child-width-1-2@m" uk-grid="" uk-height-match="target: > div > div">
             <div>

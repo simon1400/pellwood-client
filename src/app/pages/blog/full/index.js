@@ -35,7 +35,7 @@ export default ({match}) => {
 
   if(Object.keys(chapters).length){
     return (
-      <Page id="blog" description={chapters.descriptionHead} title={chapters.titleHead}>
+      <Page id="blog" description={chapters.descriptionHead} title={chapters.titleHead} image={urlFor(chapters.chapters[0].image).url()}>
         {chapters.chapters.map((item, index) =>
           <section key={index} className="full">
             <div className="uk-grid uk-grid-large uk-child-width-1-1 uk-child-width-1-2@m" uk-grid="" uk-height-match="target: > div > div">

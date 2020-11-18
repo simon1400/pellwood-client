@@ -16,9 +16,7 @@ const toXml = data => {
      <g:availability>in stock</g:availability>
      <g:price>${item.price}</g:price>
      <g:mpn>${item.mpn}</g:mpn>
-     <g:gtin>no</g:gtin>
      <g:brand>PELLWOOD</g:brand>
-     <g:identifier_exists>no</g:identifier_exists>
    </item>\n`
   }, '')
 

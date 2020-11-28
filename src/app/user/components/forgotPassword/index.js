@@ -2,11 +2,10 @@ import React, {useState} from 'react'
 import {modal} from 'uikit'
 import './style.scss'
 import {AxiosAPI} from '../../../restClient'
-import {Link} from 'react-router-dom'
 import translate from '../../../data/staticTranslate'
 
 import localize from '../../../data/localize'
-const {lang, currency} = localize(window.location.href)
+const {lang} = localize(window.location.href)
 
 const ForgotPassword = () => {
 

@@ -7,7 +7,7 @@ const routes = ['/basket/checkout', `/${lang}/basket/checkout`]
 
 const AcceptInfo = () => <>
   {routes.map((item, index) =>
-    <Route exact path={item} render={() => <p>{translate.accessCondition1[lang]} <a href={translate.linkBuisness[lang]} target="_blank">{translate.accessCondition2[lang]}</a></p>}/>)}
+    <Route exact path={item} render={() => <p>{translate.accessCondition1[lang]} <a href={translate.linkBuisness[lang]} target="_blank" rel="noopener noreferrer">{translate.accessCondition2[lang]}</a></p>}/>)}
 </>
 
 export default AcceptInfo

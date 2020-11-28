@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react'
 import {modal} from 'uikit'
 import './style.scss'
 import {AxiosAPI} from '../../../restClient'
-import {Link, withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import translate from '../../../data/staticTranslate'
 import getUrl from '../../../function/getSearch'
 import localize from '../../../data/localize'
-const {lang, currency} = localize(window.location.href)
+const {lang} = localize(window.location.href)
 
 const ResetPassword = ({history}) => {
 

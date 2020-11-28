@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import sanityClient from "../../lib/sanity.js";
-import {AxiosAPI} from '../restClient'
-import UIkit from 'uikit'
 import translate from '../data/staticTranslate'
 import { DataStateContext } from '../context/dataStateContext'
 import logo from '../assets/logo.svg'
@@ -20,7 +18,7 @@ const query = `*[_type == "archive" && !(_id == '3cc07543-ce81-4ad2-ace0-8bf7542
 
 const Header = ({history}) => {
 
-  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
+  const { dataContextState } = useContext(DataStateContext)
   const [menu, setMenu] = useState([])
   const [basketCount, setBasketCount] = useState(0)
   const [hamburger, setHamburger] = useState(false)

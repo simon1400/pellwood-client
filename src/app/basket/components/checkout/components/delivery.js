@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import translate from '../../../../data/staticTranslate'
 import countryData from '../../../../data/country'
 

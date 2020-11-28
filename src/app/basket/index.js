@@ -1,13 +1,10 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {Switch, Route, Link} from 'react-router-dom';
 import { withRouter } from "react-router";
 import {AxiosAPI} from '../restClient'
 import './style.scss'
-import {scroll} from 'uikit'
 import { DataStateContext } from '../context/dataStateContext'
 import translate from '../data/staticTranslate'
 
-import NotFound from '../pages/not-found';
 import Head from './components/head'
 import Body from './components/body'
 import Checkout from './components/checkout'

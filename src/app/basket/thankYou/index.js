@@ -3,14 +3,13 @@ import './style.scss'
 import { DataStateContext } from '../../context/dataStateContext'
 import translate from '../../data/staticTranslate'
 import getUrl from '../../function/getSearch'
-import localize from '../../data/localize'
 import {AxiosAPI} from '../../restClient'
 
 const ThankYou = () => {
 
   const [status, setStatus] = useState('')
   const [lang, setLang] = useState('')
-  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
+  const { dataContextDispatch } = useContext(DataStateContext)
 
   useEffect(() => {
     var serchUrl = getUrl(window.location.search);

@@ -1,12 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {Link} from 'react-router-dom';
 import Page from '../../layout/page';
 import RandomArticles from '../../components/random-articles';
 import ShortBlock from '../../components/small-short-cart';
 import sanityClient from "../../../lib/sanity.js";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
-import {dropdown, util, offcanvas} from 'uikit'
+import {dropdown, offcanvas} from 'uikit'
 import translate from '../../data/staticTranslate'
 import { DataStateContext } from '../../context/dataStateContext'
 
@@ -198,8 +197,9 @@ const Product = ({match, history}) => {
             <div>
               <div className={`article_img_wrap ${product.orientedImage && 'scale_img'}`}>
                 <div className="uk-visible@m">
-                  {product.orientedImage ? <img src={urlFor(product.image).width(Math.round(window.innerHeight + (window.innerHeight * 20 / 100))).orientation(270).url()} alt={product.title} />
-                  : <img src={urlFor(product.image).url()} alt={product.title} />}
+                  {product.orientedImage
+                    ? <img src={urlFor(product.image).width(Math.round(window.innerHeight + (window.innerHeight * 20 / 100))).orientation(270).url()} alt={product.title} />
+                    : <img src={urlFor(product.image).url()} alt={product.title} />}
                 </div>
                 <div className={`uk-hidden@m ${product.orientedImage && 'orianted-img'}`}>
                   {product.orientedImage ? <img src={urlFor(product.image).orientation(180).url()} alt={product.title} />

@@ -30,11 +30,9 @@ export default () => {
   const [category, setCategory] = useState([])
   const [settings, setSettings] = useState([])
   const [filtered, setFiltered] = useState(false)
-  const [resetFilter, setResetFilter] = useState('')
+  const [resetFilter] = useState('')
   const [search, setSearch] = useState('')
-  const [hasMore, setHasMore] = useState(true)
   const [urlProduct, setUrlProduct] = useState(`*[_type == "product"].${lang}`)
-  const [loading, setLoading] = useState(false)
 
   const [stateRange, setStateRange] = useState({
     length: {
@@ -100,7 +98,7 @@ export default () => {
       setProduct(filteredProduct)
 
       const lengthNumbers = [], diameterNumbers = []
-      var length = undefined, diameter = undefined, lengthNum = 0, diameterNum = 0;
+      var length = undefined, diameter = undefined;
 
       for(var i = 0; i < filteredProduct.length; i++){
         if(filteredProduct[i]?.parametrs){
@@ -164,7 +162,6 @@ export default () => {
       }
       setProduct(filteredProdParameters)
     })
-    setHasMore(true)
     closeModal()
     setFiltered(true)
   }

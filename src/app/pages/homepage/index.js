@@ -7,7 +7,6 @@ import localize from '../../data/localize'
 import Page from '../../layout/page'
 import Article from '../../components/article-short'
 import ShortBlock from '../../components/small-short-cart'
-import Cart from '../../components/cart'
 
 const {lang, currency} = localize(window.location.href)
 const imageBuilder = imageUrlBuilder(sanityClient);
@@ -21,8 +20,6 @@ const query = `{
   }[0...10],
   'articles': *[_type == "article"].${lang} | order(sort asc)
 }`;
-
-const renderLoader = () => <p>Loading</p>;
 
 const Homepage = ({match}) => {
   const [homepage, setHomepage] = useState([])
@@ -74,7 +71,17 @@ const Homepage = ({match}) => {
 
         <section className="homepage_slide">
           <div className="uk-inline uk-cover-container uk-height-1-1 uk-width-1-1">
-            <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src={urlFor(homepage.image).width(Math.round(window.innerWidth)).url()} uk-img=""></div>
+
+            <div
+              className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover uk-img"
+              data-src={urlFor(homepage.image).width(Math.round(window.innerWidth)).format('webp').url()}
+              data-srcset={`${urlFor(homepage.image).width(400).format('webp').url()} 400w,
+                        ${urlFor(homepage.image).width(640).format('webp').url()} 640w,
+                        ${urlFor(homepage.image).width(900).format('webp').url()} 900w,
+                        ${urlFor(homepage.image).width(1000).format('webp').url()} 1000w,
+                        ${urlFor(homepage.image).width(1600).format('webp').url()} 1600w,
+                        ${urlFor(homepage.image).width(2000).format('webp').url()} 2000w`}
+              uk-img=""></div>
             <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
               <div >
                 <h1 className="contrast" uk-scrollspy="cls: uk-animation-slide-top-small; delay: 500">{homepage.title}</h1>

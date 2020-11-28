@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router';
 import Helmet from 'react-helmet';
 import logo from '../../assets/logo.svg'

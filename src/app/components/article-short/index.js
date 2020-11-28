@@ -1,14 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../../../lib/sanity.js";
 import './style.scss'
 
 const imageBuilder = imageUrlBuilder(sanityClient);
-
-function urlFor(source) {
-  return imageBuilder.image(source);
-}
+const urlFor = source => imageBuilder.image(source)
 
 const Article = ({lang, data, firstUrl, seccondUrl}) => {
 

@@ -1,6 +1,6 @@
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 import './style.scss'
-import UIkit from 'uikit'
+import {modal, util} from 'uikit'
 import { DataStateContext } from '../../../context/dataStateContext'
 import translate from '../../../data/staticTranslate'
 import localize from '../../../data/localize'
@@ -8,10 +8,10 @@ const {lang} = localize(window.location.href)
 
 const Head = ({head}) => {
 
-  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
+  const { dataContextState } = useContext(DataStateContext)
 
   const modal = () => {
-    UIkit.modal(UIkit.util.find('#modal-login')).show();
+    modal(util.find('#modal-login')).show();
   }
 
   return (

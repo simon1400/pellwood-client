@@ -15,7 +15,7 @@ import './scss/main.scss'
 
 const App = ({match}) => {
 
-  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
+  const { dataContextState } = useContext(DataStateContext)
   const [loginUser, setLoginUser] = useState(false)
 
   useEffect(() => {

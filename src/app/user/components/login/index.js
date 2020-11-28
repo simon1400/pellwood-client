@@ -1,18 +1,17 @@
-import React, {useState, useEffect, useContext} from 'react'
-import {modal, util} from 'uikit'
+import React, {useState, useContext} from 'react'
+import {modal} from 'uikit'
 import './style.scss'
-import {Link} from 'react-router-dom'
 import translate from '../../../data/staticTranslate'
 import validationForm from '../../../function/validationForm'
 import { DataStateContext } from '../../../context/dataStateContext'
 import {AxiosAPI} from '../../../restClient'
 
 import localize from '../../../data/localize'
-const {lang, currency} = localize(window.location.href)
+const {lang} = localize(window.location.href)
 
 const Login = ({setLoginUser}) => {
 
-  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
+  const { dataContextDispatch } = useContext(DataStateContext)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState({

@@ -21,7 +21,7 @@ import User from './user';
 
 const Routers = () => {
 
-  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
+  const { dataContextState } = useContext(DataStateContext)
 
   const routesArr = [
     {

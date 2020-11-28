@@ -7,10 +7,7 @@ import localize from '../../../data/localize'
 const {lang} = localize(window.location.href)
 
 const imageBuilder = imageUrlBuilder(sanityClient);
-
-function urlFor(source) {
-  return imageBuilder.image(source);
-}
+const urlFor = source => imageBuilder.image(source)
 
 const query = `*[_type == "article" && ${lang}.slug.current == $url]{
   "chapters": ${lang}.chapters,
@@ -42,7 +39,16 @@ export default ({match}) => {
               <div>
                 <div className="article_img_wrap">
                   <div>
-                    <img src={urlFor(item.image).width(!tablet && !mobile ? Math.round(window.innerWidth / 2) : window.innerWidth).url()} alt={item.title} />
+                    <img
+                      className="uk-img"
+                      uk-img=""
+                      data-src={urlFor(item.image).width(Math.round(window.innerWidth / 2)).format('webp').url()}
+                      data-srcset={`${urlFor(item.image).width(400).format('webp').url()} 400w,
+                                    ${urlFor(item.image).width(640).format('webp').url()} 640w,
+                                    ${urlFor(item.image).width(900).format('webp').url()} 900w,
+                                    ${urlFor(item.image).width(500).format('webp').url()} 1000w,
+                                    ${urlFor(item.image).width(1000).format('webp').url()} 2000w`}
+                      alt={item.title} />
                   </div>
                 </div>
               </div>

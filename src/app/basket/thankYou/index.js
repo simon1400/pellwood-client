@@ -3,6 +3,7 @@ import './style.scss'
 import { DataStateContext } from '../../context/dataStateContext'
 import translate from '../../data/staticTranslate'
 import getUrl from '../../function/getSearch'
+import gtag from '../../function/gtag'
 import {AxiosAPI} from '../../restClient'
 
 const ThankYou = () => {
@@ -12,30 +13,26 @@ const ThankYou = () => {
   const { dataContextDispatch } = useContext(DataStateContext)
 
   useEffect(() => {
+
     var serchUrl = getUrl(window.location.search);
-    if(!serchUrl.refId){
-      window.location.href = '/not-found'
-      return
-    }
+    if(!serchUrl.refId){ window.location.href = '/not-found'; return;}
+
     dataContextDispatch({ state: [], type: 'basket' })
     dataContextDispatch({ state: 0, type: 'basketCount' })
+
     AxiosAPI.get(`${process.env.REACT_APP_API}/payment/status/${serchUrl.refId}`).then(res => {
-      AxiosAPI.post(`${process.env.REACT_APP_API}/send/orderInfo`, res.data.data[0]).then(resMail => {
-        console.log(resMail.data);
-      }).catch(err => {
-        console.log('Send Email error --- ', err);
-      })
-      if(res.data.data[0].payOnline){
-        setStatus(res.data.data[0].status)
-      }else{
-        setStatus('dobirka')
-      }
+      gtag(res.data.data)
+
+      AxiosAPI.post(`${process.env.REACT_APP_API}/send/orderInfo`, res.data.data[0])
+      .then(resMail => console.log(resMail.data))
+      .catch(err => console.log('Send Email error --- ', err))
+
+      if(res.data.data[0].payOnline) setStatus(res.data.data[0].status)
+      else setStatus('dobirka')
 
       setLang(res.data.data[0].currency === 'Kč' ? 'cz' : 'en')
 
-    }).catch(err => {
-      console.log('Error get status order --- ', err)
-    })
+    }).catch(err => console.log('Error get status order --- ', err))
 
   }, [])
 

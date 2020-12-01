@@ -21,14 +21,21 @@ const ThankYou = () => {
     dataContextDispatch({ state: 0, type: 'basketCount' })
 
     AxiosAPI.get(`${process.env.REACT_APP_API}/payment/status/${serchUrl.refId}`).then(res => {
-      gtag(res.data.data)
+
 
       AxiosAPI.post(`${process.env.REACT_APP_API}/send/orderInfo`, res.data.data[0])
       .then(resMail => console.log(resMail.data))
       .catch(err => console.log('Send Email error --- ', err))
 
-      if(res.data.data[0].payOnline) setStatus(res.data.data[0].status)
-      else setStatus('dobirka')
+      if(res.data.data[0].payOnline) {
+        setStatus(res.data.data[0].status)
+        if(res.data.data[0].status !== 'PENDING' && res.data.data[0].status !== 'CANCELLED'){
+          gtag(res.data.data)
+        }
+      }else{
+        setStatus('dobirka')
+        gtag(res.data.data)
+      }
 
       setLang(res.data.data[0].currency === 'Kč' ? 'cz' : 'en')
 

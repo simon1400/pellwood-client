@@ -2,18 +2,17 @@ import translate from '../data/staticTranslate'
 
 export default (data) => {
 
-  const order = data[0]
-  const tax = order.sum * 0.21
-  const sumWithoutTax = order.sum - tax
+  const tax = data.sum * 0.21
+  const sumWithoutTax = data.sum - tax
 
   const dataSend = {
-    transaction_id: order.idOrder,
+    transaction_id: data.idOrder,
     affiliation: "Pellwood",
     value: sumWithoutTax,
-    currency: order.currency === 'Kč' ? 'CZK' : 'EUR',
+    currency: data.currency === 'Kč' ? 'CZK' : 'EUR',
     tax: tax,
-    shipping: order.deliveryPrice === translate.free[order.currency === 'Kč' ? 'cz' : 'en'] ? 0 : parseInt(order.deliveryPrice),
-    items: order.basket.map((item, index) => ({
+    shipping: data.deliveryPrice === translate.free[data.currency === 'Kč' ? 'cz' : 'en'] ? 0 : parseInt(data.deliveryPrice),
+    items: data.basket.map((item, index) => ({
       id: item.id,
       name: item.nameProduct,
       brand: "Pellwood",

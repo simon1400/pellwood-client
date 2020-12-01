@@ -63,7 +63,7 @@ const BodyWrap = ({
 
 
   return <>
-    {routes.map((item, index) => <Route exact path={item} render={() => <Body
+    {routes.map((item, index) => <Route exact key={index} path={item} render={() => <Body
       basket={basket}
       deleteItem={deleteItem}
       handleChange={handleChange}

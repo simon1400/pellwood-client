@@ -10,14 +10,14 @@ const Head = ({head}) => {
 
   const { dataContextState } = useContext(DataStateContext)
 
-  const modal = () => {
-    modal(util.find('#modal-login')).show();
+  const toggleModal = () => {
+    modal('#modal-login').show();
   }
 
   return (
     <div className="tm-basket-head">
       <h1>{head}</h1>
-      {!dataContextState?.user?.email && <a href="#modal-login" className="tm-button tm-bare-button" onClick={() => modal()}>{translate.login2[lang]}</a>}
+      {!dataContextState?.user?.email && <a href="#modal-login" className="tm-button tm-bare-button" onClick={() => toggleModal()}>{translate.login2[lang]}</a>}
     </div>
   )
 }

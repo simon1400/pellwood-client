@@ -7,7 +7,7 @@ const routes = ['/basket', `/${lang}/basket`]
 
 
 const TotalWrap = ({sum, sale}) => <>
-  {routes.map((item, index) => <Route exact path={item} render={() => <Total sum={sum} sale={sale} />}/>)}
+  {routes.map((item, index) => <Route exact key={index} path={item} render={() => <Total sum={sum} sale={sale} />}/>)}
 </>
 
 export default TotalWrap

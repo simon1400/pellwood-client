@@ -31,7 +31,7 @@ const Basket = () => {
     phone: user?.phone || '',
     name: user?.name || '',
     surname: user?.surname || '',
-    country: 'cz',
+    country: lang === 'cz' ? 'cz' : 'de',
     city: user?.city || '',
     address: user?.address || '',
     code: user?.code || '',
@@ -46,7 +46,7 @@ const Basket = () => {
     phone: '',
     name: '',
     surname: '',
-    country: 'cz',
+    country: lang === 'cz' ? 'cz' : 'de',
     city: '',
     address: '',
     code: ''

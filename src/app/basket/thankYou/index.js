@@ -30,7 +30,7 @@ const ThankYou = () => {
       if(order.payOnline) {
         setStatus(order.status)
         if(order.status !== 'PENDING' && order.status !== 'CANCELLED'){
-          gtag(res.data.data)
+          gtag(order)
         }
       }else{
         setStatus('dobirka')

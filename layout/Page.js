@@ -95,7 +95,7 @@ const Page = ({
         <meta property="og:url" content={global.site_url+router.asPath} />
         <meta property="og:image" content={theImage} />
         <meta property="og:description" content={theDescription} />
-        <meta property="og:site_name" content="HUROM" />
+        <meta property="og:site_name" content={defaultTitle} />
         <meta property="fb:app_id" content={global.facebook_app_id} />
 
         {published && <meta name="article:published_time" content={published} />}

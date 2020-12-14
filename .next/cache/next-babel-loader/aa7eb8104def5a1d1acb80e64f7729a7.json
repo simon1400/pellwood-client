@@ -1,0 +1,1 @@
+{"ast":null,"code":"import axios from 'axios';\nexport var API_ENDPOINT = process.env.REACT_APP_API;\nexport var AxiosAPI = axios.create({\n  baseURL: API_ENDPOINT,\n  headers: {\n    'Content-Type': 'application/json',\n    'Access-Control-Allow-Origin': '*'\n  }\n});","map":null,"metadata":{},"sourceType":"module"}

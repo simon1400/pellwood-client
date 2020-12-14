@@ -35,16 +35,6 @@ const Header = () => {
     setBasketCount(dataContextState.basketCount)
   }, [dataContextState.basketCount])
 
-  const handleHamburger = () => {
-    if(hamburger){
-      document.body.style.overflow = 'scroll'
-    }else{
-      document.body.style.overflow = 'hidden'
-    }
-
-    setHamburger(!hamburger)
-  }
-
   const changeLanguage = (e, url) => {
     dataContextDispatch({ state: [], type: 'basket' })
     dataContextDispatch({ state: 0, type: 'basketCount' })
@@ -60,7 +50,7 @@ const Header = () => {
               <a className="logo-wrap uk-width-auto"><img src="/assets/logo.svg" width="200" height="100%" alt="Pellwood" /></a>
             </Link>
             <div className="uk-text-right uk-width-expand uk-hidden@m">
-              <button className={`hamburger hamburger--spin ${hamburger ? 'is-active' : ''}`} onClick={() => handleHamburger()} type="button">
+              <button className={`hamburger hamburger--spin ${hamburger ? 'is-active' : ''}`} onClick={() => setHamburger(!hamburger)} type="button">
                 <span className="hamburger-box">
                   <span className="hamburger-inner"></span>
                 </span>

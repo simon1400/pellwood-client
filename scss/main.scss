@@ -170,9 +170,6 @@
 	display: block;
 	opacity: 0;
 	&:hover{
-		.blanded-mix{
-			transform: scale(1.2);
-		}
 		.category_short_name{
 			&:after{
 				width: calc(100% + 20px);
@@ -200,8 +197,6 @@
 .blanded-mix{
 	background-color: rgba($accent, .6);
 	background-blend-mode: darken;
-	transform: scale(1);
-	transition: all 5s ease;
 }
 
 .uk-offcanvas-page{
@@ -1346,17 +1341,11 @@ footer{
   position: absolute;
   right: 0;
   top: 0;
-
-  &.uk-close{
-    color: black;
-    &:hover, &:active, &:focus{
-      color: black;
-    }
-  }
-  svg{
-    width: 36px;
-    height: 36px;
-  }
+	cursor: pointer;
+	img{
+		width: 40px;
+		height: 40px;
+	}
 }
 
 .tm-canvas-head{

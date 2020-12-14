@@ -83,11 +83,11 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              <div className="user-area uk-hidden@m">
+              {/*<div className="user-area uk-hidden@m">
                 <div className="login">
                   {dataContextState.user?.email ? <Link href="/user"><a>{translate.account[lang]}</a></Link> : <a href="#modal-login" uk-toggle="">Přihlašení</a>}
                 </div>
-              </div>
+              </div>*/}
             </div>
             <div className="uk-flex function-button-wrap uk-width-auto">
               <div className="lang-nav uk-visible@m">
@@ -100,7 +100,7 @@ const Header = () => {
               </div>
               <div className="user-area">
                 <div className="login">
-                  {dataContextState.user?.email ? <Link href="/user"><a className="uk-visible@m">{translate.account[lang]}</a></Link> : <a href="#modal-login" className="uk-visible@m" uk-toggle="">{translate.login[lang]}</a>}
+                  {/*{dataContextState.user?.email ? <Link href="/user"><a className="uk-visible@m">{translate.account[lang]}</a></Link> : <a href="#modal-login" className="uk-visible@m" uk-toggle="">{translate.login[lang]}</a>}*/}
                   <a nohref="" href="/" className="basket_count" uk-toggle="target: #offcanvas-flip">{basketCount}</a>
                 </div>
               </div>

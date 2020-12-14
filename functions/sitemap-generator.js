@@ -59,14 +59,11 @@ async function generateSitemap() {
 
     const paramsConfig = {
       "/:lang/produkt/:url": paramsProduct,
-      "/:lang/:category/kategorie": paramsCategory,
-      "/:lang/:url/:category/clanek": paramsArticles
+      "/:lang/kategorie/:category": paramsCategory,
+      "/:lang/clanek/:category/:url": paramsArticles
     };
 
     var path = './public/sitemap.xml'
-    if(process.env.NODE_ENV === 'prod'){
-      path = './build/sitemap.xml'
-    }
 
     return (
       new Sitemap(router)

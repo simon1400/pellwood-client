@@ -85,10 +85,6 @@ async function generateSitemap() {
     const resultXmlEn = toXml(enProducts)
     var pathcz = './public/google-feed-cz.xml'
     var pathen = './public/google-feed-en.xml'
-    if(process.env.NODE_ENV === 'prod'){
-      pathcz = './build/google-feed-cz.xml'
-      pathen = './build/google-feed-en.xml'
-    }
     fs.writeFile(pathcz, resultXmlCz, (err) => {
       if (err) return console.log(err);
       console.log(`Xml write in --> ${pathcz}`);

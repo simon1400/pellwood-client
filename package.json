@@ -31,7 +31,7 @@
     "start": "next start -p 3001",
     "export": "next build && next export",
     "sitemap": "NODE_ENV=prod babel-node ./functions/sitemap-generator.js",
-    "feed": "NODE_ENV=prod babel-node ./functions/feed.js"
+    "feed": "NODE_ENV=prod babel-node ./functions/google-feed.js"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",

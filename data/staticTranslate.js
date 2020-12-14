@@ -494,8 +494,8 @@ export default {
     de: "xxx"
   },
   linkBuisness: {
-    cz: "/vseobecne-obchodni-podminky/technicke-clanky/clanek",
-    en: "/en/agb/technical/clanek",
+    cz: "/clanek/technicke-clanky/vseobecne-obchodni-podminky",
+    en: "/en/clanek/technical/agb",
     de: "xxx"
   },
 }

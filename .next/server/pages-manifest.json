@@ -1,10 +1,19 @@
 {
   "/_app": "pages/_app.js",
+  "/clanek/[category]/[url]": "pages/clanek/[category]/[url].js",
+  "/": "pages/index.js",
+  "/kategorie/[category]": "pages/kategorie/[category].js",
+  "/produkt/[product]": "pages/produkt/[product].js",
+  "/produkty": "pages/produkty.js",
+  "/thank-you": "pages/thank-you.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/thank-you": "pages/thank-you.js",
-  "/": "pages/index.js",
-  "/basket/checkout": "pages/basket/checkout.js",
-  "/produkty": "pages/produkty.js",
-  "/produkt/[product]": "pages/produkt/[product].js"
+  "/cs/404": "pages/cs/404.html",
+  "/en/404": "pages/en/404.html",
+  "/cs/basket": "pages/cs/basket.html",
+  "/en/basket": "pages/en/basket.html",
+  "/cs/basket/checkout": "pages/cs/basket/checkout.html",
+  "/en/basket/checkout": "pages/en/basket/checkout.html",
+  "/cs/user": "pages/cs/user.html",
+  "/en/user": "pages/en/user.html"
 }

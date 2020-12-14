@@ -1,6 +1,6 @@
 import {useState, useEffect, useContext} from 'react';
 import Link from 'next/link'
-import {UIkit} from 'uikit'
+import UIkit from 'uikit'
 import translate from '../data/staticTranslate'
 import { DataStateContext } from '../context/dataStateContext'
 import localize from '../data/localize'

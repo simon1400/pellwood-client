@@ -3,8 +3,7 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/produkty": "pages/produkty.js",
-  "/produkt/[product]": "pages/produkt/[product].js",
-  "/basket/checkout": "pages/basket/checkout.js",
-  "/basket": "pages/basket.js"
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
+  "/404": "pages/404.js",
+  "/basket/checkout": "pages/basket/checkout.js"
 }

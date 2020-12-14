@@ -159,12 +159,12 @@ const Canvas = () => {
           </div>
 
           <div className="tm-basket-footer">
-            <Link href="/basket" onClick={() => closeCanvas()}>
-              <a className="tm-button tm-bare-button">{translate.basket[lang]}</a>
-            </Link>
-            <Link href="/basket/checkout" onClick={() => closeCanvas()}>
-              <a className="tm-button tm-black-button">{translate.checkout[lang]}</a>
-            </Link>
+            <a href="/basket" className="tm-button tm-bare-button">
+              {translate.basket[lang]}
+            </a>
+            <a href="/basket/checkout" className="tm-button tm-black-button">
+              {translate.checkout[lang]}
+            </a>
           </div>
 
         </div> : <p className="uk-text-center">{translate.emptybasket[lang]}</p>}

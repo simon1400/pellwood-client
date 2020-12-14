@@ -33,7 +33,7 @@ const Body = ({
                   <h3 className="tm-basket-item-head">{item.nameProduct}</h3>
                   {item.variantName === item.nameProduct ? '' : <span>{item.variantName}</span>}
                   <div className="tm-remove-item">
-                    <Link href={window.location.pathname +'?delete'+item.variantName.replace(/ /g, "_")} onClick={e => deleteItem(e, index)}>
+                    <Link href={router.asPath +'?delete'+item.variantName.replace(/ /g, "_")} onClick={e => deleteItem(e, index)}>
                       <a><button uk-close=""></button>{translate.remove[lang]}</a>
                     </Link>
                   </div>

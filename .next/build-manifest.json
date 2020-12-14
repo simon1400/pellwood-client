@@ -29,20 +29,10 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
-    "/clanek/[category]/[url]": [
+    "/basket/checkout": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/clanek/[category]/[url].js"
-    ],
-    "/kategorie/[category]": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/kategorie/[category].js"
-    ],
-    "/produkty": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/produkty.js"
+      "static/chunks/pages/basket/checkout.js"
     ]
   },
   "ampFirstPages": []

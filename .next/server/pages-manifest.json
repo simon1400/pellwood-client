@@ -3,7 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/produkty": "pages/produkty.js",
-  "/kategorie/[category]": "pages/kategorie/[category].js",
-  "/clanek/[category]/[url]": "pages/clanek/[category]/[url].js"
+  "/basket/checkout": "pages/basket/checkout.js"
 }

@@ -19,6 +19,11 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/index.js"
     ],
+    "/404": [
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/chunks/pages/404.js"
+    ],
     "/_app": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
@@ -29,25 +34,15 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
-    "/basket": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/basket.js"
-    ],
     "/basket/checkout": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
       "static/chunks/pages/basket/checkout.js"
     ],
-    "/produkt/[product]": [
+    "/next/dist/pages/_error": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/produkt/[product].js"
-    ],
-    "/produkty": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/produkty.js"
+      "static/chunks/pages/next/dist/pages/_error.js"
     ]
   },
   "ampFirstPages": []

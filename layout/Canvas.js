@@ -1,6 +1,6 @@
 import {useState, useEffect, useContext} from 'react';
 import Link from 'next/link'
-import {offcanvas} from 'uikit'
+import {UIkit} from 'uikit'
 import translate from '../data/staticTranslate'
 import { DataStateContext } from '../context/dataStateContext'
 import localize from '../data/localize'
@@ -22,9 +22,9 @@ const Canvas = () => {
     // setBasketCount(dataContextState.basketCount)
   }, [dataContextState.basketCount])
 
-  const closeCanvas = (e, link) => {
+  const closeCanvas = async (e, link) => {
     e.preventDefault()
-    offcanvas('#offcanvas-flip').hide();
+    const ofcan = await UIkit.offcanvas('#offcanvas-flip').hide();
     if(link.length){
       router.push(link)
     }

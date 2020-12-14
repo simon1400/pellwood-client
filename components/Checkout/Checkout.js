@@ -75,20 +75,17 @@ const Checkout = ({
           </div>
 
 
-          {user.email === undefined
-            ? <div className="">
-                <div className="uk-margin checkbox_item">
-                  <input type="checkbox" id="checkbox_registration" onChange={() => handleChange('registrationCheck', !state[0].registrationCheck)} checked={state[0].registrationCheck} />
-                  <label htmlFor="checkbox_registration"></label>
-                  <label htmlFor="checkbox_registration">{translate.chcekcreatecaccout[lang]}</label>
-                </div>
-
-                <AnimateHeight duration={ 500 } height={ state[0].registrationCheck ? 'auto' : 0 } >
-                  <Password state={password[0]} setState={password[1]}/>
-                </AnimateHeight>
+          {/*{user.email === undefined ? <div className="">
+              <div className="uk-margin checkbox_item">
+                <input type="checkbox" id="checkbox_registration" onChange={() => handleChange('registrationCheck', !state[0].registrationCheck)} checked={state[0].registrationCheck} />
+                <label htmlFor="checkbox_registration"></label>
+                <label htmlFor="checkbox_registration">{translate.chcekcreatecaccout[lang]}</label>
               </div>
-            : ''
-          }
+          
+              <AnimateHeight duration={ 500 } height={ state[0].registrationCheck ? 'auto' : 0 } >
+                <Password state={password[0]} setState={password[1]}/>
+              </AnimateHeight>
+            </div> : ''}*/}
 
           <div className="">
             <div className="uk-margin checkbox_item">

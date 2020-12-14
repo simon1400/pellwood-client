@@ -1,4 +1,4 @@
-import Page from '../../layout/page';
+import Page from '../../layout/Page';
 import SubMenu from '../../components/SubMenu';
 import Article from '../../components/ArticleShort';
 import localize from '../../data/localize'

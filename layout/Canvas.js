@@ -95,9 +95,7 @@ const Canvas = () => {
         <div className="tm-canvas-head">
           <span className="tm-circle-count">{basketCount ? basketCount : 0}</span>
           <h2>{translate.basket[lang]}</h2>
-          <Link href={router.asPath}>
-            <a className="tm-canvas-close uk-close-large uk-close" uk-close="" onClick={e => closeCanvas()}></a>
-          </Link>
+          <span className="tm-canvas-close" onClick={e => closeCanvas()}><img src="/assets/times.svg" /></span>
         </div>
         {basketCount && sum ? <div>
           {!!basket.length && basket.map((item, index) => <div key={index} className="tm-canvas-basket-item-wrap">

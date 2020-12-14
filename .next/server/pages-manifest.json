@@ -2,11 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/produkty": "pages/produkty.js",
   "/": "pages/index.js",
-  "/basket/checkout": "pages/basket/checkout.js",
-  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
-  "/thank-you": "pages/thank-you.js",
-  "/404": "pages/404.js",
-  "/produkt/[product]": "pages/produkt/[product].js"
+  "/produkty": "pages/produkty.js",
+  "/kategorie/[category]": "pages/kategorie/[category].js",
+  "/clanek/[category]/[url]": "pages/clanek/[category]/[url].js"
 }

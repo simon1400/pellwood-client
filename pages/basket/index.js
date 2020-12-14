@@ -36,7 +36,7 @@ const Basket = () => {
 
 
   return (
-    <Page className="basket">
+    <Page className="basket" title={translate.basket[lang]}>
       <div className="tm-basket-content-wrap">
         <div className="tm-basket-content">
           <Head />

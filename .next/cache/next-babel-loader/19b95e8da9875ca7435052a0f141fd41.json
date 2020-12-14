@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport Total from './Total';\n\nvar TotalWrap = function TotalWrap(_ref) {\n  var sum = _ref.sum,\n      sale = _ref.sale;\n  return __jsx(Total, {\n    sum: sum,\n    sale: sale\n  });\n};\n\nexport default TotalWrap;","map":null,"metadata":{},"sourceType":"module"}

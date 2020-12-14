@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default (function (location) {\n  var lang = 'cz',\n      currency = 'Kč';\n\n  if (location === 'en') {\n    lang = 'en';\n    currency = '€';\n  } else {\n    lang = 'cz';\n    currency = 'Kč';\n  }\n\n  return {\n    lang: lang,\n    currency: currency\n  };\n});","map":null,"metadata":{},"sourceType":"module"}

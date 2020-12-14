@@ -1,30 +1,17 @@
 stages:
-    - build
     - deploy
 
-build:
-    stage: build
-    tags:
-      - pellwood-app
-    script:
-      - echo "Building deploy package"
-      - npm install
-      - CI= npm run build
-      - echo "Build successful"
-    artifacts:
-      expire_in: 1 hour
-      paths:
-        - build
-deploy_production:
+
+deploy:
     stage: deploy
     tags:
       - pellwood-app
     script:
         - echo "Deploying to server"
-        - cp -rv ./build /var/www/pellwood/client/
-        - cp -rv ./package.json /var/www/pellwood/client/
-        - cp -rv ./functions /var/www/pellwood/client/
-        - cp -rv ./src/lib /var/www/pellwood/client/src/
+        - cp -rv ./ /var/www/pellwood/client/
+        - cd /var/www/pellwood/client/ && sudo docker-compose down
+        - cd /var/www/pellwood/client/ && sudo docker-compose build
+        - cd /var/www/pellwood/client/ && sudo docker-compose up -d
         - echo "Deployed"
     environment:
         name: production

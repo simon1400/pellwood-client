@@ -2,6 +2,7 @@ import {useEffect, useContext} from 'react'
 import { DataStateContext } from '../../context/dataStateContext'
 import Page from '../../layout/Page'
 import Head from 'next/head'
+import Link from 'next/link'
 import translate from '../../data/staticTranslate'
 import gtag from '../../functions/gtag'
 import {AxiosAPI} from '../../restClient'
@@ -23,9 +24,7 @@ export async function getServerSideProps({query, locale}) {
 
   const order = res.data.data[0]
 
-  AxiosAPI.post(`/send/orderInfo`, order)
-  .then(resMail => console.log(resMail.data))
-  .catch(err => console.log('Send Email error --- ', err))
+  const resMail = await AxiosAPI.post(`/send/orderInfo`, order)
 
   var status = '', dataGtag;
 

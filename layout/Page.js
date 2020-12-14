@@ -79,7 +79,7 @@ const Page = ({
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{theTitle}</title>
-        <link rel="canonical" href={global.site_url+router.asPath} />
+        <link rel="canonical" href={SITE_URL+router.asPath} />
         <meta itemProp="name" content={theTitle} />
         <meta itemProp="description" content={theDescription} />
         <meta itemProp="image" content={theImage} />
@@ -92,7 +92,7 @@ const Page = ({
         <meta name="twitter:image:src" content={theImage} />*/}
         <meta property="og:title" content={theTitle} />
         <meta property="og:type" content={contentType || 'website'} />
-        <meta property="og:url" content={global.site_url+router.asPath} />
+        <meta property="og:url" content={SITE_URL+router.asPath} />
         <meta property="og:image" content={theImage} />
         <meta property="og:description" content={theDescription} />
         <meta property="og:site_name" content={defaultTitle} />

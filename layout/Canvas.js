@@ -22,8 +22,12 @@ const Canvas = () => {
     // setBasketCount(dataContextState.basketCount)
   }, [dataContextState.basketCount])
 
-  const closeCanvas = () => {
+  const closeCanvas = (e, link) => {
+    e.preventDefault()
     offcanvas('#offcanvas-flip').hide();
+    if(link.length){
+      router.push(link)
+    }
   }
 
   const onSumItems = () => {
@@ -95,7 +99,7 @@ const Canvas = () => {
         <div className="tm-canvas-head">
           <span className="tm-circle-count">{basketCount ? basketCount : 0}</span>
           <h2>{translate.basket[lang]}</h2>
-          <span className="tm-canvas-close" onClick={e => closeCanvas()}><img src="/assets/times.svg" /></span>
+          <span className="tm-canvas-close" onClick={e => closeCanvas(e, '')}><img src="/assets/times.svg" /></span>
         </div>
         {basketCount && sum ? <div>
           {!!basket.length && basket.map((item, index) => <div key={index} className="tm-canvas-basket-item-wrap">
@@ -159,10 +163,10 @@ const Canvas = () => {
           </div>
 
           <div className="tm-basket-footer">
-            <a href="/basket" className="tm-button tm-bare-button">
+            <a href="/basket" onClick={(e) => closeCanvas(e, '/basket')} className="tm-button tm-bare-button">
               {translate.basket[lang]}
             </a>
-            <a href="/basket/checkout" className="tm-button tm-black-button">
+            <a href="/basket/checkout" onClick={(e) => closeCanvas(e, '/basket/checkout')} className="tm-button tm-black-button">
               {translate.checkout[lang]}
             </a>
           </div>

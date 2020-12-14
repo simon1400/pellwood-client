@@ -25,7 +25,7 @@ const TotalEnd = ({sum, sale, sumBefore, basket, delivery, payment}) => {
           </div>
         </div>)}
       </div>
-      <div className="tm-basket-total">
+      <div className="tm-basket-total basket-total-end">
         <table className="uk-table uk-table-divider">
           <tbody>
             <tr>

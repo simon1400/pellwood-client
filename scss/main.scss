@@ -1397,10 +1397,10 @@ footer{
   margin-right: 20px;
 }
 
-.tm-canvas-basket-item-wrap{
-  padding-bottom: 50px;
-
-}
+// .tm-canvas-basket-item-wrap{
+//   padding-bottom: 50px;
+//
+// }
 
 
 .basket{
@@ -1473,9 +1473,9 @@ footer{
   p{
     margin-top: 30px;
   }
-  .tm-basket-total{
+  .tm-basket-total:not(.basket-total-end){
     margin-top: 0;
-    // padding-top: 100px;
+    padding-top: 100px;
     margin-bottom: 50px;
   }
   .basket-right-content{

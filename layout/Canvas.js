@@ -19,7 +19,7 @@ const Canvas = () => {
 
   useEffect(() => {
     setBasket(dataContextState.basket)
-    setBasketCount(dataContextState.basketCount)
+    // setBasketCount(dataContextState.basketCount)
   }, [dataContextState.basketCount])
 
   const closeCanvas = () => {
@@ -68,7 +68,7 @@ const Canvas = () => {
     setBasket(dataContextState.basket)
     setBasketCount(dataContextState.basketCount)
     onSumItems()
-  }, [router.query.length])
+  }, [router.query])
 
 
   useEffect(() => {

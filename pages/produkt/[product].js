@@ -213,7 +213,7 @@ const Product = ({
                   })}
                 </div>}
 
-                {!!product?.variants?.[0].price && <div className="order_block">
+                {!!product?.variants?.[0]?.price && <div className="order_block">
                   <div className="uk-flex uk-flex-between">
                     <div className="uk-width-1-1 uk-width-auto@m">
                       <div className="custom-select-wrap">

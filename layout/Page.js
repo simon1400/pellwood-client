@@ -8,7 +8,7 @@ import Login from '../components/Login'
 import ForgotPassword from '../components/ForgotPassword'
 import ResetPassword from '../components/ResetPassword'
 
-const SITE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://pellwood.com';
+const SITE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://pellwood.com';
 const defaultTitle = 'PELLWOOD';
 const defaultDescription = 'Paličky';
 const defaultImage = `${SITE_URL}/assets/logo.svg`;
@@ -35,6 +35,7 @@ const Page = ({
   const theTitle = title ? (title + defaultSep + defaultTitle).substring(0, 60) : defaultTitle;
   const theDescription = description ? description.substring(0, 155) : defaultDescription;
   const theImage = image ? image : defaultImage;
+  const canonical = router.locale === 'en' ? SITE_URL+'/'+router.locale+router.asPath : SITE_URL+router.asPath
 
   const { dataContextState } = useContext(DataStateContext)
   const [loginUser, setLoginUser] = useState(false)
@@ -46,7 +47,6 @@ const Page = ({
     if(router.query?.email){
       modal('#reset-password').show();
     }
-
   }, [])
 
   return (
@@ -79,7 +79,7 @@ const Page = ({
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{theTitle}</title>
-        <link rel="canonical" href={SITE_URL+router.asPath} />
+        <link rel="canonical" href={canonical} />
         <meta itemProp="name" content={theTitle} />
         <meta itemProp="description" content={theDescription} />
         <meta itemProp="image" content={theImage} />

@@ -38,7 +38,7 @@ export default () => {
         </div>
       </div>
       <div className="copyright">
-        <span>Made in Brno by</span>
+        <span>Made in Brno by -- </span>
         <a href="mailto:danielkokes@gmail.com"><img src="/assets/hardart.svg" height="18" width="100%" alt="Hardart studio"/></a>
       </div>
     </footer>

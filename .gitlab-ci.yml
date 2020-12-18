@@ -8,8 +8,22 @@ deploy:
       - pellwood-app
     script:
         - echo "Deploying to server"
-        - cp -rv ./ /var/www/pellwood/client/
+        - cp -rv ./components /var/www/pellwood/client/
+        - cp -rv ./context /var/www/pellwood/client/
+        - cp -rv ./data /var/www/pellwood/client/
+        - cp -rv ./functions /var/www/pellwood/client/
+        - cp -rv ./layout /var/www/pellwood/client/
+        - cp -rv ./lib /var/www/pellwood/client/
+        - cp -rv ./pages /var/www/pellwood/client/
+        - cp -rv ./public /var/www/pellwood/client/
+        - cp -rv ./scss /var/www/pellwood/client/
+        - cp -rv ./.env /var/www/pellwood/client/
+        - cp -rv ./docker-compose.yml /var/www/pellwood/client/
+        - cp -rv ./Dockerfile /var/www/pellwood/client/
+        - cp -rv ./next.config.js /var/www/pellwood/client/
+        - cp -rv ./package.json /var/www/pellwood/client/
         - cd /var/www/pellwood/client/ && sudo docker-compose down
+        - cd /var/www/pellwood/client/ && docker system prune -a
         - cd /var/www/pellwood/client/ && sudo docker-compose build
         - cd /var/www/pellwood/client/ && sudo docker-compose up -d
         - echo "Deployed"

@@ -1,5 +1,19 @@
 stages:
+    - build
     - deploy
+
+before_script:
+    - docker info
+    - docker login -u simon1400 -p d04101996d
+
+build:
+  stage: build
+  tags:
+    - pellwood-app
+  script:
+      - docker build -f ./Dockerfile --no-cache -t pellwood:master .
+      - docker tag pellwood:master simon1400/pellwood:master
+      - docker push simon1400/pellwood
 
 
 deploy:
@@ -7,24 +21,9 @@ deploy:
     tags:
       - pellwood-app
     script:
-        - echo "Deploying to server"
-        - cp -rv ./components /var/www/pellwood/client/
-        - cp -rv ./context /var/www/pellwood/client/
-        - cp -rv ./data /var/www/pellwood/client/
-        - cp -rv ./functions /var/www/pellwood/client/
-        - cp -rv ./layout /var/www/pellwood/client/
-        - cp -rv ./lib /var/www/pellwood/client/
-        - cp -rv ./pages /var/www/pellwood/client/
-        - cp -rv ./public /var/www/pellwood/client/
-        - cp -rv ./scss /var/www/pellwood/client/
-        - cp -rv ./.env /var/www/pellwood/client/
-        - cp -rv ./docker-compose.yml /var/www/pellwood/client/
-        - cp -rv ./Dockerfile /var/www/pellwood/client/
-        - cp -rv ./next.config.js /var/www/pellwood/client/
-        - cp -rv ./package.json /var/www/pellwood/client/
+        - docker login -u simon1400 -p d04101996d
+        - cd /var/www/pellwood/client/ && sudo docker-compose pull
         - cd /var/www/pellwood/client/ && sudo docker-compose down
-        - cd /var/www/pellwood/client/ && docker system prune -a
-        - cd /var/www/pellwood/client/ && sudo docker-compose build
         - cd /var/www/pellwood/client/ && sudo docker-compose up -d
         - echo "Deployed"
     environment:

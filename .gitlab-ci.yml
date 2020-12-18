@@ -3,7 +3,6 @@ stages:
     - deploy
 
 before_script:
-    - docker info
     - docker login -u simon1400 -p d04101996d
 
 build:

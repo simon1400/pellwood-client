@@ -2,20 +2,15 @@ stages:
     - build
     - deploy
 
-before_script:
-    - docker info
-    - docker login -u simon1400 -p d04101996d
-
 build:
   stage: build
   tags:
     - pellwood-app
   script:
+      - docker login -u simon1400 -p d04101996d
       - docker build -f ./Dockerfile --no-cache -t pellwood:master .
       - docker tag pellwood:master simon1400/pellwood:master
       - docker push simon1400/pellwood
-
-
 
 deploy:
     stage: deploy

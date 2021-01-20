@@ -1,1 +1,0 @@
-{"ast":null,"code":"export default {\n  cz: [{\n    name: 'cz',\n    value: 'Česko'\n  }, {\n    name: 'sk',\n    value: 'Slovensko'\n  }],\n  en: [{\n    name: 'de',\n    value: 'Deutschland'\n  }, {\n    name: 'at',\n    value: 'Austria'\n  }]\n};","map":null,"metadata":{},"sourceType":"module"}

@@ -59,7 +59,7 @@ const ThankYou = ({lang, status, dataGtag}) => {
   return(
     <Page className="thank-you-page base-page">
       <Head>
-        <script dangerouslySetInnerHTML={{__html: `gtag('event', 'purchase', ${dataGtag})`}} />
+        <script dangerouslySetInnerHTML={{__html: `gtag('event', 'purchase', ${JSON.stringify(dataGtag)})`}} />
       </Head>
       <h1>{translate.thankOrder[lang]}</h1>
       <p>{translate.thankInfo[lang]}</p>

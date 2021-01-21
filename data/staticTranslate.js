@@ -494,8 +494,18 @@ export default {
     de: "xxx"
   },
   linkBuisness: {
-    cz: "/clanek/technicke-clanky/vseobecne-obchodni-podminky",
-    en: "/en/clanek/technical/agb",
+    cz: "/clanek/kategorie/vseobecne-obchodni-podminky",
+    en: "/en/clanek/kategorie/agb",
     de: "xxx"
   },
+  showResults: {
+    cz: "Zobrazit výsledky",
+    en: "Show results",
+    de: "xxx"
+  },
+  cancelFilters: {
+    cz: "Zrušit všechny filtry",
+    en: "Cancel all filters",
+    de: "xxx"
+  }
 }

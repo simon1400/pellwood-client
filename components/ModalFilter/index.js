@@ -60,7 +60,7 @@ const ModalFilter = ({
             </div>
 
 
-            <button type="submit" className="tm-button tm-black-button uk-width-1-1">Zobrazit výsledky</button>
+            <button type="submit" className="tm-button tm-black-button uk-width-1-1">{translate.showResults[lang]}</button>
 
           </form>
         </div>

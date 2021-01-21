@@ -203,7 +203,7 @@ const Catalog = ({
                 <a className="tm-button tm-black-button" href="#modal-filter" uk-toggle="">{translate.searchAndFilter[lang]}</a>
                 {filtered && <button className="cancel-filtered tm-button tm-button-text" onClick={e => cancelFilter(e)}>
                   <img src="/assets/times.svg" alt="Cancel filter" uk-svg="" />
-                  Zrušit všechny filtry
+                  {translate.cancelFilters[lang]}
                 </button>}
               </div>
               <SubMenu data={category}/>

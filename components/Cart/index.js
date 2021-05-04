@@ -18,7 +18,6 @@ const getMin = (arr) => {
 }
 
 const localizePrice = (lang, price, currency, ifFrom = false) => {
-  console.log(price);
   if(lang === 'en'){
     return `${ifFrom ? translate.from[lang] : ''} ${currency} ${price}`
   }else{
@@ -36,21 +35,17 @@ const Cart = ({item, lang, currency, block}) => {
   useEffect(() => {
 
     if(!item?.variants?.length){
-      console.log('single', item.price);
       setPrice(localizePrice(lang, item.price, currency))
       return
     }
 
     if(item?.variants?.length > 1){
       const min = getMin(item.variants)
-      console.log(item.variants);
-      console.log('variants', getMin(item.variants));
       setPrice(localizePrice(lang, min, currency, true))
       return
     }
 
     if(item?.variants?.length === 1){
-      console.log('variant first', item.variants[0].price);
       setPrice(localizePrice(lang, item.variants[0].price, currency))
       return
     }

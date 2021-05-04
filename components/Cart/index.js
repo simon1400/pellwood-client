@@ -10,7 +10,7 @@ const getMin = (arr) => {
   var lowest = Number.POSITIVE_INFINITY;
   var tmp;
   for (var i = arr.length-1; i >= 0; i--) {
-    tmp = arr[i].price;
+    tmp = arr[i].price.split(',').join('.');
     if (tmp < lowest) lowest = tmp;
   }
 
@@ -18,8 +18,9 @@ const getMin = (arr) => {
 }
 
 const localizePrice = (lang, price, currency, ifFrom = false) => {
+  console.log(price);
   if(lang === 'en'){
-    return `${ifFrom ? translate.from[lang] : ''} ${currency} ${price.toFixed(2)}`
+    return `${ifFrom ? translate.from[lang] : ''} ${currency} ${price}`
   }else{
     return `${ifFrom ? translate.from[lang] : ''} ${price} ${currency}`
   }
@@ -35,16 +36,21 @@ const Cart = ({item, lang, currency, block}) => {
   useEffect(() => {
 
     if(!item?.variants?.length){
+      console.log('single', item.price);
       setPrice(localizePrice(lang, item.price, currency))
       return
     }
 
     if(item?.variants?.length > 1){
-      setPrice(localizePrice(lang, getMin(item.variants), currency, true))
+      const min = getMin(item.variants)
+      console.log(item.variants);
+      console.log('variants', getMin(item.variants));
+      setPrice(localizePrice(lang, min, currency, true))
       return
     }
 
     if(item?.variants?.length === 1){
+      console.log('variant first', item.variants[0].price);
       setPrice(localizePrice(lang, item.variants[0].price, currency))
       return
     }

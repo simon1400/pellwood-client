@@ -212,6 +212,7 @@ const Catalog = ({
               next={moreData}
               hasMore={hasMore}
               loader={<h4>Loading...</h4>}
+              scrollThreshold={0.5}
               endMessage={
                 <p style={{ textAlign: 'center' }}>
                   <b>Yay! You have seen it all</b>

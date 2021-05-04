@@ -25,5 +25,5 @@ export default (size = false, category = false, search = false, parameters = {},
 
   stringUrl = stringUrl.substr(0, stringUrl.length - 1)
 
-  router.push(stringUrl)
+  router.replace(stringUrl)
 }

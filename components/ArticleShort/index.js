@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../../lib/sanity.js";
 import { useRouter } from 'next/router'
@@ -9,14 +9,15 @@ const urlFor = source => imageBuilder.image(source)
 
 const Article = ({lang, data}) => {
   const router = useRouter()
+  const articleRef = useRef(null)
 
   return(
     <div className="uk-width-1-1 uk-width-1-2@s">
       <Link href={`/clanek/${router.query.category}/${data.slug.current}`}>
-        <a className="big_category">
+        <a className="big_category" ref={articleRef}>
           <div className="category_wrap">
             <div className="uk-inline uk-height-1-1 uk-width-1-1">
-              <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src={urlFor(data.image).url()} uk-img=""></div>
+              {articleRef.current && <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover" data-src={urlFor(data.image).width(articleRef.current?.clientWidth + 200).auto('format').url()} uk-img=""></div>}
               <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
                 <h2 className="category_short_name">{data.title}</h2>
               </div>

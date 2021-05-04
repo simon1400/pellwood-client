@@ -59,7 +59,7 @@ const Header = () => {
             <div className={`top-nav uk-width-expand ${hamburger ? 'menu-active' : ''}`}>
               <nav>
                 <ul>
-                  <li className={router.asPath.indexOf('/produkty') >= 0 ? 'active-menu-top' : ''}><Link href="/produkty"><a>{translate.products[lang]}</a></Link></li>
+                  <li className={router.asPath.indexOf('/produkty') >= 0 ? 'active-menu-top' : ''}><Link href="/produkty?size=6&category=all"><a>{translate.products[lang]}</a></Link></li>
                   {(menu || []).map((item, index) => <li key={index} className={router.asPath.indexOf(item?.slug.current) >= 0 ? 'active-menu-top' : ''}>
                     <Link href={`/kategorie/${item.slug.current}`}><a>{item.title}</a></Link>
                   </li>)}

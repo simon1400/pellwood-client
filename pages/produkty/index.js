@@ -8,12 +8,39 @@ import sanityClient from "../../lib/sanity.js";
 import ModalFilter from '../../components/ModalFilter'
 import translate from '../../data/staticTranslate'
 import localize from '../../data/localize'
+import changeUrl from '../../helpers/changeUrl'
+import { useRouter } from 'next/router'
+import controledProduct from '../../helpers/controledProduct'
+import getRangeParameter from '../../helpers/getRangeParameter'
+import shuffle from '../../helpers/shuffle'
+import InfiniteScroll from 'react-infinite-scroll-component';
 
-export async function getServerSideProps({locale}) {
-  const {lang, currency} = localize(locale)
+export async function getServerSideProps(context) {
+
+  const {lang, currency} = localize(context.locale)
+
+  var category, size;
+  if(!context.query?.category){
+    category = 'all'
+  }else{
+    category = context.query?.category
+  }
+
+  if(!context.query?.size){
+    size = 6
+  }else{
+    size = context.query?.size
+  }
+
+  const queryProduct = `*[_type == "product"
+                          ${category !== 'all' ? ` && ${lang}.category._ref == "${category}"` : ''}
+                          ${!!context.query.search?.length ? ` && ${lang}.title match '${context.query.search.split(/[,-]+/).join(' ')}*'` : ''}
+                        ].${lang}
+                        [0...${size}]
+                        | order(${lang}.sort asc) | order(${lang}.title asc)`;
 
   const query = `{
-    'product': *[_type == "product"].${lang} | order(${lang}.sort asc) | order(${lang}.title asc),
+    'product': ${queryProduct},
     'category': *[_type == "category"] | order(${lang}.sort asc),
     'articles': *[_type == "article"] | order(${lang}.sort asc),
     'settings': *[_type == "settings"].${lang}
@@ -21,13 +48,10 @@ export async function getServerSideProps({locale}) {
 
   const data = await sanityClient.fetch(query)
 
-  const shuffle = (a, count) => {
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a
-  }
+  const products = await controledProduct(lang, data.product)
+
+  const range = getRangeParameter(data.product)
+  const rangeState = getRangeParameter(data.product)
 
   return {
     props: {
@@ -36,7 +60,10 @@ export async function getServerSideProps({locale}) {
       articleFirst: shuffle(data.articles.filter(item => item[lang]?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b")), 0),
       articleSeccond: shuffle(data.articles.filter(item => item[lang]?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624")), 1),
       lang,
-      currency
+      currency,
+      productData: products,
+      range,
+      rangeState
     }
   }
 }
@@ -47,88 +74,87 @@ const Catalog = ({
   articleFirst,
   articleSeccond,
   lang,
-  currency
+  currency,
+  productData,
+  range,
+  rangeState
 }) => {
+  const router = useRouter()
 
-  const [product, setProduct] = useState([])
+  const [firstLoad, setFirstLoad] = useState(false)
+  const [queryUrlObj, setQueryUrlObj] = useState(router.query)
+  const [reset, setReset] = useState(false)
+  const [product, setProduct] = useState(productData)
+  const [hasMore, setHasMore] = useState(true)
   const [filtered, setFiltered] = useState(false)
   const [resetFilter] = useState('')
   const [search, setSearch] = useState('')
-  const [urlProduct, setUrlProduct] = useState(`*[_type == "product"].${lang}`)
+  const [urlProduct, setUrlProduct] = useState(`*[_type == "product"].${lang} | order(${lang}.sort asc, ${lang}.title asc)`)
 
-  const [stateRange, setStateRange] = useState({
-    length: {
-      min: 0,
-      max: 45
-    },
-    diameter: {
-      min: 0,
-      max: 45
-    }
-  })
-
-  const [rangeNumber, setRangeNumber] = useState({
-    length: {
-      min: 0,
-      max: 45
-    },
-    diameter: {
-      min: 0,
-      max: 45
-    }
-  })
+  const [stateRange, setStateRange] = useState(rangeState)
+  const [rangeNumber, setRangeNumber] = useState(range)
 
   useEffect(() => {
-    sanityClient.fetch(`${urlProduct} | order(sort asc, title asc)`).then(data => {
+    if(firstLoad){
+      changeData(router.query)
+    }
+    setFirstLoad(true)
+  }, [router.query])
 
-      let filteredProduct = data.filter(item => item?.title)
-      if(lang === 'en'){
-        filteredProduct.map(item => {
-          if(typeof item.price === 'string'){
-            item.price.replace(/,/g, '.')
-          }else if(item.variants?.length){
-            item.variants = item.variants.map(variant => {
-              variant.price = variant.price.replace(/,/g, '.')
-              return variant
-            })
-          }
-        })
-      }
+  const changeData = async (queryUrl) => {
 
-      setProduct(filteredProduct)
+    const sizeBefore = +queryUrl.size - 6 || 0
+    const count = queryUrl.size || 6
+    const category = queryUrl.category
+    const search = queryUrl.search || ''
 
-      const lengthNumbers = [], diameterNumbers = []
-      var length = undefined, diameter = undefined;
+    {/*const diameterMin = queryUrl.diameterMin || false
+    const diameterMax = queryUrl.diameterMax || false
+    const lengthMin = queryUrl.lengthMin || false
+    const lengthMax = queryUrl.lengthMax || false
 
-      for(var i = 0; i < filteredProduct.length; i++){
-        if(filteredProduct[i]?.parametrs){
-          length = filteredProduct[i]?.parametrs.find(o => o.title === 'Délka' || o.title === 'Length')
-          diameter = filteredProduct[i]?.parametrs.find(o => o.title === 'Průměr' || o.title === 'Diameter')
-          if(length){
-            lengthNumbers.push(+length.value.substr(0, length.value.length - 3).split(',').join('.'))
-          }
-          if(diameter){
-            diameterNumbers.push(+diameter.value.substr(0, diameter.value.length - 3).split(',').join('.'))
-          }
-        }
-      }
-      const rangeNum = {
-        length: {
-          min: Math.min(...lengthNumbers),
-          max: Math.max(...lengthNumbers)
-        },
-        diameter: {
-          min: Math.min(...diameterNumbers),
-          max: Math.max(...diameterNumbers)
-        }
-      }
+    var diameterString = !!diameterMin && !!diameterMax
+                            ? ` && (${lang}.parametrs[0].value <= ${diameterMax}
+                                && ${lang}.parametrs[0].value >= ${diameterMin}
+                                || ${lang}.parametrs[1].value <= ${diameterMax}
+                                && ${lang}.parametrs[1].value >= ${diameterMin})`
+                            : ''
 
-      setRangeNumber(rangeNum)
-      setStateRange(rangeNum)
-    })
-  }, [])
+    var lengthString = !!lengthMin && !!lengthMax
+                            ? ` && (${lang}.parametrs[0].value <= ${lengthMax}
+                                && ${lang}.parametrs[0].value >= ${lengthMin}
+                                || ${lang}.parametrs[1].value <= ${lengthMax}
+                                && ${lang}.parametrs[1].value >= ${lengthMin})`
+                            : ''*/}
 
+    var rootString = `*[_type == "product"
+                        ${category !== 'all' ? ` && ${lang}.category._ref == "${category}"` : ''}
+                        ${!!search.length ? ` && ${lang}.title match '${search.split(/[,-]+/).join(' ')}*'` : ''}
+                      ]`
 
+    var sizeString = `[${sizeBefore}...${count}]`
+    var orderString = `| order(${lang}.sort asc) | order(${lang}.title asc)`
+
+    const query = `${rootString}.${lang} ${sizeString} ${orderString}`
+
+    const data = await sanityClient.fetch(query)
+
+    if(!data.length) {
+      setHasMore(false)
+    }
+
+    if(reset){
+      setProduct(data)
+      setReset(false)
+    }else{
+      setProduct([...product, ...data])
+    }
+
+  }
+
+  const moreData = () => {
+    changeUrl(+router.query.size + 6, false, false, [], router)
+  }
 
   const closeModal = () => {
     modal(util.find('#modal-filter')).hide();
@@ -137,50 +163,21 @@ const Catalog = ({
   const handleFilter = (e) => {
     e.preventDefault()
 
-    const newUrlProduct = `*[_type == "product" ${!!search.length ? '&& '+lang+'.title match "'+ search.split(/[,-]+/).join(' ') +'*"' : ''}].${lang}`
-    setUrlProduct(newUrlProduct)
-    const searchQuery = `${newUrlProduct} | order(sort asc, title asc)`
-    sanityClient.fetch(searchQuery).then(data => {
-      const filteredProduct = data.filter(item => item?.title)
-      const filteredProdParameters = []
-      var length = undefined, diameter = undefined, lengthNum = 0, diameterNum = 0;
+    setReset(true)
+    changeUrl(6, false, search, stateRange, router)
 
-      for(var i = 0; i < filteredProduct.length; i++){
-        if(filteredProduct[i]?.parametrs){
-          length = filteredProduct[i]?.parametrs.find(o => o.title === 'Délka' || o.title === 'Length')
-          diameter = filteredProduct[i]?.parametrs.find(o => o.title === 'Průměr' || o.title === 'Diameter')
-
-          if(length || diameter){
-            if(length){
-              lengthNum = +length.value.substr(0, length.value.length - 3).split(',').join('.')
-            }
-            if(diameter){
-              diameterNum = +diameter.value.substr(0, diameter.value.length - 3).split(',').join('.')
-            }
-            if(lengthNum <= stateRange.length.max
-              && lengthNum >= stateRange.length.min
-              && diameterNum <= stateRange.diameter.max
-              && diameterNum >= stateRange.diameter.min){
-                filteredProdParameters.push(filteredProduct[i])
-            }
-          }
-        }
-      }
-      setProduct(filteredProdParameters)
-    })
+    // const newUrlProduct = `*[_type == "product" ${!!search.length ? '&& '+lang+'.title match "'+ search.split(/[,-]+/).join(' ') +'*"' : ''}].${lang} | order(sort asc, title asc)`
     closeModal()
     setFiltered(true)
   }
-
 
   const cancelFilter = async (e) => {
     e.preventDefault()
     setFiltered(false)
     setStateRange(rangeNumber)
     setSearch('')
-    setUrlProduct(`*[_type == "product"].${lang}`)
-    const data = await sanityClient.fetch(`*[_type == "product"].${lang} | order(sort asc) | order(title asc)`)
-    setProduct(data)
+    setReset(true)
+    changeUrl(6, false, '', {}, router)
   }
 
   return (
@@ -194,7 +191,6 @@ const Catalog = ({
         </div>
       </section>}
 
-
       <section className="category grey" id="catalog-short" uk-filter="target: .js-filter">
         <div className="uk-container uk-container-expand">
           <div className="category_menu uk-flex uk-flex-between uk-flex-middle uk-flex-wrap">
@@ -206,14 +202,26 @@ const Catalog = ({
                   {translate.cancelFilters[lang]}
                 </button>}
               </div>
-              <SubMenu data={category}/>
+              <SubMenu data={category} setReset={setReset}/>
             </div>
           </div>
         </div>
         <div className="uk-container uk-container-expand">
-          <ul className={`js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s${resetFilter ? ' show-all' : ''}`} uk-grid="">
-            {!!product.length && product.map((item, index) => <Cart item={item} key={index} lang={lang} currency={currency} />)}
-          </ul>
+          {!!product.length && <InfiniteScroll
+              dataLength={product.length}
+              next={moreData}
+              hasMore={hasMore}
+              loader={<h4>Loading...</h4>}
+              endMessage={
+                <p style={{ textAlign: 'center' }}>
+                  <b>Yay! You have seen it all</b>
+                </p>
+              }
+            >
+            <ul className={`js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s${resetFilter ? ' show-all' : ''}`} uk-grid="">
+              {product.map((item, index) => <Cart item={item} key={index} lang={lang} currency={currency} />)}
+            </ul>
+          </InfiniteScroll>}
         </div>
       </section>
 

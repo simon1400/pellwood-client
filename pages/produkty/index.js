@@ -15,6 +15,8 @@ import getRangeParameter from '../../helpers/getRangeParameter'
 import shuffle from '../../helpers/shuffle'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
+import Loader from '../../components/Loader'
+
 export async function getServerSideProps(context) {
 
   const {lang, currency} = localize(context.locale)
@@ -160,13 +162,12 @@ const Catalog = ({
     modal(util.find('#modal-filter')).hide();
   }
 
-  const handleFilter = (e) => {
+  const handleFilter = e => {
     e.preventDefault()
 
     setReset(true)
     changeUrl(6, false, search, stateRange, router)
 
-    // const newUrlProduct = `*[_type == "product" ${!!search.length ? '&& '+lang+'.title match "'+ search.split(/[,-]+/).join(' ') +'*"' : ''}].${lang} | order(sort asc, title asc)`
     closeModal()
     setFiltered(true)
   }
@@ -206,18 +207,15 @@ const Catalog = ({
             </div>
           </div>
         </div>
+
         <div className="uk-container uk-container-expand">
           {!!product.length && <InfiniteScroll
               dataLength={product.length}
               next={moreData}
               hasMore={hasMore}
-              loader={<h4>Loading...</h4>}
-              scrollThreshold={0.5}
-              endMessage={
-                <p style={{ textAlign: 'center' }}>
-                  <b>Yay! You have seen it all</b>
-                </p>
-              }
+              loader={<Loader />}
+              scrollThreshold={0.6}
+              endMessage={<div></div>}
             >
             <ul className={`js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s${resetFilter ? ' show-all' : ''}`} uk-grid="">
               {product.map((item, index) => <Cart item={item} key={index} lang={lang} currency={currency} />)}

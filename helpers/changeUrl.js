@@ -1,15 +1,9 @@
-export default (size = false, category = false, search = false, parameters = {}, router) => {
+const changeUrl = (size = false, category = false, search = false, parameters = {}, router) => {
   const queryUrl = router.query
 
-  if(size){
-    queryUrl.size = size
-  }
-  if(category){
-    queryUrl.category = category
-  }
-  if(search !== false) {
-    queryUrl.search = search
-  }
+  if(size) queryUrl.size = size
+  if(category) queryUrl.category = category
+  if(search !== false) queryUrl.search = search
 
   if(parameters.diameter || parameters.length) {
     queryUrl.diameterMin = parameters.diameter.min
@@ -18,12 +12,16 @@ export default (size = false, category = false, search = false, parameters = {},
     queryUrl.lengthMax = parameters.length.max
   }
 
-  var stringUrl = `${router.route}?`
-  for(var prop in queryUrl){
-    stringUrl += `${prop}=${queryUrl[prop]}&`
-  }
+  // var stringUrl = `${router.route}?`
+  // for(var prop in queryUrl){
+  //   stringUrl += `${prop}=${queryUrl[prop]}&`
+  // }
+  //
+  // stringUrl = stringUrl.substr(0, stringUrl.length - 1)
 
-  stringUrl = stringUrl.substr(0, stringUrl.length - 1)
-
-  router.replace(stringUrl)
+  router.push({
+    query: queryUrl
+  })
 }
+
+export default changeUrl

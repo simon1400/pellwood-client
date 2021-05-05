@@ -19,9 +19,7 @@ const changeUrl = (size = false, category = false, search = false, parameters = 
   //
   // stringUrl = stringUrl.substr(0, stringUrl.length - 1)
 
-  router.push({
-    query: queryUrl
-  })
+  router.push({pathname: router.pathname, query: queryUrl}, undefined, { scroll: false })
 }
 
 export default changeUrl

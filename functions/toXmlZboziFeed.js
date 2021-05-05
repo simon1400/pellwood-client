@@ -17,7 +17,6 @@ const toXml = data => {
 
    return result + `\n<SHOPITEM>
      <ITEM_ID>${item.id}</ITEM_ID>
-
      <PRODUCTNAME>PELLWOOD | ${item.title}</PRODUCTNAME>
      <PRODUCT>PELLWOOD | ${item.title}</PRODUCT>
      <DESCRIPTION>${item.description}</DESCRIPTION>
@@ -28,12 +27,7 @@ const toXml = data => {
      <MANUFACTURER>Pellwood</MANUFACTURER>
      <DELIVERY_DATE>0</DELIVERY_DATE>
      <EAN>${item.mpn}</EAN>
-     <CATEGORYTEXT>Paličky</CATEGORYTEXT>
-     <CATEGORY>
-       <CATEGORY_ID>1535</CATEGORY_ID>
-       <CATEGORY_NAME>Paličky</CATEGORY_NAME>
-       <CATEGORY_FULLNAME>Heureka.cz | Hobby | Hudební nástroje | Bicí nástroje | Paličky</CATEGORY_FULLNAME>
-     </CATEGORY>
+     <CATEGORYTEXT>Kultura a zábava | Volný čas | Hudebniny | Hudební nástroje | Bicí nástroje | Příslušenství pro bicí nástroje | Paličky</CATEGORYTEXT>
    </SHOPITEM>\n`
   }, '')
 

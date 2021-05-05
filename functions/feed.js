@@ -7,9 +7,12 @@ const imageUrlBuilder = require("@sanity/image-url");
 const axios = require('axios')
 const imageBuilder = imageUrlBuilder(sanityClient);
 const urlFor = (source) => imageBuilder.image(source)
+
 const toXml = require('./toXmlProductFeed').default
 const toXmlHeureka = require('./toXmlHeurekaFeed').default
+const toXmlZbozi = require('./toXmlZboziFeed').default
 fs = require('fs');
+
 
 const feedModel = (lang, arr, products, i) => {
   var productVariants = []
@@ -42,12 +45,11 @@ const feedModel = (lang, arr, products, i) => {
     });
   }
 
-
   arr.push(...productVariants)
 
 }
 
-async function generateSitemap() {
+const generateSitemap = async () => {
   try{
     const products = await sanityClient.fetch(`*[_type == "product"] {_id, en,cz}`)
 
@@ -62,11 +64,13 @@ async function generateSitemap() {
     const resultXmlCz = toXml(czProducts)
     const resultXmlEn = toXml(enProducts)
     const resultXmlHeurekaCz = toXmlHeureka(czProducts)
-    const resultXmlHeurekaEn = toXmlHeureka(enProducts)
+    const resultXmlZboziCz = toXmlZbozi(czProducts)
+
     var pathcz = './public/google-feed-cz.xml'
     var pathen = './public/google-feed-en.xml'
     var pathCzHeureka = './public/heureka-feed-cz.xml'
-    var pathEnHeureka = './public/heureka-feed-en.xml'
+    var pathCzZbozi = './public/zbozi-feed-cz.xml'
+
     fs.writeFile(pathcz, resultXmlCz, (err) => {
       if (err) return console.log(err);
       console.log(`Xml write in --> ${pathcz}`);
@@ -79,9 +83,9 @@ async function generateSitemap() {
       if (err) return console.log(err);
       console.log(`Xml write in --> ${pathCzHeureka}`);
     });
-    fs.writeFile(pathEnHeureka, resultXmlHeurekaEn, (err) => {
+    fs.writeFile(pathCzZbozi, resultXmlZboziCz, (err) => {
       if (err) return console.log(err);
-      console.log(`Xml write in --> ${pathEnHeureka}`);
+      console.log(`Xml write in --> ${pathCzZbozi}`);
     });
 
   }catch(e){

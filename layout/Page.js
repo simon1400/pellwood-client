@@ -35,7 +35,7 @@ const Page = ({
   const theTitle = title ? (title + defaultSep + defaultTitle).substring(0, 60) : defaultTitle;
   const theDescription = description ? description.substring(0, 155) : defaultDescription;
   const theImage = image ? image : defaultImage;
-  const canonical = router.locale === 'en' ? SITE_URL+'/'+router.locale+router.asPath : SITE_URL+router.asPath
+  const canonical = router.locale === 'en' ? SITE_URL+'/'+router.locale+router.route : SITE_URL+router.route
 
   const { dataContextState } = useContext(DataStateContext)
   const [loginUser, setLoginUser] = useState(false)

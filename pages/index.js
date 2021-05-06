@@ -6,18 +6,28 @@ import localize from '../data/localize'
 import Page from '../layout/Page'
 import Article from '../components/ArticleShort'
 import ShortBlock from '../components/SmallShortCart'
+
+import shuffle from '../helpers/shuffle'
+
 const imageBuilder = imageUrlBuilder(sanityClient);
 const urlFor = source => imageBuilder.image(source)
 
 export async function getServerSideProps({locale}) {
   const {lang, currency} = localize(locale)
 
+  const queryArticle = `*[_type == "article"] {
+    "category": ${lang}.category,
+    "title": ${lang}.title,
+    "slug": ${lang}.slug,
+    "image": ${lang}.image
+  } | order(${lang}.sort asc)`
+
   const data = await sanityClient.fetch(`{
     'homepage': *[_type == "homepage"] {
       ${lang},
       "carts": *[ _type == "product" && _id in [^.${lang}.recommendedProducts.product_1._ref, ^.${lang}.recommendedProducts.product_2._ref, ^.${lang}.recommendedProducts.product_3._ref]].${lang} | order(sort asc)
     }[0...10],
-    'articles': *[_type == "article"].${lang} | order(sort asc)
+    'articles': ${queryArticle}
   }`)
 
   if(lang === 'en'){
@@ -33,14 +43,6 @@ export async function getServerSideProps({locale}) {
     })
   }
 
-  const shuffle = (a, count) => {
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-
-    return a
-  }
   var articlesFilteredFirst = data.articles.filter(item => item?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
   var articlesFilteredSeccond = data.articles.filter(item => item?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
   const articleFirst = shuffle(articlesFilteredFirst, 0)

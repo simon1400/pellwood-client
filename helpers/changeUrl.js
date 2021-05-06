@@ -1,5 +1,12 @@
-const changeUrl = (size = false, category = false, search = false, parameters = {}, router) => {
-  const queryUrl = router.query
+const changeUrl = (
+  size = false,
+  category = false,
+  search = false,
+  parameters = {},
+  router,
+  resetFilter = false
+) => {
+  var queryUrl = router.query
 
   if(size) queryUrl.size = size
   if(category) queryUrl.category = category
@@ -12,12 +19,12 @@ const changeUrl = (size = false, category = false, search = false, parameters = 
     queryUrl.lengthMax = parameters.length.max
   }
 
-  // var stringUrl = `${router.route}?`
-  // for(var prop in queryUrl){
-  //   stringUrl += `${prop}=${queryUrl[prop]}&`
-  // }
-  //
-  // stringUrl = stringUrl.substr(0, stringUrl.length - 1)
+  if(resetFilter){
+    queryUrl = {
+      size,
+      category: router.query.category
+    }
+  }
 
   router.push({pathname: router.pathname, query: queryUrl}, undefined, { scroll: false })
 }

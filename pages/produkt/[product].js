@@ -10,19 +10,29 @@ import translate from '../../data/staticTranslate'
 import { DataStateContext } from '../../context/dataStateContext'
 import localize from '../../data/localize'
 import { useRouter } from 'next/router'
+import shuffle from '../../helpers/shuffle'
+
 const imageBuilder = imageUrlBuilder(sanityClient);
 const urlFor = source => imageBuilder.image(source)
 
 export async function getServerSideProps({params, locale}) {
 
   const {lang, currency} = localize(locale)
+
+  const queryArticle = `*[_type == "article"] {
+    "category": ${lang}.category,
+    "title": ${lang}.title,
+    "slug": ${lang}.slug,
+    "image": ${lang}.image
+  } | order(${lang}.sort asc)`
+
   const query = `{
     'products': *[_type == "product" && ${lang}.slug.current == $url] {
       _id,
       ${lang},
       "linkedCarts": *[ _type == "product" && _id in [^.${lang}.linkedProducts.product_1._ref, ^.${lang}.linkedProducts.product_2._ref, ^.${lang}.linkedProducts.product_3._ref]].${lang} | order(sort asc)
     },
-    'articles': *[_type == "article"] | order(sort asc)
+    'articles': ${queryArticle}
   }`;
   const data = await sanityClient.fetch(query, {url: params.product})
 
@@ -52,16 +62,8 @@ export async function getServerSideProps({params, locale}) {
     })
   }
 
-  const shuffle = (a, count) => {
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a
-  }
-
-  const articlesFilteredFirst = data.articles.filter(item => item[lang]?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
-  const articlesFilteredSeccond = data.articles.filter(item => item[lang]?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
+  const articlesFilteredFirst = data.articles.filter(item => item?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b"))
+  const articlesFilteredSeccond = data.articles.filter(item => item?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624"))
 
   return {
     props: {

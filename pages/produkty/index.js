@@ -21,51 +21,97 @@ export async function getServerSideProps(context) {
 
   const {lang, currency} = localize(context.locale)
 
-  var category, size;
-  if(!context.query?.category){
-    category = 'all'
-  }else{
-    category = context.query?.category
-  }
+  const category = context.query?.category || 'all'
+  const size = context.query?.size || 6
+  const search = context.query?.search || ''
+  const diameterMin = context.query?.diameterMin || false
+  const diameterMax = context.query?.diameterMax || false
+  const lengthMin = context.query?.lengthMin || false
+  const lengthMax = context.query?.lengthMax || false
 
-  if(!context.query?.size){
-    size = 6
-  }else{
-    size = context.query?.size
+  const diameterString = !!diameterMin && !!diameterMax
+                          ? ` && (${lang}.parametrs[0].value <= "${diameterMax}"
+                              && ${lang}.parametrs[0].value >= "${diameterMin}"
+                              || ${lang}.parametrs[1].value <= "${diameterMax}"
+                              && ${lang}.parametrs[1].value >= "${diameterMin}")`
+                          : ''
+
+  const lengthString = !!lengthMin && !!lengthMax
+                          ? ` && (${lang}.parametrs[0].value <= "${lengthMax}"
+                              && ${lang}.parametrs[0].value >= "${lengthMin}"
+                              || ${lang}.parametrs[1].value <= "${lengthMax}"
+                              && ${lang}.parametrs[1].value >= "${lengthMin}")`
+                          : ''
+
+
+  var parametersArr = false
+  if(lengthMin && lengthMax && diameterMin && diameterMax){
+    parametersArr = { lengthMin, lengthMax, diameterMin, diameterMax }
   }
 
   const queryProduct = `*[_type == "product"
                           ${category !== 'all' ? ` && ${lang}.category._ref == "${category}"` : ''}
-                          ${!!context.query.search?.length ? ` && ${lang}.title match '${context.query.search.split(/[,-]+/).join(' ')}*'` : ''}
+                          ${!!search.length ? ` && ${lang}.title match '${search.split(/[,-]+/).join(' ')}*'` : ''}
+                          ${!!diameterString.length ? diameterString : ''}
+                          ${!!lengthString.length ? lengthString : ''}
                         ].${lang}
                         [0...${size}]
                         | order(${lang}.sort asc) | order(${lang}.title asc)`;
 
+
+  const queryParameters = `*[_type == "product"] {
+    "parametrs": ${lang}.parametrs
+  }`
+
+  const queryCategory = `*[_type == "category"]{
+    _id,
+    "title": ${lang}.title,
+    "slug": ${lang}.slug
+  } | order(${lang}.sort asc)`
+
+  const queryArticle = `*[_type == "article"] {
+    "category": ${lang}.category,
+    "title": ${lang}.title,
+    "slug": ${lang}.slug,
+    "image": ${lang}.image
+  } | order(${lang}.sort asc)`
+
+  const querySettings = `*[_type == "settings"] {
+    "titleCategory": ${lang}.titleCategory,
+    "metaCatalog": ${lang}.metaCatalog,
+    "descriptionCategory": ${lang}.descriptionCategory,
+  }[0]`
+
   const query = `{
     'product': ${queryProduct},
-    'category': *[_type == "category"] | order(${lang}.sort asc),
-    'articles': *[_type == "article"] | order(${lang}.sort asc),
-    'settings': *[_type == "settings"].${lang}
+    'parametrs': ${queryParameters},
+    'category': ${queryCategory},
+    'articles': ${queryArticle},
+    'settings': ${querySettings}
   }`;
 
   const data = await sanityClient.fetch(query)
 
   const products = await controledProduct(lang, data.product)
 
-  const range = getRangeParameter(data.product)
-  const rangeState = getRangeParameter(data.product)
+  const range = getRangeParameter(data.parametrs)
+  const rangeState = getRangeParameter(data.parametrs, parametersArr)
+
+  const ifFiltered = !!search.length || !!parametersArr
 
   return {
     props: {
       category: data.category.filter(item => item?._id),
-      settings: data.settings.filter(item => item?.titleCategory)?.[0],
-      articleFirst: shuffle(data.articles.filter(item => item[lang]?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b")), 0),
-      articleSeccond: shuffle(data.articles.filter(item => item[lang]?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624")), 1),
+      settings: data.settings,
+      articleFirst: shuffle(data.articles.filter(item => item?.category._ref.includes("3252355e-13f2-4628-8db4-a90bb522713b")), 0),
+      articleSeccond: shuffle(data.articles.filter(item => item?.category._ref.includes("53b17b89-299c-48b1-b332-26240fc0e624")), 1),
       lang,
       currency,
       productData: products,
       range,
-      rangeState
+      rangeState,
+      ifFiltered,
+      searchQuery: search
     }
   }
 }
@@ -79,8 +125,12 @@ const Catalog = ({
   currency,
   productData,
   range,
-  rangeState
+  rangeState,
+  parametrs,
+  ifFiltered,
+  searchQuery
 }) => {
+
   const router = useRouter()
 
   const [firstLoad, setFirstLoad] = useState(false)
@@ -88,10 +138,11 @@ const Catalog = ({
   const [reset, setReset] = useState(false)
   const [product, setProduct] = useState(productData)
   const [hasMore, setHasMore] = useState(true)
-  const [filtered, setFiltered] = useState(false)
+  const [filtered, setFiltered] = useState(ifFiltered)
   const [resetFilter] = useState('')
-  const [search, setSearch] = useState('')
-  const [urlProduct, setUrlProduct] = useState(`*[_type == "product"].${lang} | order(${lang}.sort asc, ${lang}.title asc)`)
+  const [search, setSearch] = useState(searchQuery || '')
+
+  console.log(search);
 
   const [stateRange, setStateRange] = useState(rangeState)
   const [rangeNumber, setRangeNumber] = useState(range)
@@ -110,28 +161,30 @@ const Catalog = ({
     const category = queryUrl.category
     const search = queryUrl.search || ''
 
-    {/*const diameterMin = queryUrl.diameterMin || false
+    const diameterMin = queryUrl.diameterMin || false
     const diameterMax = queryUrl.diameterMax || false
     const lengthMin = queryUrl.lengthMin || false
     const lengthMax = queryUrl.lengthMax || false
 
     var diameterString = !!diameterMin && !!diameterMax
-                            ? ` && (${lang}.parametrs[0].value <= ${diameterMax}
-                                && ${lang}.parametrs[0].value >= ${diameterMin}
-                                || ${lang}.parametrs[1].value <= ${diameterMax}
-                                && ${lang}.parametrs[1].value >= ${diameterMin})`
+                            ? ` && (${lang}.parametrs[0].value <= "${diameterMax}"
+                                && ${lang}.parametrs[0].value >= "${diameterMin}"
+                                || ${lang}.parametrs[1].value <= "${diameterMax}"
+                                && ${lang}.parametrs[1].value >= "${diameterMin}")`
                             : ''
 
     var lengthString = !!lengthMin && !!lengthMax
-                            ? ` && (${lang}.parametrs[0].value <= ${lengthMax}
-                                && ${lang}.parametrs[0].value >= ${lengthMin}
-                                || ${lang}.parametrs[1].value <= ${lengthMax}
-                                && ${lang}.parametrs[1].value >= ${lengthMin})`
-                            : ''*/}
+                            ? ` && (${lang}.parametrs[0].value <= "${lengthMax}"
+                                && ${lang}.parametrs[0].value >= "${lengthMin}"
+                                || ${lang}.parametrs[1].value <= "${lengthMax}"
+                                && ${lang}.parametrs[1].value >= "${lengthMin}")`
+                            : ''
 
     var rootString = `*[_type == "product"
                         ${category !== 'all' ? ` && ${lang}.category._ref == "${category}"` : ''}
                         ${!!search.length ? ` && ${lang}.title match '${search.split(/[,-]+/).join(' ')}*'` : ''}
+                        ${!!diameterString.length ? diameterString : ''}
+                        ${!!lengthString.length ? lengthString : ''}
                       ]`
 
     var sizeString = `[${sizeBefore}...${count}]`
@@ -178,7 +231,7 @@ const Catalog = ({
     setStateRange(rangeNumber)
     setSearch('')
     setReset(true)
-    changeUrl(6, false, '', {}, router)
+    changeUrl(6, false, '', {}, router, true)
   }
 
   return (
@@ -198,8 +251,8 @@ const Catalog = ({
             <div className="uk-flex uk-flex-middle uk-width-1-1 uk-flex-between uk-flex-wrap">
               <div className="filter-controls-wrap">
                 <a className="tm-button tm-black-button" href="#modal-filter" uk-toggle="">{translate.searchAndFilter[lang]}</a>
-                {filtered && <button className="cancel-filtered tm-button tm-button-text" onClick={e => cancelFilter(e)}>
-                  <img src="/assets/times.svg" alt="Cancel filter" uk-svg="" />
+                {!!filtered && <button className="cancel-filtered tm-button tm-button-text" onClick={e => cancelFilter(e)}>
+                  <img className="uk-svg" src="/assets/times.svg" alt="Cancel filter" uk-svg="" hidden="" />
                   {translate.cancelFilters[lang]}
                 </button>}
               </div>
@@ -217,7 +270,7 @@ const Catalog = ({
               scrollThreshold={0.6}
               endMessage={<div></div>}
             >
-            <ul className={`js-filter uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s${resetFilter ? ' show-all' : ''}`} uk-grid="">
+            <ul className="uk-grid uk-child-width-1-1 uk-child-width-1-3@m uk-child-width-1-2@s" uk-grid="">
               {product.map((item, index) => <Cart item={item} key={index} lang={lang} currency={currency} />)}
             </ul>
           </InfiniteScroll>}

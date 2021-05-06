@@ -19,7 +19,6 @@ const Canvas = () => {
 
   useEffect(() => {
     setBasket(dataContextState.basket)
-    // setBasketCount(dataContextState.basketCount)
   }, [dataContextState.basketCount])
 
   const closeCanvas = async (e, link) => {
@@ -93,7 +92,7 @@ const Canvas = () => {
   }
 
   return(
-    <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true;">
+    <div id="offcanvas-flip" className="uk-offcanvas" uk-offcanvas="flip: true; overlay: true;">
       <div className="uk-offcanvas-bar">
 
         <div className="tm-canvas-head">

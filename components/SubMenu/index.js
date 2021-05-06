@@ -42,7 +42,7 @@ const SubMenu = ({
           if(!articles) {
             return <li key={index} className={`sub_menu_item${router.query.category === item._id ? ' active_sub' : ''}`}>
               <a href="#" onClick={e => handleChangeUrl(e, item._id)}>
-                {item[lang].title}
+                {item.title}
               </a>
             </li>
           }else{

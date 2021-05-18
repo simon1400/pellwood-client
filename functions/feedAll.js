@@ -27,7 +27,7 @@ const feedModel = (arr, products, i) => {
   if(products[i] && products[i].variants && products[i].variants.length){
     for(var a = 0; a < products[i].variants.length; a++){
       productVariants.push({
-        id: products[i].variants[a]._key+a+(i+6),
+        id: products[i]._id + '_cz' + products[i].variants[a]._key+'_cz',
         title: products[i].title + ' - ' + products[i].variants[a].title,
         description: products[i].descriptionHead,
         titleHead: products[i].titleHead,

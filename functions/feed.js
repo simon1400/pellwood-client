@@ -20,11 +20,11 @@ const feedModel = (lang, arr, products, i) => {
   if(products[i][lang] && products[i][lang].variants && products[i][lang].variants.length){
     for(var a = 0; a < products[i][lang].variants.length; a++){
       productVariants.push({
-        id: products[i][lang].variants[a]._key+a+(i+6)+'_'+lang,
+        id: products[i]._id + '_'+lang + products[i][lang].variants[a]._key+'_'+lang,
         title: products[i][lang].title + ' - ' + products[i][lang].variants[a].title,
         description: products[i][lang].descriptionHead,
         parametrs: products[i][lang].parametrs,
-        link: 'https://pellwood.com/produkt/' + products[i][lang].slug.current,
+        link: `https://pellwood.com/produkt/${lang == 'cz' ? '' : 'en/'}${products[i][lang].slug.current}`,
         image_link: urlFor(products[i][lang].image).url(),
         mpn: products[i][lang].variants[a]._key.split('-').join('')+i+a,
         availability: 'in_stock',
@@ -33,10 +33,10 @@ const feedModel = (lang, arr, products, i) => {
     }
   }else if(products[i][lang] && products[i][lang].price){
     arr.push({
-      id: products[i]._id + '_'+lang+i,
+      id: products[i]._id + '_'+lang,
       title: products[i][lang].title,
       description: products[i][lang].descriptionHead,
-      link: 'https://pellwood.com/produkt/' + products[i][lang].slug.current,
+      link: `https://pellwood.com/produkt/${lang == 'cz' ? '' : 'en/'}${products[i][lang].slug.current}`,
       image_link: urlFor(products[i][lang].image).url(),
       parametrs: products[i][lang].parametrs,
       availability: 'in_stock',

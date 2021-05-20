@@ -20,7 +20,7 @@ const feedModel = (lang, arr, products, i) => {
   if(products[i][lang] && products[i][lang].variants && products[i][lang].variants.length){
     for(var a = 0; a < products[i][lang].variants.length; a++){
       productVariants.push({
-        id: products[i]._id + '_'+lang + products[i][lang].variants[a]._key+'_'+lang,
+        id: products[i]._id.slice(0, products[i]._id.length / 2) + '_'+lang + products[i][lang].variants[a]._key+'_'+lang,
         title: products[i][lang].title + ' - ' + products[i][lang].variants[a].title,
         description: products[i][lang].descriptionHead,
         parametrs: products[i][lang].parametrs,

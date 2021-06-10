@@ -189,7 +189,7 @@ const Catalog = ({
                       ]`
 
     var sizeString = `[${sizeBefore}...${count}]`
-    var orderString = `| order(${lang}.sort asc) | order(${lang}.title asc)`
+    var orderString = `| order(sort asc, title asc)`
 
     const query = `${rootString}.${lang} ${sizeString} ${orderString}`
 

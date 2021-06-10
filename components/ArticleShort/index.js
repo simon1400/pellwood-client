@@ -12,7 +12,7 @@ const Article = ({lang, data}) => {
 
   return(
     <div className="uk-width-1-1 uk-width-1-2@s">
-      <Link href={`/clanek/${router.query.category}/${data.slug.current}`}>
+      <Link href={`/clanek/${router.query.category || data.categorySlug.current}/${data.slug.current}`}>
         <a className="big_category">
           <div className="category_wrap">
             <div className="uk-inline uk-height-1-1 uk-width-1-1">

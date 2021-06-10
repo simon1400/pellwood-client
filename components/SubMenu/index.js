@@ -17,9 +17,9 @@ const SubMenu = ({
 
   useEffect(() => {
     if(lang === 'en'){
-      setBaseUrl(router.route.split('/')[0])
+      setBaseUrl(router.asPath.split('/')[0])
     }else{
-      setBaseUrl(router.route.split('/')[1])
+      setBaseUrl(router.asPath.split('/')[1])
     }
   }, [])
 
@@ -28,7 +28,6 @@ const SubMenu = ({
     setReset(true)
     changeUrl(6, id, false, {}, router)
   }
-
 
   return(
     <nav className="sub_menu">
@@ -47,7 +46,7 @@ const SubMenu = ({
             </li>
           }else{
             return <li key={index} className="sub_menu_item">
-              <Link href={`/clanek/${baseUrl}/${item.slug.current}`}>
+              <Link href={`/clanek/${router.query.category}/${item.slug.current}`}>
                 <a>{item.title}</a>
               </Link>
             </li>

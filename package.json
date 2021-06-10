@@ -24,7 +24,7 @@
     "react-router-sitemap": "^1.2.0",
     "react-scripts": "^3.4.1",
     "sass": "^1.30.0",
-    "uikit": "^3.1.6"
+    "uikit": "^3.6.22"
   },
   "scripts": {
     "dev": "next dev -p 3001",

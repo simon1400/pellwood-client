@@ -71,6 +71,7 @@ export async function getServerSideProps(context) {
 
   const queryArticle = `*[_type == "article"] {
     "category": ${lang}.category,
+    "categorySlug": *[_type == "archive" && _id == ^.${lang}.category._ref][0].${lang}.slug,
     "title": ${lang}.title,
     "slug": ${lang}.slug,
     "image": ${lang}.image

@@ -54,9 +54,7 @@ export async function getServerSideProps(context) {
                           ${!!search.length ? ` && ${lang}.title match '${search.split(/[,-]+/).join(' ')}*'` : ''}
                           ${!!diameterString.length ? diameterString : ''}
                           ${!!lengthString.length ? lengthString : ''}
-                        ].${lang}
-                        [0...${size}]
-                        | order(${lang}.sort asc) | order(${lang}.title asc)`;
+                        ].${lang} | order(sort asc, title asc) [0...${size}]`;
 
 
   const queryParameters = `*[_type == "product"] {
@@ -112,12 +110,14 @@ export async function getServerSideProps(context) {
       range,
       rangeState,
       ifFiltered,
-      searchQuery: search
+      searchQuery: search,
+      query
     }
   }
 }
 
 const Catalog = ({
+  query,
   category,
   settings,
   articleFirst,
@@ -132,6 +132,8 @@ const Catalog = ({
   searchQuery
 }) => {
 
+  console.log(query);
+
   const router = useRouter()
 
   const [firstLoad, setFirstLoad] = useState(false)
@@ -142,8 +144,6 @@ const Catalog = ({
   const [filtered, setFiltered] = useState(ifFiltered)
   const [resetFilter] = useState('')
   const [search, setSearch] = useState(searchQuery || '')
-
-  console.log(search);
 
   const [stateRange, setStateRange] = useState(rangeState)
   const [rangeNumber, setRangeNumber] = useState(range)

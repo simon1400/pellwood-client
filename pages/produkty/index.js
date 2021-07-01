@@ -30,19 +30,18 @@ export async function getServerSideProps(context) {
   const lengthMax = context.query?.lengthMax || false
 
   const diameterString = !!diameterMin && !!diameterMax
-                          ? ` && (${lang}.parametrs[0].value <= "${diameterMax}"
+                          ? ` && (${lang}.parametrs[0].value <= "${(+diameterMax + 0.5).toLocaleString()}"
                               && ${lang}.parametrs[0].value >= "${diameterMin}"
-                              || ${lang}.parametrs[1].value <= "${diameterMax}"
+                              || ${lang}.parametrs[1].value <= "${(+diameterMax + 0.5).toLocaleString()}"
                               && ${lang}.parametrs[1].value >= "${diameterMin}")`
                           : ''
 
   const lengthString = !!lengthMin && !!lengthMax
-                          ? ` && (${lang}.parametrs[0].value <= "${lengthMax}"
+                          ? ` && (${lang}.parametrs[0].value <= "${(+lengthMax + 0.5).toLocaleString()}"
                               && ${lang}.parametrs[0].value >= "${lengthMin}"
-                              || ${lang}.parametrs[1].value <= "${lengthMax}"
+                              || ${lang}.parametrs[1].value <= "${(+lengthMax + 0.5).toLocaleString()}"
                               && ${lang}.parametrs[1].value >= "${lengthMin}")`
                           : ''
-
 
   var parametersArr = false
   if(lengthMin && lengthMax && diameterMin && diameterMax){
@@ -132,8 +131,6 @@ const Catalog = ({
   searchQuery
 }) => {
 
-  console.log(query);
-
   const router = useRouter()
 
   const [firstLoad, setFirstLoad] = useState(false)
@@ -168,16 +165,16 @@ const Catalog = ({
     const lengthMax = queryUrl.lengthMax || false
 
     var diameterString = !!diameterMin && !!diameterMax
-                            ? ` && (${lang}.parametrs[0].value <= "${diameterMax}"
+                            ? ` && (${lang}.parametrs[0].value <= "${(+diameterMax + 0.5).toLocaleString()}"
                                 && ${lang}.parametrs[0].value >= "${diameterMin}"
-                                || ${lang}.parametrs[1].value <= "${diameterMax}"
+                                || ${lang}.parametrs[1].value <= "${(+diameterMax + 0.5).toLocaleString()}"
                                 && ${lang}.parametrs[1].value >= "${diameterMin}")`
                             : ''
 
     var lengthString = !!lengthMin && !!lengthMax
-                            ? ` && (${lang}.parametrs[0].value <= "${lengthMax}"
+                            ? ` && (${lang}.parametrs[0].value <= "${(+lengthMax + 0.5).toLocaleString()}"
                                 && ${lang}.parametrs[0].value >= "${lengthMin}"
-                                || ${lang}.parametrs[1].value <= "${lengthMax}"
+                                || ${lang}.parametrs[1].value <= "${(+lengthMax + 0.5).toLocaleString()}"
                                 && ${lang}.parametrs[1].value >= "${lengthMin}")`
                             : ''
 
@@ -191,7 +188,7 @@ const Catalog = ({
     var sizeString = `[${sizeBefore}...${count}]`
     var orderString = `| order(sort asc, title asc)`
 
-    const query = `${rootString}.${lang} ${sizeString} ${orderString}`
+    const query = `${rootString}.${lang} ${orderString} ${sizeString}`
 
     const data = await sanityClient.fetch(query)
 

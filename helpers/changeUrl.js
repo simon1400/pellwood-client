@@ -8,6 +8,10 @@ const changeUrl = (
 ) => {
   var queryUrl = router.query
 
+  if(!router.query.category){
+    queryUrl.category = 'all'
+  }
+
   if(size) queryUrl.size = size
   if(category) queryUrl.category = category
   if(search !== false) queryUrl.search = search

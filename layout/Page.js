@@ -35,7 +35,7 @@ const Page = ({
   const theTitle = title ? (title + defaultSep + defaultTitle).substring(0, 60) : defaultTitle;
   const theDescription = description ? description.substring(0, 155) : defaultDescription;
   const theImage = image ? image : defaultImage;
-  const canonical = router.locale === 'en' ? SITE_URL+'/'+router.locale+router.route : SITE_URL+router.route
+  const canonical = router.locale === 'en' ? SITE_URL+'/'+router.locale+router.asPath.split('?')[0] : SITE_URL+router.asPath.split('?')[0]
 
   const { dataContextState } = useContext(DataStateContext)
   const [loginUser, setLoginUser] = useState(false)
@@ -92,7 +92,7 @@ const Page = ({
         <meta name="twitter:image:src" content={theImage} />*/}
         <meta property="og:title" content={theTitle} />
         <meta property="og:type" content={contentType || 'website'} />
-        <meta property="og:url" content={SITE_URL+router.asPath} />
+        <meta property="og:url" content={SITE_URL+router.asPath.split('?')[0]} />
         <meta property="og:image" content={theImage} />
         <meta property="og:description" content={theDescription} />
         <meta property="og:site_name" content={defaultTitle} />

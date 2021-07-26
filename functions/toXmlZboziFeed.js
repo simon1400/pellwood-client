@@ -1,6 +1,6 @@
 const toXml = data => {
   var xmlStringFeed = `<?xml version="1.0" encoding="utf-8"?>
-  <SHOP>\n`
+  <SHOP xmlns="http://www.zbozi.cz/ns/offer/1.0">\n`
   var paramStr;
   const dataTransform = data.reduce((result, item) => {
     paramStr = ''

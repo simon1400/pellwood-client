@@ -24,7 +24,7 @@ const feedModel = (lang, arr, products, i) => {
         title: products[i][lang].title + ' - ' + products[i][lang].variants[a].title,
         description: products[i][lang].descriptionHead,
         parametrs: products[i][lang].parametrs,
-        link: `https://pellwood.com/${lang == 'cz' ? '' : 'en/'}produkt/${products[i][lang].slug.current}`,
+        link: `https://pellwood.com/${lang == 'cz' ? '' : 'en/'}produkt/${products[i][lang].slug.current}?${products[i][lang].variants[a].title.toLowerCase().split(' ').join('-')}`,
         image_link: urlFor(products[i][lang].image).url(),
         mpn: products[i][lang].variants[a]._key.split('-').join('')+i+a,
         availability: 'in_stock',

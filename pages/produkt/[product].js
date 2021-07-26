@@ -266,6 +266,12 @@ const Product = ({
                     </div>
                   </div>
                 </div>}
+                <div className="status">
+                  <div>
+                    <img src="/assets/check-circle-regular.svg" uk-svg="" />
+                  </div>
+                  <span>{translate.stock[lang]}</span>
+                </div>
                 <div className="description_product">
                   <BlockContent blocks={product.text} />
                 </div>

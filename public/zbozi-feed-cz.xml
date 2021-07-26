@@ -6,7 +6,7 @@
      <PRODUCTNAME>PELLWOOD | Big Boss - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Big Boss - Premium Habr</PRODUCT>
      <DESCRIPTION>undefined</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/big-boss</URL>
+     <URL>https://pellwood.com/produkt/big-boss?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/e2de6333314d9f40a3467c5040c723005a67e286-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -33,7 +33,7 @@
      <PRODUCTNAME>PELLWOOD | Big Boss - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Big Boss - Premium Hickory</PRODUCT>
      <DESCRIPTION>undefined</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/big-boss</URL>
+     <URL>https://pellwood.com/produkt/big-boss?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/e2de6333314d9f40a3467c5040c723005a67e286-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -87,7 +87,7 @@
      <PRODUCTNAME>PELLWOOD | Timbales B - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Timbales B - Premium Habr</PRODUCT>
      <DESCRIPTION>Tyto paličky jsou vhodné zejména pro hru na různé perkuse, timbales, hodí se do stylů jako je latin, afro či salsa.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/timbales-b</URL>
+     <URL>https://pellwood.com/produkt/timbales-b?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/c858ca4aa2d4c61116c7a6499c295058452c41df-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -114,7 +114,7 @@
      <PRODUCTNAME>PELLWOOD | Timbales B - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Timbales B - Premium Hickory</PRODUCT>
      <DESCRIPTION>Tyto paličky jsou vhodné zejména pro hru na různé perkuse, timbales, hodí se do stylů jako je latin, afro či salsa.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/timbales-b</URL>
+     <URL>https://pellwood.com/produkt/timbales-b?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/c858ca4aa2d4c61116c7a6499c295058452c41df-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -138,10 +138,10 @@
 
 <SHOPITEM>
      <ITEM_ID>0c7b0167-6ca3-4436_cz775dd346e2b1_cz</ITEM_ID>
-     <PRODUCTNAME>PELLWOOD | 2B  - Premium Hickory</PRODUCTNAME>
-     <PRODUCT>PELLWOOD | 2B  - Premium Hickory</PRODUCT>
+     <PRODUCTNAME>PELLWOOD | 2B - Premium Hickory</PRODUCTNAME>
+     <PRODUCT>PELLWOOD | 2B - Premium Hickory</PRODUCT>
      <DESCRIPTION>Paličky 2B s průměrem 16mm jsou vhodné pro tvrdší styl hraní. S těžištěm posunutým ke špičce paličky tvoří plný tón, který ale díky podlouhlé žaloudkové hlavičce neztratí na konkrétnosti.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b</URL>
+     <URL>https://pellwood.com/produkt/2b?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/8097d4b7af597d71c07c1a1110da0c6d767f5f87-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -165,10 +165,10 @@
 
 <SHOPITEM>
      <ITEM_ID>0c7b0167-6ca3-4436_czd26d717037ee_cz</ITEM_ID>
-     <PRODUCTNAME>PELLWOOD | 2B  - Premium Hickory Nylon</PRODUCTNAME>
-     <PRODUCT>PELLWOOD | 2B  - Premium Hickory Nylon</PRODUCT>
+     <PRODUCTNAME>PELLWOOD | 2B - Premium Hickory Nylon</PRODUCTNAME>
+     <PRODUCT>PELLWOOD | 2B - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Paličky 2B s průměrem 16mm jsou vhodné pro tvrdší styl hraní. S těžištěm posunutým ke špičce paličky tvoří plný tón, který ale díky podlouhlé žaloudkové hlavičce neztratí na konkrétnosti.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b</URL>
+     <URL>https://pellwood.com/produkt/2b?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/8097d4b7af597d71c07c1a1110da0c6d767f5f87-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -192,10 +192,10 @@
 
 <SHOPITEM>
      <ITEM_ID>0c7b0167-6ca3-4436_cz03c92271e270_cz</ITEM_ID>
-     <PRODUCTNAME>PELLWOOD | 2B  - Premium Habr</PRODUCTNAME>
-     <PRODUCT>PELLWOOD | 2B  - Premium Habr</PRODUCT>
+     <PRODUCTNAME>PELLWOOD | 2B - Premium Habr</PRODUCTNAME>
+     <PRODUCT>PELLWOOD | 2B - Premium Habr</PRODUCT>
      <DESCRIPTION>Paličky 2B s průměrem 16mm jsou vhodné pro tvrdší styl hraní. S těžištěm posunutým ke špičce paličky tvoří plný tón, který ale díky podlouhlé žaloudkové hlavičce neztratí na konkrétnosti.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b</URL>
+     <URL>https://pellwood.com/produkt/2b?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/8097d4b7af597d71c07c1a1110da0c6d767f5f87-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -219,10 +219,10 @@
 
 <SHOPITEM>
      <ITEM_ID>0c7b0167-6ca3-4436_cz2303edb49ca7_cz</ITEM_ID>
-     <PRODUCTNAME>PELLWOOD | 2B  - Premium Habr nylon</PRODUCTNAME>
-     <PRODUCT>PELLWOOD | 2B  - Premium Habr nylon</PRODUCT>
+     <PRODUCTNAME>PELLWOOD | 2B - Premium Habr nylon</PRODUCTNAME>
+     <PRODUCT>PELLWOOD | 2B - Premium Habr nylon</PRODUCT>
      <DESCRIPTION>Paličky 2B s průměrem 16mm jsou vhodné pro tvrdší styl hraní. S těžištěm posunutým ke špičce paličky tvoří plný tón, který ale díky podlouhlé žaloudkové hlavičce neztratí na konkrétnosti.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b</URL>
+     <URL>https://pellwood.com/produkt/2b?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/8097d4b7af597d71c07c1a1110da0c6d767f5f87-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -249,7 +249,7 @@
      <PRODUCTNAME>PELLWOOD | 5C Headline X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5C Headline X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Kratší palička s těžištěm uprostřed je se svojí kapkovitou hlavičkou vhodná pro styly, jako je jazz nebo blues.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5c-headline-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/5c-headline-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/68d187f01404806769b81aa5e77e812cdd56294f-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -276,7 +276,7 @@
      <PRODUCTNAME>PELLWOOD | 5C Headline X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5C Headline X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Kratší palička s těžištěm uprostřed je se svojí kapkovitou hlavičkou vhodná pro styly, jako je jazz nebo blues.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5c-headline-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/5c-headline-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/68d187f01404806769b81aa5e77e812cdd56294f-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -303,7 +303,7 @@
      <PRODUCTNAME>PELLWOOD | Jazz Model  - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Jazz Model  - Premium Hickory</PRODUCT>
      <DESCRIPTION>Jazzová palička, s průměrem 14mm vhodná pro všechny styly. Díky dlouhému zůžení je agilní při odskoku. Oválná hlavička zprostředkuje plný zvuk.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/jazz-model</URL>
+     <URL>https://pellwood.com/produkt/jazz-model?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/3d5a2994f8cb5028f67b01ed07daf1abec17f82b-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -330,7 +330,7 @@
      <PRODUCTNAME>PELLWOOD | Jazz Model  - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Jazz Model  - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Jazzová palička, s průměrem 14mm vhodná pro všechny styly. Díky dlouhému zůžení je agilní při odskoku. Oválná hlavička zprostředkuje plný zvuk.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/jazz-model</URL>
+     <URL>https://pellwood.com/produkt/jazz-model?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/3d5a2994f8cb5028f67b01ed07daf1abec17f82b-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -357,7 +357,7 @@
      <PRODUCTNAME>PELLWOOD | Jazz Model  - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Jazz Model  - Premium Habr</PRODUCT>
      <DESCRIPTION>Jazzová palička, s průměrem 14mm vhodná pro všechny styly. Díky dlouhému zůžení je agilní při odskoku. Oválná hlavička zprostředkuje plný zvuk.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/jazz-model</URL>
+     <URL>https://pellwood.com/produkt/jazz-model?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/3d5a2994f8cb5028f67b01ed07daf1abec17f82b-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -384,7 +384,7 @@
      <PRODUCTNAME>PELLWOOD | Jazz Model  - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Jazz Model  - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Jazzová palička, s průměrem 14mm vhodná pro všechny styly. Díky dlouhému zůžení je agilní při odskoku. Oválná hlavička zprostředkuje plný zvuk.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/jazz-model</URL>
+     <URL>https://pellwood.com/produkt/jazz-model?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/3d5a2994f8cb5028f67b01ed07daf1abec17f82b-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -411,7 +411,7 @@
      <PRODUCTNAME>PELLWOOD | 5A Medium X-Line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Medium X-Line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>undefined</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-medium-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/5a-medium-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/3447a9094bb3ca37800711a74f26ac095ed762ce-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -438,7 +438,7 @@
      <PRODUCTNAME>PELLWOOD | 5A Medium X-Line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Medium X-Line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>undefined</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-medium-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/5a-medium-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/3447a9094bb3ca37800711a74f26ac095ed762ce-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -492,7 +492,7 @@
      <PRODUCTNAME>PELLWOOD | Big Band  - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Big Band  - Premium Habr</PRODUCT>
      <DESCRIPTION>undefined</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/big-band</URL>
+     <URL>https://pellwood.com/produkt/big-band?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/7763c3c944ca39f0dcdcc7ade3918c28d1b18341-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -519,7 +519,7 @@
      <PRODUCTNAME>PELLWOOD | Big Band  - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Big Band  - Premium Hickory</PRODUCT>
      <DESCRIPTION>undefined</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/big-band</URL>
+     <URL>https://pellwood.com/produkt/big-band?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/7763c3c944ca39f0dcdcc7ade3918c28d1b18341-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -546,7 +546,7 @@
      <PRODUCTNAME>PELLWOOD | Big Band X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Big Band X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Model Big Band byl inspirován vintage paličkami z 50. a 60. let.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/big-band-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/big-band-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/e88320c3356203b8ce919f249146075bfa2904d0-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -573,7 +573,7 @@
      <PRODUCTNAME>PELLWOOD | Big Band X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Big Band X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Model Big Band byl inspirován vintage paličkami z 50. a 60. let.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/big-band-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/big-band-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/e88320c3356203b8ce919f249146075bfa2904d0-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -600,7 +600,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Extra Long X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Extra Long X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-extra-long-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-extra-long-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1ed5203ae675ff5e511992a75ae162af5f0c9d97-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -627,7 +627,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Extra Long X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Extra Long X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-extra-long-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-extra-long-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1ed5203ae675ff5e511992a75ae162af5f0c9d97-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -681,7 +681,7 @@
      <PRODUCTNAME>PELLWOOD | 2B Niclas Campagnol X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 2B Niclas Campagnol X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Signované paličky Niclase Campagnola jsou zkrácené 2B a s průměrem 16mm jsou vhodné pro tvrdší styl hraní. S těžištěm posunutým ke špičce paličky tvoří plný tón, který ale díky podlouhlé žaloudkové hlavičce neztratí na konkrétnosti.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b-niclas-campagnol-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/2b-niclas-campagnol-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/8460414e1b887a9484208f4f6434b0c17263debd-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -708,7 +708,7 @@
      <PRODUCTNAME>PELLWOOD | 2B Niclas Campagnol X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 2B Niclas Campagnol X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Signované paličky Niclase Campagnola jsou zkrácené 2B a s průměrem 16mm jsou vhodné pro tvrdší styl hraní. S těžištěm posunutým ke špičce paličky tvoří plný tón, který ale díky podlouhlé žaloudkové hlavičce neztratí na konkrétnosti.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b-niclas-campagnol-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/2b-niclas-campagnol-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/8460414e1b887a9484208f4f6434b0c17263debd-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -735,7 +735,7 @@
      <PRODUCTNAME>PELLWOOD | 5D Custom X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5D Custom X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Díky malé kulaté hlavičce Vám tento typ zajistí průzračný zvuk činelů a palička je vhodná pro styly jako funk, fusion nebo latina.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5d-custom-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/5d-custom-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1881b9f5083d6984519b61469bdb1a969fd6ee32-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -762,7 +762,7 @@
      <PRODUCTNAME>PELLWOOD | 5D Custom X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5D Custom X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Díky malé kulaté hlavičce Vám tento typ zajistí průzračný zvuk činelů a palička je vhodná pro styly jako funk, fusion nebo latina.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5d-custom-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/5d-custom-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1881b9f5083d6984519b61469bdb1a969fd6ee32-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -789,7 +789,7 @@
      <PRODUCTNAME>PELLWOOD | 9B Fusion  - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 9B Fusion  - Premium Hickory</PRODUCT>
      <DESCRIPTION>9B Fusion je opravdu agilní lehká palička, vhodná na hodně technické lehké hraní. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/9b-fusion</URL>
+     <URL>https://pellwood.com/produkt/9b-fusion?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/81020504729cf6a9a77a5abb97bce544fb7f5e63-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -816,7 +816,7 @@
      <PRODUCTNAME>PELLWOOD | 9B Fusion  - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 9B Fusion  - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>9B Fusion je opravdu agilní lehká palička, vhodná na hodně technické lehké hraní. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/9b-fusion</URL>
+     <URL>https://pellwood.com/produkt/9b-fusion?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/81020504729cf6a9a77a5abb97bce544fb7f5e63-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -843,7 +843,7 @@
      <PRODUCTNAME>PELLWOOD | 9B Fusion  - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 9B Fusion  - Premium Habr</PRODUCT>
      <DESCRIPTION>9B Fusion je opravdu agilní lehká palička, vhodná na hodně technické lehké hraní. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/9b-fusion</URL>
+     <URL>https://pellwood.com/produkt/9b-fusion?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/81020504729cf6a9a77a5abb97bce544fb7f5e63-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -870,7 +870,7 @@
      <PRODUCTNAME>PELLWOOD | 9B Fusion  - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 9B Fusion  - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>9B Fusion je opravdu agilní lehká palička, vhodná na hodně technické lehké hraní. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/9b-fusion</URL>
+     <URL>https://pellwood.com/produkt/9b-fusion?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/81020504729cf6a9a77a5abb97bce544fb7f5e63-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -893,17 +893,47 @@
    </SHOPITEM>
 
 <SHOPITEM>
-     <ITEM_ID>24bc15da-d553-41d1-b34a-e544a401e339_cz</ITEM_ID>
-     <PRODUCTNAME>PELLWOOD | Triko PELLWOOD</PRODUCTNAME>
-     <PRODUCT>PELLWOOD | Triko PELLWOOD</PRODUCT>
+     <ITEM_ID>24bc15da-d553-41d1_cz9519be71d0f2_cz</ITEM_ID>
+     <PRODUCTNAME>PELLWOOD | Triko PELLWOOD - M</PRODUCTNAME>
+     <PRODUCT>PELLWOOD | Triko PELLWOOD - M</PRODUCT>
      <DESCRIPTION>Kvalitní černé tričko ze 100% bavlny s logem PELLWOOD. Velikost M, L, XL.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/triko-pellwood</URL>
+     <URL>https://pellwood.com/produkt/triko-pellwood?m</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/718bd561e88bc5b41176630772fa8d4486c1d1c8-640x426.jpg</IMGURL>
      <PRICE_VAT>190</PRICE_VAT>
      
      <MANUFACTURER>Pellwood</MANUFACTURER>
      <DELIVERY_DATE>0</DELIVERY_DATE>
-     <EAN>24bc15dad55341d1b34ae544a401e339cz18</EAN>
+     <EAN>9519be71d0f2150</EAN>
+     <CATEGORYTEXT>Kultura a zábava | Volný čas | Hudebniny | Hudební nástroje | Bicí nástroje | Příslušenství pro bicí nástroje | Paličky</CATEGORYTEXT>
+   </SHOPITEM>
+
+<SHOPITEM>
+     <ITEM_ID>24bc15da-d553-41d1_cz6a082f2d932a_cz</ITEM_ID>
+     <PRODUCTNAME>PELLWOOD | Triko PELLWOOD - L</PRODUCTNAME>
+     <PRODUCT>PELLWOOD | Triko PELLWOOD - L</PRODUCT>
+     <DESCRIPTION>Kvalitní černé tričko ze 100% bavlny s logem PELLWOOD. Velikost M, L, XL.</DESCRIPTION>
+     <URL>https://pellwood.com/produkt/triko-pellwood?l</URL>
+     <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/718bd561e88bc5b41176630772fa8d4486c1d1c8-640x426.jpg</IMGURL>
+     <PRICE_VAT>190</PRICE_VAT>
+     
+     <MANUFACTURER>Pellwood</MANUFACTURER>
+     <DELIVERY_DATE>0</DELIVERY_DATE>
+     <EAN>6a082f2d932a151</EAN>
+     <CATEGORYTEXT>Kultura a zábava | Volný čas | Hudebniny | Hudební nástroje | Bicí nástroje | Příslušenství pro bicí nástroje | Paličky</CATEGORYTEXT>
+   </SHOPITEM>
+
+<SHOPITEM>
+     <ITEM_ID>24bc15da-d553-41d1_cz868a0c1bb6a1_cz</ITEM_ID>
+     <PRODUCTNAME>PELLWOOD | Triko PELLWOOD - XL</PRODUCTNAME>
+     <PRODUCT>PELLWOOD | Triko PELLWOOD - XL</PRODUCT>
+     <DESCRIPTION>Kvalitní černé tričko ze 100% bavlny s logem PELLWOOD. Velikost M, L, XL.</DESCRIPTION>
+     <URL>https://pellwood.com/produkt/triko-pellwood?xl</URL>
+     <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/718bd561e88bc5b41176630772fa8d4486c1d1c8-640x426.jpg</IMGURL>
+     <PRICE_VAT>190</PRICE_VAT>
+     
+     <MANUFACTURER>Pellwood</MANUFACTURER>
+     <DELIVERY_DATE>0</DELIVERY_DATE>
+     <EAN>868a0c1bb6a1152</EAN>
      <CATEGORYTEXT>Kultura a zábava | Volný čas | Hudebniny | Hudební nástroje | Bicí nástroje | Příslušenství pro bicí nástroje | Paličky</CATEGORYTEXT>
    </SHOPITEM>
 
@@ -912,7 +942,7 @@
      <PRODUCTNAME>PELLWOOD | 5A SG - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A SG - Premium Habr</PRODUCT>
      <DESCRIPTION>V této úpravě s prolamovanou rukojetí Vám bude v ruce držet jako přibitá.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-sg</URL>
+     <URL>https://pellwood.com/produkt/5a-sg?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/aa84fa2696a089103a9354443472569fb2d782f4-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -939,7 +969,7 @@
      <PRODUCTNAME>PELLWOOD | 5A SG - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A SG - Premium Hickory</PRODUCT>
      <DESCRIPTION>V této úpravě s prolamovanou rukojetí Vám bude v ruce držet jako přibitá.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-sg</URL>
+     <URL>https://pellwood.com/produkt/5a-sg?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/aa84fa2696a089103a9354443472569fb2d782f4-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -966,7 +996,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Medium  - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Medium  - Premium Hickory</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-medium</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-medium?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/cb83c0257e8f4a350251df76086b8f5a380f18fb-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -993,7 +1023,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Medium  - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Medium  - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-medium</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-medium?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/cb83c0257e8f4a350251df76086b8f5a380f18fb-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -1020,7 +1050,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Medium  - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Medium  - Premium Habr</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-medium</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-medium?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/cb83c0257e8f4a350251df76086b8f5a380f18fb-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -1047,7 +1077,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Medium  - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Medium  - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-medium</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-medium?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/cb83c0257e8f4a350251df76086b8f5a380f18fb-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -1074,7 +1104,7 @@
      <PRODUCTNAME>PELLWOOD | Big Boss X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Big Boss X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Tato obrovská a tlustá palička má překvapivě široké využití. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/big-boss-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/big-boss-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1e54ca7a6aeb28d9ef21c0aafbd47279806135d3-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -1101,7 +1131,7 @@
      <PRODUCTNAME>PELLWOOD | Big Boss X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Big Boss X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Tato obrovská a tlustá palička má překvapivě široké využití. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/big-boss-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/big-boss-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1e54ca7a6aeb28d9ef21c0aafbd47279806135d3-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -1128,7 +1158,7 @@
      <PRODUCTNAME>PELLWOOD | Heavyrock X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Heavyrock X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>no comment!</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/heavyrock-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/heavyrock-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/b6b2fa88fbae563db7a892771f12518dca287937-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -1155,7 +1185,7 @@
      <PRODUCTNAME>PELLWOOD | Heavyrock X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Heavyrock X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>no comment!</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/heavyrock-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/heavyrock-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/b6b2fa88fbae563db7a892771f12518dca287937-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -1182,7 +1212,7 @@
      <PRODUCTNAME>PELLWOOD | Claves Maxi - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Claves Maxi - Habr</PRODUCT>
      <DESCRIPTION>Pokud jsou pro Vás běžná ozvučná dřívka obtížně uchopitelná, toto je vhodná alternativa.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/claves-maxi</URL>
+     <URL>https://pellwood.com/produkt/claves-maxi?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/4f028eb45b40da68f22d716a91c80d04f9d40422-3756x1130.jpg</IMGURL>
      <PRICE_VAT>99</PRICE_VAT>
      
@@ -1209,7 +1239,7 @@
      <PRODUCTNAME>PELLWOOD | Claves Maxi - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Claves Maxi - Hickory</PRODUCT>
      <DESCRIPTION>Pokud jsou pro Vás běžná ozvučná dřívka obtížně uchopitelná, toto je vhodná alternativa.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/claves-maxi</URL>
+     <URL>https://pellwood.com/produkt/claves-maxi?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/4f028eb45b40da68f22d716a91c80d04f9d40422-3756x1130.jpg</IMGURL>
      <PRICE_VAT>150</PRICE_VAT>
      
@@ -1263,7 +1293,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Medium X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Medium X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-medium-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-medium-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/f21a6eaa25457f09ba43214ebd443fddfbde0eb3-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -1290,7 +1320,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Medium X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Medium X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-medium-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-medium-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/f21a6eaa25457f09ba43214ebd443fddfbde0eb3-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -1317,7 +1347,7 @@
      <PRODUCTNAME>PELLWOOD | Swing Model X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Swing Model X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Tyto slabé paličky s hlavičkou ve tvaru čočky jsou předurčeny pro swingové, jazzové nebo bluesové hraní. Přesto Vám v hikorové verzi nabídnou dlouhou výdrž, v habrové Vám zase zajistí ještě lehčí pocit ze hry a pokud zvolíte nylonovou hlavičku, přidáte na razanci.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/swing-model-x-line-4pary</URL>
+     <URL>https://pellwood.com/produkt/swing-model-x-line-4pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/c3533abed88f88ebff86511c19bf89d7e3ea1dce-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -1344,7 +1374,7 @@
      <PRODUCTNAME>PELLWOOD | Swing Model X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Swing Model X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Tyto slabé paličky s hlavičkou ve tvaru čočky jsou předurčeny pro swingové, jazzové nebo bluesové hraní. Přesto Vám v hikorové verzi nabídnou dlouhou výdrž, v habrové Vám zase zajistí ještě lehčí pocit ze hry a pokud zvolíte nylonovou hlavičku, přidáte na razanci.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/swing-model-x-line-4pary</URL>
+     <URL>https://pellwood.com/produkt/swing-model-x-line-4pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/c3533abed88f88ebff86511c19bf89d7e3ea1dce-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -1371,7 +1401,7 @@
      <PRODUCTNAME>PELLWOOD | Swing Model - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Swing Model - Premium Hickory</PRODUCT>
      <DESCRIPTION>Tyto slabé paličky s hlavičkou ve tvaru čočky jsou předurčeny pro swingové, jazzové nebo bluesové hraní. Přesto Vám v hikorové verzi nabídnou dlouhou výdrž, v habrové Vám zase zajistí ještě lehčí pocit ze hry a pokud zvolíte nylonovou hlavičku, přidáte na razanci.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/swing-model</URL>
+     <URL>https://pellwood.com/produkt/swing-model?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/3c600ea276830ce75be6890fdea791d11493448f-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -1398,7 +1428,7 @@
      <PRODUCTNAME>PELLWOOD | Swing Model - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Swing Model - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Tyto slabé paličky s hlavičkou ve tvaru čočky jsou předurčeny pro swingové, jazzové nebo bluesové hraní. Přesto Vám v hikorové verzi nabídnou dlouhou výdrž, v habrové Vám zase zajistí ještě lehčí pocit ze hry a pokud zvolíte nylonovou hlavičku, přidáte na razanci.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/swing-model</URL>
+     <URL>https://pellwood.com/produkt/swing-model?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/3c600ea276830ce75be6890fdea791d11493448f-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -1425,7 +1455,7 @@
      <PRODUCTNAME>PELLWOOD | Swing Model - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Swing Model - Premium Habr</PRODUCT>
      <DESCRIPTION>Tyto slabé paličky s hlavičkou ve tvaru čočky jsou předurčeny pro swingové, jazzové nebo bluesové hraní. Přesto Vám v hikorové verzi nabídnou dlouhou výdrž, v habrové Vám zase zajistí ještě lehčí pocit ze hry a pokud zvolíte nylonovou hlavičku, přidáte na razanci.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/swing-model</URL>
+     <URL>https://pellwood.com/produkt/swing-model?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/3c600ea276830ce75be6890fdea791d11493448f-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -1452,7 +1482,7 @@
      <PRODUCTNAME>PELLWOOD | Swing Model - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Swing Model - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Tyto slabé paličky s hlavičkou ve tvaru čočky jsou předurčeny pro swingové, jazzové nebo bluesové hraní. Přesto Vám v hikorové verzi nabídnou dlouhou výdrž, v habrové Vám zase zajistí ještě lehčí pocit ze hry a pokud zvolíte nylonovou hlavičku, přidáte na razanci.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/swing-model</URL>
+     <URL>https://pellwood.com/produkt/swing-model?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/3c600ea276830ce75be6890fdea791d11493448f-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -1494,7 +1524,7 @@
      <PRODUCTNAME>PELLWOOD | 5B SG - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B SG - Premium Habr</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore s prolamovanou rukojetí.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-sg</URL>
+     <URL>https://pellwood.com/produkt/5b-sg?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/6ab11996806de49e4fe3c77bd859dc268115560b-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -1521,7 +1551,7 @@
      <PRODUCTNAME>PELLWOOD | 5B SG - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B SG - Premium Hickory</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore s prolamovanou rukojetí.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-sg</URL>
+     <URL>https://pellwood.com/produkt/5b-sg?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/6ab11996806de49e4fe3c77bd859dc268115560b-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -1548,7 +1578,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Extra Long - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Extra Long - Premium Hickory</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-extra-long</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-extra-long?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/5e2fd3e65930b52c63e5499f6b79d8068863edd9-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -1575,7 +1605,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Extra Long - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Extra Long - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-extra-long</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-extra-long?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/5e2fd3e65930b52c63e5499f6b79d8068863edd9-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -1602,7 +1632,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Extra Long - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Extra Long - Premium Habr</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-extra-long</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-extra-long?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/5e2fd3e65930b52c63e5499f6b79d8068863edd9-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -1629,7 +1659,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Extra Long - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Extra Long - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-extra-long</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-extra-long?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/5e2fd3e65930b52c63e5499f6b79d8068863edd9-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -1656,7 +1686,7 @@
      <PRODUCTNAME>PELLWOOD | 9B Fusion X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 9B Fusion X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>9B Fusion je opravdu agilní lehká palička, vhodná na hodně technické lehké hraní. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/9b-fusion-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/9b-fusion-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/bd3da00d632d2c0453366279fa51ed012f479fea-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -1683,7 +1713,7 @@
      <PRODUCTNAME>PELLWOOD | 9B Fusion X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 9B Fusion X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>9B Fusion je opravdu agilní lehká palička, vhodná na hodně technické lehké hraní. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/9b-fusion-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/9b-fusion-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/bd3da00d632d2c0453366279fa51ed012f479fea-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -1710,7 +1740,7 @@
      <PRODUCTNAME>PELLWOOD | 3B Vintage - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 3B Vintage - Premium Hickory</PRODUCT>
      <DESCRIPTION>Snadno ovladatelná palička s kónickou hlavičkou, díky které má jasný zvuk na činelech.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/3b-vintage</URL>
+     <URL>https://pellwood.com/produkt/3b-vintage?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d10a374ae6619e9a36d4a84fb19477c38411b311-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -1737,7 +1767,7 @@
      <PRODUCTNAME>PELLWOOD | 3B Vintage - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 3B Vintage - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Snadno ovladatelná palička s kónickou hlavičkou, díky které má jasný zvuk na činelech.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/3b-vintage</URL>
+     <URL>https://pellwood.com/produkt/3b-vintage?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d10a374ae6619e9a36d4a84fb19477c38411b311-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -1764,7 +1794,7 @@
      <PRODUCTNAME>PELLWOOD | 3B Vintage - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 3B Vintage - Premium Habr</PRODUCT>
      <DESCRIPTION>Snadno ovladatelná palička s kónickou hlavičkou, díky které má jasný zvuk na činelech.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/3b-vintage</URL>
+     <URL>https://pellwood.com/produkt/3b-vintage?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d10a374ae6619e9a36d4a84fb19477c38411b311-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -1791,7 +1821,7 @@
      <PRODUCTNAME>PELLWOOD | 3B Vintage - Premium Habr nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 3B Vintage - Premium Habr nylon</PRODUCT>
      <DESCRIPTION>Snadno ovladatelná palička s kónickou hlavičkou, díky které má jasný zvuk na činelech.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/3b-vintage</URL>
+     <URL>https://pellwood.com/produkt/3b-vintage?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d10a374ae6619e9a36d4a84fb19477c38411b311-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -1818,7 +1848,7 @@
      <PRODUCTNAME>PELLWOOD | 3A X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 3A X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Oblíbená palička s větší kulatou hlavičkou.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/3a-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/3a-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1646190272c22ed3a7b94be61ce2cfb3964d1a9f-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -1845,7 +1875,7 @@
      <PRODUCTNAME>PELLWOOD | 3A X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 3A X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Oblíbená palička s větší kulatou hlavičkou.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/3a-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/3a-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1646190272c22ed3a7b94be61ce2cfb3964d1a9f-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -1872,7 +1902,7 @@
      <PRODUCTNAME>PELLWOOD | 5A Combi - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Combi - Premium Habr</PRODUCT>
      <DESCRIPTION>Silnější kombinovaná palička vychází z univerzální paličky 5A Medium. Na druhé straně je větší timpánová hlavička z tvrdého filcu. Paličku oceníte při kreativní hře na všechny typy perkusních nástrojů.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-combi</URL>
+     <URL>https://pellwood.com/produkt/5a-combi?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/4dc3a1f59e3decc834b695bb64b831652bba8fa6-3756x1130.jpg</IMGURL>
      <PRICE_VAT>280</PRICE_VAT>
      
@@ -1899,7 +1929,7 @@
      <PRODUCTNAME>PELLWOOD | 5A Combi - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Combi - Premium Hickory</PRODUCT>
      <DESCRIPTION>Silnější kombinovaná palička vychází z univerzální paličky 5A Medium. Na druhé straně je větší timpánová hlavička z tvrdého filcu. Paličku oceníte při kreativní hře na všechny typy perkusních nástrojů.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-combi</URL>
+     <URL>https://pellwood.com/produkt/5a-combi?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/4dc3a1f59e3decc834b695bb64b831652bba8fa6-3756x1130.jpg</IMGURL>
      <PRICE_VAT>360</PRICE_VAT>
      
@@ -1926,7 +1956,7 @@
      <PRODUCTNAME>PELLWOOD | 8B Bebop X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8B Bebop X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Podobně jako palička 7B Vintage je i tento typ inspirován paličkami z 50. let minulého století.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8b-bebop-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/8b-bebop-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/84209322a872a5513084118994eb6d2b0ac21633-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -1953,7 +1983,7 @@
      <PRODUCTNAME>PELLWOOD | 8B Bebop X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8B Bebop X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Podobně jako palička 7B Vintage je i tento typ inspirován paličkami z 50. let minulého století.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8b-bebop-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/8b-bebop-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/84209322a872a5513084118994eb6d2b0ac21633-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -2034,7 +2064,7 @@
      <PRODUCTNAME>PELLWOOD | Timbales C - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Timbales C - Premium Habr</PRODUCT>
      <DESCRIPTION>Tyto paličky jsou vhodné zejména pro hru na různé perkuse, timbales, hodí se do stylů jako je latin, afro či salsa. Nemají hlavičku, takže můžete hrát oboustranně.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/timbales-c</URL>
+     <URL>https://pellwood.com/produkt/timbales-c?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/91df3107d8ea04c754823c0b2efef0e4b118545d-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -2061,7 +2091,7 @@
      <PRODUCTNAME>PELLWOOD | Timbales C - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Timbales C - Premium Hickory</PRODUCT>
      <DESCRIPTION>Tyto paličky jsou vhodné zejména pro hru na různé perkuse, timbales, hodí se do stylů jako je latin, afro či salsa. Nemají hlavičku, takže můžete hrát oboustranně.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/timbales-c</URL>
+     <URL>https://pellwood.com/produkt/timbales-c?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/91df3107d8ea04c754823c0b2efef0e4b118545d-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -2169,7 +2199,7 @@
      <PRODUCTNAME>PELLWOOD | 8A Combi - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8A Combi - Premium Habr</PRODUCT>
      <DESCRIPTION>Slabší kombinovaná palička vychází z paličky 8A latin. Díky malé kulaté hlavičce má jasný zvuk na činelech. Na druhé straně je menší timpánová palička z tvrdého filcu. Paličku oceníte při kreativní hře na všechny typy perkusních nástrojů.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8a-combi</URL>
+     <URL>https://pellwood.com/produkt/8a-combi?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/9d96f2cc67e3078ff9d8ee8f7da5113d7f514c14-3756x1130.jpg</IMGURL>
      <PRICE_VAT>280</PRICE_VAT>
      
@@ -2196,7 +2226,7 @@
      <PRODUCTNAME>PELLWOOD | 8A Combi - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8A Combi - Premium Hickory</PRODUCT>
      <DESCRIPTION>Slabší kombinovaná palička vychází z paličky 8A latin. Díky malé kulaté hlavičce má jasný zvuk na činelech. Na druhé straně je menší timpánová palička z tvrdého filcu. Paličku oceníte při kreativní hře na všechny typy perkusních nástrojů.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8a-combi</URL>
+     <URL>https://pellwood.com/produkt/8a-combi?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/9d96f2cc67e3078ff9d8ee8f7da5113d7f514c14-3756x1130.jpg</IMGURL>
      <PRICE_VAT>360</PRICE_VAT>
      
@@ -2223,7 +2253,7 @@
      <PRODUCTNAME>PELLWOOD | 6A Universal - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 6A Universal - Premium Hickory</PRODUCT>
      <DESCRIPTION>S délkou 407 mm a průměrem 13,5mm je předurčena pro lehčí styly jako fusion, nepohrdne ale ani rockovějším využitím.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/6a-universal</URL>
+     <URL>https://pellwood.com/produkt/6a-universal?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/91eae2fd0c6bafe2ba9dd1dceffd5750e7a1f623-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -2250,7 +2280,7 @@
      <PRODUCTNAME>PELLWOOD | 6A Universal - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 6A Universal - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>S délkou 407 mm a průměrem 13,5mm je předurčena pro lehčí styly jako fusion, nepohrdne ale ani rockovějším využitím.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/6a-universal</URL>
+     <URL>https://pellwood.com/produkt/6a-universal?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/91eae2fd0c6bafe2ba9dd1dceffd5750e7a1f623-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -2277,7 +2307,7 @@
      <PRODUCTNAME>PELLWOOD | 6A Universal - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 6A Universal - Premium Habr</PRODUCT>
      <DESCRIPTION>S délkou 407 mm a průměrem 13,5mm je předurčena pro lehčí styly jako fusion, nepohrdne ale ani rockovějším využitím.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/6a-universal</URL>
+     <URL>https://pellwood.com/produkt/6a-universal?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/91eae2fd0c6bafe2ba9dd1dceffd5750e7a1f623-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -2304,7 +2334,7 @@
      <PRODUCTNAME>PELLWOOD | 6A Universal - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 6A Universal - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>S délkou 407 mm a průměrem 13,5mm je předurčena pro lehčí styly jako fusion, nepohrdne ale ani rockovějším využitím.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/6a-universal</URL>
+     <URL>https://pellwood.com/produkt/6a-universal?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/91eae2fd0c6bafe2ba9dd1dceffd5750e7a1f623-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -2358,7 +2388,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Short - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Short - Premium Hickory</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-short</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-short?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/49801ae659fc9b6ff80b55b1f8b17b4dd0c43f37-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -2385,7 +2415,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Short - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Short - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-short</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-short?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/49801ae659fc9b6ff80b55b1f8b17b4dd0c43f37-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -2412,7 +2442,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Short - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Short - Premium Habr</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-short</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-short?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/49801ae659fc9b6ff80b55b1f8b17b4dd0c43f37-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -2439,7 +2469,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Short - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Short - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-short</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-short?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/49801ae659fc9b6ff80b55b1f8b17b4dd0c43f37-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -2466,7 +2496,7 @@
      <PRODUCTNAME>PELLWOOD | 7A Extra slim - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 7A Extra slim - Premium Hickory</PRODUCT>
      <DESCRIPTION>Díky středně velké kulaté hlavičce poskytuje artikulovaný zvuk a využití najde v jazzu, swingu, country.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/7a-extra-slim</URL>
+     <URL>https://pellwood.com/produkt/7a-extra-slim?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1900fc491a84cd5a1f29b1500bd38992d3911f99-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -2493,7 +2523,7 @@
      <PRODUCTNAME>PELLWOOD | 7A Extra slim - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 7A Extra slim - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Díky středně velké kulaté hlavičce poskytuje artikulovaný zvuk a využití najde v jazzu, swingu, country.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/7a-extra-slim</URL>
+     <URL>https://pellwood.com/produkt/7a-extra-slim?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1900fc491a84cd5a1f29b1500bd38992d3911f99-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -2520,7 +2550,7 @@
      <PRODUCTNAME>PELLWOOD | 7A Extra slim - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 7A Extra slim - Premium Habr</PRODUCT>
      <DESCRIPTION>Díky středně velké kulaté hlavičce poskytuje artikulovaný zvuk a využití najde v jazzu, swingu, country.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/7a-extra-slim</URL>
+     <URL>https://pellwood.com/produkt/7a-extra-slim?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1900fc491a84cd5a1f29b1500bd38992d3911f99-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -2547,7 +2577,7 @@
      <PRODUCTNAME>PELLWOOD | 7A Extra slim - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 7A Extra slim - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Díky středně velké kulaté hlavičce poskytuje artikulovaný zvuk a využití najde v jazzu, swingu, country.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/7a-extra-slim</URL>
+     <URL>https://pellwood.com/produkt/7a-extra-slim?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1900fc491a84cd5a1f29b1500bd38992d3911f99-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -2574,7 +2604,7 @@
      <PRODUCTNAME>PELLWOOD | 7B Vintage X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 7B Vintage X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Jak už název napovídá, palička 7B Vintage je svými rozměry, oválnou hlavičkou a těžištěm více dozadu, inspirována starými paličkami.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/7b-vintage-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/7b-vintage-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/465b591c01815a4d1bc9fbfa836c6887350c7a85-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -2601,7 +2631,7 @@
      <PRODUCTNAME>PELLWOOD | 7B Vintage X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 7B Vintage X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Jak už název napovídá, palička 7B Vintage je svými rozměry, oválnou hlavičkou a těžištěm více dozadu, inspirována starými paličkami.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/7b-vintage-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/7b-vintage-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/465b591c01815a4d1bc9fbfa836c6887350c7a85-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -2643,7 +2673,7 @@
      <PRODUCTNAME>PELLWOOD | Timbales A - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Timbales A - Premium Habr</PRODUCT>
      <DESCRIPTION>Tyto paličky jsou vhodné zejména pro hru na různé perkuse, timbales, hodí se do stylů jako je latin, afro či salsa.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/timbales-a</URL>
+     <URL>https://pellwood.com/produkt/timbales-a?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d9f183114ffed30665870f293342ed73ada648d4-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -2670,7 +2700,7 @@
      <PRODUCTNAME>PELLWOOD | Timbales A - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Timbales A - Premium Hickory</PRODUCT>
      <DESCRIPTION>Tyto paličky jsou vhodné zejména pro hru na různé perkuse, timbales, hodí se do stylů jako je latin, afro či salsa.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/timbales-a</URL>
+     <URL>https://pellwood.com/produkt/timbales-a?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d9f183114ffed30665870f293342ed73ada648d4-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -2697,7 +2727,7 @@
      <PRODUCTNAME>PELLWOOD | 8C Branko Križek - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8C Branko Križek - Premium Habr</PRODUCT>
      <DESCRIPTION>Vzhledem k malé kapkovité hlavičce se hodí pro styly Fusion, Jazz, Latina.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8c-branko-krizek</URL>
+     <URL>https://pellwood.com/produkt/8c-branko-krizek?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/e398be7f51fcc385a4c00f81579637e0b29738b4-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -2724,7 +2754,7 @@
      <PRODUCTNAME>PELLWOOD | 8C Branko Križek - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8C Branko Križek - Premium Hickory</PRODUCT>
      <DESCRIPTION>Vzhledem k malé kapkovité hlavičce se hodí pro styly Fusion, Jazz, Latina.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8c-branko-krizek</URL>
+     <URL>https://pellwood.com/produkt/8c-branko-krizek?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/e398be7f51fcc385a4c00f81579637e0b29738b4-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -2778,7 +2808,7 @@
      <PRODUCTNAME>PELLWOOD | Heavy Metal X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Heavy Metal X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/heavy-metal-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/heavy-metal-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d1080b82ea01a7954b61033981970064148ee2de-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -2805,7 +2835,7 @@
      <PRODUCTNAME>PELLWOOD | Heavy Metal X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Heavy Metal X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/heavy-metal-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/heavy-metal-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d1080b82ea01a7954b61033981970064148ee2de-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -2832,7 +2862,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Model X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Model X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-model-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/rock-model-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/fa2a199917c6b23ac81d21b5c8c28b88051c33e3-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -2859,7 +2889,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Model X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Model X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-model-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/rock-model-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/fa2a199917c6b23ac81d21b5c8c28b88051c33e3-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -2901,7 +2931,7 @@
      <PRODUCTNAME>PELLWOOD | Drumstick for Kids - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Drumstick for Kids - Premium Habr</PRODUCT>
      <DESCRIPTION>Nejmenší paličky pro nejmenší bubeníky</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/drumstick-for-kids</URL>
+     <URL>https://pellwood.com/produkt/drumstick-for-kids?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/cf7cb6bde2b61973708c867b87692a0520400612-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -2928,7 +2958,7 @@
      <PRODUCTNAME>PELLWOOD | Drumstick for Kids - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Drumstick for Kids - Premium Hickory</PRODUCT>
      <DESCRIPTION>Nejmenší paličky pro nejmenší bubeníky</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/drumstick-for-kids</URL>
+     <URL>https://pellwood.com/produkt/drumstick-for-kids?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/cf7cb6bde2b61973708c867b87692a0520400612-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -2955,7 +2985,7 @@
      <PRODUCTNAME>PELLWOOD | 3A - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 3A - Premium Hickory</PRODUCT>
      <DESCRIPTION>Oblíbená palička s větší kulatou hlavičkou.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/3a</URL>
+     <URL>https://pellwood.com/produkt/3a?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/81fc6e08eb5b3ff969cc8fd94903d26dc933765e-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -2982,7 +3012,7 @@
      <PRODUCTNAME>PELLWOOD | 3A - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 3A - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Oblíbená palička s větší kulatou hlavičkou.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/3a</URL>
+     <URL>https://pellwood.com/produkt/3a?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/81fc6e08eb5b3ff969cc8fd94903d26dc933765e-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -3009,7 +3039,7 @@
      <PRODUCTNAME>PELLWOOD | 3A - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 3A - Premium Habr</PRODUCT>
      <DESCRIPTION>Oblíbená palička s větší kulatou hlavičkou.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/3a</URL>
+     <URL>https://pellwood.com/produkt/3a?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/81fc6e08eb5b3ff969cc8fd94903d26dc933765e-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -3036,7 +3066,7 @@
      <PRODUCTNAME>PELLWOOD | 3A - Premium Habr nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 3A - Premium Habr nylon</PRODUCT>
      <DESCRIPTION>Oblíbená palička s větší kulatou hlavičkou.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/3a</URL>
+     <URL>https://pellwood.com/produkt/3a?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/81fc6e08eb5b3ff969cc8fd94903d26dc933765e-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -3090,7 +3120,7 @@
      <PRODUCTNAME>PELLWOOD | Timbales C X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Timbales C X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Tyto paličky jsou vhodné zejména pro hru na různé perkuse, timbales, hodí se do stylů jako je latin, afro či salsa. Nemají hlavičku, takže můžete hrát oboustranně.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/timbales-c-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/timbales-c-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d543f7b934d18066b3dfac184b546dadc274aa0f-6024x4016.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -3117,7 +3147,7 @@
      <PRODUCTNAME>PELLWOOD | Timbales C X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Timbales C X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Tyto paličky jsou vhodné zejména pro hru na různé perkuse, timbales, hodí se do stylů jako je latin, afro či salsa. Nemají hlavičku, takže můžete hrát oboustranně.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/timbales-c-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/timbales-c-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d543f7b934d18066b3dfac184b546dadc274aa0f-6024x4016.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -3144,7 +3174,7 @@
      <PRODUCTNAME>PELLWOOD | Hrnek PELLWOOD - Zelený</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Hrnek PELLWOOD - Zelený</PRODUCT>
      <DESCRIPTION>Hrnek PELLWOOD</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/hrnek-pellwood</URL>
+     <URL>https://pellwood.com/produkt/hrnek-pellwood?zelený</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/7d5384985f075cadfb7a0a4cf4bec80150b8059b-3435x2576.jpg</IMGURL>
      <PRICE_VAT>150</PRICE_VAT>
      
@@ -3159,7 +3189,7 @@
      <PRODUCTNAME>PELLWOOD | Hrnek PELLWOOD - Modrý</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Hrnek PELLWOOD - Modrý</PRODUCT>
      <DESCRIPTION>Hrnek PELLWOOD</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/hrnek-pellwood</URL>
+     <URL>https://pellwood.com/produkt/hrnek-pellwood?modrý</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/7d5384985f075cadfb7a0a4cf4bec80150b8059b-3435x2576.jpg</IMGURL>
      <PRICE_VAT>150</PRICE_VAT>
      
@@ -3174,7 +3204,7 @@
      <PRODUCTNAME>PELLWOOD | Hrnek PELLWOOD - Černý</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Hrnek PELLWOOD - Černý</PRODUCT>
      <DESCRIPTION>Hrnek PELLWOOD</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/hrnek-pellwood</URL>
+     <URL>https://pellwood.com/produkt/hrnek-pellwood?černý</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/7d5384985f075cadfb7a0a4cf4bec80150b8059b-3435x2576.jpg</IMGURL>
      <PRICE_VAT>150</PRICE_VAT>
      
@@ -3189,7 +3219,7 @@
      <PRODUCTNAME>PELLWOOD | 9A No Noise - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 9A No Noise - Premium Habr</PRODUCT>
      <DESCRIPTION>Velmi populární tenké a dlouhé paličky s malou kulatou hlavičkou najdou uplatnění ve všech stylech i věkových kategoriích tam, kde běžné paličky jsou příliš hlasité a metličky nebo špejle málo výrazné. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/9a-no-noise</URL>
+     <URL>https://pellwood.com/produkt/9a-no-noise?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/f34dc5a9d999023234fb7b36e98eab09f4ea5ba4-700x200.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -3216,7 +3246,7 @@
      <PRODUCTNAME>PELLWOOD | 9A No Noise - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 9A No Noise - Premium Hickory</PRODUCT>
      <DESCRIPTION>Velmi populární tenké a dlouhé paličky s malou kulatou hlavičkou najdou uplatnění ve všech stylech i věkových kategoriích tam, kde běžné paličky jsou příliš hlasité a metličky nebo špejle málo výrazné. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/9a-no-noise</URL>
+     <URL>https://pellwood.com/produkt/9a-no-noise?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/f34dc5a9d999023234fb7b36e98eab09f4ea5ba4-700x200.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -3258,7 +3288,7 @@
      <PRODUCTNAME>PELLWOOD | Heavyrock - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Heavyrock - Premium Hickory</PRODUCT>
      <DESCRIPTION>no comment!</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/heavyrock</URL>
+     <URL>https://pellwood.com/produkt/heavyrock?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/c404054658d4fbb81678e81c3dd8b0f27700213f-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -3285,7 +3315,7 @@
      <PRODUCTNAME>PELLWOOD | Heavyrock - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Heavyrock - Premium Habr</PRODUCT>
      <DESCRIPTION>no comment!</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/heavyrock</URL>
+     <URL>https://pellwood.com/produkt/heavyrock?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/c404054658d4fbb81678e81c3dd8b0f27700213f-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -3312,7 +3342,7 @@
      <PRODUCTNAME>PELLWOOD | 7B Vintage - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 7B Vintage - Premium Hickory</PRODUCT>
      <DESCRIPTION>Jak už název napovídá, palička 7B Vintage je svými rozměry, oválnou hlavičkou a těžištěm více dozadu, inspirována starými paličkami.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/7b-vintage</URL>
+     <URL>https://pellwood.com/produkt/7b-vintage?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/e988fbd1c3c3bfb8ce588ef3f0172ecca05f2d33-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -3339,7 +3369,7 @@
      <PRODUCTNAME>PELLWOOD | 7B Vintage - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 7B Vintage - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Jak už název napovídá, palička 7B Vintage je svými rozměry, oválnou hlavičkou a těžištěm více dozadu, inspirována starými paličkami.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/7b-vintage</URL>
+     <URL>https://pellwood.com/produkt/7b-vintage?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/e988fbd1c3c3bfb8ce588ef3f0172ecca05f2d33-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -3366,7 +3396,7 @@
      <PRODUCTNAME>PELLWOOD | 7B Vintage - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 7B Vintage - Premium Habr</PRODUCT>
      <DESCRIPTION>Jak už název napovídá, palička 7B Vintage je svými rozměry, oválnou hlavičkou a těžištěm více dozadu, inspirována starými paličkami.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/7b-vintage</URL>
+     <URL>https://pellwood.com/produkt/7b-vintage?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/e988fbd1c3c3bfb8ce588ef3f0172ecca05f2d33-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -3393,7 +3423,7 @@
      <PRODUCTNAME>PELLWOOD | 7B Vintage - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 7B Vintage - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Jak už název napovídá, palička 7B Vintage je svými rozměry, oválnou hlavičkou a těžištěm více dozadu, inspirována starými paličkami.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/7b-vintage</URL>
+     <URL>https://pellwood.com/produkt/7b-vintage?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/e988fbd1c3c3bfb8ce588ef3f0172ecca05f2d33-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -3420,7 +3450,7 @@
      <PRODUCTNAME>PELLWOOD | Heavy Metal - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Heavy Metal - Premium Hickory</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/heavy-metal</URL>
+     <URL>https://pellwood.com/produkt/heavy-metal?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d0f84917035b1d2e7722d265d0f5f261527c997b-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -3447,7 +3477,7 @@
      <PRODUCTNAME>PELLWOOD | Heavy Metal - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Heavy Metal - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/heavy-metal</URL>
+     <URL>https://pellwood.com/produkt/heavy-metal?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d0f84917035b1d2e7722d265d0f5f261527c997b-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -3474,7 +3504,7 @@
      <PRODUCTNAME>PELLWOOD | Heavy Metal - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Heavy Metal - Premium Habr</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/heavy-metal</URL>
+     <URL>https://pellwood.com/produkt/heavy-metal?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d0f84917035b1d2e7722d265d0f5f261527c997b-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -3501,7 +3531,7 @@
      <PRODUCTNAME>PELLWOOD | Heavy Metal - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Heavy Metal - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/heavy-metal</URL>
+     <URL>https://pellwood.com/produkt/heavy-metal?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/d0f84917035b1d2e7722d265d0f5f261527c997b-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -3528,7 +3558,7 @@
      <PRODUCTNAME>PELLWOOD | Animal Stick - Russell Gilbrook X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Animal Stick - Russell Gilbrook X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>undefined</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/animal-stick-russell-gilbrook-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/animal-stick-russell-gilbrook-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/8c87b0eabd9fc341a065237bc9afe2cf7d984f9b-6024x4016.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -3555,7 +3585,7 @@
      <PRODUCTNAME>PELLWOOD | Animal Stick - Russell Gilbrook X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Animal Stick - Russell Gilbrook X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>undefined</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/animal-stick-russell-gilbrook-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/animal-stick-russell-gilbrook-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/8c87b0eabd9fc341a065237bc9afe2cf7d984f9b-6024x4016.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -3597,7 +3627,7 @@
      <PRODUCTNAME>PELLWOOD | Timbales A X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Timbales A X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Tyto paličky jsou vhodné zejména pro hru na různé perkuse, timbales, hodí se do stylů jako je latin, afro či salsa.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/timbales-a-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/timbales-a-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/805f576d78dcc78fee1d1c5944e1f7fbfdb4ad21-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -3624,7 +3654,7 @@
      <PRODUCTNAME>PELLWOOD | Timbales A X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Timbales A X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Tyto paličky jsou vhodné zejména pro hru na různé perkuse, timbales, hodí se do stylů jako je latin, afro či salsa.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/timbales-a-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/timbales-a-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/805f576d78dcc78fee1d1c5944e1f7fbfdb4ad21-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -3651,7 +3681,7 @@
      <PRODUCTNAME>PELLWOOD | 5B Classic Maxi X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B Classic Maxi X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-classic-maxi-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/5b-classic-maxi-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/c83155009541a1d67cfa0af405c9c158b040a530-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -3678,7 +3708,7 @@
      <PRODUCTNAME>PELLWOOD | 5B Classic Maxi X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B Classic Maxi X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-classic-maxi-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/5b-classic-maxi-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/c83155009541a1d67cfa0af405c9c158b040a530-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -3705,7 +3735,7 @@
      <PRODUCTNAME>PELLWOOD | Million March I.  - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Million March I.  - Premium Habr</PRODUCT>
      <DESCRIPTION>Standardní pochodové paličky. Největší průměr u konce je 19,5 mm a postupně se zužují směrem k oválné hlavičce. Vyrábíme je pouze z habru. Někteří bubeníci je využívají také ke cvičení.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/million-march-i</URL>
+     <URL>https://pellwood.com/produkt/million-march-i?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1d8a269bec613dd773d5b01dce7475b02b505e44-3756x1130.jpg</IMGURL>
      <PRICE_VAT>150</PRICE_VAT>
      
@@ -3732,7 +3762,7 @@
      <PRODUCTNAME>PELLWOOD | 7A Extra Slim X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 7A Extra Slim X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Díky středně velké kulaté hlavičce poskytuje artikulovaný zvuk a využití najde v jazzu, swingu, country.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/7a-extra-slim-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/7a-extra-slim-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/4704ed7989f2a411e163dd039cc9c78e28aaf17c-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -3759,7 +3789,7 @@
      <PRODUCTNAME>PELLWOOD | 7A Extra Slim X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 7A Extra Slim X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Díky středně velké kulaté hlavičce poskytuje artikulovaný zvuk a využití najde v jazzu, swingu, country.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/7a-extra-slim-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/7a-extra-slim-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/4704ed7989f2a411e163dd039cc9c78e28aaf17c-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -3813,7 +3843,7 @@
      <PRODUCTNAME>PELLWOOD | 2B Combi - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 2B Combi - Premium Habr</PRODUCT>
      <DESCRIPTION>Silnější kombinovaná palička vychází z paličky 2B, která je vhodná pro tvrdší styl hraní. Na zadní straně má větší hlavičku z tvrdého filcu. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b-combi</URL>
+     <URL>https://pellwood.com/produkt/2b-combi?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/30965188eff615920f4bb251f8d8c885f39ec532-3756x1130.jpg</IMGURL>
      <PRICE_VAT>280</PRICE_VAT>
      
@@ -3840,7 +3870,7 @@
      <PRODUCTNAME>PELLWOOD | 2B Combi - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 2B Combi - Premium Hickory</PRODUCT>
      <DESCRIPTION>Silnější kombinovaná palička vychází z paličky 2B, která je vhodná pro tvrdší styl hraní. Na zadní straně má větší hlavičku z tvrdého filcu. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b-combi</URL>
+     <URL>https://pellwood.com/produkt/2b-combi?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/30965188eff615920f4bb251f8d8c885f39ec532-3756x1130.jpg</IMGURL>
      <PRICE_VAT>360</PRICE_VAT>
      
@@ -3867,7 +3897,7 @@
      <PRODUCTNAME>PELLWOOD | 5C Headline - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5C Headline - Premium Hickory</PRODUCT>
      <DESCRIPTION>Kratší palička s těžištěm uprostřed je se svojí kapkovitou hlavičkou vhodná pro styly, jako je jazz nebo blues.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5c-headline</URL>
+     <URL>https://pellwood.com/produkt/5c-headline?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/ae5852c8bbcbc72062e6dc58dfb56f8c1a6e3f33-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -3894,7 +3924,7 @@
      <PRODUCTNAME>PELLWOOD | 5C Headline - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5C Headline - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Kratší palička s těžištěm uprostřed je se svojí kapkovitou hlavičkou vhodná pro styly, jako je jazz nebo blues.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5c-headline</URL>
+     <URL>https://pellwood.com/produkt/5c-headline?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/ae5852c8bbcbc72062e6dc58dfb56f8c1a6e3f33-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -3921,7 +3951,7 @@
      <PRODUCTNAME>PELLWOOD | 5C Headline - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5C Headline - Premium Habr</PRODUCT>
      <DESCRIPTION>Kratší palička s těžištěm uprostřed je se svojí kapkovitou hlavičkou vhodná pro styly, jako je jazz nebo blues.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5c-headline</URL>
+     <URL>https://pellwood.com/produkt/5c-headline?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/ae5852c8bbcbc72062e6dc58dfb56f8c1a6e3f33-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -3948,7 +3978,7 @@
      <PRODUCTNAME>PELLWOOD | 5C Headline - Premium Habr nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5C Headline - Premium Habr nylon</PRODUCT>
      <DESCRIPTION>Kratší palička s těžištěm uprostřed je se svojí kapkovitou hlavičkou vhodná pro styly, jako je jazz nebo blues.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5c-headline</URL>
+     <URL>https://pellwood.com/produkt/5c-headline?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/ae5852c8bbcbc72062e6dc58dfb56f8c1a6e3f33-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -3990,7 +4020,7 @@
      <PRODUCTNAME>PELLWOOD | 8C Branko Križek X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8C Branko Križek X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Vzhledem k malé kapkovité hlavičce se hodí pro styly Fusion, Jazz, Latina.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8c-branko-krizek-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/8c-branko-krizek-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/fac7f48f5238d91b2422616a919004a052178fe3-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -4017,7 +4047,7 @@
      <PRODUCTNAME>PELLWOOD | 8C Branko Križek X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8C Branko Križek X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Vzhledem k malé kapkovité hlavičce se hodí pro styly Fusion, Jazz, Latina.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8c-branko-krizek-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/8c-branko-krizek-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/fac7f48f5238d91b2422616a919004a052178fe3-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -4044,7 +4074,7 @@
      <PRODUCTNAME>PELLWOOD | Jazz Model X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Jazz Model X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Jazzová palička, s průměrem 14mm vhodná pro všechny styly. Díky dlouhému zůžení je agilní při odskoku. Oválná hlavička zprostředkuje plný zvuk.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/jazz-model-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/jazz-model-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/be04af63c4ad8d87c29a666524af8cd024683076-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -4071,7 +4101,7 @@
      <PRODUCTNAME>PELLWOOD | Jazz Model X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Jazz Model X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Jazzová palička, s průměrem 14mm vhodná pro všechny styly. Díky dlouhému zůžení je agilní při odskoku. Oválná hlavička zprostředkuje plný zvuk.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/jazz-model-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/jazz-model-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/be04af63c4ad8d87c29a666524af8cd024683076-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -4113,7 +4143,7 @@
      <PRODUCTNAME>PELLWOOD | 5B Classic Maxi - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B Classic Maxi - Premium Hickory</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-classic-maxi</URL>
+     <URL>https://pellwood.com/produkt/5b-classic-maxi?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/537bdaaab9c351d1fcf62380bf4fe5b07ed8d4be-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -4140,7 +4170,7 @@
      <PRODUCTNAME>PELLWOOD | 5B Classic Maxi - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B Classic Maxi - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-classic-maxi</URL>
+     <URL>https://pellwood.com/produkt/5b-classic-maxi?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/537bdaaab9c351d1fcf62380bf4fe5b07ed8d4be-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -4167,7 +4197,7 @@
      <PRODUCTNAME>PELLWOOD | 5B Classic Maxi - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B Classic Maxi - Premium Habr</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-classic-maxi</URL>
+     <URL>https://pellwood.com/produkt/5b-classic-maxi?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/537bdaaab9c351d1fcf62380bf4fe5b07ed8d4be-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -4194,7 +4224,7 @@
      <PRODUCTNAME>PELLWOOD | 5B Classic Maxi - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B Classic Maxi - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-classic-maxi</URL>
+     <URL>https://pellwood.com/produkt/5b-classic-maxi?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/537bdaaab9c351d1fcf62380bf4fe5b07ed8d4be-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -4221,7 +4251,7 @@
      <PRODUCTNAME>PELLWOOD | 5A Maxi - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Maxi - Premium Hickory</PRODUCT>
      <DESCRIPTION>Nejpopulárnější palička Pellwood, univerzální pro všechny styly v silnější verzi o průměru 14,8 mm a délce 415 mm</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-medium-maxi</URL>
+     <URL>https://pellwood.com/produkt/5a-medium-maxi?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/9776223dd6551c89e667aacb6a042d3aa2f24af9-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -4248,7 +4278,7 @@
      <PRODUCTNAME>PELLWOOD | 5A Maxi - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Maxi - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Nejpopulárnější palička Pellwood, univerzální pro všechny styly v silnější verzi o průměru 14,8 mm a délce 415 mm</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-medium-maxi</URL>
+     <URL>https://pellwood.com/produkt/5a-medium-maxi?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/9776223dd6551c89e667aacb6a042d3aa2f24af9-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -4275,7 +4305,7 @@
      <PRODUCTNAME>PELLWOOD | 5A Maxi - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Maxi - Premium Habr</PRODUCT>
      <DESCRIPTION>Nejpopulárnější palička Pellwood, univerzální pro všechny styly v silnější verzi o průměru 14,8 mm a délce 415 mm</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-medium-maxi</URL>
+     <URL>https://pellwood.com/produkt/5a-medium-maxi?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/9776223dd6551c89e667aacb6a042d3aa2f24af9-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -4302,7 +4332,7 @@
      <PRODUCTNAME>PELLWOOD | 5A Maxi - Premium Habr nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Maxi - Premium Habr nylon</PRODUCT>
      <DESCRIPTION>Nejpopulárnější palička Pellwood, univerzální pro všechny styly v silnější verzi o průměru 14,8 mm a délce 415 mm</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-medium-maxi</URL>
+     <URL>https://pellwood.com/produkt/5a-medium-maxi?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/9776223dd6551c89e667aacb6a042d3aa2f24af9-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -4329,7 +4359,7 @@
      <PRODUCTNAME>PELLWOOD | Million March II. - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Million March II. - Premium Habr</PRODUCT>
      <DESCRIPTION>Silnější pochodové paličky. Největší průměr u konce je 22 mm a postupně se zužují směrem ke kapkovité hlavičce. Vyrábíme je pouze z habru. Někteří bubeníci je využívají také ke cvičení.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/million-march-ii</URL>
+     <URL>https://pellwood.com/produkt/million-march-ii?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/9533e7274a5729046cb1f43f9000056443af9bbf-3756x1130.jpg</IMGURL>
      <PRICE_VAT>150</PRICE_VAT>
      
@@ -4356,7 +4386,7 @@
      <PRODUCTNAME>PELLWOOD | 3B Vintage X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 3B Vintage X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Snadno ovladatelná palička s kónickou hlavičkou, díky které má jasný zvuk na činelech.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/3b-vintage-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/3b-vintage-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/53b4c574de6ffe638c3b95b2703dd04fb16d39f3-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -4383,7 +4413,7 @@
      <PRODUCTNAME>PELLWOOD | 3B Vintage X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 3B Vintage X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Snadno ovladatelná palička s kónickou hlavičkou, díky které má jasný zvuk na činelech.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/3b-vintage-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/3b-vintage-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/53b4c574de6ffe638c3b95b2703dd04fb16d39f3-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -4410,7 +4440,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Model - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Model - Premium Hickory</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-model</URL>
+     <URL>https://pellwood.com/produkt/rock-model?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/b62add02bc1dc363fb2db195f9bee4e0ea35c831-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -4437,7 +4467,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Model - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Model - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-model</URL>
+     <URL>https://pellwood.com/produkt/rock-model?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/b62add02bc1dc363fb2db195f9bee4e0ea35c831-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -4464,7 +4494,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Model - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Model - Premium Habr</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-model</URL>
+     <URL>https://pellwood.com/produkt/rock-model?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/b62add02bc1dc363fb2db195f9bee4e0ea35c831-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -4491,7 +4521,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Model - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Model - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-model</URL>
+     <URL>https://pellwood.com/produkt/rock-model?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/b62add02bc1dc363fb2db195f9bee4e0ea35c831-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -4518,7 +4548,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Short X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Short X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-short-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-short-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/e34db14ce6d04211d8dd790efb36afeea1f173c9-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -4545,7 +4575,7 @@
      <PRODUCTNAME>PELLWOOD | Rock Classic Short X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Rock Classic Short X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Klasická rocková palička s průměrem 15 mm se vyrábí ve třech délkách. Oválná hlavička nabízí hutnější zvuk. V kombinaci s nylonovou hlavičkou se jedná o nezničitelnou paličku.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/rock-classic-short-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/rock-classic-short-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/e34db14ce6d04211d8dd790efb36afeea1f173c9-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -4599,7 +4629,7 @@
      <PRODUCTNAME>PELLWOOD | 2B Niclas Campagnol  - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 2B Niclas Campagnol  - Premium Habr</PRODUCT>
      <DESCRIPTION>Signované paličky Niclase Campagnola jsou zkrácené 2B a s průměrem 16mm jsou vhodné pro tvrdší styl hraní. S těžištěm posunutým ke špičce paličky tvoří plný tón, který ale díky podlouhlé žaloudkové hlavičce neztratí na konkrétnosti.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b-niclas-campagnol</URL>
+     <URL>https://pellwood.com/produkt/2b-niclas-campagnol?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/139ef8e374243a27241843787bcd61a4226d7ff7-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -4626,7 +4656,7 @@
      <PRODUCTNAME>PELLWOOD | 2B Niclas Campagnol  - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 2B Niclas Campagnol  - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Signované paličky Niclase Campagnola jsou zkrácené 2B a s průměrem 16mm jsou vhodné pro tvrdší styl hraní. S těžištěm posunutým ke špičce paličky tvoří plný tón, který ale díky podlouhlé žaloudkové hlavičce neztratí na konkrétnosti.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b-niclas-campagnol</URL>
+     <URL>https://pellwood.com/produkt/2b-niclas-campagnol?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/139ef8e374243a27241843787bcd61a4226d7ff7-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -4653,7 +4683,7 @@
      <PRODUCTNAME>PELLWOOD | 2B Niclas Campagnol  - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 2B Niclas Campagnol  - Premium Hickory</PRODUCT>
      <DESCRIPTION>Signované paličky Niclase Campagnola jsou zkrácené 2B a s průměrem 16mm jsou vhodné pro tvrdší styl hraní. S těžištěm posunutým ke špičce paličky tvoří plný tón, který ale díky podlouhlé žaloudkové hlavičce neztratí na konkrétnosti.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b-niclas-campagnol</URL>
+     <URL>https://pellwood.com/produkt/2b-niclas-campagnol?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/139ef8e374243a27241843787bcd61a4226d7ff7-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -4680,7 +4710,7 @@
      <PRODUCTNAME>PELLWOOD | 2B Niclas Campagnol  - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 2B Niclas Campagnol  - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Signované paličky Niclase Campagnola jsou zkrácené 2B a s průměrem 16mm jsou vhodné pro tvrdší styl hraní. S těžištěm posunutým ke špičce paličky tvoří plný tón, který ale díky podlouhlé žaloudkové hlavičce neztratí na konkrétnosti.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b-niclas-campagnol</URL>
+     <URL>https://pellwood.com/produkt/2b-niclas-campagnol?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/139ef8e374243a27241843787bcd61a4226d7ff7-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -4707,7 +4737,7 @@
      <PRODUCTNAME>PELLWOOD | 9A No Noise X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 9A No Noise X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Velmi populární tenké a dlouhé paličky s malou kulatou hlavičkou najdou uplatnění ve všech stylech i věkových kategoriích tam, kde běžné paličky jsou příliš hlasité a metličky nebo špejle málo výrazné. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/9a-no-noise-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/9a-no-noise-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/f34dc5a9d999023234fb7b36e98eab09f4ea5ba4-700x200.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -4734,7 +4764,7 @@
      <PRODUCTNAME>PELLWOOD | 9A No Noise X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 9A No Noise X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Velmi populární tenké a dlouhé paličky s malou kulatou hlavičkou najdou uplatnění ve všech stylech i věkových kategoriích tam, kde běžné paličky jsou příliš hlasité a metličky nebo špejle málo výrazné. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/9a-no-noise-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/9a-no-noise-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/f34dc5a9d999023234fb7b36e98eab09f4ea5ba4-700x200.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -4761,7 +4791,7 @@
      <PRODUCTNAME>PELLWOOD | 8A Latin X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8A Latin X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>8A Latin má těžiště posunuté k hlavičce a díky malé kulaté hlavičce jasný zvuk na činelech. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8a-latin-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/8a-latin-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/bc64c1f7bd73d2000d39b3c685fc809f42e4ef2e-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -4788,7 +4818,7 @@
      <PRODUCTNAME>PELLWOOD | 8A Latin X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8A Latin X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>8A Latin má těžiště posunuté k hlavičce a díky malé kulaté hlavičce jasný zvuk na činelech. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8a-latin-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/8a-latin-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/bc64c1f7bd73d2000d39b3c685fc809f42e4ef2e-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -4815,7 +4845,7 @@
      <PRODUCTNAME>PELLWOOD | 2B X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 2B X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Paličky 2B s průměrem 16mm jsou vhodné pro tvrdší styl hraní. S těžištěm posunutým ke špičce paličky tvoří plný tón, který ale díky podlouhlé žaloudkové hlavičce neztratí na konkrétnosti.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/2b-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/fcf74b78b50c76d5edffa9e893e42a143021b215-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -4842,7 +4872,7 @@
      <PRODUCTNAME>PELLWOOD | 2B X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 2B X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Paličky 2B s průměrem 16mm jsou vhodné pro tvrdší styl hraní. S těžištěm posunutým ke špičce paličky tvoří plný tón, který ale díky podlouhlé žaloudkové hlavičce neztratí na konkrétnosti.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/2b-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/2b-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/fcf74b78b50c76d5edffa9e893e42a143021b215-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -4869,7 +4899,7 @@
      <PRODUCTNAME>PELLWOOD | 8B Bebop - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8B Bebop - Premium Hickory</PRODUCT>
      <DESCRIPTION>Podobně jako palička 7B Vintage je i tento typ inspirován paličkami z 50. let minulého století.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8b-bebop</URL>
+     <URL>https://pellwood.com/produkt/8b-bebop?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/543e70f11e6ec1e717004580cb2c9020ece8d056-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -4896,7 +4926,7 @@
      <PRODUCTNAME>PELLWOOD | 8B Bebop - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8B Bebop - Premium Habr</PRODUCT>
      <DESCRIPTION>Podobně jako palička 7B Vintage je i tento typ inspirován paličkami z 50. let minulého století.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8b-bebop</URL>
+     <URL>https://pellwood.com/produkt/8b-bebop?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/543e70f11e6ec1e717004580cb2c9020ece8d056-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -4950,7 +4980,7 @@
      <PRODUCTNAME>PELLWOOD | Hard Rock - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Hard Rock - Premium Hickory</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/hard-rock</URL>
+     <URL>https://pellwood.com/produkt/hard-rock?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/ce4b47cf0f4ab326425b046482a3325b5063e64c-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -4977,7 +5007,7 @@
      <PRODUCTNAME>PELLWOOD | Hard Rock - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Hard Rock - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/hard-rock</URL>
+     <URL>https://pellwood.com/produkt/hard-rock?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/ce4b47cf0f4ab326425b046482a3325b5063e64c-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -5004,7 +5034,7 @@
      <PRODUCTNAME>PELLWOOD | Hard Rock - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Hard Rock - Premium Habr</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/hard-rock</URL>
+     <URL>https://pellwood.com/produkt/hard-rock?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/ce4b47cf0f4ab326425b046482a3325b5063e64c-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -5031,7 +5061,7 @@
      <PRODUCTNAME>PELLWOOD | Hard Rock - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Hard Rock - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/hard-rock</URL>
+     <URL>https://pellwood.com/produkt/hard-rock?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/ce4b47cf0f4ab326425b046482a3325b5063e64c-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -5058,7 +5088,7 @@
      <PRODUCTNAME>PELLWOOD | Funk Model - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Funk Model - Premium Hickory</PRODUCT>
      <DESCRIPTION>Palička Funk Model má délku 409mm a průměr 15,9mm.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/funk-model</URL>
+     <URL>https://pellwood.com/produkt/funk-model?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/797f2a075216ce56370b18fb6954ef29131123a2-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -5085,7 +5115,7 @@
      <PRODUCTNAME>PELLWOOD | Funk Model - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Funk Model - Premium Habr</PRODUCT>
      <DESCRIPTION>Palička Funk Model má délku 409mm a průměr 15,9mm.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/funk-model</URL>
+     <URL>https://pellwood.com/produkt/funk-model?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/797f2a075216ce56370b18fb6954ef29131123a2-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -5139,7 +5169,7 @@
      <PRODUCTNAME>PELLWOOD | 5D Custom  - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5D Custom  - Premium Hickory</PRODUCT>
      <DESCRIPTION>Díky malé kulaté hlavičce Vám tento typ zajistí průzračný zvuk činelů a palička je vhodná pro styly jako funk, fusion nebo latina.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5d-custom</URL>
+     <URL>https://pellwood.com/produkt/5d-custom?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1b848fb82e1a291c756a5ac7afcdcdb07d0396c0-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -5166,7 +5196,7 @@
      <PRODUCTNAME>PELLWOOD | 5D Custom  - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5D Custom  - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Díky malé kulaté hlavičce Vám tento typ zajistí průzračný zvuk činelů a palička je vhodná pro styly jako funk, fusion nebo latina.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5d-custom</URL>
+     <URL>https://pellwood.com/produkt/5d-custom?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1b848fb82e1a291c756a5ac7afcdcdb07d0396c0-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -5193,7 +5223,7 @@
      <PRODUCTNAME>PELLWOOD | 5D Custom  - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5D Custom  - Premium Habr</PRODUCT>
      <DESCRIPTION>Díky malé kulaté hlavičce Vám tento typ zajistí průzračný zvuk činelů a palička je vhodná pro styly jako funk, fusion nebo latina.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5d-custom</URL>
+     <URL>https://pellwood.com/produkt/5d-custom?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1b848fb82e1a291c756a5ac7afcdcdb07d0396c0-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -5220,7 +5250,7 @@
      <PRODUCTNAME>PELLWOOD | 5D Custom  - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5D Custom  - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Díky malé kulaté hlavičce Vám tento typ zajistí průzračný zvuk činelů a palička je vhodná pro styly jako funk, fusion nebo latina.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5d-custom</URL>
+     <URL>https://pellwood.com/produkt/5d-custom?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1b848fb82e1a291c756a5ac7afcdcdb07d0396c0-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -5247,7 +5277,7 @@
      <PRODUCTNAME>PELLWOOD | 6A Universal X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 6A Universal X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>S délkou 407 mm a průměrem 13,5mm je předurčena pro lehčí styly jako fusion, nepohrdne ale ani rockovějším využitím.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/6a-universal-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/6a-universal-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/0e06617f61ff816f8cbe01bcd69fbaa28035c6ff-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -5274,7 +5304,7 @@
      <PRODUCTNAME>PELLWOOD | 6A Universal X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 6A Universal X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>S délkou 407 mm a průměrem 13,5mm je předurčena pro lehčí styly jako fusion, nepohrdne ale ani rockovějším využitím.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/6a-universal-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/6a-universal-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/0e06617f61ff816f8cbe01bcd69fbaa28035c6ff-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -5301,7 +5331,7 @@
      <PRODUCTNAME>PELLWOOD | 5A Maxi X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Maxi X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Nejpopulárnější palička Pellwood, univerzální pro všechny styly v silnější verzi o průměru 14,8 mm a délce 415 mm</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-medium-maxi-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/5a-medium-maxi-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/bf82190539924b838bd4664c8be065d8ae66a44d-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -5328,7 +5358,7 @@
      <PRODUCTNAME>PELLWOOD | 5A Maxi X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Maxi X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Nejpopulárnější palička Pellwood, univerzální pro všechny styly v silnější verzi o průměru 14,8 mm a délce 415 mm</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-medium-maxi-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/5a-medium-maxi-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/bf82190539924b838bd4664c8be065d8ae66a44d-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -5355,7 +5385,7 @@
      <PRODUCTNAME>PELLWOOD | Drumstick for Kids X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Drumstick for Kids X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Nejmenší paličky pro nejmenší bubeníky</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/drumstick-for-kids-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/drumstick-for-kids-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/07c7645b329b65953bd0445ff45b2c4b44bbe980-6024x4016.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -5382,7 +5412,7 @@
      <PRODUCTNAME>PELLWOOD | Drumstick for Kids X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Drumstick for Kids X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Nejmenší paličky pro nejmenší bubeníky</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/drumstick-for-kids-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/drumstick-for-kids-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/07c7645b329b65953bd0445ff45b2c4b44bbe980-6024x4016.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -5409,7 +5439,7 @@
      <PRODUCTNAME>PELLWOOD | 5B Classic X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B Classic X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-classic-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/5b-classic-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/c73efab43a7223d2d4f14c311fc23bbf8d47351c-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -5436,7 +5466,7 @@
      <PRODUCTNAME>PELLWOOD | 5B Classic X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B Classic X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-classic-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/5b-classic-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/c73efab43a7223d2d4f14c311fc23bbf8d47351c-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -5463,7 +5493,7 @@
      <PRODUCTNAME>PELLWOOD | 8A Latin  - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8A Latin  - Premium Hickory</PRODUCT>
      <DESCRIPTION>8A Latin má těžiště posunuté k hlavičce a díky malé kulaté hlavičce jasný zvuk na činelech. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8a-latin</URL>
+     <URL>https://pellwood.com/produkt/8a-latin?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/c37e0a1560ec1261ceba51f730c93031e86c3d3a-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -5490,7 +5520,7 @@
      <PRODUCTNAME>PELLWOOD | 8A Latin  - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 8A Latin  - Premium Habr</PRODUCT>
      <DESCRIPTION>8A Latin má těžiště posunuté k hlavičce a díky malé kulaté hlavičce jasný zvuk na činelech. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/8a-latin</URL>
+     <URL>https://pellwood.com/produkt/8a-latin?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/c37e0a1560ec1261ceba51f730c93031e86c3d3a-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -5517,7 +5547,7 @@
      <PRODUCTNAME>PELLWOOD | Animal Stick - Russell Gilbrook - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Animal Stick - Russell Gilbrook - Premium Habr</PRODUCT>
      <DESCRIPTION>undefined</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/animal-stick-russell-gilbrook</URL>
+     <URL>https://pellwood.com/produkt/animal-stick-russell-gilbrook?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/59c9a7da2363160b2586786e37458e0d7e223d05-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -5544,7 +5574,7 @@
      <PRODUCTNAME>PELLWOOD | Animal Stick - Russell Gilbrook - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Animal Stick - Russell Gilbrook - Premium Hickory</PRODUCT>
      <DESCRIPTION>undefined</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/animal-stick-russell-gilbrook</URL>
+     <URL>https://pellwood.com/produkt/animal-stick-russell-gilbrook?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/59c9a7da2363160b2586786e37458e0d7e223d05-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -5571,7 +5601,7 @@
      <PRODUCTNAME>PELLWOOD | Timbales B X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Timbales B X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Tyto paličky jsou vhodné zejména pro hru na různé perkuse, timbales, hodí se do stylů jako je latin, afro či salsa.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/timbales-b-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/timbales-b-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1f4373c4d093fe7635ed5d610475fa38bbbd38b1-3756x351.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -5598,7 +5628,7 @@
      <PRODUCTNAME>PELLWOOD | Timbales B X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Timbales B X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Tyto paličky jsou vhodné zejména pro hru na různé perkuse, timbales, hodí se do stylů jako je latin, afro či salsa.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/timbales-b-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/timbales-b-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1f4373c4d093fe7635ed5d610475fa38bbbd38b1-3756x351.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -5706,7 +5736,7 @@
      <PRODUCTNAME>PELLWOOD | 5B Classic - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B Classic - Premium Hickory</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-classic</URL>
+     <URL>https://pellwood.com/produkt/5b-classic?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/38d966d1fa0638e3400259304e0b8ebc8d7ccfe6-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -5733,7 +5763,7 @@
      <PRODUCTNAME>PELLWOOD | 5B Classic - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B Classic - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-classic</URL>
+     <URL>https://pellwood.com/produkt/5b-classic?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/38d966d1fa0638e3400259304e0b8ebc8d7ccfe6-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
@@ -5760,7 +5790,7 @@
      <PRODUCTNAME>PELLWOOD | 5B Classic - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B Classic - Premium Habr</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-classic</URL>
+     <URL>https://pellwood.com/produkt/5b-classic?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/38d966d1fa0638e3400259304e0b8ebc8d7ccfe6-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -5787,7 +5817,7 @@
      <PRODUCTNAME>PELLWOOD | 5B Classic - Premium Habr nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5B Classic - Premium Habr nylon</PRODUCT>
      <DESCRIPTION>Klasická palička s širokým uplatněním od jazzu po hardcore.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5b-classic</URL>
+     <URL>https://pellwood.com/produkt/5b-classic?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/38d966d1fa0638e3400259304e0b8ebc8d7ccfe6-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
@@ -5814,7 +5844,7 @@
      <PRODUCTNAME>PELLWOOD | Jazz Model SG - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Jazz Model SG - Premium Habr</PRODUCT>
      <DESCRIPTION>Jazzová palička, s průměrem 14mm vhodná pro všechny styly s prolamovanou rukojetí.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/jazz-model-sg</URL>
+     <URL>https://pellwood.com/produkt/jazz-model-sg?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1828ecaeb93d1f471b89446994eaa02bfd2f0826-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
@@ -5841,7 +5871,7 @@
      <PRODUCTNAME>PELLWOOD | Jazz Model SG - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Jazz Model SG - Premium Hickory</PRODUCT>
      <DESCRIPTION>Jazzová palička, s průměrem 14mm vhodná pro všechny styly s prolamovanou rukojetí.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/jazz-model-sg</URL>
+     <URL>https://pellwood.com/produkt/jazz-model-sg?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/1828ecaeb93d1f471b89446994eaa02bfd2f0826-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
@@ -5895,7 +5925,7 @@
      <PRODUCTNAME>PELLWOOD | Hard Rock X-line 4 páry - Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Hard Rock X-line 4 páry - Hickory</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/hard-rock-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/hard-rock-x-line-4-pary?hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/b0df230b7931dbb292a4ef4234a3c55cd5f4c7c2-3756x1130.jpg</IMGURL>
      <PRICE_VAT>440</PRICE_VAT>
      
@@ -5922,7 +5952,7 @@
      <PRODUCTNAME>PELLWOOD | Hard Rock X-line 4 páry - Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | Hard Rock X-line 4 páry - Habr</PRODUCT>
      <DESCRIPTION>Mohutná palička o průměru 17 mm je určena pro tvrdé hráče hrající hutné styly jako rock, hardcore a podobně. Oválná hlavička v kombinaci s celkovou hmotou vyprodukuje plný tón. V kombinaci s nylonovou hlavičkou jde o těžký kalibr. </DESCRIPTION>
-     <URL>https://pellwood.com/produkt/hard-rock-x-line-4-pary</URL>
+     <URL>https://pellwood.com/produkt/hard-rock-x-line-4-pary?habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/b0df230b7931dbb292a4ef4234a3c55cd5f4c7c2-3756x1130.jpg</IMGURL>
      <PRICE_VAT>300</PRICE_VAT>
      
@@ -5949,14 +5979,14 @@
      <PRODUCTNAME>PELLWOOD | 5A Medium  - Premium Hickory</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Medium  - Premium Hickory</PRODUCT>
      <DESCRIPTION>Model 5A je nejprodávanější paličkou ze sortimentu firmy PELLWOOD. Hikorové paličky jsou sice dražší, ale vrátí Vám to delší výdrží a nikdy nezklamou. Habrové paličky jsou levnější, ale vydrží také dlouho a méně zatěžují Vaše tělo, blány a činely.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-medium</URL>
+     <URL>https://pellwood.com/produkt/5a-medium?premium-hickory</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/17890dc13ec3944d8f8d7be99a063e8e6dc380c8-3756x1130.jpg</IMGURL>
      <PRICE_VAT>189</PRICE_VAT>
      
 
                     <PARAM>
                       <PARAM_NAME>Délka</PARAM_NAME>
-                      <VAL>415 mm</VAL>
+                      <VAL>407 mm</VAL>
                     </PARAM>
 
 
@@ -5976,14 +6006,14 @@
      <PRODUCTNAME>PELLWOOD | 5A Medium  - Premium Hickory Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Medium  - Premium Hickory Nylon</PRODUCT>
      <DESCRIPTION>Model 5A je nejprodávanější paličkou ze sortimentu firmy PELLWOOD. Hikorové paličky jsou sice dražší, ale vrátí Vám to delší výdrží a nikdy nezklamou. Habrové paličky jsou levnější, ale vydrží také dlouho a méně zatěžují Vaše tělo, blány a činely.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-medium</URL>
+     <URL>https://pellwood.com/produkt/5a-medium?premium-hickory-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/17890dc13ec3944d8f8d7be99a063e8e6dc380c8-3756x1130.jpg</IMGURL>
      <PRICE_VAT>215</PRICE_VAT>
      
 
                     <PARAM>
                       <PARAM_NAME>Délka</PARAM_NAME>
-                      <VAL>415 mm</VAL>
+                      <VAL>407 mm</VAL>
                     </PARAM>
 
 
@@ -6003,14 +6033,14 @@
      <PRODUCTNAME>PELLWOOD | 5A Medium  - Premium Habr</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Medium  - Premium Habr</PRODUCT>
      <DESCRIPTION>Model 5A je nejprodávanější paličkou ze sortimentu firmy PELLWOOD. Hikorové paličky jsou sice dražší, ale vrátí Vám to delší výdrží a nikdy nezklamou. Habrové paličky jsou levnější, ale vydrží také dlouho a méně zatěžují Vaše tělo, blány a činely.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-medium</URL>
+     <URL>https://pellwood.com/produkt/5a-medium?premium-habr</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/17890dc13ec3944d8f8d7be99a063e8e6dc380c8-3756x1130.jpg</IMGURL>
      <PRICE_VAT>120</PRICE_VAT>
      
 
                     <PARAM>
                       <PARAM_NAME>Délka</PARAM_NAME>
-                      <VAL>415 mm</VAL>
+                      <VAL>407 mm</VAL>
                     </PARAM>
 
 
@@ -6030,14 +6060,14 @@
      <PRODUCTNAME>PELLWOOD | 5A Medium  - Premium Habr Nylon</PRODUCTNAME>
      <PRODUCT>PELLWOOD | 5A Medium  - Premium Habr Nylon</PRODUCT>
      <DESCRIPTION>Model 5A je nejprodávanější paličkou ze sortimentu firmy PELLWOOD. Hikorové paličky jsou sice dražší, ale vrátí Vám to delší výdrží a nikdy nezklamou. Habrové paličky jsou levnější, ale vydrží také dlouho a méně zatěžují Vaše tělo, blány a činely.</DESCRIPTION>
-     <URL>https://pellwood.com/produkt/5a-medium</URL>
+     <URL>https://pellwood.com/produkt/5a-medium?premium-habr-nylon</URL>
      <IMGURL>https://cdn.sanity.io/images/ejvonubx/production/17890dc13ec3944d8f8d7be99a063e8e6dc380c8-3756x1130.jpg</IMGURL>
      <PRICE_VAT>138</PRICE_VAT>
      
 
                     <PARAM>
                       <PARAM_NAME>Délka</PARAM_NAME>
-                      <VAL>415 mm</VAL>
+                      <VAL>407 mm</VAL>
                     </PARAM>
 
 

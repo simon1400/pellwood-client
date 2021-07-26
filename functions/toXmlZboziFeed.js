@@ -26,7 +26,6 @@ const toXml = data => {
      ${paramStr}
      <MANUFACTURER>Pellwood</MANUFACTURER>
      <DELIVERY_DATE>0</DELIVERY_DATE>
-     <EAN>${item.mpn}</EAN>
      <CATEGORYTEXT>Kultura a zábava | Volný čas | Hudebniny | Hudební nástroje | Bicí nástroje | Příslušenství pro bicí nástroje | Paličky</CATEGORYTEXT>
    </SHOPITEM>\n`
   }, '')

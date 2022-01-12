@@ -32,7 +32,7 @@ const SubMenu = ({
   return(
     <nav className="sub_menu">
       <ul>
-        {baseUrl === 'produkty' && <li className={`sub_menu_item${router.query.category === 'all' ? ' active_sub' : ''}`}>
+        {baseUrl.indexOf('produkty') >= 0 && <li className={`sub_menu_item${router.query.category === 'all' ? ' active_sub' : ''}`}>
           <a href="#catalog-short" onClick={e => handleChangeUrl(e, 'all')}>
             {translate.allProducts[lang]}
           </a>

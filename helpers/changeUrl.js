@@ -10,6 +10,7 @@ const changeUrl = (
 
   if(!router.query.category){
     queryUrl.category = 'all'
+    queryUrl.size = '6'
   }
 
   if(size) queryUrl.size = size

@@ -7,7 +7,9 @@ import { DataProvider } from '../context/dataStateContext'
 UIkit.use(Icons);
 
 const App = ({ Component, pageProps }) => {
-  return <DataProvider><Component {...pageProps} /></DataProvider>
+  return <DataProvider>
+    <Component {...pageProps} />
+  </DataProvider>
 }
 
 export default App

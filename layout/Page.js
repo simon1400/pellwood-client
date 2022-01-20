@@ -7,6 +7,7 @@ import Footer from '../layout/Footer'
 import Login from '../components/Login'
 import ForgotPassword from '../components/ForgotPassword'
 import ResetPassword from '../components/ResetPassword'
+import CookieConsent from '../components/CookieConsent'
 
 const SITE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://pellwood.com';
 const defaultTitle = 'PELLWOOD';
@@ -52,16 +53,18 @@ const Page = ({
   return (
     <>
       <Head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZZP01DVF0"></script>
-        <script dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
+        <script type="text/plain" data-cookiecategory="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-JZZP01DVF0"></script>
+        <script type="text/plain" data-cookiecategory="analytics" dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-JZZP01DVF0');`}} />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-182610890-1"></script>
-        <script dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
+        <script type="text/plain" data-cookiecategory="analytics" async src="https://www.googletagmanager.com/gtag/js?id=UA-182610890-1"></script>
+        <script type="text/plain" data-cookiecategory="analytics" dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'UA-182610890-1');`}} />
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.0/dist/cookieconsent.js"></script>
 
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon/favicon.ico" />
@@ -111,6 +114,7 @@ const Page = ({
       <ForgotPassword />
       <ResetPassword />
       <Login setLoginUser={setLoginUser}/>
+      <CookieConsent />
     </>
   );
 }

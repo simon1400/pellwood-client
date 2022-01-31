@@ -17,6 +17,12 @@ export default () => {
     })
   }, [])
 
+  const handleCookies = (e) => {
+    e.preventDefault()
+    const cc = window.initCookieConsent();
+    cc.showSettings(200)
+  }
+
   return (
     <footer>
       <div className="uk-container uk-container-expand uk-height-1-1">
@@ -29,17 +35,18 @@ export default () => {
               <img src="/assets/visa.svg" width="100%" height="28" alt="Visa" />
             </div>
           </div>
-          {footer?.length && footer.map(item =>
+          {footer?.length && footer.map((item, index) =>
             <div key={item._key} className="footer-item">
               <h4 className="footer-item-head">{item.title}</h4>
               <BlockContent blocks={item.content} />
+              {index === 2 && <a onClick={(e) => handleCookies(e)} href="/">Nastavení cookies</a>}
             </div>
           )}
         </div>
       </div>
       <div className="copyright">
-        <span>Made in Brno by -- </span>
-        <a href="mailto:danielkokes@gmail.com"><img src="/assets/hardart.svg" height="18" width="100%" alt="Hardart studio"/></a>
+        <span>Made in Brno by </span>
+        <a href="mailto:danielkokes@gmail.com,dmytro@pechunka.com"><img src="/assets/hardart.svg" height="18" width="100%" alt="Hardart studio"/></a>
       </div>
     </footer>
   )

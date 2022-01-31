@@ -13,3 +13,7 @@ $hamburger-layer-color: #fff;
 $hamburger-layer-border-radius: 0;
 
 $offcanvas-bar-background: #F1F1F1;
+
+#c-bns button:first-child, #s-bns button:first-child{
+  background-color: $accent!important;
+}

@@ -29,7 +29,8 @@ const Page = ({
   category,
   updated,
   noCrawl,
-  tags
+  tags,
+  purchase = false
 }) => {
 
   const router = useRouter()
@@ -53,16 +54,13 @@ const Page = ({
   return (
     <>
       <Head>
-        <script type="text/plain" data-cookiecategory="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-JZZP01DVF0"></script>
-        <script type="text/plain" data-cookiecategory="analytics" dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-JZZP01DVF0');`}} />
         <script type="text/plain" data-cookiecategory="analytics" async src="https://www.googletagmanager.com/gtag/js?id=UA-182610890-1"></script>
-        <script type="text/plain" data-cookiecategory="analytics" dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
+        <script type="text/plain" data-cookiecategory="analytics" async dangerouslySetInnerHTML={{__html: `window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'UA-182610890-1');`}} />
+
+        {purchase && <script type="text/plain" data-cookiecategory="analytics" async dangerouslySetInnerHTML={{__html: `gtag('event', 'purchase', ${JSON.stringify(purchase)})`}} />}
 
         <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.0/dist/cookieconsent.js"></script>
 

@@ -57,10 +57,7 @@ const ThankYou = ({lang, status, dataGtag}) => {
   }, [status])
 
   return(
-    <Page className="thank-you-page base-page">
-      <Head>
-        <script dangerouslySetInnerHTML={{__html: `gtag('event', 'purchase', ${JSON.stringify(dataGtag)})`}} />
-      </Head>
+    <Page className="thank-you-page base-page" purchase={dataGtag}>
       <h1>{translate.thankOrder[lang]}</h1>
       <p>{translate.thankInfo[lang]}</p>
       {!!status.length && status === 'PENDING' && <div className="uk-text-warning">{translate.PayStatusWait[lang]}</div>}

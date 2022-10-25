@@ -3,6 +3,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../../lib/sanity.js";
 import translate from '../../data/staticTranslate'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
 const imageBuilder = imageUrlBuilder(sanityClient);
 const urlFor = source => imageBuilder.image(source);
 
@@ -25,33 +26,46 @@ const localizePrice = (lang, price, currency, ifFrom = false) => {
   }
 }
 
+const getPrice = (item, setPrice, currency, lang) => {
+  if(!item?.variants?.length){
+    setPrice(localizePrice(lang, item.price, currency))
+    console.log('single price', localizePrice(lang, item.price, currency))
+    return
+  }
+
+  if(item?.variants?.length > 1){
+    const min = getMin(item.variants)
+    setPrice(localizePrice(lang, min, currency, true))
+    console.log('variants price', localizePrice(lang, min, currency, true))
+    return
+  }
+
+  if(item?.variants?.length === 1){
+    setPrice(localizePrice(lang, item.variants[0].price, currency))
+    console.log('solo variant price', localizePrice(lang, item.variants[0].price, currency))
+    return
+  }
+
+  setPrice('')
+}
+
 const Cart = ({item, lang, currency, block}) => {
 
-  const [pricesGroup, setPricesGroup] = useState(false)
+  // const [pricesGroup, setPricesGroup] = useState(false)
   const [price, setPrice] = useState(0)
+  const router = useRouter()
 
   const cardRef = useRef(null)
 
   useEffect(() => {
-
-    if(!item?.variants?.length){
-      setPrice(localizePrice(lang, item.price, currency))
-      return
-    }
-
-    if(item?.variants?.length > 1){
-      const min = getMin(item.variants)
-      setPrice(localizePrice(lang, min, currency, true))
-      return
-    }
-
-    if(item?.variants?.length === 1){
-      setPrice(localizePrice(lang, item.variants[0].price, currency))
-      return
-    }
-
-    setPrice('')
+    getPrice(item, setPrice, currency, lang)
   }, [])
+
+  useEffect(() => {
+    if(router.query.category) {
+      getPrice(item, setPrice, currency, lang)
+    }
+  }, [router.query])
 
   if(block) {
     return(

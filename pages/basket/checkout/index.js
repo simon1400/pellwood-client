@@ -5,9 +5,7 @@ import translate from '../../../data/staticTranslate'
 import Page from '../../../layout/Page'
 import { useRouter } from 'next/router'
 import Head from '../../../components/Head'
-import Body from '../../../components/Body'
 import Checkout from '../../../components/Checkout'
-import Total from '../../../components/Total'
 import TotalEnd from '../../../components/TotalEnd'
 import AcceptInfo from '../../../components/AcceptInfo'
 import ButtonsSubmit from '../../../components/ButtonsSubmit'
@@ -107,8 +105,6 @@ const Basket = () => {
   useEffect(() => {
     sumTotal(deliveryMethod[0].price, paymentMethod[0].price, basket, setSumBefore, setSale, setSum, lang)
   }, [deliveryMethod, paymentMethod])
-
-
 
   const onBlur = (type) => {
     if(validationForm(type, state[0], error, setError)) {

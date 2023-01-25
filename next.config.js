@@ -16,7 +16,8 @@ module.exports = (phase) => {
 
   const env = {
     APP_API: (() => {
-      if (isDev) return 'http://localhost:9000'
+      // if (isDev) return 'http://localhost:9000'
+      if (isDev) return 'https://api.pellwood.com'
       if (isProd) return 'https://api.pellwood.com'
       return 'RESTURL_SPEAKERS:not (isDev,isProd && !isStaging,isProd && isStaging)'
     })()

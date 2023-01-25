@@ -18,7 +18,6 @@ const paymentData = {
     {value: 'Na dobírku', price: '30 Kč', payOnline: false}
   ],
   en: [
-    {value: 'Online bank transfer', price: 'FREE', payOnline: true},
     {value: 'Card payment', price: 'FREE', payOnline: true}
   ]
 }

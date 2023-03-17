@@ -149,8 +149,8 @@ const Product = ({
       newBasketItem.variantPrice = select.price
     }
 
-    let basket = dataContextState['basket'+lang]
-    let basketCount = dataContextState['basketCount'+lang]
+    let basket = dataContextState.basket
+    let basketCount = dataContextState.basketCount
 
     if(basket === undefined || basket === null || !basket){
       basket = []
@@ -175,8 +175,8 @@ const Product = ({
       }
       indexBasket = -1
     }
-    dataContextDispatch({ state: basket, type: 'basket'+lang })
-    dataContextDispatch({ state: basketCount, type: 'basketCount'+lang })
+    dataContextDispatch({ state: basket, type: 'basket' })
+    dataContextDispatch({ state: basketCount, type: 'basketCount' })
     await offcanvas('#offcanvas-flip').show();
     setLoader(false)
   }

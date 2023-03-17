@@ -12,14 +12,14 @@ const Canvas = () => {
   const {lang, currency} = localize(router.locale)
 
   const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
-  const [basket, setBasket] = useState(dataContextState.basket)
-  const [basketCount, setBasketCount] = useState(dataContextState.basketCount)
+  const [basket, setBasket] = useState(dataContextState["basket"+lang])
+  const [basketCount, setBasketCount] = useState(dataContextState["basketCount"+lang])
   const [sum, setSum] = useState(0)
   const [sale, setSale] = useState(0)
 
   useEffect(() => {
-    setBasket(dataContextState.basket)
-  }, [dataContextState.basketCount])
+    setBasket(dataContextState["basket"+lang])
+  }, [dataContextState["basketCount"+lang]])
 
   const closeCanvas = async (e, link) => {
     e.preventDefault()
@@ -68,15 +68,15 @@ const Canvas = () => {
   }, [])
 
   useEffect(() => {
-    setBasket(dataContextState.basket)
-    setBasketCount(dataContextState.basketCount)
+    setBasket(dataContextState["basket"+lang])
+    setBasketCount(dataContextState["basketCount"+lang])
     onSumItems()
   }, [router.query])
 
 
   useEffect(() => {
-    dataContextDispatch({ state: basket, type: 'basket' })
-    dataContextDispatch({ state: basketCount, type: 'basketCount' })
+    dataContextDispatch({ state: basket, type: 'basket'+lang })
+    dataContextDispatch({ state: basketCount, type: 'basketCount'+lang })
   }, [basketCount])
 
   const deleteItem = (e) => {

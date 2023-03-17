@@ -175,8 +175,8 @@ const Product = ({
       }
       indexBasket = -1
     }
-    dataContextDispatch({ state: basket, type: 'basket' })
-    dataContextDispatch({ state: basketCount, type: 'basketCount' })
+    dataContextDispatch({ state: basket, type: 'basket'+lang })
+    dataContextDispatch({ state: basketCount, type: 'basketCount'+lang })
     await offcanvas('#offcanvas-flip').show();
     setLoader(false)
   }

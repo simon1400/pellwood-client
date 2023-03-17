@@ -52,8 +52,8 @@ const ThankYou = ({lang, status, dataGtag}) => {
   const { dataContextDispatch } = useContext(DataStateContext)
 
   useEffect(() => {
-    dataContextDispatch({ state: [], type: 'basket' })
-    dataContextDispatch({ state: 0, type: 'basketCount' })
+    dataContextDispatch({ state: [], type: 'basket'+lang })
+    dataContextDispatch({ state: 0, type: 'basketCount'+lang })
   }, [status])
 
   return(

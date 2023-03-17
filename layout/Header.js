@@ -32,12 +32,12 @@ const Header = () => {
   }, [router.locale])
 
   useEffect(() => {
-    setBasketCount(dataContextState.basketCount)
-  }, [dataContextState.basketCount])
+    setBasketCount(dataContextState["basketCount"+lang])
+  }, [dataContextState["basketCount"+lang]])
 
   const changeLanguage = (e, url) => {
-    dataContextDispatch({ state: [], type: 'basket' })
-    dataContextDispatch({ state: 0, type: 'basketCount' })
+    dataContextDispatch({ state: [], type: 'basket'+lang })
+    dataContextDispatch({ state: 0, type: 'basketCount'+lang })
   }
 
   return(

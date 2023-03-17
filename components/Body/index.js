@@ -21,7 +21,7 @@ const BodyWrap = ({
       newBasket[index].countVariant = +basket[index].countVariant + 1
     }
     setBasket([...newBasket])
-    dataContextDispatch({ state: newBasket, type: 'basket'+lang })
+    dataContextDispatch({ state: newBasket, type: 'basket' })
 
     sumBasket(newBasket)
   }
@@ -44,17 +44,17 @@ const BodyWrap = ({
     let newBasket = basket
     newBasket[index].countVariant = value
     setBasket([...newBasket])
-    dataContextDispatch({ state: newBasket, type: 'basket'+lang })
+    dataContextDispatch({ state: newBasket, type: 'basket' })
   }
 
   const deleteItem = (e, index) => {
-    var basketCount = dataContextState['basketCount'+lang]
+    var basketCount = dataContextState['basketCount']
     basketCount = basketCount - 1
-    dataContextDispatch({ state: basketCount, type: 'basketCount'+lang })
+    dataContextDispatch({ state: basketCount, type: 'basketCount' })
     let newBasket = basket
     newBasket.splice(index, 1)
     setBasket([...newBasket])
-    dataContextDispatch({ state: newBasket, type: 'basket'+lang })
+    dataContextDispatch({ state: newBasket, type: 'basket' })
     sumBasket(newBasket)
   }
 

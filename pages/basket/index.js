@@ -14,11 +14,11 @@ const Basket = () => {
 
   const router = useRouter()
   const {lang} = localize(router.locale)
-  const { dataContextState, dataContextDispatch } = useContext(DataStateContext)
+  const { dataContextState } = useContext(DataStateContext)
   const [sum, setSum] = useState(0)
   const [sumBefore, setSumBefore] = useState(0)
   const [sale, setSale] = useState(0)
-  const [basket, setBasket] = useState(dataContextState.basket)
+  const [basket, setBasket] = useState(dataContextState['basket'+lang])
 
   useEffect(() => {
     if(!basket?.length){

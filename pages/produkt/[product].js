@@ -149,8 +149,8 @@ const Product = ({
       newBasketItem.variantPrice = select.price
     }
 
-    let basket = dataContextState.basket
-    let basketCount = dataContextState.basketCount
+    let basket = dataContextState['basket'+lang]
+    let basketCount = dataContextState['basketCount'+lang]
 
     if(basket === undefined || basket === null || !basket){
       basket = []

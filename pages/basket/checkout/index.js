@@ -22,7 +22,7 @@ const Basket = () => {
   const [sum, setSum] = useState(0)
   const [sumBefore, setSumBefore] = useState(0)
   const [sale, setSale] = useState(0)
-  const [basket] = useState(dataContextState.basket)
+  const [basket] = useState(dataContextState['basket'+lang])
   const [user, setUser] = useState(dataContextState.user)
 
   const state = useState({

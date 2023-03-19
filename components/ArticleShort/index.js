@@ -17,7 +17,7 @@ const Article = ({ lang, data }) => {
           data.slug.current
         }`}
       >
-        <a className="big_category" style={{visibility: "hidden"}}>
+        <a className="big_category">
           <div className="category_wrap">
             <div className="uk-inline uk-height-1-1 uk-width-1-1">
               <div

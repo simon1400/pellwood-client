@@ -19,7 +19,6 @@ const ShortBlock = ({ data, lang, currency }) => {
           <div>
             <h2
               className="section_head"
-              style={{ visibility: "hidden" }}
               uk-scrollspy="cls: uk-animation-slide-top-small; delay: 500"
             >
               {translate.interestedproducts[lang]}

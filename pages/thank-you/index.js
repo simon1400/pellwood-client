@@ -1,7 +1,6 @@
 import {useEffect, useContext} from 'react'
 import { DataStateContext } from '../../context/dataStateContext'
 import Page from '../../layout/Page'
-import Head from 'next/head'
 import Link from 'next/link'
 import translate from '../../data/staticTranslate'
 import gtag from '../../functions/gtag'
@@ -24,7 +23,7 @@ export async function getServerSideProps({query, locale}) {
 
   const order = res.data.data[0]
 
-  const resMail = await AxiosAPI.post(`/send/orderInfo`, order)
+  await AxiosAPI.post(`/send/orderInfo`, order)
 
   var status = '', dataGtag;
 
@@ -52,8 +51,8 @@ const ThankYou = ({lang, status, dataGtag}) => {
   const { dataContextDispatch } = useContext(DataStateContext)
 
   useEffect(() => {
-    dataContextDispatch({ state: [], type: 'basket' })
-    dataContextDispatch({ state: 0, type: 'basketCount' })
+    dataContextDispatch({ state: [], type: 'basket'+lang })
+    dataContextDispatch({ state: 0, type: 'basketCount'+lang })
   }, [status])
 
   return(

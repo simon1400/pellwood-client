@@ -59,6 +59,8 @@ const Page = ({
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'UA-182610890-1');`}} />
+        
+        <script type="text/javascript" src="https://c.seznam.cz/js/rc.js"></script>
 
         {purchase && <script type="text/plain" data-cookiecategory="analytics" async dangerouslySetInnerHTML={{__html: `gtag('event', 'purchase', ${JSON.stringify(purchase)})`}} />}
 
@@ -104,6 +106,19 @@ const Page = ({
         {updated && <meta name="article:modified_time" content={updated} />}
         {noCrawl && <meta name="robots" content="noindex, nofollow" />}
         {tags && <meta name="article:tag" content={tags} />}
+
+        {purchase && <script dangerouslySetInnerHTML={{__html: `
+          var conversionConf = {
+            zboziId: 153477, // ID provozovny na Zboží
+            orderId: ${purchase.transaction_id},  // Číslo objednávky
+            zboziType: "standard", // Typ měření konverzí Zboží.cz, pro testovací režim uvádějte "sandbox"
+            consent: 1, // Souhlas od návštěvníka na odeslání konverzního hitu
+          };
+
+          // Ujistěte se, že metoda existuje, předtím než ji zavoláte
+          if (window.rc && window.rc.conversionHit) {
+            window.rc.conversionHit(conversionConf);
+          }`}} />}
 
       </Head>
       <Header loginUser={loginUser} />

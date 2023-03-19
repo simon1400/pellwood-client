@@ -3,7 +3,6 @@ import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../../lib/sanity.js";
 import translate from '../../data/staticTranslate'
 import Link from 'next/link'
-import {useRouter} from 'next/router'
 const imageBuilder = imageUrlBuilder(sanityClient);
 const urlFor = source => imageBuilder.image(source);
 
@@ -47,13 +46,19 @@ const getPrice = (item, currency, lang) => {
 const Cart = ({item, lang, currency, block}) => {
 
   const [price, setPrice] = useState(getPrice(item, currency, lang))
-  const router = useRouter()
+  const [width, setWidth] = useState(0)
 
   const cardRef = useRef(null)
 
   useEffect(() => {
     setPrice(getPrice(item, currency, lang))
   })
+
+  useEffect(() => {
+    if(cardRef?.current) {
+      setWidth(cardRef.current?.clientWidth * 2)
+    }
+  }, [cardRef])
 
   if(block) {
     return(
@@ -62,7 +67,7 @@ const Cart = ({item, lang, currency, block}) => {
           <a className="card_short" style={{opacity: 1}}>
             <h3 className="card_short_head">{item.title}</h3>
             <div className="cart_img">
-              {cardRef.current && <img src={urlFor(item.image).width(cardRef.current?.clientWidth * 2).auto('format').url()} alt={item.title} />}
+              {width && <img src={urlFor(item.image).width(width).auto('format').url()} alt={item.title} />}
             </div>
             <span className="short_price">{price}</span>
           </a>
@@ -75,7 +80,7 @@ const Cart = ({item, lang, currency, block}) => {
         <a href={`${lang !== 'cz' ? '/' + lang : ''}/produkt/${item.slug.current}`} className="card_short">
           <h3 className="card_short_head">{item.title}</h3>
           <div className="cart_img">
-            {cardRef.current && <img src={urlFor(item.image).width(cardRef.current?.clientWidth * 2).auto('format').url()} alt={item.title} />}
+            {width && <img src={urlFor(item.image).width(width).auto('format').url()} alt={item.title} />}
           </div>
           <span className="short_price">{price}</span>
         </a>

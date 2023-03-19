@@ -18,7 +18,7 @@ const Basket = () => {
   const [sum, setSum] = useState(0)
   const [sumBefore, setSumBefore] = useState(0)
   const [sale, setSale] = useState(0)
-  const [basket, setBasket] = useState(dataContextState['basket'])
+  const [basket, setBasket] = useState(dataContextState['basket'+lang])
 
   useEffect(() => {
     if(!basket?.length){

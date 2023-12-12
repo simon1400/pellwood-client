@@ -197,6 +197,7 @@ const Catalog = ({
     }
 
     if(reset){
+      setHasMore(true)
       setProduct(data)
       setReset(false)
     }else{

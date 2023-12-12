@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:14-alpine
 
 RUN mkdir -p /var/www/pellwood/client/node_modules && chown -R node:node /var/www/pellwood/client
 

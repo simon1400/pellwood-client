@@ -89,7 +89,7 @@ const Homepage = ({
           <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
             <div >
               <h1 className="contrast" uk-scrollspy="cls: uk-animation-slide-top-small; delay: 500">{homepage.title}</h1>
-              <Link href={homepage.button.url}><a className="tm-button tm-bare-button tm-contrast" uk-scrollspy="cls: uk-animation-slide-top; delay: 500">{homepage.button.title}</a></Link>
+              <Link href={homepage.button.url} className="tm-button tm-bare-button tm-contrast" uk-scrollspy="cls: uk-animation-slide-top; delay: 500">{homepage.button.title}</Link>
             </div>
           </div>
         </div>
@@ -109,19 +109,17 @@ const Homepage = ({
         <div className="uk-container uk-container-expand">
           <div className="uk-grid" uk-grid="" uk-scrollspy="target: > div > a; cls: uk-animation-slide-top-small; delay: 500">
             <div className="uk-width-1-1">
-              <Link href={homepage.banner.url} >
-                <a className="big_category big_grid">
-                  <div className="category_wrap">
-                    <div className="uk-inline uk-height-1-1 uk-width-1-1">
-                      <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover uk-img"
-                            data-src={urlFor(homepage.banner.image).width(2000).url()}
-                            uk-img=""></div>
-                      <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
-                        <h2 className="category_short_name">{homepage.banner.title}</h2>
-                      </div>
+              <Link href={homepage.banner.url} className="big_category big_grid">
+                <div className="category_wrap">
+                  <div className="uk-inline uk-height-1-1 uk-width-1-1">
+                    <div className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover uk-img"
+                          data-src={urlFor(homepage.banner.image).width(2000).url()}
+                          uk-img=""></div>
+                    <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
+                      <h2 className="category_short_name">{homepage.banner.title}</h2>
                     </div>
                   </div>
-                </a>
+                </div>
               </Link>
             </div>
 

@@ -8,7 +8,7 @@ const AcceptInfo = () => {
   const router = useRouter()
   const {lang} = localize(router.locale)
 
-  return <p>{translate.accessCondition1[lang]} <Link href={translate.linkBuisness[lang]} target="_blank" rel="noopener noreferrer"><a>{translate.accessCondition2[lang]}</a></Link></p>
+  return <p>{translate.accessCondition1[lang]} <Link href={translate.linkBuisness[lang]} target="_blank" rel="noopener noreferrer">{translate.accessCondition2[lang]}</Link></p>
 }
 
 export default AcceptInfo

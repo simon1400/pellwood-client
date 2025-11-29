@@ -63,14 +63,12 @@ const Cart = ({item, lang, currency, block}) => {
   if(block) {
     return(
       <div ref={cardRef}>
-        <Link href={`/produkt/${item.slug.current}`}>
-          <a className="card_short" style={{opacity: 1}}>
-            <h3 className="card_short_head">{item.title}</h3>
-            <div className="cart_img">
-              {width && <img src={urlFor(item.image).width(width).auto('format').url()} alt={item.title} />}
-            </div>
-            <span className="short_price">{price}</span>
-          </a>
+        <Link href={`/produkt/${item.slug.current}`} className="card_short" style={{opacity: 1}}>
+          <h3 className="card_short_head">{item.title}</h3>
+          <div className="cart_img">
+            {width && <img src={urlFor(item.image).width(width).auto('format').url()} alt={item.title} />}
+          </div>
+          <span className="short_price">{price}</span>
         </Link>
       </div>
     )

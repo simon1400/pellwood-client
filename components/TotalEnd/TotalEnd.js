@@ -12,7 +12,7 @@ const TotalEnd = ({sum, sale, sumBefore, basket, delivery, payment}) => {
     <div className="tm-total-end">
       <div className="tm-head-total">
         <h2>{translate.ordersummary[lang]}</h2>
-        <Link href="/basket"><a>{translate.editItems[lang]}</a></Link>
+        <Link href="/basket">{translate.editItems[lang]}</Link>
       </div>
       <div className="tm-canvas-basket-item-wrap">
         {(basket || []).map((item, index) => <div key={index} className="tm-basket-item">

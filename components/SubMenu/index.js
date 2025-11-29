@@ -47,7 +47,7 @@ const SubMenu = ({
           }else{
             return <li key={index} className="sub_menu_item">
               <Link href={`/clanek/${router.query.category}/${item.slug.current}`}>
-                <a>{item.title}</a>
+                {item.title}
               </Link>
             </li>
           }

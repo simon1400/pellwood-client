@@ -34,7 +34,7 @@ const Body = ({
                   {item.variantName === item.nameProduct ? '' : <span>{item.variantName}</span>}
                   <div className="tm-remove-item">
                     <Link href={router.asPath +'?delete'+item.variantName.replace(/ /g, "_")} onClick={e => deleteItem(e, index)}>
-                      <a><button uk-close=""></button>{translate.remove[lang]}</a>
+                      <button uk-close=""></button>{translate.remove[lang]}
                     </Link>
                   </div>
                 </div>

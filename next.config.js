@@ -15,12 +15,8 @@ module.exports = (phase) => {
   console.log(`isDev:${isDev}  isProd:${isProd}   isStaging:${isStaging}`)
 
   const env = {
-    APP_API: (() => {
-      if (isDev) return 'http://localhost:9000'
-      // if (isDev) return 'https://api.pellwood.com'
-      if (isProd) return 'https://api.pellwood.com'
-      return 'RESTURL_SPEAKERS:not (isDev,isProd && !isStaging,isProd && isStaging)'
-    })()
+    APP_API: '/api',
+    REACT_APP_API: '/api'
   }
 
   // next.config.js object

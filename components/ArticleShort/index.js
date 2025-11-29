@@ -16,27 +16,26 @@ const Article = ({ lang, data }) => {
         href={`/clanek/${router.query.category || data.categorySlug.current}/${
           data.slug.current
         }`}
+        className="big_category"
       >
-        <a className="big_category">
-          <div className="category_wrap">
-            <div className="uk-inline uk-height-1-1 uk-width-1-1">
-              <div
-                className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover"
-                style={{
-                  backgroundImage: `url(${urlFor(data.image)
-                    .width(1200)
-                    .auto("format")
-                    .url()})`,
-                }}
-                data-src={urlFor(data.image).width(1200).auto("format").url()}
-                uk-img=""
-              ></div>
-              <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
-                <h2 className="category_short_name">{data.title}</h2>
-              </div>
+        <div className="category_wrap">
+          <div className="uk-inline uk-height-1-1 uk-width-1-1">
+            <div
+              className="blanded-mix uk-width-1-1 uk-height-1-1 uk-background-cover"
+              style={{
+                backgroundImage: `url(${urlFor(data.image)
+                  .width(1200)
+                  .auto("format")
+                  .url()})`,
+              }}
+              data-src={urlFor(data.image).width(1200).auto("format").url()}
+              uk-img=""
+            ></div>
+            <div className="overlay uk-position-center uk-flex uk-flex-center uk-flex-middle">
+              <h2 className="category_short_name">{data.title}</h2>
             </div>
           </div>
-        </a>
+        </div>
       </Link>
     </div>
   );

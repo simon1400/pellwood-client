@@ -1,4 +1,3 @@
-import {Switch, Route} from 'react-router-dom'
 import translate from '../../data/staticTranslate'
 import Head from './Head'
 import localize from '../../data/localize'

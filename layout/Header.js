@@ -46,15 +46,13 @@ const Header = () => {
       <header>
         <div className="uk-container uk-container-expand uk-height-1-1">
           <div className="uk-flex uk-flex-between uk-flex-middle uk-height-1-1">
-            <Link href="/">
-              <a className="logo-wrap uk-width-auto">
-                <img
-                  src="/assets/logo.svg"
-                  width="200"
-                  height="100%"
-                  alt="Pellwood"
-                />
-              </a>
+            <Link href="/" className="logo-wrap uk-width-auto">
+              <img
+                src="/assets/logo.svg"
+                width="200"
+                height="100%"
+                alt="Pellwood"
+              />
             </Link>
             <div className="uk-text-right uk-width-expand uk-hidden@m">
               <button
@@ -84,7 +82,7 @@ const Header = () => {
                     }
                   >
                     <Link href="/produkty?size=6&category=all">
-                      <a>{translate.products[lang]}</a>
+                      {translate.products[lang]}
                     </Link>
                   </li>
                   {(menu || []).map((item, index) => (
@@ -97,7 +95,7 @@ const Header = () => {
                       }
                     >
                       <Link href={`/kategorie/${item.slug.current}`}>
-                        <a>{item.title}</a>
+                        {item.title}
                       </Link>
                     </li>
                   ))}
@@ -108,12 +106,12 @@ const Header = () => {
                   <ul>
                     <li className={lang === "cz" ? "menu_active" : undefined}>
                       <Link href="/" locale="cs">
-                        <a>cs</a>
+                        cs
                       </Link>
                     </li>
                     <li className={lang === "en" ? "menu_active" : undefined}>
                       <Link href="/" locale="en">
-                        <a>en</a>
+                        en
                       </Link>
                     </li>
                   </ul>
@@ -129,7 +127,7 @@ const Header = () => {
                       onClick={(e) => changeLanguage(e, "/")}
                     >
                       <Link href="/" locale="cs">
-                        <a>cs</a>
+                        cs
                       </Link>
                     </li>
                     <li
@@ -137,7 +135,7 @@ const Header = () => {
                       onClick={(e) => changeLanguage(e, "/en")}
                     >
                       <Link href="/en" locale="en">
-                        <a>en</a>
+                        en
                       </Link>
                     </li>
                   </ul>

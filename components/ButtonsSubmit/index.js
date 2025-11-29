@@ -9,7 +9,7 @@ const ButtonsSubmit = ({sendOrder}) => {
 
   return(
     <>
-      {router.pathname === '/basket' && <Link href="/basket/checkout"><a className="tm-button tm-black-button">{translate.checkout[lang]}</a></Link>}
+      {router.pathname === '/basket' && <Link href="/basket/checkout" className="tm-button tm-black-button">{translate.checkout[lang]}</Link>}
       {router.pathname === '/basket/checkout' && <button className="tm-button tm-black-button" onClick={() => sendOrder()}>{translate.sendorder[lang]}</button>}
     </>
   )

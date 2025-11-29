@@ -111,16 +111,14 @@ const Canvas = () => {
                 <div className="tm-canvas-basket-item-count">
                   <span>{item.countVariant} {translate.pc[lang]}</span>
                   <Link href={router.asPath + '?delete'+item.id+item.variantName}>
-                    <a>
-                      <button
-                        className="tm-canvas-item-remove"
-                        data-id={item.id}
-                        data-name={item.variantName}
-                        type="button"
-                        onClick={e => deleteItem(e)}
-                        uk-close="">
-                      </button>
-                    </a>
+                    <button
+                      className="tm-canvas-item-remove"
+                      data-id={item.id}
+                      data-name={item.variantName}
+                      type="button"
+                      onClick={e => deleteItem(e)}
+                      uk-close="">
+                    </button>
                   </Link>
                 </div>
               </div>

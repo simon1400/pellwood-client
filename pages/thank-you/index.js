@@ -64,7 +64,7 @@ const ThankYou = ({lang, status, dataGtag}) => {
       {!!status.length && status === 'PAID' && <div className="uk-text-success">{translate.PayStatusOk[lang]}</div>}
       {!!status.length && status === 'dobirka' && <div className="uk-text-success">{translate.PayStatusCash[lang]}</div>}
 
-      <Link href="/"><a className="tm-button tm-black-button">{translate.backtohp[lang]}</a></Link>
+      <Link href="/" className="tm-button tm-black-button">{translate.backtohp[lang]}</Link>
     </Page>
   )
 }

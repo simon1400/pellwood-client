@@ -1694,25 +1694,8 @@ footer{
 .range-wrap{
 	margin-bottom: 30px;
 	margin-top: 30px;
+	padding: 0 15px;
 
-	.input-range__slider{
-		margin-top: -18px;
-		width: 25px;
-		height: 25px;
-		background: #4D4D4D;
-		border: none;
-	}
-	.input-range__track{
-		height: 10px;
-	}
-	.input-range__track--background{
-		height: 10px;
-		border: 1px solid #BFBFBF;
-		border-radius: 0;
-	}
-	.input-range__track--active{
-		background-color: #C7C7C7;
-	}
 	.range-info{
 		display: -webkit-flex;
 		display: -ms-flex;

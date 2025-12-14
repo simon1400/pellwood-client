@@ -1,6 +1,4 @@
-import InputRange from 'react-input-range';
-import 'react-input-range/lib/css/index.css';
-
+import CustomRangeSlider from '../CustomRangeSlider';
 import translate from '../../data/staticTranslate'
 
 const ModalFilter = ({
@@ -13,6 +11,14 @@ const ModalFilter = ({
   handleFilter,
   setStateRange
 }) => {
+
+  const handleChange = (name, value) => {
+    console.log(name, value);
+    setStateRange({
+      ...stateRange,
+      [name]: value
+    });
+  }
 
   return(
     <div id="modal-filter" className="uk-flex-top" uk-modal="">
@@ -37,12 +43,11 @@ const ModalFilter = ({
                 <span className="name-range">{translate.lengthPalicek[lang]}</span>
                 <span className="value-range">{stateRange.length.min} - {stateRange.length.max} mm</span>
               </div>
-              <InputRange
+              <CustomRangeSlider
                 maxValue={rangeNumber.length.max}
                 minValue={rangeNumber.length.min}
-                formatLabel={() => ''}
                 value={stateRange.length}
-                onChange={value => setStateRange({...stateRange, length: value})} />
+                onChange={value => handleChange('length', value)} />
             </div>
 
 
@@ -51,14 +56,12 @@ const ModalFilter = ({
                 <span className="name-range">{translate.weightPalicek[lang]}</span>
                 <span className="value-range">{stateRange.diameter.min} - {stateRange.diameter.max} mm</span>
               </div>
-              <InputRange
+              <CustomRangeSlider
                 maxValue={rangeNumber.diameter.max}
                 minValue={rangeNumber.diameter.min}
-                formatLabel={() => ''}
                 value={stateRange.diameter}
-                onChange={value => setStateRange({...stateRange, diameter: value})} />
+                onChange={value => handleChange('diameter', value)} />
             </div>
-
 
             <button type="submit" className="tm-button tm-black-button uk-width-1-1">{translate.showResults[lang]}</button>
 

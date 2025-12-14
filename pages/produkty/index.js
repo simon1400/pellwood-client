@@ -214,9 +214,7 @@ const Catalog = ({
     modal(util.find('#modal-filter')).hide();
   }
 
-  const handleFilter = e => {
-    e.preventDefault()
-
+  const handleFilter = () => {
     setReset(true)
     changeUrl(6, false, search, stateRange, router)
 

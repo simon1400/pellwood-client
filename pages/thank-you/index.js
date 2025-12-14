@@ -23,7 +23,11 @@ export async function getServerSideProps({query, locale}) {
 
   const order = res.data.data[0]
 
-  await AxiosAPI.post(`/send/orderInfo`, order)
+  // Отправляем email без ожидания ответа (fire and forget)
+  // Это не блокирует загрузку страницы
+  AxiosAPI.post(`/send/orderInfo`, order).catch(err => {
+    console.error('Failed to send order email:', err.message)
+  })
 
   var status = '', dataGtag;
 

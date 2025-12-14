@@ -15,7 +15,8 @@ module.exports = (phase) => {
   console.log(`isDev:${isDev}  isProd:${isProd}   isStaging:${isStaging}`)
 
   const env = {
-    APP_API: '/api',
+    // Для server-side используем полный URL, для client-side - относительный путь
+    APP_API: process.env.APP_API || 'http://localhost:3001/api',
     REACT_APP_API: '/api'
   }
 

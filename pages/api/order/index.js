@@ -3,8 +3,24 @@ import axios from 'axios';
 import dbConnect from '../../../lib/dbConnect';
 import Order from '../../../models/order.model';
 
+// CORS middleware helper
+function setCorsHeaders(res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept');
+  res.setHeader('Access-Control-Max-Age', '3600');
+}
+
 export default async function handler(req, res) {
   const { method } = req;
+
+  // Set CORS headers for all requests
+  setCorsHeaders(res);
+
+  // Handle OPTIONS request (preflight)
+  if (method === 'OPTIONS') {
+    return res.status(204).end();
+  }
 
   await dbConnect();
 
@@ -31,7 +47,7 @@ export default async function handler(req, res) {
       try {
         const { note, currency, user, basket, payment, delivery, sum, idOrder, status } = req.body;
         const order = {
-          _id: mongoose.Types.ObjectId(),
+          _id: new mongoose.Types.ObjectId(),
           email: user.email,
           phone: user.phone,
           name: user.name,

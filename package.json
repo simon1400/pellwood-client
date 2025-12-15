@@ -22,6 +22,7 @@
     "react-animate-height": "^3.2.3",
     "react-dom": "^18.2.0",
     "react-infinite-scroll-component": "^6.1.0",
+    "resend": "^6.6.0",
     "sass": "^1.70.0",
     "uikit": "^3.18.3",
     "vanilla-cookieconsent": "^3.0.1"

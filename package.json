@@ -8,16 +8,16 @@
     "npm": ">=10.0.0"
   },
   "dependencies": {
-    "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^6.10.0",
     "@sanity/image-url": "^1.0.2",
     "@sendgrid/mail": "^8.1.6",
+    "@strapi/blocks-react-renderer": "^1.0.2",
     "axios": "^1.6.5",
-    "googleapis": "^131.0.0",
-    "js-cookie": "^3.0.5",
+    "cookies-next": "^6.1.1",
+    "googleapis": "^173.0.0",
     "mongoose": "^8.1.0",
-    "next": "^14.2.35",
-    "nodemailer": "^6.9.8",
+    "next": "^16.2.9",
+    "nodemailer": "^8.0.11",
     "react": "^18.2.0",
     "react-animate-height": "^3.2.3",
     "react-dom": "^18.2.0",
@@ -37,10 +37,23 @@
     "pm2:delete": "pm2 delete ecosystem.config.js",
     "pm2:logs": "pm2 logs pellwood",
     "pm2:monit": "pm2 monit",
-    "sitemap": "node ./functions/sitemap-generator.js",
-    "feed": "node ./functions/feed.js"
+    "sitemap": "tsx ./functions/sitemap-generator.ts",
+    "feed": "tsx ./functions/feed.ts"
   },
   "devDependencies": {
-    "pm2": "^5.3.1"
-  }
+    "@types/node": "^25.9.2",
+    "@types/nodemailer": "^8.0.1",
+    "@types/react": "^19.2.17",
+    "@types/uikit": "^3.23.0",
+    "pm2": "^7.0.1",
+    "postcss": "^8.5.15",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  },
+  "browserslist": [
+    ">0.3%",
+    "not ie 11",
+    "not dead",
+    "not op_mini all"
+  ]
 }

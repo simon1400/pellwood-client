@@ -1,5 +1,5 @@
-$font: "Oswald", sans-serif;
-$font-medium: "Raleway", sans-serif;
+$font: var(--font-oswald), "Oswald", sans-serif;
+$font-medium: var(--font-raleway), "Raleway", sans-serif;
 $accent: #232323;
 $text: #333;
 $border: #4D4D4D;

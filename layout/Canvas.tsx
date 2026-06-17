@@ -1,0 +1,209 @@
+import React, { useState, useEffect, useContext } from 'react';
+import Link from 'next/link';
+import UIkit from 'uikit';
+import { DataStateContext } from '../context/dataStateContext';
+import { useTranslation } from '../hooks/useTranslation';
+import { useRouter } from 'next/router';
+
+const Canvas = () => {
+  const router = useRouter();
+  const { t, lang, currency } = useTranslation();
+
+  const [mounted, setMounted] = useState(false);
+  const { dataContextState, dataContextDispatch } = useContext(DataStateContext);
+  
+  const basketKey = `basket${lang}` as keyof typeof dataContextState;
+  const countKey = `basketCount${lang}` as keyof typeof dataContextState;
+
+  const [basket, setBasket] = useState<any[]>(dataContextState[basketKey] as any[] || []);
+  const [basketCount, setBasketCount] = useState<number>(dataContextState[countKey] as number || 0);
+  const [sum, setSum] = useState<number>(0);
+  const [sale, setSale] = useState<number>(0);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    setBasket(dataContextState[basketKey] as any[] || []);
+  }, [dataContextState[countKey], lang, basketKey, countKey]);
+
+  const closeCanvas = (e: React.MouseEvent, link: string) => {
+    if (e) e.preventDefault();
+    UIkit.offcanvas('#offcanvas-flip').hide();
+    if (link.length) {
+      router.push(link);
+    }
+  };
+
+  const onSumItems = (currentBasket: any[]) => {
+    let sumAll = 0;
+
+    if (currentBasket && currentBasket.length > 0) {
+      currentBasket.forEach((item) => {
+        let price = item.variantPrice;
+        if (typeof price === 'string') {
+          price = parseFloat(price.split(' ')[0]);
+        }
+        sumAll += price * item.countVariant;
+      });
+    }
+
+    let calculatedSale = 0;
+    if (lang === 'en' && sumAll > 150) {
+      calculatedSale = parseFloat((Math.round(sumAll * 0.05 * 100) / 100).toFixed(2));
+      sumAll = sumAll - calculatedSale;
+    } else if (lang === 'cz' && sumAll > 2000) {
+      calculatedSale = Math.round(sumAll * 0.05);
+      sumAll = sumAll - calculatedSale;
+    }
+
+    setSale(calculatedSale);
+
+    if (lang === 'en') {
+      setSum(parseFloat((Math.round(sumAll * 100) / 100).toFixed(2)));
+    } else {
+      setSum(Math.round(sumAll));
+    }
+  };
+
+  useEffect(() => {
+    onSumItems(basket);
+  }, [basket, lang]);
+
+  useEffect(() => {
+    const ctxBasket = dataContextState[basketKey] as any[] || [];
+    setBasket(ctxBasket);
+    setBasketCount(dataContextState[countKey] as number || 0);
+    onSumItems(ctxBasket);
+  }, [router.query, lang, basketKey, countKey]);
+
+  useEffect(() => {
+    dataContextDispatch({ state: basket, type: basketKey as any });
+    dataContextDispatch({ state: basketCount, type: countKey as any });
+  }, [basketCount, basket, lang, basketKey, countKey]);
+
+  const deleteItem = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const id = e.currentTarget.dataset.id;
+    const name = e.currentTarget.dataset.name;
+    
+    const newBasket = [...basket];
+    const index = newBasket.findIndex(item => item.id === id && item.variantName === name);
+    
+    if (index >= 0) {
+      const removedItem = newBasket[index];
+      newBasket.splice(index, 1);
+      setBasket(newBasket);
+      // Ensure we update basketCount correctly. If basketCount is total distinct items:
+      setBasketCount(Math.max(0, basketCount - 1));
+      // OR if it's total count: setBasketCount(Math.max(0, basketCount - removedItem.countVariant));
+      // Sticking to original - 1 logic to preserve existing behavior.
+    }
+  };
+
+  if (!mounted) {
+    return null;
+  }
+
+  // Delivery thresholds logic
+  const isFreeDelivery = (lang === 'en' && sum > 100) || (lang === 'cz' && sum > 1500);
+  const deliveryLabel = isFreeDelivery 
+    ? t('free') 
+    : (lang === 'cz' ? 'od 150 Kč' : '10 €');
+
+  const showDeliveryFreeCanvas = (lang === 'cz' && sum <= 1500) || (lang === 'en' && sum <= 100);
+  const showSaleCanvas = (lang === 'cz' && sum <= 2000) || (lang === 'en' && sum <= 150);
+
+  return (
+    <div id="offcanvas-flip" className="uk-offcanvas" uk-offcanvas="flip: true; overlay: true;">
+      <div className="uk-offcanvas-bar">
+        <div className="tm-canvas-head">
+          <span className="tm-circle-count">{basketCount ? basketCount : 0}</span>
+          <h2>{t('basket')}</h2>
+          <span className="tm-canvas-close" onClick={e => closeCanvas(e, '')}>
+            <img src="/assets/times.svg" alt="close" />
+          </span>
+        </div>
+        
+        {basketCount > 0 && sum > 0 ? (
+          <div>
+            {basket.length > 0 && basket.map((item, index) => (
+              <div key={item.id || index} className="tm-canvas-basket-item-wrap">
+                <div className="tm-basket-item">
+                  <div data-src={item.imgUrl} className="tm-basket-img-wrap uk-background-contain" uk-img=""></div>
+                  <div className="tm-basket-item-info">
+                    <h3 className="tm-basket-item-head">{item.nameProduct}</h3>
+                    <span>{item.variantName}</span>
+                    <span>{typeof item.variantPrice === 'string' ? item.variantPrice : `${item.variantPrice} ${currency}`}</span>
+                    <div className="tm-canvas-basket-item-count">
+                      <span>{item.countVariant} {t('pc')}</span>
+                      <button
+                        className="tm-canvas-item-remove"
+                        data-id={item.id}
+                        data-name={item.variantName}
+                        type="button"
+                        onClick={deleteItem}
+                        uk-close=""
+                      ></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            <div className="tm-basket-total">
+              <table className="uk-table uk-table-divider">
+                <tbody>
+                  <tr>
+                    <td>{t('delivery')}</td>
+                    <td>
+                      <span className={isFreeDelivery ? "tm-positive" : ""}>
+                        {deliveryLabel}
+                      </span>
+                    </td>
+                  </tr>
+                  {showDeliveryFreeCanvas && (
+                    <tr>
+                      <td>{t('deliveryFreeCanvas')}</td>
+                      <td>{t('deliveryFreeCanvasValue')}</td>
+                    </tr>
+                  )}
+                  {showSaleCanvas && (
+                    <tr>
+                      <td>{t('saleCanvas')}</td>
+                      <td>{t('saleCanvasValue')}</td>
+                    </tr>
+                  )}
+                  {sale > 0 && (
+                    <tr>
+                      <td>{t('sale')}</td>
+                      <td>-{sale} {currency}</td>
+                    </tr>
+                  )}
+                  <tr>
+                    <td>{t('totalprice')}</td>
+                    <td>{sum} {currency}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="tm-basket-footer">
+              <Link href="/basket" onClick={(e) => closeCanvas(e, '/basket')} className="tm-button tm-bare-button">
+                {t('basket')}
+              </Link>
+              <Link href="/basket/checkout" onClick={(e) => closeCanvas(e, '/basket/checkout')} className="tm-button tm-black-button">
+                {t('checkout')}
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <p className="uk-text-center">{t('emptybasket')}</p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Canvas;
